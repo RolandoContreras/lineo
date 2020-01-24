@@ -14,13 +14,12 @@
     <div class=overlay-close-menu></div>
    <?php $this->load->view("header");?> 
    <?php $this->load->view("nav");?>
-    <div id=main-content>
+    <div id="main-content">
       <div id=home-main-content class="home-content home-page container" role=main>
         <div data-vc-full-width=true data-vc-full-width-init=false class="vc_row wpb_row vc_row-fluid home1-skills vc_custom_1528682589403 thim-background-overlay thim-bg-advance-overlay overlay-position-br vc_row-has-fill">
           <div class=overlay style="background-color: rgba(12,12,12,0.6)"></div>
           <div class="advance-overlay thim_svg_5df6fd15bdaf6 br "><svg class=svg-overlay viewBox="0 0 1903 633" preserveAspectRatio=xMinYMin><rect clip-path=url(#thim_svg_5df6fd15bdaf6) class=svg-background width=1903 height=633 fill=#ffffff /><image clip-path=url(#thim_svg_5df6fd15bdaf6) class=svg-image x=1301 y width=602 height=406 xlink:href=http://c2a2v9c8.stackpathcdn.com/wp-content/uploads/2017/06/overlay-1.jpg /></svg>
-            <svg
-              class=svg-clip-path>
+            <svg class=svg-clip-path>
               <defs>
                 <clipPath id="thim_svg_5df6fd15bdaf6">
                   <polygon points="1903 1903, 0 1903, 0 379, 1903 0" />
@@ -28,6 +27,7 @@
               </defs>
               </svg>
           </div>
+          <div class=vc_empty_space style="height: 50px"><span class=vc_empty_space_inner></span></div>
           <div class="wpb_column vc_column_container vc_col-sm-12">
             <div class=vc_column-inner>
               <div class=wpb_wrapper>
