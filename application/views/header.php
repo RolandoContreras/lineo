@@ -21,14 +21,28 @@
           </div>
           <div class=width-navigation>
             <ul id=primary-menu class=main-menu>
-                <li id=menu-item-22 class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-22 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default">
+                <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-22 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default">
                     <a href="<?php echo site_url();?>" class=tc-menu-inner>Inicio</a> 
                 </li>
-                <li id=menu-item-48 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-48 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-builder">
+                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-48 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-builder">
                     <a class=tc-menu-inner>Cursos</a>
+                    <ul class="sub-menu">
+                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-3815 tc-menu-item tc-menu-depth-1 tc-menu-align-left">
+                            <a href="<?php echo site_url().'cursos';?>" class="tc-menu-inner tc-megamenu-title">Todos</a>
+                        </li>
+                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-3815 tc-menu-item tc-menu-depth-1 tc-menu-align-left">
+                            <a href="#" class="tc-menu-inner tc-megamenu-title">Diseño</a>
+                        </li>
+                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3816 tc-menu-item tc-menu-depth-1 tc-menu-align-left">
+                            <a href="#" class="tc-menu-inner tc-megamenu-title">Arquitectura</a>
+                        </li>
+                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3817 tc-menu-item tc-menu-depth-1 tc-menu-align-left">
+                            <a href="#" class="tc-menu-inner tc-megamenu-title">Urbanismo</a>
+                        </li>
+                    </ul>
                 </li>
-                <li id=menu-item-48 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-48 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-builder">
-                    <a class=tc-menu-inner>Contacto</a>
+                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-48 tc-menu-item tc-menu-depth-0 tc-menu-align-left">
+                    <a class=tc-menu-inner href="<?php echo site_url().'contact';?>">Contacto</a>
                 </li>
             </ul>
             <div class="header-right">

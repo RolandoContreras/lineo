@@ -170,10 +170,9 @@
             <div class=thim-collection-info>
               <h3 class="title">Nuestros Cursos</h3><span class=line></span>
               <div class=description>Tenemos una gran colección de cursos</div>
-              <a href="<?php echo site_url().'courses';?>" class=view-all-button>Ver todos los cursos</a>
+              <a href="<?php echo site_url().'cursos';?>" class=view-all-button>Ver todos los cursos</a>
             </div>
-            <div
-              class=thim-courses-collection>
+            <div class=thim-courses-collection>
               <div class=scrollbar>
                 <div class=handle></div>
               </div>

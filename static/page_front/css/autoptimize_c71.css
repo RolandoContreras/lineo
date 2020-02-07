@@ -1705,7 +1705,7 @@ header#masthead.template-layout-2.palette-transparent.affix-top .header-v2.style
     color: #fff
 }
 header#masthead.template-layout-2.palette-transparent.affix-top .header-v2.style2 .width-navigation li .sub-menu {
-    background-color: rgba(17, 17, 17, .8)
+    background-color: rgba(17, 17, 17, 1)
 }
 header#masthead.template-layout-2.palette-transparent.affix-top .header-v2.style2 .width-navigation li .sub-menu .widget-title,
 header#masthead.template-layout-2.palette-transparent.affix-top .header-v2.style2 .width-navigation li .sub-menu .widgettitle {
@@ -2488,7 +2488,7 @@ footer#colophon .site-info a:hover {
         top: 100%!important;
         right: auto!important;
         padding: 25px 30px!important;
-        min-width: 800px!important;
+        min-width: 100px!important;
         width: auto!important
     }
     .tc-menu-layout-builder .sub-menu .widget-title,

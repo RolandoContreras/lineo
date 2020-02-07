@@ -49,7 +49,7 @@ $route['catalog/([0-9a-z_-]+)'] = 'catalog/detail';
 $route['login'] = 'login';
 $route['forget'] = 'forget';
 
-$route['courses'] = 'courses';
+$route['cursos'] = 'courses';
 $route['courses/personal'] = 'courses/all';
 $route['courses/profetional'] = 'courses/all';
 $route['courses/finance'] = 'courses/all';
