@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Home extends CI_Controller {
     public function __construct(){
         parent::__construct();
-        $this->load->model("catalog_model","obj_catalog");
+//        $this->load->model("catalog_model","obj_catalog");
     }   
         
 	/**
@@ -38,7 +38,7 @@ class Home extends CI_Controller {
                                     catalog.date",
                 "where" => "catalog.active = 1 and catalog.status_value = 1",
                 "order" => "catalog.catalog_id DESC");
-            $data['catalog'] = $this->obj_catalog->search($params);
-            $this->load->view('home', $data);
+//            $data['catalog'] = $this->obj_catalog->search($params);
+            $this->load->view('home');
 	}
 }

@@ -3,8 +3,8 @@
   <meta charset=UTF-8>
   <meta name=viewport content="width=device-width, initial-scale=1">
   <meta name="description" content="Somos una comunidad de desarrollo personal y emprendimiento. Estudia">
-  <meta name="author" content="Corporation FK">
-  <meta name="keyword" content="coporación fk, fk social, fk embajadores, plataforma de cursos">
+  <meta name="author" content="U-linex">
+  <meta name="keyword" content="U-linex, plataforma de cursos, cursos de arquitectura, aprende arquitectura">
   <meta name="robots" content="Index, Follow">
   <link type="text/css" media="all" href="<?php echo site_url().'static/page_front/css/autoptimize_c71.css';?>" rel="stylesheet">
   <link type="text/css" media="screen" href="<?php echo site_url().'static/page_front/css/autoptimize_c3e.css';?>" rel="stylesheet">

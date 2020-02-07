@@ -28,6 +28,7 @@
               </defs>
               </svg>
           </div>
+          <div class=vc_empty_space style="height: 50px"><span class=vc_empty_space_inner></span></div>
           <div class="wpb_column vc_column_container vc_col-sm-12">
             <div class=vc_column-inner>
               <div class=wpb_wrapper>
@@ -69,7 +70,7 @@
               <div class="thim-sc-heading text-center default custom-medium">
                 <div class=heading-content>
                   <div class="border border-top"></div>
-                  <img  width="50" src="<?php echo site_url().'static/page_front/images/logo/logo_negro.png';?>" alt="separator">
+                  <img  width="150" src="<?php echo site_url().'static/page_front/images/logo/logo.png';?>" alt="separator">
                   <div
                     class="border border-bottom"></div>
                 <h3 class="primary-heading">El mejor lugar para prepararte para el futuro</h3>
@@ -222,7 +223,7 @@
         <div class="thim-sc-heading text-center default custom-small">
           <div class=heading-content>
             <div class="border border-top"></div>
-            <img  width="50" src="<?php echo site_url().'static/page_front/images/logo/logo_negro.png';?>" alt="separator">
+            <img  width="150" src="<?php echo site_url().'static/page_front/images/logo/logo.png';?>" alt="separator">
             <div class="border border-bottom"></div>
             <h3 class="primary-heading">Cursos</h3>
           </div>
@@ -238,12 +239,11 @@
         <div class=wpb_wrapper>
           <div class=thim-block-1>
             <div class=main-course>
-              <div class=featured-img><span class=course-label>Último</span>
+              <div class=featured-img>
+                  <span class=course-label>Último</span>
                   <img width="1012" height=562" src="<?php echo site_url().'static/course/img/hm_image.jpg';?>" alt="The Ultimate Ethical Hacking Boot Camp">
                 <div class=content-video>
-                    <span class="fa fa-play-circle" data-mfp-src="https://www.youtube.com/watch?v=fV3Nwaz89xY">
-                        <!--<i class="fa fa-play-circle-o" aria-hidden="true"></i>-->
-                    </span>
+                    <span class="fa fa-play-circle" data-mfp-src="https://www.youtube.com/watch?v=fV3Nwaz89xY"></span>
                   <h3 class="title">
                       <a href="<?php echo site_url().'couses/personal/finanzas-principiantes'?>">Auto CAD 3D</a>
                   </h3>
@@ -252,9 +252,11 @@
               </div>
             </div>
             <div class=course-item>
-              <div class=feature-img><img width=138 height=161 src=http://c2a2v9c8.stackpathcdn.com/wp-content/uploads/2017/07/feature-image-course-1-138x161.jpg alt="Affiliate Marketing &#8211; A Beginner&#8217;s Guide"
+              <div class=feature-img>
+                  <img width=138 height=161 src=http://c2a2v9c8.stackpathcdn.com/wp-content/uploads/2017/07/feature-image-course-1-138x161.jpg alt="Affiliate Marketing &#8211; A Beginner&#8217;s Guide"
                   class>
-                <div class=wrap-author><img src=http://c2a2v9c8.stackpathcdn.com/wp-content/uploads/2017/06/shutterstock_184641842-5-e1503472000521-150x150.jpg width=40 height=40
+                <div class=wrap-author>
+                    <img src=http://c2a2v9c8.stackpathcdn.com/wp-content/uploads/2017/06/shutterstock_184641842-5-e1503472000521-150x150.jpg width=40 height=40
                     alt="Selena Unique" class="avatar avatar-40 wp-user-avatar wp-user-avatar-40 alignnone photo"> <span class=name><a href=http://wordpresslms.thimpress.com/lp-profile/admin4/>Selena Unique</a></span>
                   <div
                     class=sc-review-stars>
@@ -266,9 +268,13 @@
               </div>
             </div>
             <div class=course-detail>
-              <h3 class="title"><a href=http://wordpresslms.thimpress.com/courses/affiliate-marketing-a-beginners-guide/>Affiliate Marketing &#8211; A Beginner&#8217;s Guide</a>
+              <h3 class="title">
+                  <a href=http://wordpresslms.thimpress.com/courses/affiliate-marketing-a-beginners-guide/>Affiliate Marketing &#8211; A Beginner&#8217;s Guide</a>
               </h3>
-              <div class=meta><span class=number-students>138 Students </span><span class="price free">&#36;22.00</span></div>
+              <div class=meta>
+                  <span class=number-students>138 Students </span>
+                  <span class="price free">&#36;22.00</span>
+              </div>
             </div>
           </div>
           <div class=course-item>
@@ -330,44 +336,45 @@
         <div class=wpb_wrapper>
           <div class="thim-sc-heading text-center default custom-small margin-top">
             <div class=heading-content>
-              <div class="border border-top"></div><img src=http://c2a2v9c8.stackpathcdn.com/wp-content/themes/wordpress-lms/assets/images/icon-heading.png alt=separator></span>
-              <div
-                class="border border-bottom"></div>
+              <div class="border border-top"></div>
+              <img width="150" src="<?php echo site_url().'static/page_front/images/logo/logo.png';?>" alt="separator"/>
+              <div class="border border-bottom"></div>
           </div>
         </div>
         <div class="thim-sc-steps layout-2 has-bg">
           <div class=row>
             <div class="col-md-6 content-box">
               <div class=steps-wrapper>
-                <h3 class="sc-title">About our<br>Become a Teacher<br>Service</h3>
+                <h3 class="sc-title">Sé un profesional experto<br>Con U-linex</h3>
                 <div class=steps>
                   <ul class=nav role=tablist>
-                    <li class=nav-item><a class="nav-link active" data-toggle=tab href=#thim_5df6fd163383e-step-0 role=tab>1<span>step</span></a></li>
-                    <li class=nav-item><a class="nav-link " data-toggle=tab href=#thim_5df6fd163383e-step-1 role=tab>2<span>step</span></a></li>
-                    <li class=nav-item><a class="nav-link " data-toggle=tab href=#thim_5df6fd163383e-step-2 role=tab>3<span>step</span></a></li>
+                    <li class=nav-item><a class="nav-link active" data-toggle=tab href=#thim_5df6fd163383e-step-0 role=tab>1<span>Paso</span></a></li>
+                    <li class=nav-item><a class="nav-link " data-toggle=tab href=#thim_5df6fd163383e-step-1 role=tab>2<span>Paso</span></a></li>
+                    <li class=nav-item><a class="nav-link " data-toggle=tab href=#thim_5df6fd163383e-step-2 role=tab>3<span>Paso</span></a></li>
                   </ul>
                   <div class=tab-content>
                     <div class="tab-pane active" id=thim_5df6fd163383e-step-0 role=tabpanel>
-                      <h4 class="tab-title">Why should you choose WordPress LMS?</h4>
-                      <p class=description>With a special design, great range of features and functionalitiesbuilt around an ecosystem of eLearning and online LMSfor WordPress,
-                        this WordPress LMS theme will be your best friend for your education project.</p><a href=http://wordpresslms.thimpress.com/courses/
-                        class=readmore>Read More</a></div>
+                      <h4 class="tab-title">Elije el curso de tu preferencia</h4>
+                      <p class=description>En U-linex podrás encontrar cientos de cursos que te interesarán. No solamente de tu especialidad sino también materias a fines.</p>
+                      <a href="#" class=readmore>Saber Más</a>
+                    </div>
                     <div class="tab-pane " id=thim_5df6fd163383e-step-1 role=tabpanel>
-                      <h4 class="tab-title">Create a course for free in minutes.</h4>
-                      <p class=description>Course creation has never been easier with the ability of creating courses in justminutes and require no coding knowledge. Everything
-                        is minimal, very easy andcomfortable. This WPLMS will change your life forever.</p><a href=http://wordpresslms.thimpress.com/courses/
-                        class=readmore>Read More</a></div>
+                      <h4 class="tab-title">¡Registrate!</h4>
+                      <p class=description>El registro con nosotros es gratuito, en tu oficina virtual podrás ver todo los beneficios que tenemos para ti.</p>
+                      <a href="#" class=readmore>Saber Más</a>
+                    </div>
                     <div class="tab-pane " id=thim_5df6fd163383e-step-2 role=tabpanel>
-                      <h4 class="tab-title">Flexible payment gateway with WPLMS</h4>
-                      <p class=description>You want to use Stripe? or Paypal? or pay by cash? or offline payment? or via bank transfer? Everything is very easy. Just focus
-                        on creating your best course and this LMS theme will help you collect all that you deserve.</p><a href=http://wordpresslms.thimpress.com/courses/
-                        class=readmore>Read More</a></div>
+                      <h4 class="tab-title">Empieza a aprender</h4>
+                      <p class=description>Al adquirir tu curso, tendrás un abanico de posibilidades, nuevas herramientas que te ayudaran a ser un mejor profesional y llevar la vida que deseas.</p>
+                      <a href="#" class=readmore>Saber Más</a>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
             <div class="col-md-6 media-box">
-              <div class=media-wrapper><img width=605 height=665 src=http://c2a2v9c8.stackpathcdn.com/wp-content/uploads/2017/06/group-7.png alt=group-7 class></div>
+              <div class=media-wrapper>
+                  <img width="605" height="665" src="<?php echo site_url().'static/page_front/images/group-7.png';?>" alt="un profesional"></div>
             </div>
           </div>
         </div>
@@ -394,7 +401,7 @@
           <div class="wpb_text_column wpb_content_element thim-textbox width-small">
             <div class=wpb_wrapper>
               <p class=sub-title style="text-align: center;"> Learn on the go</p>
-              <h3 class="title" style="text-align: center;">Access your courses anywhere, anytime &amp; prepare with practice tests</h3>
+              <h3 class="title" style="text-align: center;">Accede a tus cursos a cualquier hora y en cualquier parte del mundo.</h3>
             </div>
           </div>
         </div>
