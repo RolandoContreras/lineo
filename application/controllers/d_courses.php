@@ -143,6 +143,19 @@ class D_courses extends CI_Controller{
         redirect(site_url()."dashboard/cursos");
     }
     
+    public function delete(){
+         if ($this->input->is_ajax_request()) {
+             //OBETENER MARCA_ID
+             $course_id = $this->input->post("course_id");
+            //VERIFY IF ISSET CUSTOMER_ID
+            if ($course_id != ""){
+                $this->obj_courses->delete($course_id);
+            }
+            $data['status'] = true;
+            echo json_encode($data);
+        }       
+    }
+    
     public function get_session(){          
         if (isset($_SESSION['usercms'])){
             if($_SESSION['usercms']['logged_usercms']=="TRUE" && $_SESSION['usercms']['status']==1){               

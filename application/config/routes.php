@@ -103,11 +103,13 @@ $route['dashboard/categorias'] = "d_category";
 $route['dashboard/categorias/load'] = "d_category/load";
 $route['dashboard/categorias/load/([0-9]+)'] = "d_category/load/$1";
 $route['dashboard/categorias/validate'] = "d_category/validate";
+$route['dashboard/categorias/delete'] = "d_category/delete";
 
 $route['dashboard/cursos'] = "d_courses";
 $route['dashboard/cursos/load'] = "d_courses/load";
 $route['dashboard/cursos/load/([0-9]+)'] = "d_courses/load/$1";
 $route['dashboard/cursos/validate'] = "d_courses/validate";
+$route['dashboard/cursos/delete'] = "d_courses/delete";
 
 $route['dashboard/videos'] = "d_videos";
 $route['dashboard/videos/load'] = "d_videos/load";

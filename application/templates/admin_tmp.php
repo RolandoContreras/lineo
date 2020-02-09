@@ -174,15 +174,12 @@
       </ul>
   <?php echo $body;?>
   <!--[if lt IE 11]> <div class="ie-warning"> <h1>Warning!!</h1> <p>You are using an outdated version of Internet Explorer, please upgrade <br/>to any of the following web browsers to access this website. </p> <div class="iew-container"> <ul class="iew-download"> <li> <a href="http://www.google.com/chrome/"> <img src="../assets/images/browser/chrome.png" alt="Chrome"> <div>Chrome</div> </a> </li> <li> <a href="https://www.mozilla.org/en-US/firefox/new/"> <img src="../assets/images/browser/firefox.png" alt="Firefox"> <div>Firefox</div> </a> </li> <li> <a href="http://www.opera.com"> <img src="../assets/images/browser/opera.png" alt="Opera"> <div>Opera</div> </a> </li> <li> <a href="https://www.apple.com/safari/"> <img src="../assets/images/browser/safari.png" alt="Safari"> <div>Safari</div> </a> </li> <li> <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie"> <img src="../assets/images/browser/ie.png" alt=""> <div>IE (11 & above)</div> </a> </li> </ul> </div> <p>Sorry for the inconvenience!</p> </div> <![endif]-->
-  <script src="<?php echo site_url().'static/course/js/vendor-all.min.js';?>"></script>
-  <script src="<?php echo site_url().'static/course/js/pcoded.min.js';?>"></script>
-  <script src="<?php echo site_url().'static/course/js/ekko-lightbox.min.js';?>"></script>
-  <script src="<?php echo site_url().'static/course/js/ac-lightbox.js';?>"></script>
-  <script src="<?php echo site_url().'static/cms/js/datatables.min.js';?>"></script>
-  <script src="<?php echo site_url().'static/cms/js/tbl-datatable-custom.js';?>"></script>
-  
-  
-
+<script src="<?php echo site_url().'static/cms/js/core/vendor-all.min.js';?>"></script>
+<script src="<?php echo site_url().'static/cms/js/core/pcoded.min.js';?>"></script>
+<script src="<?php echo site_url().'static/cms/js/core/ekko-lightbox.min.js';?>"></script>
+<script src="<?php echo site_url().'static/cms/js/core/ac-lightbox.js';?>"></script>
+<script src="<?php echo site_url().'static/cms/js/core/datatables.min.js';?>"></script>
+<script src="<?php echo site_url().'static/cms/js/core/tbl-datatable-custom.js';?>"></script>
 <script src="<?php echo site_url().'static/cms/js/core/amcharts.js';?>"></script>
 <script src="<?php echo site_url().'static/cms/js/core/gauge.js';?>"></script>
 <script src="<?php echo site_url().'static/cms/js/core/serial.js';?>"></script>
@@ -192,18 +189,15 @@
 <script src="<?php echo site_url().'static/cms/js/core/usaLow.js';?>"></script>
 <script src="<?php echo site_url().'static/cms/js/core/radar.js';?>"></script>
 <script src="<?php echo site_url().'static/cms/js/core/worldLow.js';?>"></script>
-
 <script src="<?php echo site_url().'static/cms/js/core/jquery.flot.js';?>"></script>
 <script src="<?php echo site_url().'static/cms/js/core/jquery.flot.categories.js';?>"></script>
 <script src="<?php echo site_url().'static/cms/js/core/curvedLines.js';?>"></script>
 <script src="<?php echo site_url().'static/cms/js/core/jquery.flot.tooltip.min.js';?>"></script>
-
 <script src="<?php echo site_url().'static/cms/js/core/dashboard-analytics.js';?>"></script>
-  
-  
-  <script>
-      feather.replace()
-  </script>
+<script>
+  feather.replace();
+</script>
+<script src="<?php echo site_url().'static/cms/js/core/bootstrap-datepicker.min.js';?>"></script>    
+<script src="<?php echo site_url().'static/cms/js/core/ac-datepicker.js';?>"></script>  
 </body>
-
-</html>
+</html>  

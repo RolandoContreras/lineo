@@ -132,7 +132,7 @@
                           
                         </div>
                         <button type="submit" class="btn btn-primary">Guardar</button>
-                        <button class="btn btn-danger" type="reset" onclick="cancel_diseños();">Cancelar</button>                    
+                        <button class="btn btn-danger" type="reset" onclick="cancel_course();">Cancelar</button>                    
                     </form>
                 </div>
             </div>
@@ -144,4 +144,4 @@
     </div>
   </div>
 </div>
-<script src="<?php echo site_url().'static/cms/js/diseño.js'?>"></script>
+<script src="<?php echo site_url().'static/cms/js/cursos.js'?>"></script>

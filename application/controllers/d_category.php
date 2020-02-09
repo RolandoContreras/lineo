@@ -72,6 +72,19 @@ class D_category extends CI_Controller{
         redirect(site_url()."dashboard/categorias");
     }
     
+    public function delete(){
+         if ($this->input->is_ajax_request()) {
+             //OBETENER MARCA_ID
+             $category_id = $this->input->post("category_id");
+            //VERIFY IF ISSET CUSTOMER_ID
+            if ($category_id != ""){
+                $this->obj_category->delete($category_id);
+            }
+            $data['status'] = true;
+            echo json_encode($data);
+        }       
+    }
+    
     public function get_session(){          
         if (isset($_SESSION['usercms'])){
             if($_SESSION['usercms']['logged_usercms']=="TRUE" && $_SESSION['usercms']['status']==1){               
