@@ -9,11 +9,11 @@
             <div class="row align-items-center">
               <div class="col-md-12">
                 <div class="page-header-title">
-                  <h5 class="m-b-10">Mantenimientos de Categorías</h5>
+                  <h5 class="m-b-10">Mantenimientos de Cursos</h5>
                 </div>
                 <ul class="breadcrumb">
                   <li class="breadcrumb-item"><a href="<?php echo site_url().'dashboard/';?>">Panel</a></li>
-                  <li class="breadcrumb-item"><a>Categorías</a></li>
+                  <li class="breadcrumb-item"><a>Cursos</a></li>
                 </ul>
               </div>
             </div>
@@ -25,8 +25,8 @@
               <div class="col-sm-12">
                 <div class="card">
                   <div class="card-header">
-                    <h5>Listado de Diseños</h5>
-                    <button class="btn btn-secondary" type="button" onclick="new_category();"><span><span class="pcoded-micon"><i data-feather="plus"></i></span> Nuevo</span></button>
+                    <h5>Listado de Cursos</h5>
+                    <button class="btn btn-secondary" type="button" onclick="new_course();"><span><span class="pcoded-micon"><i data-feather="plus"></i></span> Nuevo</span></button>
                   </div>
                   <div class="card-block">
                     <div class="table-responsive">
@@ -43,6 +43,12 @@
                                   <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 100px;"
                                     aria-label="Office: activate to sort column ascending">NOMBRE</th>
                                   <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 100px;"
+                                    aria-label="Office: activate to sort column ascending">CATEGORÍA</th>
+                                  <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 100px;"
+                                    aria-label="Office: activate to sort column ascending">PRECIO</th>
+                                  <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 100px;"
+                                    aria-label="Office: activate to sort column ascending">IMAGEN</th>
+                                  <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 100px;"
                                     aria-label="Age: activate to sort column ascending">ESTADO</th>
                                   <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 100px;"
                                     aria-label="Start date: activate to sort column ascending">ACCIONES</th>
@@ -50,11 +56,14 @@
                               </thead>
                               <tbody>
                                   
-                                   <?php foreach ($obj_category as $value): ?>
+                                   <?php foreach ($obj_courses as $value): ?>
                                 <tr>
-                                <th><?php echo $value->category_id;?></th>
+                                <th><?php echo $value->course_id;?></th>
                                 <td><?php echo formato_fecha_barras($value->date);?></td>
-                                <td><?php echo $value->name;?></td>
+                                <td><b><?php echo $value->name;?></b></td>
+                                <td><span class="badge badge-pill badge-info" style="font-size: 100%;"><?php echo $value->category_name;?></span></td>
+                                <td><b>S/. <?php echo $value->price;?></b></td>
+                                <td><img src="<?php echo site_url()."static/cms/img/cursos/$value->img";?>" width="50"></td>
                                 <td>
                                     <?php if ($value->active == 0) {
                                         $valor = "No Activo";
@@ -68,8 +77,8 @@
                                 <td>
                                     <div class="operation">
                                             <div class="btn-group">
-                                               <button class="btn btn-secondary" type="button" onclick="edit_category('<?php echo $value->category_id;?>');"><span><span class="pcoded-micon"><i data-feather="edit"></i></span> Editar</span></button>
-                                               <button class="btn btn-secondary" type="button" onclick="delete_category('<?php echo $value->category_id;?>');"><span><span class="pcoded-micon"><i data-feather="trash-2"></i></span> Eliminar</span></button>
+                                               <button class="btn btn-secondary" type="button" onclick="edit_course('<?php echo $value->course_id;?>');"><span><span class="pcoded-micon"><i data-feather="edit"></i></span> Editar</span></button>
+                                               <button class="btn btn-secondary" type="button" onclick="delete_course('<?php echo $value->course_id;?>');"><span><span class="pcoded-micon"><i data-feather="trash-2"></i></span> Eliminar</span></button>
                                             </div>
                                     </div>
                                 </td>
@@ -81,6 +90,9 @@
                                   <th rowspan="1" colspan="1">ID</th>
                                   <th rowspan="1" colspan="1">FECHA</th>
                                   <th rowspan="1" colspan="1">NOMBRE</th>
+                                  <th rowspan="1" colspan="1">CATEGORÍA</th>
+                                  <th rowspan="1" colspan="1">PRECIO</th>
+                                  <th rowspan="1" colspan="1">IMAGEN</th>
                                   <th rowspan="1" colspan="1">ESTADO</th>
                                   <th rowspan="1" colspan="1">ACCIONES</th>
                                 </tr>
@@ -100,4 +112,4 @@
           </div>
         </div>
 </section>
-<script src="<?php echo site_url();?>static/cms/js/categoria.js"></script>
+<script src="<?php echo site_url();?>static/cms/js/cursos.js"></script>

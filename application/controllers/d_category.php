@@ -14,22 +14,12 @@ class D_category extends CI_Controller{
                         "select" =>"category_id,
                                     name,
                                     slug,
+                                    date,
                                     active",
-                "where" => "status_value = 1",
             );
             //GET DATA COMMENTS
             $obj_category= $this->obj_category->search($params);
-            
-            /// PAGINADO
-            $modulos ='categorias'; 
-            $seccion = 'Lista';        
-            $link_modulo =  site_url().'dashboard/'.$modulos; 
-            /// DATA
-            
             /// VISTA
-            $this->tmp_mastercms->set('link_modulo',$link_modulo);
-            $this->tmp_mastercms->set('modulos',$modulos);
-            $this->tmp_mastercms->set('seccion',$seccion);
             $this->tmp_mastercms->set("obj_category",$obj_category);
             $this->tmp_mastercms->render("dashboard/categorias/category_list");
     }
@@ -48,15 +38,7 @@ class D_category extends CI_Controller{
             //RENDER
             $this->tmp_mastercms->set("obj_category",$obj_category);
           }
-      
-            $modulos ='categorias'; 
-            $seccion = 'Formulario';        
-            $link_modulo =  site_url().'dashboard/'.$modulos; 
-
-            $this->tmp_mastercms->set('link_modulo',$link_modulo);
-            $this->tmp_mastercms->set('modulos',$modulos);
-            $this->tmp_mastercms->set('seccion',$seccion);
-            $this->tmp_mastercms->render("dashboard/categorias/category_form");    
+         $this->tmp_mastercms->render("dashboard/categorias/category_form");    
     }
     
     public function validate(){
@@ -68,7 +50,8 @@ class D_category extends CI_Controller{
             //PARAM DATA
             $data = array(
                'name' => $this->input->post('name'),
-               'slug' => $this->input->post('slug'),
+               'slug' => convert_slug($this->input->post('name')),
+               'date' => date("Y-m-d H:i:s"),
                'active' => $this->input->post('active'),
                'updated_at' => date("Y-m-d H:i:s"),
                'updated_by' => $_SESSION['usercms']['user_id']
@@ -79,11 +62,9 @@ class D_category extends CI_Controller{
             //PARAM DATA SAVE
             $data = array(
                'name' => $this->input->post('name'),
-               'slug' => $this->input->post('slug'),
+               'slug' => convert_slug($this->input->post('name')),
                'active' => $this->input->post('active'),
-               'status_value' => 1,
-               'created_at' => date("Y-m-d H:i:s"),
-               'created_by' => $_SESSION['usercms']['user_id'],
+               'date' => date("Y-m-d H:i:s")
                 );          
             //SAVE DATA IN TABLE    
             $this->obj_category->insert($data);

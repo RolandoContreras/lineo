@@ -18,10 +18,9 @@ BITSHARE S.A.C
 class category_model_atributos{	
     var $category_id='';
     var $name='';
+    var $slug='';
+    var $date='';
     var $active='';
-    var $status_value='';
-    var $created_at='';
-    var $created_by='';
     var $updated_at='';
     var $updated_by='';
 }
@@ -34,10 +33,9 @@ class Category_Model extends CI_Model{
 	$this->table_id = 'category_id';
         $this->category_id='';
         $this->name='';
+        $this->slug='';
+        $this->date='';
         $this->active='';
-	$this->status_value='';
-        $this->created_at='';
-        $this->created_by='';
         $this->updated_at='';
         $this->updated_by='';
 	$this->fields = new category_model_atributos();

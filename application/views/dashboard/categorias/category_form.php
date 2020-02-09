@@ -32,21 +32,19 @@
                     <form enctype="multipart/form-data" method="post" action="<?php echo site_url()."dashboard/categorias/validate";?>">
                         <div class="form-row">
                           <div class="form-group col-md-6">
-                              <div class="form-group">
-                                    <label>ID</label>
-                                    <input class="form-control" type="text" value="<?php echo isset($obj_category)?$obj_category->category_id:"";?>" class="input-xlarge-fluid" placeholder="ID" disabled="">
-                                    <input type="hidden" name="category_id" id="category_id" value="<?php echo isset($obj_category)?$obj_category->category_id:"";?>">
-                              </div>
+                              <?php if(isset($obj_category)){ ?>
+                                        <div class="form-group">
+                                            <label>ID</label>
+                                            <input class="form-control" type="text" value="<?php echo isset($obj_category)?$obj_category->category_id:"";?>" class="input-xlarge-fluid" placeholder="ID" disabled="">
+                                            <input type="hidden" name="category_id" id="category_id" value="<?php echo isset($obj_category)?$obj_category->category_id:"";?>">
+                                        </div>
+                              <?php } ?>
                               <div class="form-group">
                                 <label>Nombre</label>
                                 <input class="form-control" type="text" id="name" name="name" value="<?php echo isset($obj_category->name)?$obj_category->name:"";?>" class="input-xlarge-fluid" placeholder="Nombre">
                               </div>
                           </div>
                           <div class="form-group col-md-6">
-                              <div class="form-group">
-                                    <label>Slug</label>
-                                    <input class="form-control" type="text" id="slug" name="slug" value="<?php echo isset($obj_category->slug)?$obj_category->slug:"";?>" class="input-xlarge-fluid" placeholder="Slug">
-                              </div>
                               <div class="form-row">
                                 <div class="form-group col-md-12">
                                     <label for="inputState">Estado</label>
@@ -78,4 +76,4 @@
     </div>
   </div>
 </div>
-<script src="<?php echo site_url();?>static/cms/js/category.js"></script>
+<script src="<?php echo site_url();?>static/cms/js/categoria.js"></script>

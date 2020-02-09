@@ -15,36 +15,39 @@ BITSHARE S.A.C
 * Fecha: 16/11/2016
 ****/
 
-class pay_model_atributos{	
-    var $pay_id='';
-    var $customer_id='';
+class courses_model_atributos{	
+    var $course_id='';
+    var $category_id='';
+    var $slug='';
+    var $description='';
+    var $img='';
+    var $price='';
+    var $price_del='';
     var $date='';
-    var $obs='';
     var $active='';
-    var $status_value='';
-    var $created_at='';
-    var $created_by='';
-    var $update_at='';
-    var $update_by='';
+    var $updated_at='';
+    var $updated_by='';
 }
 
-class Pay_Model extends CI_Model{ 
+class Courses_Model extends CI_Model{ 
 
     public function __construct() {
         parent::__construct();  
-        $this->table = 'pay';
-	$this->table_id = 'pay_id';
-        $this->pay_id='';
-        $this->customer_id='';
+        $this->table = 'courses';
+	$this->table_id = 'course_id';
+        $this->course_id='';
+        $this->category_id='';
+        $this->name='';
+        $this->slug='';
+        $this->description='';
+        $this->img='';
+        $this->price='';
+        $this->price_del='';
         $this->date='';
-        $this->obs='';
         $this->active='';
-	$this->status_value='';
-        $this->created_at='';
-        $this->created_by='';
-        $this->update_at='';
-        $this->update_by='';
-	$this->fields = new pay_model_atributos();
+        $this->updated_at='';
+        $this->updated_by='';
+	$this->fields = new courses_model_atributos();
     }   
     
     public function fields(){

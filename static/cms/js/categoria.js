@@ -1,18 +1,18 @@
-function new_diseño(){    
-     var url = 'dashboard/disenos/load';
+function new_category(){    
+     var url = 'dashboard/categorias/load';
      location.href = site+url;   
 }
-function edit_diseño(diseño_id){    
-     var url = 'dashboard/disenos/load/'+diseño_id;
+function edit_category(category_id){    
+     var url = 'dashboard/categorias/load/'+category_id;
      location.href = site+url;   
 }
-function cancel_diseños(){
-	var url= 'dashboard/disenos';
+function cancel_category(){
+	var url= 'dashboard/categorias';
 	location.href = site+url;
 }
-function delete_marca(diseño_id){
+function delete_category(category_id){
     bootbox.confirm({
-    message: "¿Confirma que desea eliminar el registro?",
+    message: "¿Confirma que desea eliminar la categoría?",
     buttons: {
         confirm: {
             label: 'Confirmar',
@@ -26,9 +26,9 @@ function delete_marca(diseño_id){
     callback: function () {
          $.ajax({
                    type: "post",
-                   url: site+"dashboard/disenos/delete",
+                   url: site+"dashboard/categorias/delete",
                    dataType: "json",
-                   data: {diseño_id : diseño_id},
+                   data: {category_id : category_id},
                    success:function(data){                             
                    location.reload();
                    }         
