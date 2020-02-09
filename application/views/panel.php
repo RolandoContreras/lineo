@@ -19,25 +19,11 @@
         <div class="main-body">
           <div class="page-wrapper">
             <div class="row">
-              <div class="col-md-12 col-xl-4">
-                <div class="card user-card">
-                  <div class="card-block">
-                    <h5 class="m-b-15">Pagos Realizados</h5>
-                    <h4 class="f-w-300 mb-3"><?php echo $obj_total->total_pay;?></h4><span class="text-muted"><label class="label theme-bg text-white f-12 f-w-400"><?php echo $obj_pending->pending_pay;?></label> Pendientes</span></div>
-                </div>
-              </div>
               <div class="col-md-6 col-xl-4">
                 <div class="card user-card">
                   <div class="card-block">
                     <h5 class="f-w-400 m-b-15">Facturas</h5>
                     <h4 class="f-w-300 mb-3"><?php echo $obj_total->total_invoices;?></h4><span class="text-muted"><label class="label theme-bg text-white f-12 f-w-400"><?php echo $obj_pending->pending_invoices;?></label> Pendientes</span></div>
-                </div>
-              </div>
-              <div class="col-md-6 col-xl-4">
-                <div class="card user-card">
-                  <div class="card-block">
-                    <h5 class="f-w-400 m-b-15">Bonos</h5>
-                    <h4 class="f-w-300 mb-3"><?php echo $obj_total->total_bonus;?></h4><span class="text-muted">Total</span></div>
                 </div>
               </div>
               <div class="col-md-6 col-xl-4">
@@ -50,15 +36,29 @@
              <div class="col-md-6 col-xl-4">
                 <div class="card user-card">
                   <div class="card-block">
-                    <h5 class="f-w-400 m-b-15">Kits</h5>
-                    <h4 class="f-w-300 mb-3"><?php echo $obj_total->total_kit;?></h4><span class="text-muted">Total</span></div>
+                    <h5 class="f-w-400 m-b-15">Cursos</h5>
+                    <h4 class="f-w-300 mb-3"><?php echo $obj_total->total_courses;?></h4><span class="text-muted">Total</span></div>
                 </div>
               </div>
               <div class="col-md-6 col-xl-4">
                 <div class="card user-card">
                   <div class="card-block">
-                    <h5 class="f-w-400 m-b-15">Rangos</h5>
-                    <h4 class="f-w-300 mb-3"><?php echo $obj_total->total_ranges;?></h4><span class="text-muted">Total</span></div>
+                    <h5 class="f-w-400 m-b-15">Videos</h5>
+                    <h4 class="f-w-300 mb-3"><?php echo $obj_total->total_videos;?></h4><span class="text-muted">Total</span></div>
+                </div>
+              </div>
+              <div class="col-md-6 col-xl-4">
+                <div class="card user-card">
+                  <div class="card-block">
+                    <h5 class="f-w-400 m-b-15">Usuario</h5>
+                    <h4 class="f-w-300 mb-3"><?php echo $obj_total->total_users;?></h4><span class="text-muted">Total</span></div>
+                </div>
+              </div>
+              <div class="col-md-6 col-xl-4">
+                <div class="card user-card">
+                  <div class="card-block">
+                    <h5 class="f-w-400 m-b-15">Cursos Comprados</h5>
+                    <h4 class="f-w-300 mb-3"><?php echo $obj_total->total_comprado;?></h4><span class="text-muted">Total</span></div>
                 </div>
               </div>
               <div class="col-md-6 col-xl-4">
@@ -67,54 +67,9 @@
                     <h5 class="mb-3">Clientes</h5>
                     <i class="fas fa-user-friends f-30 text-c-green"></i>
                     <h2 class="f-w-300 mt-3"><?php echo format_number_miles($obj_total->total_customer);?></h2>
-                    <div class="progress mt-4 m-b-40">
-                      <div class="progress-bar progress-c-theme" role="progressbar" style="width: 75%; height:7px;" aria-valuenow="75" aria-valuemin="0"
-                        aria-valuemax="100"></div>
-                    </div>
-                    <div class="row card-active">
-                      <div class="col-md-4 col-6">
-                        <h4><?php echo format_number_miles($obj_total->total_activos);?></h4><span class="text-muted">Pagados</span></div>
-                      <div class="col-md-4 col-6">
-                        <h4><?php echo format_number_miles($obj_total->total_financy);?></h4><span class="text-muted">Financiados</span></div>
-                      <div class="col-md-4 col-12">
-                        <h4><?php echo format_number_miles($obj_total->total_position);?></h4><span class="text-muted">Posicionado</span></div>
-                    </div>
                   </div>
                 </div>
               </div>
-              <div class="col-xl-4 col-md-6">
-                <div class="card">
-                  <div class="card-header">
-                    <h5 class="mb-2">Age</h5>
-                    <div class="card-header-right">
-                      <div class="btn-group card-option"><button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="feather icon-more-horizontal"></i></button>
-                        <ul
-                          class="list-unstyled card-option dropdown-menu dropdown-menu-right">
-                          <li class="dropdown-item full-card"><a href="#!"><span><i class="feather icon-maximize"></i> maximize</span><span style="display:none"><i class="feather icon-minimize"></i> Restore</span></a></li>
-                          <li
-                            class="dropdown-item minimize-card"><a href="#!"><span><i class="feather icon-minus"></i> collapse</span><span style="display:none"><i class="feather icon-plus"></i> expand</span></a></li>
-                            <li
-                              class="dropdown-item reload-card"><a href="#!"><i class="feather icon-refresh-cw"></i> reload</a></li>
-                              <li class="dropdown-item close-card"><a href="#!"><i class="feather icon-trash"></i> remove</a></li>
-                              </ul>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card-block">
-                    <div id="Stack-age" class="Stackchart" style="height: 220px; overflow: hidden; text-align: left;">
-                      <div style="position: relative;" class="amcharts-main-div">
-                        <div style="overflow: hidden; position: relative; text-align: left; width: 456px; height: 220px; padding: 0px; touch-action: auto;"
-                          class="amcharts-chart-div"><svg version="1.1" style="position: absolute; width: 456px; height: 220px; top: 0.0499878px; left: 0.333313px;"><desc>JavaScript chart by amCharts 3.21.5</desc><g><path cs="100,100" d="M0.5,0.5 L455.5,0.5 L455.5,219.5 L0.5,219.5 Z" fill="#FFFFFF" stroke="#000000" fill-opacity="0" stroke-width="1" stroke-opacity="0"></path><path cs="100,100" d="M0.5,0.5 L408.5,0.5 L408.5,164.5 L0.5,164.5 L0.5,0.5 Z" fill="#FFFFFF" stroke="#000000" fill-opacity="0" stroke-width="1" stroke-opacity="0" transform="translate(27,20)"></path></g><g><g transform="translate(27,20)"></g><g transform="translate(27,20)" visibility="visible"></g></g><g transform="translate(27,20)" clip-path="url(#AmChartsEl-3)"><g visibility="hidden"></g></g><g></g><g></g><g></g><g><g transform="translate(27,20)"><g><g transform="translate(27,164)" visibility="visible" aria-label=" <20 30"><path cs="100,100" d="M0.5,0.5 L0.5,-40.5 L14.5,-40.5 L14.5,0.5 L0.5,0.5 Z" fill="url(#AmChartsEl-311)" stroke="#67b7dc" fill-opacity="0.9" stroke-width="1" stroke-opacity="0.2"></path><linearGradient id="AmChartsEl-311" x1="0%" x2="0%" y1="100%" y2="0%"><stop offset="0%" stop-color="#1de9b6"></stop><stop offset="100%" stop-color="#1dc4e9"></stop></linearGradient></g><g transform="translate(95,164)" visibility="visible" aria-label=" 30 35"><path cs="100,100" d="M0.5,0.5 L0.5,-81.5 L14.5,-81.5 L14.5,0.5 L0.5,0.5 Z" fill="url(#AmChartsEl-312)" stroke="#67b7dc" fill-opacity="0.9" stroke-width="1" stroke-opacity="0.2"></path><linearGradient id="AmChartsEl-312" x1="0%" x2="0%" y1="100%" y2="0%"><stop offset="0%" stop-color="#899FD4"></stop><stop offset="100%" stop-color="#A389D4"></stop></linearGradient></g><g transform="translate(163,164)" visibility="visible" aria-label=" 40 40"><path cs="100,100" d="M0.5,0.5 L0.5,-122.5 L14.5,-122.5 L14.5,0.5 L0.5,0.5 Z" fill="url(#AmChartsEl-353)" stroke="#67b7dc" fill-opacity="0.9" stroke-width="1" stroke-opacity="0.2"></path><linearGradient id="AmChartsEl-353" x1="0%" x2="0%" y1="100%" y2="0%"><stop offset="0%" stop-color="#1de9b6"></stop><stop offset="100%" stop-color="#1dc4e9"></stop></linearGradient></g><g transform="translate(231,164)" visibility="visible" aria-label=" 50 30"><path cs="100,100" d="M0.5,0.5 L0.5,-40.5 L14.5,-40.5 L14.5,0.5 L0.5,0.5 Z" fill="url(#AmChartsEl-375)" stroke="#67b7dc" fill-opacity="0.9" stroke-width="1" stroke-opacity="0.2"></path><linearGradient id="AmChartsEl-375" x1="0%" x2="0%" y1="100%" y2="0%"><stop offset="0%" stop-color="#899FD4"></stop><stop offset="100%" stop-color="#A389D4"></stop></linearGradient></g><g transform="translate(299,164)" visibility="visible" aria-label=" 60 32"><path cs="100,100" d="M0.5,0.5 L0.5,-56.5 L14.5,-56.5 L14.5,0.5 L0.5,0.5 Z" fill="url(#AmChartsEl-396)" stroke="#67b7dc" fill-opacity="0.9" stroke-width="1" stroke-opacity="0.2"></path><linearGradient id="AmChartsEl-396" x1="0%" x2="0%" y1="100%" y2="0%"><stop offset="0%" stop-color="#1de9b6"></stop><stop offset="100%" stop-color="#1dc4e9"></stop></linearGradient></g><g transform="translate(367,164)" visibility="visible" aria-label=" >70 38"><path cs="100,100" d="M0.5,0.5 L0.5,-106.5 L14.5,-106.5 L14.5,0.5 L0.5,0.5 Z" fill="url(#AmChartsEl-407)" stroke="#67b7dc" fill-opacity="0.9" stroke-width="1" stroke-opacity="0.2"></path><linearGradient id="AmChartsEl-407" x1="0%" x2="0%" y1="100%" y2="0%"><stop offset="0%" stop-color="#899FD4"></stop><stop offset="100%" stop-color="#A389D4"></stop></linearGradient></g></g></g></g><g></g><g><g><path cs="100,100" d="M0.5,0.5 L408.5,0.5" fill="none" stroke-width="1" stroke-opacity="0" stroke="#000000" transform="translate(27,184)"></path></g><g><path cs="100,100" d="M0.5,0.5 L0.5,164.5" fill="none" stroke-width="1" stroke-opacity="0" stroke="#000000" transform="translate(27,20)" visibility="visible"></path></g></g><g><g transform="translate(27,20)" style="pointer-events: none;" clip-path="url(#AmChartsEl-4)"><path cs="100,100" d="M0.5,0.5 L0.5,0.5 L0.5,164.5" fill="none" stroke-width="1" stroke-opacity="0" stroke="#000000" visibility="hidden"></path><path cs="100,100" d="M0.5,0.5 L408.5,0.5 L408.5,0.5" fill="none" stroke-width="1" stroke="#000000" visibility="hidden"></path></g><clipPath id="AmChartsEl-4"><rect x="0" y="0" width="408" height="164" rx="0" ry="0" stroke-width="0"></rect></clipPath></g><g></g><g><g transform="translate(27,20)"></g></g><g><g></g></g><g><g transform="translate(27,20)" visibility="visible"><text y="6" fill="#000000" font-family="Verdana" font-size="11px" opacity="1" text-anchor="middle" transform="translate(34,181.5)"><tspan y="6" x="0">&lt;20</tspan></text><text y="6" fill="#000000" font-family="Verdana" font-size="11px" opacity="1" text-anchor="middle" transform="translate(102,181.5)"><tspan y="6" x="0">30</tspan></text><text y="6" fill="#000000" font-family="Verdana" font-size="11px" opacity="1" text-anchor="middle" transform="translate(170,181.5)"><tspan y="6" x="0">40</tspan></text><text y="6" fill="#000000" font-family="Verdana" font-size="11px" opacity="1" text-anchor="middle" transform="translate(238,181.5)"><tspan y="6" x="0">50</tspan></text><text y="6" fill="#000000" font-family="Verdana" font-size="11px" opacity="1" text-anchor="middle" transform="translate(306,181.5)"><tspan y="6" x="0">60</tspan></text><text y="6" fill="#000000" font-family="Verdana" font-size="11px" opacity="1" text-anchor="middle" transform="translate(374,181.5)"><tspan y="6" x="0">&gt;70</tspan></text></g><g transform="translate(27,20)" visibility="visible"><text y="0" fill="#000000" font-family="Verdana" font-size="0px" opacity="1" text-anchor="end" transform="translate(-12,164)"><tspan y="0" x="0">25</tspan></text><text y="0" fill="#000000" font-family="Verdana" font-size="0px" opacity="1" text-anchor="end" transform="translate(-12,123)"><tspan y="0" x="0">30</tspan></text><text y="0" fill="#000000" font-family="Verdana" font-size="0px" opacity="1" text-anchor="end" transform="translate(-12,82)"><tspan y="0" x="0">35</tspan></text><text y="0" fill="#000000" font-family="Verdana" font-size="0px" opacity="1" text-anchor="end" transform="translate(-12,41)"><tspan y="0" x="0">40</tspan></text><text y="0" fill="#000000" font-family="Verdana" font-size="0px" opacity="1" text-anchor="end" transform="translate(-12,0)"><tspan y="0" x="0">45</tspan></text></g></g><g></g><g transform="translate(27,20)"></g><g></g><g></g><clipPath id="AmChartsEl-3"><rect x="-1" y="-1" width="410" height="166" rx="0" ry="0" stroke-width="0"></rect></clipPath></svg>
-                          <a
-                            href="http://www.amcharts.com/javascript-charts/" title="JavaScript charts" style="position: absolute; text-decoration: none; color: rgb(0, 0, 0); font-family: Verdana; font-size: 11px; opacity: 0.7; display: block; left: 32px; top: 25px;">JS chart by amCharts</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-                
-                
               <div class="col-md-12 col-xl-4">
                 <div class="card theme-bg visitor">
                   <div class="card-block text-center">
@@ -122,6 +77,8 @@
                     <h3 class="text-white m-t-20 f-w-300"><?php echo $obj_total->total_comments;?></h3>
                     <span class="text-white"><?php echo $obj_pending->pending_comments;?> Pendientes</span></div>
                 </div>
+              </div>
+              <div class="col-md-12 col-xl-4">
                 <div class="card">
                   <div class="card-block">
                     <div class="row">
@@ -155,21 +112,6 @@
                       <div style="position: relative; width: 100%; height: 100%;" class="amcharts-main-div">
                         <div style="overflow: hidden; position: relative; text-align: left; width: 993px; height: 48px;" class="amChartsLegend amcharts-legend-div"><svg version="1.1" style="position: absolute; width: 993px; height: 48px;"><desc>JavaScript chart by amCharts 3.21.5</desc><g transform="translate(49,10)"><path cs="100,100" d="M0.5,0.5 L943.5,0.5 L943.5,37.5 L0.5,37.5 Z" fill="#FFFFFF" stroke="#000000" fill-opacity="0" stroke-width="1" stroke-opacity="0"></path><g transform="translate(0,11)"><g cursor="pointer" aria-label="SALES" transform="translate(0,0)"><path cs="100,100" d="M-15.5,8.5 L16.5,8.5 L16.5,-7.5 L-15.5,-7.5 Z" fill="url(#AmChartsEl-16)" stroke="#1de9b6,#1dc4e9" fill-opacity="1" stroke-width="1" stroke-opacity="0.9" transform="translate(16,8)"></path><linearGradient id="AmChartsEl-16" x1="0%" x2="0%" y1="100%" y2="0%"><stop offset="0%" stop-color="#1de9b6"></stop><stop offset="100%" stop-color="#1dc4e9"></stop></linearGradient><text y="6" fill="#000000" font-family="Verdana" font-size="11px" opacity="1" text-anchor="start" transform="translate(37,7)"><tspan y="6" x="0">SALES</tspan></text><text y="6" fill="#000000" font-family="Verdana" font-size="11px" opacity="1" text-anchor="end" transform="translate(140,7)"> </text><rect x="32" y="0" width="108" height="18" rx="0" ry="0" stroke-width="0" stroke="none" fill="#fff" fill-opacity="0.005"></rect></g><g cursor="pointer" aria-label="VISITS " transform="translate(157,0)"><path cs="100,100" d="M-15.5,8.5 L16.5,8.5 L16.5,-7.5 L-15.5,-7.5 Z" fill="url(#AmChartsEl-17)" stroke="#a389d4,#899ed4" fill-opacity="1" stroke-width="1" stroke-opacity="0.9" transform="translate(16,8)"></path><linearGradient id="AmChartsEl-17" x1="0%" x2="0%" y1="100%" y2="0%"><stop offset="0%" stop-color="#a389d4"></stop><stop offset="100%" stop-color="#899ed4"></stop></linearGradient><text y="6" fill="#000000" font-family="Verdana" font-size="11px" opacity="1" text-anchor="start" transform="translate(37,7)"><tspan y="6" x="0">VISITS </tspan></text><text y="6" fill="#000000" font-family="Verdana" font-size="11px" opacity="1" text-anchor="end" transform="translate(140,7)"> </text><rect x="32" y="0" width="108" height="18" rx="0" ry="0" stroke-width="0" stroke="none" fill="#fff" fill-opacity="0.005"></rect></g><g cursor="pointer" aria-label="CLICKS" transform="translate(313,0)"><path cs="100,100" d="M-15.5,8.5 L16.5,8.5 L16.5,-7.5 L-15.5,-7.5 Z" fill="url(#AmChartsEl-18)" stroke="#04a9f5,#049df5" fill-opacity="1" stroke-width="1" stroke-opacity="0.9" transform="translate(16,8)"></path><linearGradient id="AmChartsEl-18" x1="0%" x2="0%" y1="100%" y2="0%"><stop offset="0%" stop-color="#04a9f5"></stop><stop offset="100%" stop-color="#049df5"></stop></linearGradient><text y="6" fill="#000000" font-family="Verdana" font-size="11px" opacity="1" text-anchor="start" transform="translate(37,7)"><tspan y="6" x="0">CLICKS</tspan></text><text y="6" fill="#000000" font-family="Verdana" font-size="11px" opacity="1" text-anchor="end" transform="translate(140,7)"> </text><rect x="32" y="0" width="108" height="18" rx="0" ry="0" stroke-width="0" stroke="none" fill="#fff" fill-opacity="0.005"></rect></g></g></g></svg></div>
                         <div style="overflow: hidden; position: relative; text-align: left; width: 993px; height: 282px; padding: 0px; touch-action: auto;" class="amcharts-chart-div"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-12 col-xl-4">
-              <div class="card bg-c-blue">
-                <div class="card-header borderless">
-                  <h5 class="text-white">Estadistica de Años</h5>
-                </div>
-                <div class="card-block">
-                  <div id="Statistics-sale" class="last-week-sales" style="height: 1000px; overflow: hidden; text-align: left;">
-                    <div style="position: relative;" class="amcharts-main-div">
-                      <div style="overflow: hidden; position: relative; text-align: left; width: 456px; height: 300px; padding: 0px; touch-action: auto;" class="amcharts-chart-div">
-                      </div>
                     </div>
                   </div>
                 </div>
@@ -317,7 +259,7 @@
                           height="90"></canvas></div>
                     </div>
                     <div class="col-6">
-                        <h3 class="f-w-300 mb-0 float-right"><?php echo format_number_dolar($total_semana);?></h3>
+                        <h3 class="f-w-300 mb-0 float-right"><?php echo format_number_dolar($obj_invoices->total_semana);?></h3>
                     </div>
                   </div>
                 </div>
