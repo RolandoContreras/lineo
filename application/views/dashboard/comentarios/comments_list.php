@@ -35,16 +35,16 @@
                             <table id="zero-configuration" class="display table nowrap table-striped table-hover dataTable" style="width: 100%;" role="grid" aria-describedby="zero-configuration_info">
                               <thead>
                                 <tr role="row">
-                                  <th class="sorting_asc" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 267px;" aria-sort="ascending"
+                                  <th class="sorting_asc" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 150px;" aria-sort="ascending"
                                     aria-label="Name: activate to sort column descending">ID</th>
-                                  <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 392px;"
-                                    aria-label="Position: activate to sort column ascending">Nombres</th>
+                                  <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 197px;"
+                                    aria-label="Office: activate to sort column ascending">Fecha</th>
+                                  <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 150px;"
+                                    aria-label="Position: activate to sort column ascending">Nombre</th>
                                   <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 197px;"
                                     aria-label="Office: activate to sort column ascending">E-mail</th>
                                   <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 197px;"
-                                    aria-label="Office: activate to sort column ascending">Comentario</th>
-                                  <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 197px;"
-                                    aria-label="Office: activate to sort column ascending">Fecha</th>
+                                    aria-label="Office: activate to sort column ascending">Mensaje</th>
                                   <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 100px;"
                                     aria-label="Age: activate to sort column ascending">Estado</th>
                                   <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 188px;"
@@ -55,10 +55,10 @@
                                    <?php foreach ($obj_comments as $value): ?>
                                 <tr>
                                 <th><?php echo $value->comment_id;?></th>
-                                <td><?php echo str_to_first_capital($value->name);?></td>
+                                <td><?php echo formato_fecha_barras($value->date);?></td>
+                                <td><?php echo $value->name;?></td>
                                 <td><?php echo $value->email;?></td>
-                                <td><?php echo $value->comment;?></td>
-                                <td><?php echo formato_fecha($value->date_comment);?></td>
+                                <td><?php echo $value->message;?></td>
                                 <td>
                                     <?php if ($value->active == 0) {
                                         $valor = "Leido";
@@ -88,10 +88,10 @@
                               <tfoot>
                                 <tr>
                                   <th rowspan="1" colspan="1">ID</th>
-                                  <th rowspan="1" colspan="1">Nombres</th>
-                                  <th rowspan="1" colspan="1">E-mail</th>
-                                  <th rowspan="1" colspan="1">Comentario</th>
                                   <th rowspan="1" colspan="1">Fecha</th>
+                                  <th rowspan="1" colspan="1">Nombre</th>
+                                  <th rowspan="1" colspan="1">E-mail</th>
+                                  <th rowspan="1" colspan="1">Mensaje</th>
                                   <th rowspan="1" colspan="1">Estado</th>
                                   <th rowspan="1" colspan="1">Acciones</th>
                                 </tr>
@@ -111,4 +111,4 @@
           </div>
         </div>
 </section>
-<script src="<?php echo site_url();?>static/cms/js/comments.js"></script>
+<script src="<?php echo site_url();?>static/cms/js/comentarios.js"></script>

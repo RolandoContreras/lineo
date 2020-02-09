@@ -13,37 +13,24 @@ class D_comments extends CI_Controller{
             $params = array(
                         "select" =>"comments.comment_id,
                                     comments.name,
-                                    comments.comment,
+                                    comments.message,
                                     comments.email,
                                     comments.active,
-                                    comments.status_value,
-                                    comments.date_comment",
-                         "order" => "date_comment ASC"
+                                    comments.date"
             );
             //GET DATA COMMENTS
             $obj_comments= $this->obj_comments->search($params);
-            
-            
-            /// PAGINADO
-            $modulos ='comentarios'; 
-            $seccion = 'Lista';        
-            $link_modulo =  site_url().'dashboard/'.$modulos; 
-            /// DATA
-            
             /// VISTA
-            $this->tmp_mastercms->set('link_modulo',$link_modulo);
-            $this->tmp_mastercms->set('modulos',$modulos);
-            $this->tmp_mastercms->set('seccion',$seccion);
             $this->tmp_mastercms->set("obj_comments",$obj_comments);
             $this->tmp_mastercms->render("dashboard/comentarios/comments_list");
     }
     
-    public function change_status(){
+      public function change_status(){
             //UPDATE DATA ORDERS
         if($this->input->is_ajax_request()){   
               $comment_id = $this->input->post("comment_id");
               
-                if(count($comment_id) > 0){
+                if(isset($comment_id) != ""){
                     $data = array(
                         'active' => 0,
                         'updated_at' => date("Y-m-d H:i:s"),
@@ -60,7 +47,7 @@ class D_comments extends CI_Controller{
             //UPDATE DATA ORDERS
         if($this->input->is_ajax_request()){   
                 $comment_id = $this->input->post("comment_id");
-                if(count($comment_id) > 0){
+                if(isset($comment_id) != ""){
                     $data = array(
                         'active' => 1,
                         'updated_at' => date("Y-m-d H:i:s"),
@@ -72,6 +59,7 @@ class D_comments extends CI_Controller{
         exit();
             }
     }
+    
     
     public function get_session(){          
         if (isset($_SESSION['usercms'])){
