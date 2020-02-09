@@ -1,3 +1,5 @@
+<script src="<?php echo site_url().'static/cms/js/core/bootbox.locales.min.js';?>"></script>
+<script src="<?php echo site_url().'static/cms/js/core/bootbox.min.js';?>"></script>
 <section class="pcoded-main-container">
   <div class="pcoded-wrapper">
     <div class="pcoded-content">
@@ -38,55 +40,41 @@
                                   <th class="sorting_asc" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 267px;" aria-sort="ascending"
                                     aria-label="Name: activate to sort column descending">ID</th>
                                   <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 392px;"
-                                    aria-label="Position: activate to sort column ascending">Título</th>
+                                    aria-label="Position: activate to sort column ascending">FECHA</th>
+                                  <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 392px;"
+                                    aria-label="Position: activate to sort column ascending">TÍTULO</th>
                                   <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 197px;"
-                                    aria-label="Office: activate to sort column ascending">Categoría</th>
-                                  <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 100px;"
-                                    aria-label="Age: activate to sort column ascending">Modulo</th>
-                                  <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 188px;"
-                                    aria-label="Start date: activate to sort column ascending">Imagen</th>
+                                    aria-label="Office: activate to sort column ascending">CURSO</th>
                                   <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 135px;"
-                                    aria-label="Salary: activate to sort column ascending">Video</th>
+                                    aria-label="Salary: activate to sort column ascending">TIPO</th>
                                   <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 135px;"
-                                    aria-label="Salary: activate to sort column ascending">Tipo</th>
+                                    aria-label="Salary: activate to sort column ascending">ENLACE</th>
                                   <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 135px;"
-                                    aria-label="Salary: activate to sort column ascending">Estado</th>
+                                    aria-label="Salary: activate to sort column ascending">ESTADO</th>
                                   <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 135px;"
-                                    aria-label="Salary: activate to sort column ascending">Acciones</th>
+                                    aria-label="Salary: activate to sort column ascending">ACCIONES</th>
                                 </tr>
                               </thead>
                               <tbody>
                                   
                                   <?php foreach ($obj_videos as $value): ?>
                                 <tr role="row" class="odd">
-                            <td class="sorting_1"><?php echo $value->video_id;?></th>
-                            <td><?php echo str_to_first_capital($value->name);?></td>
-                            <td><?php echo str_to_first_capital($value->categoria);?></td>
-                            <td>
-                                <?php if ($value->module == 1) {
-                                    $valor = "Básico";
-                                    $stilo = "label label-success";
-                                }elseif($value->module == 2){
-                                    $valor = "Intermedio";
-                                    $stilo = "label label-info";
-                                }else{
-                                    $valor = "Avanzando";
-                                    $stilo = "label label-important";
-                                } ?>
-                                <span class="<?php echo $stilo;?>"><?php echo $valor;?></span>
-                            </td>
-                            <td><img src='<?php echo site_url()."static/course/img/$value->img";?>' width="180"/></td>
-                            <td><?php echo $value->video;?></td>
+                            <td class="sorting_1"><?php echo $value->video_id;?></td>
+                            <td><?php echo formato_fecha_barras($value->date);?></td>
+                            <td><b><?php echo $value->name;?></b></td>
+                            <td><span class="badge badge-pill badge-info" style="font-size: 100%;"><?php echo $value->course_name;?></span></td>
                             <td class="label-info">
-                                <?php if ($value->type_product == 1) {
-                                    $valor = "Principal";
+                                <?php if ($value->type == 1) {
+                                    $valor = "Resumen";
                                     $stilo = "label label-success";
                                 }else{
-                                    $valor = "Re-Consumos";
+                                    $valor = "Normal";
                                     $stilo = "label label-info";
                                 } ?>
                                 <span><?php echo $valor;?></span>
                             </td>
+                            <td><?php echo $value->video;?></td>
+                            <!--<td><img src='<?php echo site_url()."static/course/img/$value->img";?>' width="180"/></td>-->
                             <td>
                                 <?php if ($value->active == 0) {
                                     $valor = "No Activo";
@@ -100,7 +88,8 @@
                             <td>
                                 <div class="operation">
                                         <div class="btn-group">
-                                            <button class="btn btn-secondary buttons-copy buttons-html5" tabindex="0" aria-controls="key-act-button" type="button" onclick="edit_videos('<?php echo $value->video_id;?>');"><span>Editar</span></button>
+                                            <button class="btn btn-secondary" type="button" onclick="edit_video('<?php echo $value->video_id;?>');"><span><span class="pcoded-micon"><i data-feather="edit"></i></span> Editar</span></button>
+                                            <button class="btn btn-secondary" type="button" onclick="delete_video('<?php echo $value->video_id;?>');"><span><span class="pcoded-micon"><i data-feather="trash-2"></i></span> Eliminar</span></button>
                                         </div>
                                 </div>
                             </td>
@@ -110,13 +99,13 @@
                               <tfoot>
                                 <tr>
                                   <th rowspan="1" colspan="1">ID</th>
-                                  <th rowspan="1" colspan="1">Título</th>
-                                  <th rowspan="1" colspan="1">Categoría</th>
-                                  <th rowspan="1" colspan="1">Modulo</th>
-                                  <th rowspan="1" colspan="1">Imagen</th>
-                                  <th rowspan="1" colspan="1">Video</th>
-                                  <th rowspan="1" colspan="1">Estado</th>
-                                  <th rowspan="1" colspan="1">Acciones</th>
+                                  <th rowspan="1" colspan="1">FECHA</th>
+                                  <th rowspan="1" colspan="1">TÍTULO</th>
+                                  <th rowspan="1" colspan="1">CURSO</th>
+                                  <th rowspan="1" colspan="1">TIPO</th>
+                                  <th rowspan="1" colspan="1">ENLACE</th>
+                                  <th rowspan="1" colspan="1">ESTADO</th>
+                                  <th rowspan="1" colspan="1">ACCIONES</th>
                                 </tr>
                               </tfoot>
                             </table>

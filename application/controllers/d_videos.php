@@ -6,7 +6,7 @@ class D_videos extends CI_Controller{
         parent::__construct();
         $this->load->model("customer_model","obj_customer");
         $this->load->model("videos_model","obj_videos");
-        $this->load->model("category_model","obj_category");
+        $this->load->model("courses_model","obj_courses");
     }   
                 
     public function index(){  
@@ -14,31 +14,20 @@ class D_videos extends CI_Controller{
            $this->get_session();
            $params = array(
                         "select" =>"videos.video_id,
-                                    videos.category_id,
+                                    videos.course_id,
                                     videos.name,
-                                    videos.summary,
+                                    videos.description,
                                     videos.img,
                                     videos.video,
-                                    videos.module,
+                                    videos.type,
                                     videos.date,
-                                    videos.type_product,
                                     videos.active,
-                                    category.name as categoria",
-                "join" => array( 'category, videos.category_id = category.category_id'),
-                "where" => "videos.status_value = 1",
+                                    courses.name as course_name",
+                "join" => array( 'courses, videos.course_id = courses.course_id'),
                 "order" => "videos.video_id DESC");
-           //GET DATA FROM CUSTOMER
-        $obj_videos = $this->obj_videos->search($params);
-        
-           /// PAGINADO
-            $modulos ='videos'; 
-            $seccion = 'Lista';        
-            $link_modulo =  site_url().'dashboard/videos'; 
-            
-            /// VISTA
-            $this->tmp_mastercms->set('link_modulo',$link_modulo);
-            $this->tmp_mastercms->set('modulos',$modulos);
-            $this->tmp_mastercms->set('seccion',$seccion);
+            //GET DATA FROM CUSTOMER
+            $obj_videos = $this->obj_videos->search($params);
+            //send
             $this->tmp_mastercms->set("obj_videos",$obj_videos);
             $this->tmp_mastercms->render("dashboard/videos/videos_list");
     }
@@ -61,16 +50,9 @@ class D_videos extends CI_Controller{
                         "select" =>"*",
                          "where" => "active = 1",
             ); 
-            $obj_category = $this->obj_category->search($params); 
-          
-            $modulos ='videos'; 
-            $seccion = 'Formulario';        
-            $link_modulo =  site_url().'dashboard/'.$modulos; 
-
-            $this->tmp_mastercms->set("obj_category",$obj_category);
-            $this->tmp_mastercms->set('link_modulo',$link_modulo);
-            $this->tmp_mastercms->set('modulos',$modulos);
-            $this->tmp_mastercms->set('seccion',$seccion);
+            $obj_courses = $this->obj_courses->search($params); 
+            //send data
+            $this->tmp_mastercms->set("obj_courses",$obj_courses);
             $this->tmp_mastercms->render("dashboard/videos/videos_form");    
     }
     
@@ -78,66 +60,66 @@ class D_videos extends CI_Controller{
         
         //GET CUSTOMER_ID
         $video_id = $this->input->post("video_id");
-        $name = $this->input->post("name");
-        $module =  $this->input->post('module');
-        $type_product =  $this->input->post('type_product');
-        $img = $this->input->post("img2");
-        $video =  $this->input->post('video');
-        $summary =  $this->input->post('summary');
-        $category =  $this->input->post('category');
-        $active =  $this->input->post('active');
-        
-        if(isset($_FILES["image_file"]["name"])){
-                $config['upload_path']          = './static/course/img';
-                $config['allowed_types']        = 'gif|jpg|png';
-                $config['max_size']             = 2000;
-                $this->load->library('upload', $config);
-                    if ( ! $this->upload->do_upload('image_file')){
-                         $error = array('error' => $this->upload->display_errors());
-                          echo '<div class="alert alert-danger">'.$error['error'].'</div>';
-                    }else{
-                        $data = array('upload_data' => $this->upload->data());
-                    }
-                $img = $_FILES["image_file"]["name"];        
-                 if($img == ""){
-                     $img = $this->input->post("img2");
-                 }   
-            }
+        $course_id = $this->input->post("course_id");
+//        if(isset($_FILES["image_file"]["name"])){
+//                $config['upload_path']          = './static/cms/img/videos';
+//                $config['allowed_types']        = 'gif|jpg|png';
+//                $config['max_size']             = 2000;
+//                $this->load->library('upload', $config);
+//                    if ( ! $this->upload->do_upload('image_file')){
+//                         $error = array('error' => $this->upload->display_errors());
+//                          echo '<div class="alert alert-danger">'.$error['error'].'</div>';
+//                    }else{
+//                        $data = array('upload_data' => $this->upload->data());
+//                    }
+//                $img = $_FILES["image_file"]["name"];        
+//                 if($img == ""){
+//                     $img = $this->input->post("img2");
+//                 }   
+//            }
         
         if($video_id != ""){
              $data = array(
-                'name' => $name,
-                'module' => $module,
-                'type_product' => $type_product,
-                'img' => $img,
-                'video' => $video,
-                'summary' => $summary,
-                'category_id' => $category,
+                'name' => $this->input->post('name'),
+                'slug' => convert_slug($this->input->post('name')),
+                'type' => $this->input->post('type'),
+                'video' => $this->input->post('video'),
+                'description' => $this->input->post('description'),
+                'course_id' => $this->input->post('course_id'),
                 'date' => date("Y-m-d H:i:s"),  
-                'active' => $active,  
+                'active' => $this->input->post('active'),  
                 'updated_at' => date("Y-m-d H:i:s"),
                 'updated_by' => $_SESSION['usercms']['user_id']
                 );          
              $this->obj_videos->update($video_id, $data);
         }else{
             $data = array(
-                'name' => $name,
-                'module' => $module,
-                'type_product' => $type_product,
-                'video' => $video,
-                'img' => $img,
-                'summary' => $summary,
-                'category_id' => $category,
+                'name' => $this->input->post('name'),
+                'slug' => convert_slug($this->input->post('name')),
+                'type' => $this->input->post('type'),
+                'video' => $this->input->post('video'),
+                'description' => $this->input->post('description'),
+                'course_id' => $course_id,
                 'date' => date("Y-m-d H:i:s"),  
-                'active' => $active,  
-                'status_value' => 1,
-                'created_at' => date("Y-m-d H:i:s"),
-                'created_by' => $_SESSION['usercms']['user_id']
+                'active' => $this->input->post('active'),  
                 );          
              $this->obj_videos->insert($data);        
             //SAVE DATA IN TABLE    
         }    
         redirect(site_url()."dashboard/videos");
+    }
+    
+    public function delete(){
+         if ($this->input->is_ajax_request()) {
+             //OBETENER MARCA_ID
+             $video_id = $this->input->post("video_id");
+            //VERIFY IF ISSET CUSTOMER_ID
+            if ($video_id != ""){
+                $this->obj_videos->delete($video_id);
+            }
+            $data['status'] = true;
+            echo json_encode($data);
+        }       
     }
         
     public function get_session(){          
