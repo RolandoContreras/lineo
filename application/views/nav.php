@@ -94,8 +94,8 @@
                   <div class=wpb_wrapper>
                     <div class="thim-sc-social-links ">
                       <ul class=socials>
-                        <li><a target=_blank href="https://facebook.com/thimpress">facebook</a></li>
-                        <li><a target=_blank href="https://youtube.com/thimpress">youtube</a></li>
+                        <li><a target=_blank href="https://facebook.com">facebook</a></li>
+                        <li><a target=_blank href="https://youtube.com">youtube</a></li>
                       </ul>
                     </div>
                   </div>

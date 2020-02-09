@@ -24,8 +24,6 @@ class Home extends CI_Controller {
 	 */
 	public function index()
 	{
-<<<<<<< HEAD
-            
             //get catalog
             $params = array(
                         "select" =>"catalog.catalog_id,
@@ -40,8 +38,6 @@ class Home extends CI_Controller {
                 "where" => "catalog.active = 1 and catalog.status_value = 1",
                 "order" => "catalog.catalog_id DESC");
 //            $data['catalog'] = $this->obj_catalog->search($params);
-=======
->>>>>>> ca852a817d17cb959ecf21d250af3610d2ad2b7c
             $this->load->view('home');
 	}
 }

@@ -335,14 +335,8 @@
           <div class="thim-sc-heading text-center default custom-small margin-top">
             <div class=heading-content>
               <div class="border border-top"></div>
-<<<<<<< HEAD
               <img width="150" src="<?php echo site_url().'static/page_front/images/logo/logo.png';?>" alt="separator"/>
               <div class="border border-bottom"></div>
-=======
-                <img  width="150" src="<?php echo site_url().'static/page_front/images/logo/logo.png';?>" alt="separator">
-              <div
-                class="border border-bottom"></div>
->>>>>>> ca852a817d17cb959ecf21d250af3610d2ad2b7c
           </div>
         </div>
         <div class="thim-sc-steps layout-2 has-bg">
