@@ -14,13 +14,12 @@
     <div class=overlay-close-menu></div>
    <?php $this->load->view("header");?> 
    <?php $this->load->view("nav");?>
-    <div id=main-content>
+    <div id="main-content">
       <div id=home-main-content class="home-content home-page container" role=main>
         <div data-vc-full-width=true data-vc-full-width-init=false class="vc_row wpb_row vc_row-fluid home1-skills vc_custom_1528682589403 thim-background-overlay thim-bg-advance-overlay overlay-position-br vc_row-has-fill">
           <div class=overlay style="background-color: rgba(12,12,12,0.6)"></div>
           <div class="advance-overlay thim_svg_5df6fd15bdaf6 br "><svg class=svg-overlay viewBox="0 0 1903 633" preserveAspectRatio=xMinYMin><rect clip-path=url(#thim_svg_5df6fd15bdaf6) class=svg-background width=1903 height=633 fill=#ffffff /><image clip-path=url(#thim_svg_5df6fd15bdaf6) class=svg-image x=1301 y width=602 height=406 xlink:href=http://c2a2v9c8.stackpathcdn.com/wp-content/uploads/2017/06/overlay-1.jpg /></svg>
-            <svg
-              class=svg-clip-path>
+            <svg class=svg-clip-path>
               <defs>
                 <clipPath id="thim_svg_5df6fd15bdaf6">
                   <polygon points="1903 1903, 0 1903, 0 379, 1903 0" />
@@ -336,8 +335,14 @@
           <div class="thim-sc-heading text-center default custom-small margin-top">
             <div class=heading-content>
               <div class="border border-top"></div>
+<<<<<<< HEAD
               <img width="150" src="<?php echo site_url().'static/page_front/images/logo/logo.png';?>" alt="separator"/>
               <div class="border border-bottom"></div>
+=======
+                <img  width="150" src="<?php echo site_url().'static/page_front/images/logo/logo.png';?>" alt="separator">
+              <div
+                class="border border-bottom"></div>
+>>>>>>> ca852a817d17cb959ecf21d250af3610d2ad2b7c
           </div>
         </div>
         <div class="thim-sc-steps layout-2 has-bg">

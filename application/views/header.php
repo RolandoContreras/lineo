@@ -6,7 +6,11 @@
           </div>
           <div class="width-logo">
               <a class=no-sticky-logo href="<?php echo site_url();?>" title="Bievenido a U-Linex">
+<<<<<<< HEAD
                 <img class=logo src="<?php echo site_url().'static/page_front/images/logo/logo.png';?>" alt="logo" width="100" height="51">
+=======
+                <img class=logo src="<?php echo site_url().'static/page_front/images/logo/logo.png';?>" alt="logo" width="146" height="51">
+>>>>>>> ca852a817d17cb959ecf21d250af3610d2ad2b7c
                 <img class=retina-logo src="<?php echo site_url().'static/page_front/images/logo/logo.png';?>" alt="logo" width="100" height="102">
                 <img class=mobile-logo src="<?php echo site_url().'static/page_front/images/logo/logo.png';?>" alt="logo" width=100 height=51></a>
             <a href="<?php echo site_url();?>"  class="sticky-logo">
@@ -21,6 +25,7 @@
           </div>
           <div class=width-navigation>
             <ul id=primary-menu class=main-menu>
+<<<<<<< HEAD
                 <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-22 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default">
                     <a href="<?php echo site_url();?>" class=tc-menu-inner>Inicio</a> 
                 </li>
@@ -44,6 +49,56 @@
                 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-48 tc-menu-item tc-menu-depth-0 tc-menu-align-left">
                     <a class=tc-menu-inner href="<?php echo site_url().'contact';?>">Contacto</a>
                 </li>
+=======
+              <li id=menu-item-22 class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-22 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default">
+                  <a href="<?php echo site_url();?>" class=tc-menu-inner>Inicio</a> 
+              </li>
+                <li id=menu-item-48 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-48 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-builder">
+                    <a class=tc-menu-inner>Cursos</a>
+                  <div class='tc-megamenu-wrapper tc-megamenu-holder mega-sub-menu sub-menu'>
+                    <p>
+                      <div class="vc_row wpb_row vc_row-fluid">
+                        <div class="wpb_column vc_column_container vc_col-sm-4">
+                          <div class=vc_column-inner>
+                            <div class=wpb_wrapper>
+                              <div class="vc_wp_custommenu wpb_content_element">
+                                <div class="widget widget_nav_menu">
+                                  <h2 class="widgettitle">TODOS LOS CURSOS</h2>
+                                  <div class=menu-mega-menu-container>
+                                    <ul id=menu-mega-menu class=menu>
+                                      <li id=menu-item-4515 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4515 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default"><a href=http://wordpresslms.thimpress.com/demo-corporate-learning/courses/ class=tc-menu-inner>Auto Cad</a></li>
+                                      <li id=menu-item-4516 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4516 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default"><a href=http://wordpresslms.thimpress.com/demo-corporate-learning/all-teachers/ class=tc-menu-inner>Arquitectura</a></li>
+                                    </ul>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    <div class="wpb_column vc_column_container vc_col-sm-8">
+                    <div class="vc_column-inner">
+                      <div class="wpb_wrapper">
+                        <div class="thim-courses-megamenu row">
+                          <div class="course-item col-sm-12">
+                            <div class="feature-img">
+                                <img width="300" height="300" alt="Cursos Gratuitos" src="<?php echo site_url().'static/page_front/images/cursos_gratuitos.jpg';?>" class="lazyload">
+                            </div>
+                            <div class=course-detail>
+                              <h3 class="title">
+                                  <a href="<?php echo site_url().'register';?>">Prueba nuestros cursos gratuitos</a>
+                              </h3>
+                              <div class="price"><span class="course-price">¡Regístrate Gratis! </span></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                    </div>
+                    </p>
+                    </div>
+                    </li>
+>>>>>>> ca852a817d17cb959ecf21d250af3610d2ad2b7c
             </ul>
             <div class="header-right">
               <div class="widget widget_thim-login">

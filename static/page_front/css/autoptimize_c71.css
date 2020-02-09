@@ -32632,7 +32632,6 @@ body.thim-active-search-popup .thim-sc-course-search.popup .form-search-wrapper 
     width: 93px;
     height: 93px;
     font-size: 70px;
-    border: 3px solid #fff;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;
@@ -32763,7 +32762,7 @@ body.thim-active-search-popup .thim-sc-course-search.popup .form-search-wrapper 
     color: #adadad
 }
 .thim-block-1 .course-item .course-detail .meta .number-students:before {
-    content: "\f212";
+    /*content: "\f212";*/
     font-family: Ionicons;
     display: inline-block;
     margin-right: 3px;
