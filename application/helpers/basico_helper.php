@@ -86,6 +86,16 @@ function formato_fecha($fecha){
     return  $dia_semana." ".$dia." de ".$mostrar_mes." del ".$anio;
 }
 
+function formato_fecha_dia_mes_ano($fecha){    
+    $dia=substr($fecha, 8, 2);
+    $mes=substr($fecha, 5, 2);
+    $anio=substr($fecha, 0, 4);
+    
+    $dia_semana = dia_semana($mes,$dia,$anio);
+    $mostrar_mes = mostrar_mes($mes);
+    return $dia." de ".$mostrar_mes.", ".$anio;
+}
+
 function formato_fecha_dia_mes($fecha){    
     $dia=substr($fecha, 8, 2);
     $mes=substr($fecha, 5, 2);

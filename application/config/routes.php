@@ -44,17 +44,16 @@ $route['404_override'] = 'errors/error_404';
 $route['home'] = 'home';
 $route['contacto'] = 'contact';
 
-$route['catalog'] = 'catalog';
-$route['catalog/([0-9a-z_-]+)'] = 'catalog/detail';
-
 $route['login'] = 'login';
 $route['forget'] = 'forget';
 
 $route['cursos'] = 'courses';
-$route['courses/personal'] = 'courses/all';
-$route['courses/profetional'] = 'courses/all';
-$route['courses/finance'] = 'courses/all';
-$route['courses/extras'] = 'courses/all';
+$route['cursos/([0-9]+)'] = 'courses/index/$1';
+$route['cursos/([0-9a-z_-]+)'] = 'courses/category/$1';
+$route['cursos/([0-9a-z_-]+)/([0-9]+)'] = 'courses/category/$1';
+$route['cursos/([0-9a-z_-]+)/([0-9a-z_-]+)'] = 'courses/detail/$1';
+
+
 
 $route['courses/extras/([0-9a-z_-]+)'] = 'courses/detail';
 $route['courses/personal/([0-9a-z_-]+)'] = 'courses/detail';
@@ -81,21 +80,11 @@ $route['backoffice/profile/update_bank'] = "b_profile/update_bank";
 $route['backoffice/plan'] = "b_plan";
 $route['backoffice/plan/create_invoice'] = "b_plan/create_invoice";
 
-$route['backoffice/referred'] = "b_network";
-$route['backoffice/unilevel'] = "b_network/unilevel";
-$route['backoffice/unilevel/([0-9a-z_A-Z-=+/]+)'] = "b_network/unilevel/unilevel/$1";
-
 $route['backoffice/history'] = "b_finance";
 $route['backoffice/invoice'] = "b_finance/invoice";
 $route['backoffice/invoice/upload'] = "b_finance/upload";
 
 $route['backoffice/files'] = "b_files";
-
-$route['backoffice/carrera'] = "b_carrera";
-
-$route['backoffice/pay'] = "b_pay";
-$route['backoffice/pay/validate_amount'] = "b_pay/validate_amount";
-$route['backoffice/pay/make_pay'] = "b_pay/make_pay";
 
 $route['dashboard'] = "dashboard";
 $route['dashboard/panel'] = "panel";
@@ -129,23 +118,10 @@ $route['dashboard/clientes/no_active_customer'] = "d_customer/no_active_customer
 $route['dashboard/clientes/load/([0-9]+)'] = "d_customer/load/$1";
 $route['dashboard/clientes/validate'] = "d_customer/validate";
 
-
-
 $route['dashboard/comentarios'] = "d_comments";
 $route['dashboard/comentarios/cambiar_status'] = "d_comments/change_status";
 $route['dashboard/comentarios/cambiar_status_no'] = "d_comments/change_status_no";
 
-$route['dashboard/usuarios'] = "d_users";
-$route['dashboard/usuarios'] = "d_users";
-$route['dashboard/usuarios/load'] = "d_users/load";
-$route['dashboard/usuarios/load/([0-9]+)'] = "d_users/load/$1";
-$route['dashboard/usuarios/validate'] = "d_users/validate";
-
-$route['dashboard/comentarios'] = "d_comments";
-$route['dashboard/comentarios/cambiar_status'] = "d_comments/change_status";
-$route['dashboard/comentarios/cambiar_status_no'] = "d_comments/change_status_no";
-
-$route['dashboard/usuarios'] = "d_users";
 $route['dashboard/usuarios'] = "d_users";
 $route['dashboard/usuarios/load'] = "d_users/load";
 $route['dashboard/usuarios/load/([0-9]+)'] = "d_users/load/$1";

@@ -92,72 +92,39 @@
             </div>
             <div class="archive-courses course-grid archive_switch">
               <div class="learn-press-courses row">
-                <article id=post-486 class="col-md-4 col-12 col-sm-6 col-xs-6 lpr-course post-486 lp_course type-lp_course status-publish has-post-thumbnail hentry course_category-busines-course course_tag-business-tag course_tag-theme course_tag-wordpress pmpro-has-access course">
-                  <div class=content>
-                    <div class=thumbnail>
-                      <a href=http://wordpresslms.thimpress.com/courses/the-ultimate-ethical-hacking-boot-camp/ class=img_thumbnail>
-                          <img width=365 height=405 src=http://c2a2v9c8.stackpathcdn.com/wp-content/uploads/2017/08/home-1-bg-e1503477367706-365x405.jpg alt="The Ultimate Ethical Hacking Boot Camp"> </a>
-                        <span class=price><span class=course-price>Free</span></span>
-                      <div class="review ">
-                        <div class=sc-review-stars>
-                          <div class=review-stars-rated title="0 out of 5 stars">
-                            <div class="review-stars empty"></div>
-                            <div class="review-stars filled" style=width:0%;></div>
-                          </div>
-                        </div><span class=vote>(0 vote)</span></div>
-                      <div class="button-when-logged has-wishlist"></div>
-                    </div>
-                    <div class=sub-content>
-                      <h3 class="title">
-                          <a href=http://wordpresslms.thimpress.com/courses/the-ultimate-ethical-hacking-boot-camp/>The Ultimate Ethical Hacking Boot Camp</a>
-                      </h3>
-                      <div class=date-comment>
-                          <span class=date-meta>July 21, 2017</span> / <span class=number-comment>No Comments</span></div>
-                      <div class=content-list>
-                        <div class=course-description>
-                          <p>LearnPress is the best WordPress Learning Management System and it comes with many great features. This is the best WPLMS theme
-                            available in the market.</p>
-                        </div>
-                        <ul class=courses_list_info>
-                          <li><span class=avatar>
-                                  <a href=http://wordpresslms.thimpress.com/lp-profile/admin/>
-                                  <img src=http://c2a2v9c8.stackpathcdn.com/wp-content/uploads/2018/01/student-girl-100x100.jpg width=40 height=40 alt=ThimPress class="avatar avatar-40 wp-user-avatar wp-user-avatar-40 alignnone photo"> 
+                  <?php
+                  foreach ($obj_courses as $value) { ?>
+                        <article class="col-md-4 col-12 col-sm-6 col-xs-6 lpr-course post-486 lp_course type-lp_course status-publish has-post-thumbnail hentry course_category-busines-course course_tag-business-tag course_tag-theme course_tag-wordpress course">
+                              <div class="content">
+                                <div class="thumbnail">
+                                    <a href="<?php echo site_url()."cursos/$value->category_slug/$value->slug";?>" class="img_thumbnail">
+                                      <img width=365 height=405 src="<?php echo site_url()."static/cms/img/cursos/$value->img";?>" alt="<?php echo $value->name;?>"> 
                                   </a>
-                              </span>
-                            <span class=info>
-                                <span class=major>Teacher</span>
-                                <a href=http://wordpresslms.thimpress.com/lp-profile/admin/ class=name>ThimPress</a>
-                            </span>
-                          </li>
-                          <li>
-                              <label>Students:</label>
-                              <strong class=students>190 Students</strong>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                  <div class=course-info>
-                    <div class=course-price>
-                        <span class=price>Free</span>
-                    </div>
-                      <span class=course-instructor><a href=http://wordpresslms.thimpress.com/lp-profile/admin/>ThimPress</a></span>
-                  </div>
-                  <div class="learn-press-course-buttons lp-course-buttons">
-                    <form name=course-external-link class="course-external-link form-button lp-form" method=get action="https://themeforest.net/item/course-builder-wordpress-learning-management-system-theme-elearning-software/20370918/comments?page=61&#038;filter=all#comment_23524050">
-                        <button type=submit class="lp-button button">Buy this course</button>
-                    </form>
-                </div>
-              </article>
+                                    <span class="price">
+                                        <span class="course-origin-price">S/.<?php echo $value->price;?></span><span class="course-price">S/.<?php echo $value->price_del;?></span>
+                                    </span>
+                                  <div class="button-when-logged has-wishlist"></div>
+                                </div>
+                                <div class=sub-content>
+                                  <h3 class="title">
+                                      <a href="<?php echo site_url()."cursos/$value->category_slug/$value->slug";?>"><?php echo $value->name;?></a>
+                                  </h3>
+                                  <div class="date-comment">
+                                      <span class="date-meta"><?php echo formato_fecha_dia_mes_ano($value->date);?></span></div>
+                                  <div class="content-list">
+                                    <div class="course-description">
+                                      <p><?php echo $value->description;?></p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                          </article>
+                  <?php } ?>
             </div>
   <nav class=learn-press-pagination>
-    <ul class=page-numbers>
-      <li><span aria-current=page class='page-numbers current'>1</span></li>
-      <li><a class=page-numbers href=http://wordpresslms.thimpress.com/courses/page/2/>2</a>
-      </li>
-      <li><a class="next page-numbers" href=http://wordpresslms.thimpress.com/courses/page/2/>></a>
-      </li>
-    </ul>
+    <ul class="page-numbers">
+        <?php  echo $obj_pagination; ?>
+      </ul>
   </nav>
   <div class=thim-loading-icon>
     <div class=sk-chasing-dots>
@@ -174,9 +141,11 @@
     <aside id=thim-courses-categories-2 class="widget widget_thim-courses-categories">
       <h4 class="widget-title">Categorías</h4>
       <ul class=courses-categories>
-        <li class="cat-item">
-            <a href="#">Arquitectura</a>
-        </li>
+          <?php foreach ($obj_category as $value) { ?>
+                <li class="cat-item">
+                    <a href="<?php echo site_url()."cursos/$value->slug";?>" class="tc-menu-inner tc-megamenu-title"><?php echo $value->name;?></a>
+                </li>
+        <?php } ?>
       </ul>
     </aside>
     <aside id=thim-recent-courses-3 class="widget widget_thim-recent-courses">
