@@ -78,7 +78,7 @@
               <div class="display grid-list-switch lpr_course-switch " data-cookie=lpr_course-switch data-layout=grid><a href=javascript:; class="grid switchToGrid switcher-active"><i class="fa fa-th"></i></a>
                 <a href=javascript:; class="list switchToList"><i class="fa fa-th-list"></i></a>
               </div>
-              <div class=course-index><span>Showing 1-9 of 18 results</span></div>
+              <div class=course-index><span>Showing 1-9 of <?php $total;?> resultado</span></div>
               <div class=courses-searching>
                 <form method=get action=http://wordpresslms.thimpress.com/courses/>
                     <input type=text value name=s placeholder="Search our courses" class="form-control course-search-filter" autocomplete=off>

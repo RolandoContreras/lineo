@@ -6,6 +6,7 @@ class Courses extends CI_Controller {
         parent::__construct();
             $this->load->model("category_model","obj_category");
             $this->load->model("courses_model","obj_courses");
+            $this->load->model("videos_model","obj_videos");
     }   
 
 	/**
@@ -82,9 +83,81 @@ class Courses extends CI_Controller {
 	{
 		$this->load->view('courses_detail');
 	}
-        public function detail()
+        public function detail($slug)
 	{
-		$this->load->view('courses_detail');
+            //get category
+            $data['obj_category'] = $this->nav_category();
+            //GET COURSE
+            $url = explode("/",uri_string());
+            $slug_2 = $url[2];
+            //get course
+            $params = array(
+                            "select" =>"courses.course_id,
+                                        courses.category_id,
+                                        courses.name,
+                                        courses.slug,
+                                        courses.description,
+                                        courses.img2,
+                                        courses.price,
+                                        courses.price_del,
+                                        courses.date,
+                                        category.name as category_name,
+                                        category.slug as category_slug",
+                            "join" => array( 'category, courses.category_id = category.category_id'),
+                            "where" => "courses.slug = '$slug_2'");
+            $data['obj_courses'] = $this->obj_courses->get_search_row($params);
+            $obj_courses_meta = $data['obj_courses'];
+            $course_id = $data['obj_courses']->course_id;
+            
+             //GET videos by course
+            $params = array(
+                            "select" =>"videos.video",
+                            "where" => "videos.course_id = $course_id and type = 1");
+            $data['obj_courses_overview'] = $this->obj_videos->get_search_row($params);
+            
+            //GET videos by course
+            $params = array(
+                            "select" =>"videos.video_id,
+                                        videos.name,
+                                        videos.slug,
+                                        videos.time,
+                                        (SELECT video FROM (videos) WHERE course_id = $course_id and type = 1) as link_video",
+                            "where" => "videos.course_id = $course_id and videos.active = 1");
+            $data['obj_videos'] = $this->obj_videos->search($params);
+            $data['total_videos'] = count($data['obj_videos']);
+            
+             //get data catalog
+            $params_categogory_id = array(
+                        "select" =>"category_id",
+                "where" => "slug like '%$slug%'");
+            $obj_category = $this->obj_category->get_search_row($params_categogory_id);
+            $category_id = $obj_category->category_id;
+            
+            $params = array(
+                            "select" =>"courses.course_id,
+                                        courses.category_id,
+                                        courses.name,
+                                        courses.slug,
+                                        courses.img,
+                                        courses.price,
+                                        courses.price_del,
+                                        courses.date,
+                                        category.name as category_name,
+                                        category.slug as category_slug",
+                            "join" => array( 'category, courses.category_id = category.category_id'),
+                            "where" => "courses.category_id = $category_id and courses.course_id <> $course_id",
+                            "order" => "RAND()"
+                );
+            $data['obj_courses_related'] = $this->obj_courses->search($params);
+//            var_dump($data['obj_courses_related']);
+//            die();
+            
+            $obj_courses_meta = $data['obj_courses'];
+            $course_id = $data['obj_courses']->course_id;
+            
+            //view
+            $data['title'] = "Cursos | $obj_courses_meta->category_name | $obj_courses_meta->name";      
+            $this->load->view('courses_detail',$data);
 	}
         
         public function nav_category(){

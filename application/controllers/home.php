@@ -39,7 +39,8 @@ class Home extends CI_Controller {
                                     catalog.date",
                 "where" => "catalog.active = 1 and catalog.status_value = 1",
                 "order" => "catalog.catalog_id DESC");
-//            $data['catalog'] = $this->obj_catalog->search($params);
+            //set meta title
+            $data['title'] = "Bienvenido";
             $this->load->view('home', $data);
 	}
         

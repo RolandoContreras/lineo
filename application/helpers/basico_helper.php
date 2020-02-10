@@ -66,6 +66,12 @@ function format_number_dolar($number){
     return "$".$number;
 }
 
+function convert_url_social($url){
+    $search  = array(':', '/');
+    $replace = array('%3A', '%2F');    
+    return strtolower(str_replace($search, $replace, $url));
+}
+
 function convert_mayuscula($string){
     $string = strtoupper($string);
     return $string;
@@ -167,6 +173,26 @@ function dia_semana($mes,$dia,$anio){
             break;
     }
     return $dia_semana;
+}
+
+function formato_fecha_dia($fecha){    
+    $dia=substr($fecha, 8, 2);
+    $mes=substr($fecha, 5, 2);
+    $anio=substr($fecha, 0, 4);
+    
+    $dia_semana = dia_semana($mes,$dia,$anio);
+    $mostrar_mes = mostrar_mes($mes);
+    return  $dia;
+}
+
+function formato_fecha_mes($fecha){    
+    $dia=substr($fecha, 8, 2);
+    $mes=substr($fecha, 5, 2);
+    $anio=substr($fecha, 0, 4);
+    
+    $dia_semana = dia_semana($mes,$dia,$anio);
+    $mostrar_mes = mostrar_mes($mes);
+    return  $mostrar_mes;
 }
 
 function mostrar_mes($mes){
