@@ -42,6 +42,7 @@ $route['default_controller'] = "home";
 $route['404_override'] = 'errors/error_404';
 
 $route['home'] = 'home';
+$route['contacto'] = 'contact';
 
 $route['catalog'] = 'catalog';
 $route['catalog/([0-9a-z_-]+)'] = 'catalog/detail';

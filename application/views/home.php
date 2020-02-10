@@ -69,7 +69,7 @@
               <div class="thim-sc-heading text-center default custom-medium">
                 <div class=heading-content>
                   <div class="border border-top"></div>
-                  <img  width="150" src="<?php echo site_url().'static/page_front/images/logo/logo.png';?>" alt="separator">
+                  <img  width="150" src="<?php echo site_url().'static/page_front/images/logo/separate.png';?>" alt="separator">
                   <div
                     class="border border-bottom"></div>
                 <h3 class="primary-heading">El mejor lugar para prepararte para el futuro</h3>
@@ -221,7 +221,7 @@
         <div class="thim-sc-heading text-center default custom-small">
           <div class=heading-content>
             <div class="border border-top"></div>
-            <img  width="150" src="<?php echo site_url().'static/page_front/images/logo/logo.png';?>" alt="separator">
+            <img  width="150" src="<?php echo site_url().'static/page_front/images/logo/separate.png';?>" alt="separator">
             <div class="border border-bottom"></div>
             <h3 class="primary-heading">Cursos</h3>
           </div>
@@ -335,7 +335,7 @@
           <div class="thim-sc-heading text-center default custom-small margin-top">
             <div class=heading-content>
               <div class="border border-top"></div>
-              <img width="150" src="<?php echo site_url().'static/page_front/images/logo/logo.png';?>" alt="separator"/>
+              <img width="150" src="<?php echo site_url().'static/page_front/images/logo/separate.png';?>" alt="separator"/>
               <div class="border border-bottom"></div>
           </div>
         </div>

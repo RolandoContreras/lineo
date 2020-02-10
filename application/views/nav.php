@@ -27,8 +27,8 @@
           </div>
         </div>
         <ul class="nav navbar-nav">
-          <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-22 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default">
-              <a href=# class=tc-menu-inner>Inicio</a>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-22 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default">
+              <a href="<?php echo site_url();?>" class=tc-menu-inner>Inicio</a>
           </li>
             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-48 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-builder">
                 <a class=tc-menu-inner>Cursos</a>
@@ -43,10 +43,11 @@
                               <h2 class="widgettitle">Todos los Cursos</h2>
                               <div class=menu-mega-menu-container>
                                 <ul id=menu-mega-menu-1 class=menu>
-                                  <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4515 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default">
-                                      <a href="#" class=tc-menu-inner>Arquitectura</a></li>
-                                  <li class="menu-item menu-item-type-post_type menu-item-object-lp_course menu-item-4512 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default">
-                                      <a href="#" class=tc-menu-inner>Auto CAD</a></li>
+                                  <?php foreach ($obj_category as $value) { ?>
+                                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-3815 tc-menu-item tc-menu-depth-1 tc-menu-align-left">
+                                            <a href="<?php echo site_url()."cursos/$value->slug";?>" class="tc-menu-inner tc-megamenu-title"><?php echo $value->name;?></a>
+                                        </li>
+                                <?php } ?>
                                 </ul>
                                </div>
                             </div>
@@ -54,29 +55,20 @@
                         </div>
                       </div>
                     </div>
-                <div class="wpb_column vc_column_container vc_col-sm-8">
-                    <div class="vc_column-inner">
-                      <div class="wpb_wrapper">
-                        <div class="thim-courses-megamenu row">
-                          <div class="course-item col-sm-12">
-                            <div class="feature-img">
-                                <img width="300" height="300" alt="Cursos Gratuitos" src="<?php echo site_url().'static/page_front/images/cursos_gratuitos.jpg';?>" class="lazyload">
-                            </div>
-                            <div class=course-detail>
-                              <h3 class="title">
-                                  <a href="<?php echo site_url().'register';?>">Prueba nuestros cursos gratuitos</a>
-                              </h3>
-                              <div class="price"><span class="course-price">¡Regístrate Gratis! </span></div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
               </div>
               </p>
               </div>
               </li>
+            <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-22 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default">
+              <a href="<?php echo site_url().'contacto';?>" class=tc-menu-inner>Contacto</a>
+            </li>                
+            <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-22 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default">
+              <a href="<?php echo site_url().'login';?>" class=tc-menu-inner>Iniciar Sesión</a>
+            </li>                
+            <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-22 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default">
+              <a href="<?php echo site_url().'registro';?>" class=tc-menu-inner>Registro</a>
+            </li>                
+
         </ul>
         <div class=off-canvas-widgetarea>
           <div class="widget widget_text">

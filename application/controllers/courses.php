@@ -2,6 +2,10 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Courses extends CI_Controller {
+    public function __construct(){
+        parent::__construct();
+            $this->load->model("category_model","obj_category");
+    }   
 
 	/**
 	 * Index Page for this controller.
@@ -20,7 +24,10 @@ class Courses extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('courses');
+            //get category
+            $data['obj_category'] = $this->nav_category();
+            //view
+            $this->load->view('courses',$data);
 	}
         public function all()
 	{
@@ -30,4 +37,15 @@ class Courses extends CI_Controller {
 	{
 		$this->load->view('courses_detail');
 	}
+        
+        public function nav_category(){
+            $params_category = array(
+                        "select" =>"category_id,
+                                    slug,
+                                    name",
+                "where" => "active = 1",
+            );
+            //GET DATA COMMENTS
+            return $obj_category = $this->obj_category->search($params_category);
+        }
 }
