@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Home extends CI_Controller {
     public function __construct(){
         parent::__construct();
-//        $this->load->model("catalog_model","obj_catalog");
+            $this->load->model("category_model","obj_category");
     }   
         
 	/**
@@ -24,7 +24,9 @@ class Home extends CI_Controller {
 	 */
 	public function index()
 	{
-            //get catalog
+            //get category
+            $data['obj_category'] = $this->nav_category();
+            //set para home
             $params = array(
                         "select" =>"catalog.catalog_id,
                                     catalog.summary,
@@ -38,6 +40,18 @@ class Home extends CI_Controller {
                 "where" => "catalog.active = 1 and catalog.status_value = 1",
                 "order" => "catalog.catalog_id DESC");
 //            $data['catalog'] = $this->obj_catalog->search($params);
-            $this->load->view('home');
+            $this->load->view('home', $data);
 	}
+        
+        public function nav_category(){
+            $params_category = array(
+                        "select" =>"category_id,
+                                    slug,
+                                    name",
+                "where" => "active = 1",
+            );
+            //GET DATA COMMENTS
+            return $obj_category = $this->obj_category->search($params_category);
+        }
+        
 }

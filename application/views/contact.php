@@ -25,7 +25,7 @@
               <h1>Contacto</h1>
             </div>
             <div class="text-description col-md-6">
-              <div class="banner-description"><strong class="br">The best demo education </strong> It is a long established fact that a reade</div>
+              <p><strong class="br">La mejor educación en un solo lugar </strong> U-LINEX creado especialmente para ti</p>
             </div>
           </div>
         </div>
@@ -59,7 +59,7 @@
                       <div class="wpb_wrapper">
                         <div class="thim-sc-heading text-center layout-2 ">
                           <div class="heading-content">
-                            <h3 class="primary-heading">Deja un mensaje</h3>
+                            <h3 class="primary-heading">Gracias por elegir U-LINEX</h3>
                           </div>
                           <p class="secondary-heading">Su dirección de correo electrónico no será publicada. Los campos obligatorios están marcados.</p><span class="underline"></span></div>
                       </div>
@@ -73,31 +73,46 @@
             <div class="vc_wp_text wpb_content_element">
               <div class="widget widget_text">
                 <div class="textwidget">
-                  <div role="form" class="wpcf7" id="wpcf7-f56-p34-o1" dir="ltr" lang="en-US">
+                  <div role="form" class="wpcf7">
                     <div class="screen-reader-response"></div>
-                    <form action="" method="post" class="wpcf7-form" novalidate="novalidate">
+                    <form action="javascript:void(0);" enctype="multipart/form-data" class="wpcf7-form">
                       <div class="row">
                         <div class="col-xs-12 col-sm-4">
                             <span class="wpcf7-form-control-wrap your-name">
-                                <input type="text" name="your-name" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Name">
+                                <input type="text" name="your-name" id="name" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" placeholder="Nombre">
                             </span>
                         </div>
                         <div
                           class="col-xs-12 col-sm-4">
                             <span class="wpcf7-form-control-wrap your-email">
-                                <input type="email" name="your-email" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false" placeholder="Email">
+                                <input type="email" name="your-email" id="email" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" placeholder="E-mail">
                             </span></div>
                       <div
                         class="col-xs-12 col-sm-4">
                           <span class="wpcf7-form-control-wrap your-subject">
-                              <input type="text" name="your-subject" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Subject">
+                              <input type="text" name="your-subject" id="subject" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" placeholder="Asunto">
                           </span></div>
                 </div>
                 <div class="row">
-                  <div class="col"><span class="wpcf7-form-control-wrap your-message"><textarea name="your-message" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Message"></textarea></span></div>
+                  <div class="col">
+                      <span class="wpcf7-form-control-wrap your-message">
+                          <textarea name="your-message" cols="40" rows="10" id="message" class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required" placeholder="Mensaje"></textarea>
+                      </span>
+                  </div>
                 </div>
-                <div class="heading-button"><input type="submit" value="send your message" class="wpcf7-form-control wpcf7-submit"><span class="ajax-loader"></span></div>
-                <div class="wpcf7-response-output wpcf7-display-none"></div>
+                <div class="row">
+                  <div class="col">
+                      <div class="g-recaptcha" data-sitekey="6LcXgNcUAAAAANCfGha0FezqnYAFGIWYV4gNbHou"></div>
+                  </div>
+                </div>
+                <div class="heading-button">
+                    <a onclick="send_message();" href="javascript:void(0);" class="btn btn-primary btn-md">
+                                    <span class=text>Enviar Mensaje</span>
+                                </a>
+                    <span class="ajax-loader"></span>
+                </div>
+                <br/>
+                <div id="respose"></div>
                 </form>
               </div>
             </div>
@@ -116,8 +131,9 @@
       <div class="wpb_wrapper">
         <div class="wpb_gmaps_widget wpb_content_element">
           <div class="wpb_wrapper">
-            <div class="wpb_map_wraper"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6304.829986131271!2d-122.4746968033092!3d37.80374752160443!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808586e6302615a1%3A0x86bd130251757c00!2sStorey+Ave%2C+San+Francisco%2C+CA+94129!5e0!3m2!1sen!2sus!4v1435826432051"
-                style="border: 0px none; pointer-events: none;" allowfullscreen="" width="600" height="452" frameborder=""></iframe></div>
+            <div class="wpb_map_wraper">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d76234.91055190127!2d-77.01268700378829!3d-12.152157280974192!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1ses-419!2spe!4v1581348043337!5m2!1ses-419!2spe" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                </div>
           </div>
         </div>
       </div>
@@ -156,5 +172,6 @@
       <script src='https://www.google.com/recaptcha/api.js'></script>
       <script src='<?php echo site_url().'static/page_front/js/script/contact.js';?>'></script>
       <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+      <script src='<?php echo site_url().'static/page_front/js/script/contact.js';?>'></script>
 </body>
 </html>

@@ -30,15 +30,11 @@
                         <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-3815 tc-menu-item tc-menu-depth-1 tc-menu-align-left">
                             <a href="<?php echo site_url().'cursos';?>" class="tc-menu-inner tc-megamenu-title">Todos</a>
                         </li>
-                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-3815 tc-menu-item tc-menu-depth-1 tc-menu-align-left">
-                            <a href="#" class="tc-menu-inner tc-megamenu-title">Diseño</a>
-                        </li>
-                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3816 tc-menu-item tc-menu-depth-1 tc-menu-align-left">
-                            <a href="#" class="tc-menu-inner tc-megamenu-title">Arquitectura</a>
-                        </li>
-                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3817 tc-menu-item tc-menu-depth-1 tc-menu-align-left">
-                            <a href="#" class="tc-menu-inner tc-megamenu-title">Urbanismo</a>
-                        </li>
+                        <?php foreach ($obj_category as $value) { ?>
+                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-3815 tc-menu-item tc-menu-depth-1 tc-menu-align-left">
+                                    <a href="<?php echo site_url()."cursos/$value->slug";?>" class="tc-menu-inner tc-megamenu-title"><?php echo $value->name;?></a>
+                                </li>
+                        <?php } ?>
                     </ul>
                 </li>
                 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-48 tc-menu-item tc-menu-depth-0 tc-menu-align-left">

@@ -45,7 +45,10 @@
                       <a href="<?php echo site_url().'contacto';?>" class=tc-menu-inner>Contacto</a>
                   </li>
                   <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4235 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default">
-                      <a href="<?php echo site_url().'login';?>" class=tc-menu-inner>Inicio de Sesión</a>
+                      <a href="<?php echo site_url().'login';?>" class=tc-menu-inner>Iniciar Sesión</a>
+                  </li>
+                  <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4235 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default">
+                      <a href="<?php echo site_url().'registro';?>" class=tc-menu-inner>Registro</a>
                   </li>
                 </ul>
               </div>
@@ -56,18 +59,12 @@
               <h3 class="widget-title">Cursos</h3>
               <div class=menu-support-container>
                 <ul id=menu-support class=menu>
-                  <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-30 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default">
-                      <a href="#" class=tc-menu-inner>Arquitectura</a>
-                  </li>
-                  <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default">
-                      <a href="#" class=tc-menu-inner>Diseño</a>
-                  </li>
-                  <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-32 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default">
-                      <a href="#" class=tc-menu-inner>AutoCad</a>
-                  </li>
-                  <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-33 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default">
-                      <a href="#" class=tc-menu-inner>Urbanismo</a>
-                  </li>
+                    <?php 
+                    foreach ($obj_category as $value) { ?>
+                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-30 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default">
+                            <a href="<?php echo site_url()."cursos/$value->slug";?>" class=tc-menu-inner><?php echo $value->name;?></a>
+                        </li>
+                    <?php } ?>
                 </ul>
               </div>
             </aside>

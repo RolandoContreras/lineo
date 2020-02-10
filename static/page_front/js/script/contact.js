@@ -6,25 +6,50 @@ function send_message(){
     //GET DATA RECAPTCHA
     var response = grecaptcha.getResponse();
     if(response.length == 0){
-        document.getElementById("captcha_messages").style.display = "block";
-    }
-    else{
+        $("#respose").html();
+        var texto = "";
+        texto = texto+'<div class="alert alert-danger">';
+        texto = texto+'<button class="close" data-dismiss="alert" type="button">×</button>';
+        texto = texto+'<p style="text-align: center;">Captcha no verificado</p>';
+        texto = texto+'</div>';                 
+        $("#respose").html(texto);
+    } else{
         if(name == ""){
-        document.getElementById("captcha_messages").style.display = "none";
-        document.getElementById("error_messages").style.display = "block";
-        $("#name").focus();
+                    $("#respose").html();
+                    var texto = "";
+                    texto = texto+'<div class="alert alert-danger">';
+                    texto = texto+'<button class="close" data-dismiss="alert" type="button">×</button>';
+                    texto = texto+'<p style="text-align: center;">Ingrese Nombre</p>';
+                    texto = texto+'</div>';                 
+                    $("#respose").html(texto);
+                    $("#name").focus();
         }else if(email == ""){
-            document.getElementById("error_messages").style.display = "block";
-            document.getElementById("captcha_messages").style.display = "none";
-            $("#email").focus();
+                    $("#respose").html();
+                    var texto = "";
+                    texto = texto+'<div class="alert alert-danger">';
+                    texto = texto+'<button class="close" data-dismiss="alert" type="button">×</button>';
+                    texto = texto+'<p style="text-align: center;">Ingrese E-mail</p>';
+                    texto = texto+'</div>';                 
+                    $("#respose").html(texto);
+                    $("#email").focus();
+        }else if(subject == ""){
+                    $("#respose").html();
+                    var texto = "";
+                    texto = texto+'<div class="alert alert-danger">';
+                    texto = texto+'<button class="close" data-dismiss="alert" type="button">×</button>';
+                    texto = texto+'<p style="text-align: center;">Ingrese Asunto</p>';
+                    texto = texto+'</div>';                 
+                    $("#respose").html(texto);
+                    $("#subject").focus();
         }else if(message == ""){
-            document.getElementById("captcha_messages").style.display = "none";
-            document.getElementById("error_messages").style.display = "block";
-            $("#subject").focus();
-        }else if(message == ""){
-            document.getElementById("captcha_messages").style.display = "none";
-            document.getElementById("error_messages").style.display = "block";
-            $("#message").focus();
+                    $("#respose").html();
+                    var texto = "";
+                    texto = texto+'<div class="alert alert-danger">';
+                    texto = texto+'<button class="close" data-dismiss="alert" type="button">×</button>';
+                    texto = texto+'<p style="text-align: center;">Ingrese Mensaje</p>';
+                    texto = texto+'</div>';                 
+                    $("#respose").html(texto);
+                    $("#message").focus();
         }else{
             var email_2 = validar_email(email);
             if(email_2 == true){
@@ -39,14 +64,18 @@ function send_message(){
                           },
                    success:function(data){
                        if(data.message == true){
-                           document.getElementById("captcha_messages").style.display = "none";
-                           document.getElementById("error_messages").style.display = "none";
-                           document.getElementById("messages_respose").style.display = "block";
+                           $("#respose").html();
+                            var texto = "";
+                            texto = texto+'<div class="alert alert-success">';
+                            texto = texto+'<button class="close" data-dismiss="alert" type="button">×</button>';
+                            texto = texto+'<p style="text-align: center;">Mensaje enviado, en la brevedad nos comunicaremos con usted.</p>';
+                            texto = texto+'</div>';                 
+                            $("#respose").html(texto);
                        }
                    }         
                  });
             }else{
-                document.getElementById("message_email").style.display = "block";
+                document.getElementById("email").style.display = "block";
                 $("#email").focus();
             }
         }
