@@ -58,6 +58,19 @@ class D_customer extends CI_Controller{
             $this->tmp_mastercms->render("dashboard/customer/customer_form");    
     }
     
+    public function delete(){
+         if ($this->input->is_ajax_request()) {
+             //OBETENER customer_id
+             $ccustomer_id = $this->input->post("customer_id");
+            //VERIFY IF ISSET CUSTOMER_ID
+            if ($ccustomer_id != ""){
+                $this->obj_customer->delete($ccustomer_id);
+            }
+            $data['status'] = true;
+            echo json_encode($data);
+        }       
+    }
+    
     public function get_session(){          
         if (isset($_SESSION['usercms'])){
             if($_SESSION['usercms']['logged_usercms']=="TRUE" && $_SESSION['usercms']['status']==1){               

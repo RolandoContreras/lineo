@@ -53,13 +53,10 @@ $route['cursos/([0-9a-z_-]+)'] = 'courses/category/$1';
 $route['cursos/([0-9a-z_-]+)/([0-9]+)'] = 'courses/category/$1';
 $route['cursos/([0-9a-z_-]+)/([0-9a-z_-]+)'] = 'courses/detail/$1';
 
-
-
 $route['courses/extras/([0-9a-z_-]+)'] = 'courses/detail';
 $route['courses/personal/([0-9a-z_-]+)'] = 'courses/detail';
 $route['courses/profetional/([0-9a-z_-]+)'] = 'courses/detail';
 $route['courses/finance/([0-9a-z_-]+)'] = 'courses/detail';
-
 
 $route['register/([0-9a-z_-]+)'] = "register/index/$1";
 $route['register/validate_username'] = "register/validate_username";
@@ -112,11 +109,9 @@ $route['dashboard/facturas/load/([0-9]+)'] = "d_invoices/load/$1";
 $route['dashboard/facturas/validate'] = "d_invoices/validate";
 
 $route['dashboard/clientes'] = "d_customer";
-$route['dashboard/financiados'] = "d_customer/financiados";
-$route['dashboard/clientes/active_customer'] = "d_customer/active_customer";
-$route['dashboard/clientes/no_active_customer'] = "d_customer/no_active_customer";
 $route['dashboard/clientes/load/([0-9]+)'] = "d_customer/load/$1";
 $route['dashboard/clientes/validate'] = "d_customer/validate";
+$route['dashboard/clientes/delete'] = "d_customer/delete";
 
 $route['dashboard/comentarios'] = "d_comments";
 $route['dashboard/comentarios/cambiar_status'] = "d_comments/change_status";
