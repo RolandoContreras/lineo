@@ -126,7 +126,7 @@ class Courses extends CI_Controller {
             $data['obj_videos'] = $this->obj_videos->search($params);
             $data['total_videos'] = count($data['obj_videos']);
             
-             //get data catalog
+             //get category_id
             $params_categogory_id = array(
                         "select" =>"category_id",
                 "where" => "slug like '%$slug%'");

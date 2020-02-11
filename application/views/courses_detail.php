@@ -146,7 +146,7 @@
                         foreach ($obj_courses_related as $value) { ?>
                           <div class="inner-course ">
                               <div class=wrapper-course-thumbnail>
-                                  <a href="<?php echo site_url()."cursos/$value->slug";?>" class=img_thumbnail>
+                                  <a href="<?php echo site_url()."cursos/$value->category_slug/$value->slug";?>" class=img_thumbnail>
                                     <img width=277 height=310 src="<?php echo site_url()."static/cms/img/cursos/$value->img";?>" alt="<?php echo $value->name;?>">
                                 </a>
                                 <div class="course-price">
