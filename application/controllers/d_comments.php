@@ -63,7 +63,7 @@ class D_comments extends CI_Controller{
     
     public function get_session(){          
         if (isset($_SESSION['usercms'])){
-            if($_SESSION['usercms']['logged_usercms']=="TRUE" && $_SESSION['usercms']['status']==1){               
+            if($_SESSION['usercms']['logged_usercms']=="TRUE"){               
                 return true;
             }else{
                 redirect(site_url().'dashboard');

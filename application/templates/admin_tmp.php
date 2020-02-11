@@ -37,7 +37,7 @@
           <div class="b-bg">
               <img src="<?php echo site_url().'static/page_front/images/logo/logo.png';?>" alt="Logo" width="35"/>
           </div>
-              <span class="b-title">BCA CAPITAL</span>
+              <span class="b-title">U-LINEX</span>
           </a>
           <a class="mobile-menu" id="mobile-collapse" href="#!"><span></span></a></div>
       <div class="navbar-content scroll-div">
@@ -116,9 +116,8 @@
                 <span class="pcoded-mtext">Reportes</span>
             </a>
             <ul class="pcoded-submenu">
-                <li class="pcoded-hasmenu"><a href="<?php echo site_url()."dashboard/panel";?>"><i class="icon-large icon-th"></i>Panel</a></li>
-                <li class="pcoded-hasmenu"><a href="<?php echo site_url()."dashboard/videos";?>"><i class="icon-large icon-th"></i>Videos</a></li>
-                <li class="pcoded-hasmenu"><a href="<?php echo site_url()."dashboard/bonos";?>"><i class="icon-large icon-th"></i>Bonos</a></li>
+                <li class="pcoded-hasmenu"><a href="#"><i class="icon-large icon-th"></i>Panel</a></li>
+                <li class="pcoded-hasmenu"><a href="#"><i class="icon-large icon-th"></i>Videos</a></li>
             </ul>
         </li>
     </ul>
@@ -131,7 +130,7 @@
         <div class="b-bg">
             <img src="<?php echo site_url().'static/page_front/images/logo/logo_negro.png';?>" alt="Logo" width="35"/>
         </div>
-            <span class="b-title">BCA CAPITAL</span></a>
+            <span class="b-title">U-LINEX</span></a>
     </div>
       <a class="mobile-menu" id="mobile-header" href="#!">
           <i class="feather icon-more-horizontal"></i>
@@ -157,7 +156,7 @@
               </div>
               <ul class="pro-body">
                 <li>
-                    <a href="<?php echo site_url().'login/logout';?>" class="dropdown-item"><i data-feather="power"></i> Salir</a>
+                    <a href="<?php echo site_url().'dashboard/logout';?>" class="dropdown-item"><i data-feather="power"></i> Salir</a>
                 </li>
               </ul>
             </div>
