@@ -33,24 +33,22 @@
                             <table id="zero-configuration" class="display table nowrap table-striped table-hover dataTable" style="width: 100%;" role="grid" aria-describedby="zero-configuration_info">
                               <thead>
                                 <tr role="row">
-                                  <th class="sorting_asc" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 267px;" aria-sort="ascending"
+                                  <th class="sorting_asc" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 150px;" aria-sort="ascending"
                                     aria-label="Name: activate to sort column descending">ID</th>
-                                  <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 392px;"
-                                    aria-label="Position: activate to sort column ascending">Usuario</th>
+                                  <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 100px;"
+                                    aria-label="Age: activate to sort column ascending">FECHA</th>
+                                  <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 150px;"
+                                    aria-label="Office: activate to sort column ascending">CLIENTE</th>
                                   <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 197px;"
-                                    aria-label="Office: activate to sort column ascending">Cliente</th>
+                                    aria-label="Office: activate to sort column ascending">EMAIL</th>
                                   <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 100px;"
-                                    aria-label="Age: activate to sort column ascending">Financiado</th>
+                                    aria-label="Age: activate to sort column ascending">CURSO</th>
                                   <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 100px;"
-                                    aria-label="Age: activate to sort column ascending">Imagen</th>
+                                    aria-label="Age: activate to sort column ascending">IMPORTE</th>
                                   <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 100px;"
-                                    aria-label="Age: activate to sort column ascending">Kit</th>
+                                    aria-label="Age: activate to sort column ascending">ESTADO</th>
                                   <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 100px;"
-                                    aria-label="Age: activate to sort column ascending">Fecha</th>
-                                  <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 100px;"
-                                    aria-label="Age: activate to sort column ascending">Estado</th>
-                                  <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 100px;"
-                                    aria-label="Start date: activate to sort column ascending">Acciones</th>
+                                    aria-label="Start date: activate to sort column ascending">ACCIONES</th>
                                 </tr>
                               </thead>
                               <tbody>
@@ -108,13 +106,13 @@
                               <tfoot>
                                 <tr>
                                   <th rowspan="1" colspan="1">ID</th>
-                                  <th rowspan="1" colspan="1">Usuario</th>
-                                  <th rowspan="1" colspan="1">Cliente</th>
-                                  <th rowspan="1" colspan="1">Financiado</th>
-                                  <th rowspan="1" colspan="1">Kit</th>
-                                  <th rowspan="1" colspan="1">Fecha</th>
-                                  <th rowspan="1" colspan="1">Estado</th>
-                                  <th rowspan="1" colspan="1">Acciones</th>
+                                  <th rowspan="1" colspan="1">FECHA</th>
+                                  <th rowspan="1" colspan="1">CLIENTE</th>
+                                  <th rowspan="1" colspan="1">EMAIL</th>
+                                  <th rowspan="1" colspan="1">CURSO</th>
+                                  <th rowspan="1" colspan="1">IMPORTE</th>
+                                  <th rowspan="1" colspan="1">ESTADO</th>
+                                  <th rowspan="1" colspan="1">ACCIONES</th>
                                 </tr>
                               </tfoot>
                             </table>

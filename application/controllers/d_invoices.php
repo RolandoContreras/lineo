@@ -5,7 +5,7 @@ class D_invoices extends CI_Controller{
     public function __construct(){
         parent::__construct();
         $this->load->model("invoices_model","obj_invoices");
-        $this->load->model("kit_model","obj_kit");
+//        $this->load->model("kit_model","obj_kit");
     }   
                 
     public function index(){  
@@ -14,32 +14,19 @@ class D_invoices extends CI_Controller{
             $params = array(
                         "select" =>"invoices.invoice_id,
                                     invoices.date,
-                                    invoices.img,
-                                    invoices.financy,
+                                    invoices.total,
                                     customer.customer_id,
-                                    customer.username,
-                                    customer.first_name,
-                                    customer.last_name,
-                                    kit.kit_id,
-                                    kit.price,
-                                    kit.name,
+                                    customer.name,
+                                    customer.email,
+                                    courses.course_id,
+                                    courses.name,
                                     invoices.active",
-                "join" => array( 'kit, invoices.kit_id = kit.kit_id',
+                "join" => array( 'courses, invoices.course_id = courses.course_id',
                                  'customer, invoices.customer_id = customer.customer_id'),
-                "where" => "invoices.type = 1 and invoices.status_value = 1",
                 "order" => "invoices.invoice_id ASC");
             //GET DATA FROM CUSTOMER
             $obj_invoices = $this->obj_invoices->search($params);
-            
-            /// PAGINADO
-            $modulos ='facturas'; 
-            $seccion = 'Lista';
-            $link_modulo =  site_url().'dashboard/'.$modulos; 
-            
             /// VISTA
-            $this->tmp_mastercms->set('link_modulo',$link_modulo);
-            $this->tmp_mastercms->set('modulos',$modulos);
-            $this->tmp_mastercms->set('seccion',$seccion);
             $this->tmp_mastercms->set("obj_invoices",$obj_invoices);
             $this->tmp_mastercms->render("dashboard/invoices/invoices_list");
     }

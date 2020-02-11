@@ -33,20 +33,16 @@
                             <table id="zero-configuration" class="display table nowrap table-striped table-hover dataTable" style="width: 100%;" role="grid" aria-describedby="zero-configuration_info">
                               <thead>
                                 <tr role="row">
-                                  <th class="sorting_asc" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 267px;" aria-sort="ascending"
+                                  <th class="sorting_asc" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 100px;" aria-sort="ascending"
                                     aria-label="Name: activate to sort column descending">ID</th>
-                                  <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 392px;"
-                                    aria-label="Position: activate to sort column ascending">Usuario</th>
-                                  <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 197px;"
-                                    aria-label="Office: activate to sort column ascending">Cliente</th>
+                                  <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 150px;"
+                                    aria-label="Position: activate to sort column ascending">NOMBRE</th>
                                   <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 100px;"
-                                    aria-label="Age: activate to sort column ascending">E-mail</th>
+                                    aria-label="Age: activate to sort column ascending">E-MAIL</th>
                                   <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 100px;"
-                                    aria-label="Age: activate to sort column ascending">Kit</th>
+                                    aria-label="Age: activate to sort column ascending">ESTADO</th>
                                   <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 100px;"
-                                    aria-label="Age: activate to sort column ascending">Estado</th>
-                                  <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 100px;"
-                                    aria-label="Start date: activate to sort column ascending">Acciones</th>
+                                    aria-label="Start date: activate to sort column ascending">ACCIONES</th>
                                 </tr>
                               </thead>
                               <tbody>
@@ -54,10 +50,8 @@
                                    <?php foreach ($obj_customer as $value): ?>
                                 <tr>
                                 <th><?php echo $value->customer_id;?></th>
-                                <td><?php echo "@".$value->username;?></td>
-                                <td><?php echo $value->first_name." ".$value->last_name;?></td>
+                                <td><?php echo $value->name;?></td>
                                 <td><?php echo $value->email;?></td>
-                                <td><?php echo $value->kit;?></td>
                                 <td>
                                     <?php if ($value->active == 0) {
                                         $valor = "No Activo";
@@ -72,6 +66,7 @@
                                     <div class="operation">
                                             <div class="btn-group">
                                                <button class="btn btn-secondary" type="button" onclick="edit_customer('<?php echo $value->customer_id;?>');"><span><span class="pcoded-micon"><i data-feather="edit"></i></span> Editar</span></button>
+                                               <button class="btn btn-secondary" type="button" onclick="delete_customer('<?php echo $value->customer_id;?>');"><span><span class="pcoded-micon"><i data-feather="trash-2"></i></span> Eliminar</span></button>
                                             </div>
                                     </div>
                                 </td>
@@ -81,13 +76,10 @@
                               <tfoot>
                                 <tr>
                                   <th rowspan="1" colspan="1">ID</th>
-                                  <th rowspan="1" colspan="1">Usuario</th>
-                                  <th rowspan="1" colspan="1">Cliente</th>
-                                  <th rowspan="1" colspan="1">E-mail</th>
-                                  <th rowspan="1" colspan="1">Kit</th>
-                                  <th rowspan="1" colspan="1">Kit</th>
-                                  <th rowspan="1" colspan="1">Estado</th>
-                                  <th rowspan="1" colspan="1">Acciones</th>
+                                  <th rowspan="1" colspan="1">NOMBRE</th>
+                                  <th rowspan="1" colspan="1">E-MAIL</th>
+                                  <th rowspan="1" colspan="1">ESTADO</th>
+                                  <th rowspan="1" colspan="1">ACCIONES</th>
                                 </tr>
                               </tfoot>
                             </table>
