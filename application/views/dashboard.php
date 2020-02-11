@@ -26,7 +26,7 @@
         <div class="card-body text-center">
             
           <div class="mb-4">
-              <img src="<?php echo site_url().'static/page_front/images/logo/logo.png'?>" alt="logo" width="300"/>
+              <img src="<?php echo site_url().'static/page_front/images/logo/logo-black.png'?>" alt="logo" width="200"/>
           </div>
             <form method="get" id="login">
               <div class="input-group mb-3">

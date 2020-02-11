@@ -102,6 +102,10 @@
                                         <?php endforeach; ?>
                                 </select>
                               </div>
+                              <div class="form-group">
+                                <label>Tiempo (minutos)</label>
+                                <input class="form-control" type="text" id="time" name="time" value="<?php echo isset($obj_videos->time)?$obj_videos->time:"";?>" class="input-xlarge-fluid" placeholder="Duración del vídeo">
+                              </div>
                               
                               <?php 
 //                                  if(isset($obj_videos)){ ?>

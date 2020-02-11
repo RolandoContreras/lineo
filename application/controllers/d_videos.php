@@ -83,6 +83,7 @@ class D_videos extends CI_Controller{
                 'name' => $this->input->post('name'),
                 'slug' => convert_slug($this->input->post('name')),
                 'type' => $this->input->post('type'),
+                'time' => $this->input->post('time'),
                 'video' => $this->input->post('video'),
                 'description' => $this->input->post('description'),
                 'course_id' => $this->input->post('course_id'),
@@ -96,6 +97,7 @@ class D_videos extends CI_Controller{
             $data = array(
                 'name' => $this->input->post('name'),
                 'slug' => convert_slug($this->input->post('name')),
+                'time' => $this->input->post('time'),
                 'type' => $this->input->post('type'),
                 'video' => $this->input->post('video'),
                 'description' => $this->input->post('description'),
