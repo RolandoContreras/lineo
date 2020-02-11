@@ -55,14 +55,11 @@ class D_Users extends CI_Controller{
                'email' => $this->input->post('email'),
                'privilage' => $this->input->post('privilage'),
                'active' => $this->input->post('active'),
-               'created_at' => date("Y-m-d H:i:s"),
-               'created_by' => $_SESSION['usercms']['user_id'],
+               'date' => date("Y-m-d H:i:s")
                 );          
             //SAVE DATA IN TABLE    
             $this->obj_users->insert($data);
         }
-        
-            
         redirect(site_url()."dashboard/usuarios");
     }
     
@@ -88,6 +85,19 @@ class D_Users extends CI_Controller{
             $this->tmp_mastercms->set('modulos',$modulos);
             $this->tmp_mastercms->set('seccion',$seccion);
             $this->tmp_mastercms->render("dashboard/users/users_form");    
+    }
+    
+    public function delete(){
+         if ($this->input->is_ajax_request()) {
+             //OBETENER MARCA_ID
+             $user_id = $this->input->post("user_id");
+            //VERIFY IF ISSET CUSTOMER_ID
+            if ($user_id != ""){
+                $this->obj_users->delete($user_id);
+            }
+            $data['status'] = true;
+            echo json_encode($data);
+        }       
     }
     
     public function get_session(){          

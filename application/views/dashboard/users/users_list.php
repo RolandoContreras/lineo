@@ -26,6 +26,7 @@
                 <div class="card">
                   <div class="card-header">
                     <h5>Listado de Usuario</h5>
+                    <button class="btn btn-secondary" type="button" onclick="new_users();"><span><span class="pcoded-micon"><i data-feather="plus"></i></span> Nuevo</span></button>
                   </div>
                   <div class="card-block">
                     <div class="table-responsive">
@@ -35,22 +36,20 @@
                             <table id="zero-configuration" class="display table nowrap table-striped table-hover dataTable" style="width: 100%;" role="grid" aria-describedby="zero-configuration_info">
                               <thead>
                                 <tr role="row">
-                                  <th class="sorting_asc" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 267px;" aria-sort="ascending"
+                                  <th class="sorting_asc" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 100px;" aria-sort="ascending"
                                     aria-label="Name: activate to sort column descending">ID</th>
-                                  <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 392px;"
-                                    aria-label="Position: activate to sort column ascending">Nombre</th>
-                                  <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 197px;"
-                                    aria-label="Office: activate to sort column ascending">Contraseña</th>
+                                  <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 150px;"
+                                    aria-label="Position: activate to sort column ascending">NOMBRE</th>
                                   <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 100px;"
-                                    aria-label="Age: activate to sort column ascending">E-mail</th>
+                                    aria-label="Age: activate to sort column ascending">E-MAIL</th>
                                   <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 100px;"
-                                    aria-label="Age: activate to sort column ascending">Privilegio</th>
+                                    aria-label="Age: activate to sort column ascending">PRIVILEGIO</th>
                                   <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 100px;"
-                                    aria-label="Age: activate to sort column ascending">Fecha</th>
+                                    aria-label="Age: activate to sort column ascending">FECHA</th>
                                   <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 100px;"
-                                    aria-label="Age: activate to sort column ascending">Estado</th>
+                                    aria-label="Age: activate to sort column ascending">ESTADO</th>
                                   <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 188px;"
-                                    aria-label="Start date: activate to sort column ascending">Acciones</th>
+                                    aria-label="Start date: activate to sort column ascending">ACCIONES</th>
                                 </tr>
                               </thead>
                               <tbody>
@@ -58,20 +57,17 @@
                                 <?php foreach ($obj_users as $value): ?>
                                 <td><b><?php echo $value->user_id;?></b></td>
                                 <td><?php echo $value->first_name." ".$value->last_name;?></td>
-                                <td><b><?php echo $value->password;?></b></td>
                                 <td><?php echo $value->email;?></td>
                                 <td>
                                     <?php 
                                     if ($value->privilage == 1){
                                         echo "<b>"."Control Simple"."</b>";
-                                    }elseif($value->privilage == 2){
-                                        echo "<b>"."Control Medio"."</b>";
                                     }else{
                                         echo "<b>"."Control Total"."</b>";
                                     }
                                     ?>
                                 </td>
-                                <td><?php echo formato_fecha_barras($value->created_at);?></td>
+                                <td><?php echo formato_fecha_barras($value->date);?></td>
                                 <td>
                                     <?php if ($value->active == 0) {
                                         $valor = "Inactivo";
@@ -86,6 +82,7 @@
                                     <div class="operation">
                                             <div class="btn-group">
                                                     <button class="btn btn-secondary" type="button" onclick="edit_users('<?php echo $value->user_id;?>');"><span class="pcoded-micon"><i data-feather="edit"></i></span>  Editar</button>
+                                                    <button class="btn btn-secondary" type="button" onclick="delete_users('<?php echo $value->user_id;?>');"><span><span class="pcoded-micon"><i data-feather="trash-2"></i></span> Eliminar</span></button>
                                           </div>
                                     </div>
                                 </td>
@@ -95,13 +92,12 @@
                               <tfoot>
                                 <tr>
                                   <th rowspan="1" colspan="1">ID</th>
-                                  <th rowspan="1" colspan="1">Nombre</th>
-                                  <th rowspan="1" colspan="1">Contraseña</th>
-                                  <th rowspan="1" colspan="1">E-mail</th>
-                                  <th rowspan="1" colspan="1">Privilegio</th>
-                                  <th rowspan="1" colspan="1">Fecha</th>
-                                  <th rowspan="1" colspan="1">Estado</th>
-                                  <th rowspan="1" colspan="1">Acciones</th>
+                                  <th rowspan="1" colspan="1">NOMBRE</th>
+                                  <th rowspan="1" colspan="1">E-MAIL</th>
+                                  <th rowspan="1" colspan="1">PRIVILEGIO</th>
+                                  <th rowspan="1" colspan="1">FECHA</th>
+                                  <th rowspan="1" colspan="1">ESTADO</th>
+                                  <th rowspan="1" colspan="1">ACCIONES</th>
                                 </tr>
                               </tfoot>
                             </table>
@@ -119,55 +115,4 @@
           </div>
         </div>
 </section>
-<script src="<?php echo site_url();?>static/cms/js/users.js"></script>
-
-<!-- main content -->
-<div id="main_content" class="span9">
-    <div class="row-fluid">
-        <div class="widget_container">
-            <div class="well">
-                    <div class="navbar navbar-static navbar_as_heading">
-                            <div class="navbar-inner">
-                                    <div class="container" style="width: auto;">
-                                            <a class="brand">LISTADO DE  USUARIOS</a>
-                                            <button class="btn btn-small" onclick="nuevo_users();">Nuevo</button>
-                                    </div>
-                            </div>
-                    </div>
-                
-             <!--<form>-->
-                <div class="well nomargin" style="width: 100%;">
-                    <!--- INCIO DE TABLA DE RE4GISTRO -->
-                   <table id="table" class="display" cellspacing="0" width="100%">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>NOMBRE</th>
-                                <th>CONTRASEÑA</th>
-                                <th>E-MAIL</th>
-                                <th>PRIVILEGIOS</th>
-                                <th>FECHA DE CREACIÓN</th>
-                                <th>ESTADO</th> 
-                                <th>ESTADO SISTEMA</th> 
-                                <th>ACCIONES</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                           
-                        </tbody>
-                    </table>
-            </div>
-           <!--</form>-->         
-        </div>
-    </div>
-</div><!-- main content -->
-</div>
-<script type="text/javascript">
-   $(document).ready(function() {
-    $('#table').dataTable( {
-         "order": [[ 0, "desc" ]]
-    } );
-} );
-</script>
-<script src="static/cms/js/users.js"></script>
+<script src="<?php echo site_url();?>static/cms/js/usuarios.js"></script>

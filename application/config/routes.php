@@ -121,6 +121,7 @@ $route['dashboard/usuarios'] = "d_users";
 $route['dashboard/usuarios/load'] = "d_users/load";
 $route['dashboard/usuarios/load/([0-9]+)'] = "d_users/load/$1";
 $route['dashboard/usuarios/validate'] = "d_users/validate";
+$route['dashboard/usuarios/delete'] = "d_users/delete";
 
 $route['dashboard/reportes/asociados'] = "d_report_customer";
 $route['dashboard/reportes/cuentas'] = "d_report_membership";

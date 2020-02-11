@@ -10,8 +10,11 @@
                   <h5 class="m-b-10">Formulario de Usuarios</h5>
                 </div>
                 <ul class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="<?php echo site_url().'dashboard/panel';?>">
+                          <span class="pcoded-micon"><i data-feather="home"></i></span>
+                          </a></li>
                   <li class="breadcrumb-item"><a href="<?php echo site_url().'dashboard/usuarios';?>">Listado de Usuarios</a></li>
-                  <li class="breadcrumb-item"><a>Usuarios</a></li>
+                  <li class="breadcrumb-item"><a href="#!">Usuarios</a></li>
                 </ul>
               </div>
             </div>
@@ -29,11 +32,13 @@
                     <form enctype="multipart/form-data" method="post" action="<?php echo site_url()."dashboard/usuarios/validate";?>">
                         <div class="form-row">
                             <div class="form-group col-md-12">
+                                <?php if(isset($obj_users)){ ?>
                                   <div class="form-group">
                                         <label>ID</label>
                                         <input class="form-control" type="text" value="<?php echo isset($obj_users->user_id)?$obj_users->user_id:"";?>" placeholder="ID" disabled="">
                                         <input type="hidden" name="user_id" id="user_id" value="<?php echo isset($obj_users)?$obj_users->user_id:"";?>">
                                   </div>
+                                <?php } ?>
                             </div>
                           <div class="form-group col-md-6">
                               <div class="form-group">
@@ -46,10 +51,16 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="inputState">Estado</label>
-                                    <select class="form-control" name="active" id="active">
-                                              <option value="1" <?php if($obj_users->active == 1){ echo "selected";}?>>Activo</option>
-                                             <option value="0" <?php if($obj_users->active == 0){ echo "selected";}?>>Inactivo</option>
+                                    <select name="active" id="active" class="form-control">
+                                         <option value="">[ Seleccionar ]</option>
+                                          <option value="1" <?php if(isset($obj_users)){
+                                              if($obj_users->active == 1){ echo "selected";}
+                                          }else{echo "";} ?>>Activo</option>
+                                          <option value="0" <?php if(isset($obj_users)){
+                                              if($obj_users->active == 0){ echo "selected";}
+                                          }else{echo "";} ?>>Inactivo</option>
                                     </select>
+                                    
                               </div>
                             </div>
                           <div class="form-group col-md-6">
@@ -63,12 +74,22 @@
                                 </div>
                                 <div class="form-group">
                                       <label>Priveligios</label>
-                                       <select class="form-control" name="privilage" id="privilage">
-                                            <option value="1" <?php if(isset($obj_users->privilage) == 1){echo "selected";}else{echo "";}?>>Control Simple</option>
-                                            <option value="2" <?php if(isset($obj_users->privilage) == 2){echo "selected";}else{echo "";}?>>Control Medio</option>
-                                            <option value="3" <?php if(isset($obj_users->privilage) == 3){echo "selected";}else{echo "";}?>>Control Total</option>
-                                        </select>
+                                      <select name="privilage" id="privilage" class="form-control">
+                                         <option value="">[ Seleccionar ]</option>
+                                          <option value="1" <?php if(isset($obj_users)){
+                                              if($obj_users->privilage == 1){ echo "selected";}
+                                          }else{echo "";} ?>>Control Simple</option>
+                                          <option value="2" <?php if(isset($obj_users)){
+                                              if($obj_users->privilage == 2){ echo "selected";}
+                                          }else{echo "";} ?>>Control Total</option>
+                                      </select>
                                 </div>
+                              <?php if(isset($obj_users)){ ?>
+                                <div class="form-group">
+                                      <label>Fecha de Creación</label>
+                                      <input class="form-control" type="text" id="date" name="date" value="<?php echo isset($obj_users->date)?$obj_users->date:"";?>" placeholder="Fecha de Creación" disabled="">
+                                </div>
+                              <?php } ?>
                           </div>
                         </div>
                         <button type="submit" class="btn btn-primary">Guardar</button>
@@ -84,4 +105,4 @@
     </div>
   </div>
 </div>
-<script src="<?php echo site_url().'static/cms/js/users.js'?>"></script>
+<script src="<?php echo site_url().'static/cms/js/usuarios.js'?>"></script>
