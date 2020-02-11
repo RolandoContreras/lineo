@@ -1,3 +1,5 @@
+<script src="<?php echo site_url().'static/cms/js/core/bootbox.locales.min.js';?>"></script>
+<script src="<?php echo site_url().'static/cms/js/core/bootbox.min.js';?>"></script>
 <section class="pcoded-main-container">
   <div class="pcoded-wrapper">
     <div class="pcoded-content">
@@ -33,14 +35,14 @@
                             <table id="zero-configuration" class="display table nowrap table-striped table-hover dataTable" style="width: 100%;" role="grid" aria-describedby="zero-configuration_info">
                               <thead>
                                 <tr role="row">
-                                  <th class="sorting_asc" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 150px;" aria-sort="ascending"
+                                  <th class="sorting_asc" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 100px;" aria-sort="ascending"
                                     aria-label="Name: activate to sort column descending">ID</th>
                                   <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 100px;"
                                     aria-label="Age: activate to sort column ascending">FECHA</th>
                                   <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 150px;"
                                     aria-label="Office: activate to sort column ascending">CLIENTE</th>
-                                  <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 197px;"
-                                    aria-label="Office: activate to sort column ascending">EMAIL</th>
+                                  <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 150px;"
+                                    aria-label="Office: activate to sort column ascending">EMAIL / USUARIO</th>
                                   <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 100px;"
                                     aria-label="Age: activate to sort column ascending">CURSO</th>
                                   <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 100px;"
@@ -54,29 +56,11 @@
                               <tbody>
                                   <?php foreach ($obj_invoices as $key => $value): ?>
                                 <td><?php echo $value->invoice_id;?></td>
-                                <td><?php echo "@".$value->username;?></td>
-                                <td><?php echo $value->first_name." ".$value->last_name;?></td>
-                                <td>
-                                    <?php if ($value->financy == 1) {
-                                        $valor = "Si";
-                                        $stilo = "label label-success";
-                                    }else{
-                                        $valor = "No";
-                                        $stilo = "label label-info";
-                                    }?>
-                                    <span class="<?php echo $stilo ?>"><?php echo $valor;?></span>
-                                </td>
-                                <td>
-                                    <?php 
-                                    if($value->img != ""){?>
-                                    <img id="<?php echo $key;?>" onclick="modal_img(<?php echo $key;?>);" src='<?php echo site_url()."static/backoffice/invoice/$value->img";?>' width="40" alt="imagen" />
-                                    <?php }else{
-                                        echo "---";
-                                    }
-                                    ?>
-                                </td>
-                                <td><?php echo $value->name;?></td>
                                 <td><?php echo formato_fecha_barras($value->date);?></td>
+                                <td><?php echo $value->name;?></td>
+                                <td><?php echo "@".$value->email;?></td>
+                                <td><span class="badge badge-pill badge-info" style="font-size: 100%;"><?php echo $value->course_name;?></span></td>
+                                <td><b>S/.<?php echo $value->total;?></b></td>
                                 <td>
                                     <?php if ($value->active == 1) {
                                         $valor = "Esperando Activación";
@@ -97,6 +81,7 @@
                                     <div class="operation">
                                         <div class="btn-group">
                                                     <button class="btn btn-secondary" type="button" onclick="edit_invoices('<?php echo $value->invoice_id;?>');"><span class="pcoded-micon"><i data-feather="edit"></i></span> Editar</button>
+                                                    <button class="btn btn-secondary" type="button" onclick="delete_invoices('<?php echo $value->invoice_id;?>');"><span><span class="pcoded-micon"><i data-feather="trash-2"></i></span> Eliminar</span></button>
                                         </div>
                                     </div>
                                 </td>
@@ -130,56 +115,4 @@
           </div>
         </div>
 </section>
-<script src="<?php echo site_url();?>static/cms/js/invoices.js"></script>
-<div id="myModal" class="modal" style="display:none; background-color: rgba(0,0, 0, 0.8);">
-  <span class="close">&times;</span>
-  <center>
-  <img style="vertical-align: middle !important" id="img01">
-  </center>
-</div>
-<style>
-#myImg {
-  border-radius: 5px !important; 
-  cursor: pointer !important;
-  transition: 0.3s !important;
-  align-content: center !important;
-}
-
-#myImg:hover {opacity: 0 !important;}
-/* Caption of Modal Image */
-/* Add Animation */
-@-webkit-keyframes zoom {
-  from {-webkit-transform:scale(0)} 
-  to {-webkit-transform:scale(1)}
-}
-
-@keyframes zoom {
-  from {transform:scale(0)} 
-  to {transform:scale(1)}
-}
-
-/* The Close Button */
-.close {
-  position: absolute !important;
-  top: 15px !important;
-  right: 35px !important;
-  color: black !important;
-  font-size: 40px!important;
-  font-weight: bold !important;
-  transition: 0.3s !important;
-}
-
-.close:hover,
-.close:focus {
-  color: #aaa;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-/* 100% Image Width on Smaller Screens */
-@media only screen and (max-width: 700px){
-  .modal-content {
-    width: 30% !important;
-  }
-}
-</style>
+<script src="<?php echo site_url();?>static/cms/js/facturas.js"></script>

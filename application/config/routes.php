@@ -107,6 +107,7 @@ $route['dashboard/videos/delete'] = "d_videos/delete";
 $route['dashboard/facturas'] = "d_invoices"; 
 $route['dashboard/facturas/load/([0-9]+)'] = "d_invoices/load/$1";
 $route['dashboard/facturas/validate'] = "d_invoices/validate";
+$route['dashboard/facturas/delete'] = "d_invoices/delete";
 
 $route['dashboard/clientes'] = "d_customer";
 $route['dashboard/clientes/load/([0-9]+)'] = "d_customer/load/$1";
