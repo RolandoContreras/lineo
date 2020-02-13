@@ -149,33 +149,26 @@
       </ul>
     </aside>
     <aside id=thim-recent-courses-3 class="widget widget_thim-recent-courses">
-      <h4 class="widget-title">Últimos Vídeos</h4>
+      <h4 class="widget-title">Vídeos Top</h4>
       <div class=thim-recent-courses-widget>
         <ul class=recent-courses-wrapper>
-          <li class=course-item>
-            <div class=feature-img>
-                <img width=109 height=109 src=http://c2a2v9c8.stackpathcdn.com/wp-content/uploads/2017/08/home-1-bg-e1503477367706-109x109.jpg alt="The Ultimate Ethical Hacking Boot Camp">
-                <a href=http://wordpresslms.thimpress.com/courses/the-ultimate-ethical-hacking-boot-camp/ class=img-link></a>
-            </div>
-            <div class=content>
-              <h4 class="title">
-                  <a href=http://wordpresslms.thimpress.com/courses/the-ultimate-ethical-hacking-boot-camp/>The Ultimate Ethical Hacking Boot Camp</a>
-              </h4>
-              <div class=price><span class=course-price>Libre</span></div>
-            </div>
-          </li>
-          <li class=course-item>
-            <div class=feature-img>
-                <img width=109 height=109 src=http://c2a2v9c8.stackpathcdn.com/wp-content/uploads/2017/07/feature-image-course-1-109x109.jpg alt="Affiliate Marketing &#8211; A Beginner&#8217;s Guide">
-              <a href=http://wordpresslms.thimpress.com/courses/affiliate-marketing-a-beginners-guide/ class=img-link></a>
-            </div>
-            <div class=content>
-              <h4 class="title">
-                  <a href=http://wordpresslms.thimpress.com/courses/affiliate-marketing-a-beginners-guide/>Affiliate Marketing &#8211; A Beginner&#8217;s Guide</a>
-              </h4>
-              <div class=price><span class=course-origin-price> &#36;33.00</span><span class=course-price>&#36;22.00</span></div>
-            </div>
-          </li>
+           <?php 
+            foreach ($obj_courses_top as $value) { ?>
+                 <li class=course-item>
+                    <div class=feature-img>
+                        <img width="109" height="109" src="<?php echo site_url()."static/cms/img/cursos/$value->img";?>" alt="<?php echo $value->name;?>">
+                        <a href="<?php echo site_url()."cursos/$value->category_slug/$value->slug";?>" class="img-link"></a>
+                    </div>
+                    <div class=content>
+                      <h4 class="title">
+                          <a href="<?php echo site_url()."cursos/$value->category_slug/$value->slug";?>"><?php echo $value->name;?></a>
+                      </h4>
+                      <div class="price">
+                          <span class="course-origin-price">S/.<?php echo $value->price_del;?></span><span class="course-price">S/.<?php echo $value->price;?></span>
+                      </div>
+                    </div>
+                  </li>
+            <?php  } ?> 
         </ul>
       </div>
     </aside>

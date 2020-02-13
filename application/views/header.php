@@ -14,7 +14,7 @@
                 <img class=retina-logo-sticky src="<?php echo site_url().'static/page_front/images/logo/logo.png';?>" alt="Logo" width="695" height="100"></a>
           </div>
           <div class="thim-search-wrapper hidden-md-down">
-            <form role="search" method="get" class="search-form active" action="">
+              <form role="search" method="get" class="search-form active" action="<?php echo site_url().'cursos'?>">
                 <input type="search" class="search-field" placeholder="Buscar tu Curso" value name="search" autofocus="">
                 <button type="submit" class="search-submit"><span class=ion-android-search></span></button>
             </form>
