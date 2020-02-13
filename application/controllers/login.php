@@ -5,10 +5,15 @@ class Login extends CI_Controller {
     public function __construct(){
      parent::__construct();
      $this->load->model('customer_model','obj_customer');
+     $this->load->model("category_model","obj_category");
     } 
 
     public function index(){
-        $this->load->view('login');
+        //get category
+        $data['obj_category'] = $this->nav_category();
+        //send meta title
+        $data['title'] = "Inicio de Sesión";
+        $this->load->view('login',$data);
     }
         
     public function validate(){
@@ -19,39 +24,44 @@ class Login extends CI_Controller {
         }
 
             //GET DATA STRING
-            $code = $this->input->post("code");
+            $email = $this->input->post("code");
             $pass = $this->input->post("pass");
             //SET PARAMETER
             $params = array("select" =>"customer.customer_id,
-                                        customer.first_name,
-                                        customer.username,
-                                        customer.last_name,
-                                        customer.kit_id,
+                                        customer.name,
                                         customer.email,
-                                        customer.active,
-                                        customer.status_value",
-                             "where" => "customer.username = '$code' and customer.password = '$pass' and customer.status_value = 1");
+                                        customer.active",
+                             "where" => "customer.email = '$email' and customer.password = '$pass' and customer.active = 1");
+            $obj_customer = $this->obj_customer->get_search_row($params);
             
-            $obj_customer_login = $this->obj_customer->total_records($params);
-            if ($obj_customer_login > 0){
-                    $obj_customer = $this->obj_customer->get_search_row($params);
+            if (isset($obj_customer->customer_id) != ""){
                     $data_customer_session['customer_id'] = $obj_customer->customer_id;
-                    $data_customer_session['name'] = $obj_customer->first_name.' '.$obj_customer->last_name;
-                    $data_customer_session['username'] = $obj_customer->username;
+                    $data_customer_session['name'] = $obj_customer->name;
                     $data_customer_session['email'] = $obj_customer->email;
-                    $data_customer_session['kit_id'] = $obj_customer->kit_id;
                     $data_customer_session['active'] = $obj_customer->active;
                     $data_customer_session['logged_customer'] = "TRUE";
-                    $data_customer_session['status'] = $obj_customer->status_value;
+                    $data_customer_session['active'] = $obj_customer->active;
                     $_SESSION['customer'] = $data_customer_session; 
                     $data['status'] = "true";
             }else{
                    $data['status'] = "false";
             }
+            
             echo json_encode($data); 
             exit(); 
     }
 
+    public function nav_category(){
+            $params_category = array(
+                        "select" =>"category_id,
+                                    slug,
+                                    name",
+                "where" => "active = 1",
+            );
+            //GET DATA COMMENTS
+            return $obj_category = $this->obj_category->search($params_category);
+    }
+    
     public function logout(){        
         $this->session->unset_userdata('customer');
 	$this->session->destroy();

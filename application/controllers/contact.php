@@ -66,5 +66,5 @@ class Contact extends CI_Controller {
             );
             //GET DATA COMMENTS
             return $obj_category = $this->obj_category->search($params_category);
-        }
+    }
 }

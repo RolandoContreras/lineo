@@ -1,20 +1,39 @@
 function login(){
-    var code = document.getElementById("code").value;
-    var pass = document.getElementById("pass").value;
+    var code = document.getElementById("user_login").value;
+    var pass = document.getElementById("user_pass").value;
     //GET DATA RECAPTCHA
     var response = grecaptcha.getResponse();
     //VERIFY DATA RECAPTCHA
     if(response.length == 0){
-        document.getElementById("captcha_messages").style.display = "block";
+        $("#mensaje").html();
+         var texto = "";
+         texto = texto+'<center>';
+         texto = texto+'<div class="alert alert-danger">';
+         texto = texto+'<p>Captcha no verificado</p>';
+         texto = texto+'</div>';                 
+         texto = texto+'</center>';
+         $("#mensaje").html(texto);
     } else {
         if(code == ""){
-            document.getElementById("no_messages").style.display = "block";
-            document.getElementById("captcha_messages").style.display = "none";
-            $("#code").focus();
+            $("#mensaje").html();
+             var texto = "";
+             texto = texto+'<center>';
+             texto = texto+'<div class="alert alert-danger">';
+             texto = texto+'<p>Ingrese E-mail</p>';
+             texto = texto+'</div>';                 
+             texto = texto+'</center>';
+             $("#mensaje").html(texto);
+            $("#user_login").focus();
         }else if(pass == ""){
-            document.getElementById("no_messages").style.display = "block";
-            document.getElementById("captcha_messages").style.display = "none";
-            $("#pass").focus();
+            $("#mensaje").html();
+             var texto = "";
+             texto = texto+'<center>';
+             texto = texto+'<div class="alert alert-danger">';
+             texto = texto+'<p>Ingrese Contraseña</p>';
+             texto = texto+'</div>';                 
+             texto = texto+'</center>';
+             $("#mensaje").html(texto);
+            $("#user_pass").focus();
         }else{
             $.ajax({
                type: "post",
@@ -24,13 +43,24 @@ function login(){
                       pass : pass},
                success:function(data){          
                    if(data.status == "true"){
-                       document.getElementById("no_messages").style.display = "none";
-                       document.getElementById("captcha_messages").style.display = "none";
-                       document.getElementById("messages").style.display = "block";
+                       $("#mensaje").html();
+                         var texto = "";
+                         texto = texto+'<center>';
+                         texto = texto+'<div class="alert alert-success">';
+                         texto = texto+'<p>Bienvenido</p>';
+                         texto = texto+'</div>';                 
+                         texto = texto+'</center>';
+                         $("#mensaje").html(texto);
                        location.href = site + "backoffice";
                    }else{
-                       document.getElementById("captcha_messages").style.display = "none";
-                       document.getElementById("no_messages").style.display = "block";
+                       $("#mensaje").html();
+                         var texto = "";
+                         texto = texto+'<center>';
+                         texto = texto+'<div class="alert alert-danger">';
+                         texto = texto+'<p>Datos Invalidos</p>';
+                         texto = texto+'</div>';                 
+                         texto = texto+'</center>';
+                         $("#mensaje").html(texto);
                    }
                }         
              });

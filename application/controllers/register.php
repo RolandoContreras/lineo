@@ -5,8 +5,7 @@ class Register extends CI_Controller {
     function __construct() { 
         parent::__construct();
         $this->load->model("customer_model", "obj_customer");
-        $this->load->model("paises_model", "obj_paises");
-        $this->load->model("unilevel_model", "obj_unilevel");
+        $this->load->model("category_model","obj_category");
     }
 
 	/**
@@ -26,23 +25,12 @@ class Register extends CI_Controller {
 	 */
 	public function index()
 	{
-            //SELECT URL IF ISSET USERNAME
-            $url = explode("/", uri_string());
-            if (isset($url[1])) {
-                $username = $url[1];
-                //Select params
-                $params = array(
-                    "select" => "customer_id,first_name,last_name, username",
-                    "where" => "username = '$username'");
-                $obj_paises['obj_customer'] = $this->obj_customer->get_search_row($params);
-            }
+            //get category
+            $data['obj_category'] = $this->nav_category();
             //Select params
-            $params = array(
-                "select" => "id, nombre",
-                "where" => "id_idioma = 7");
-            $obj_paises['obj_paises'] = $this->obj_paises->search($params);
+            $data['title'] = "Nuevo Registro";
             /// VIEW
-            $this->load->view("register", $obj_paises);
+            $this->load->view("register", $data);
 		
 	}
         
@@ -361,5 +349,16 @@ class Register extends CI_Controller {
                     $bool = mail("$email",$titulo,$mensaje,$headers);
         }
       }
+      
+        public function nav_category(){
+            $params_category = array(
+                        "select" =>"category_id,
+                                    slug,
+                                    name",
+                "where" => "active = 1",
+            );
+            //GET DATA COMMENTS
+            return $obj_category = $this->obj_category->search($params_category);
+        }
         
 }
