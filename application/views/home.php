@@ -38,29 +38,34 @@
                   </div>
                 </div>
                 <div class="thim-sc-skills-bar text-center">
-                  <div class=circle data-value=20 data-color=#df6c4f data-emptyfill=#664533>
-                    <p class=number style=color:#ffffff> 20</p>
-                    <p class=title style=color:#df6c4f>ARQUITECTURA</p>
-                    <p class=sub-title style=color:#ffffff>cursos</p>
+                    <div class="circle" data-value="100" data-color=#aaa data-emptyfill=#ffffff>
+                    <p class="number" style=color:#ffffff> 20</p>
+                    <p class="title" style=color:#ffffff>Diplomado BIM</p>
+                    <p class="sub-title" style=color:#ffffff>Curso</p>
                   </div>
-                  <div class=circle data-value=100 data-color=#ecd06f data-emptyfill=#857f6d>
-                    <p class=number style=color:#ffffff> 30</p>
-                    <p class=title style=color:#ecd06f>CAD3</p>
-                    <p class=sub-title style=color:#ffffff>courses</p>
+                  <div class=circle data-value="100" data-color=#ecd06f data-emptyfill=#857f6d>
+                    <p class="number" style=color:#ffffff> 30</p>
+                    <p class="title" style=color:#ecd06f>Autocad 2D</p>
+                    <p class="sub-title" style=color:#ffffff>Curso</p>
                   </div>
-                  <div class=circle data-value=100 data-color=#3c948b data-emptyfill=#36372f>
-                    <p class=number style=color:#ffffff> 15</p>
-                    <p class=title style=color:#3c948b>DISEÑO</p>
-                    <p class=sub-title style=color:#ffffff>courses</p>
+                  <div class="circle" data-value="100" data-color=#3c948b data-emptyfill=#36372f>
+                    <p class="number" style=color:#ffffff></p>
+                    <p class="title" style=color:#3c948b>Archicad</p>
+                    <p class="sub-title" style=color:#ffffff>Curso</p>
                   </div>
-                  <div class=circle data-value=100 data-color=#18c1f0 data-emptyfill=#515a4a>
-                    <p class=number style=color:#ffffff> 20</p>
-                    <p class=title style=color:#18c1f0>AUTOCAD</p>
-                    <p class=sub-title style=color:#ffffff>courses</p>
+                  <div class="circle" data-value="100" data-color=#18c1f0 data-emptyfill=#515a4a>
+                    <p class="number" style=color:#ffffff> 20</p>
+                    <p class="title" style=color:#18c1f0>Lumion</p>
+                    <p class="sub-title" style=color:#ffffff>Curso</p>
                   </div>
+                  <div class="circle" data-value="100" data-color=#df6c4f data-emptyfill=#664533>
+                    <p class="number" style=color:#ffffff> 20</p>
+                    <p class="title" style=color:#df6c4f>Revit Arquitectura</p>
+                    <p class="sub-title" style=color:#ffffff>Curso</p>
+                  </div>  
                 </div>
                 <div class="thim-sc-button hide-separator center">
-                    <a href="<?php echo site_url().'courses';?>" target=_self class="btn btn-secondary btn-md">
+                    <a href="<?php echo site_url().'cursos';?>" target=_self class="btn btn-secondary btn-md">
                         <span class=text>Ver todos los cursos</span>
                     </a>
                 </div>
@@ -177,42 +182,15 @@
               </div>
               <div class="collection-frame items-5">
                 <ul class=slidee>
-                  <li class=collection-item>
-                      <img width=271 height=177 src="<?php echo site_url().'static/page_front/images/arquitectura_icono.jpg';?>" alt="Arquitectura"> 
-                        <a class=collection-wrapper href="<?php echo site_url().'courses/arquitectura';?>">
-                            <h4 class="name">Arquitectura</h4>
-                            <div class=number-courses>9 courses</div>
-                        </a>
-                  </li>
-                  <li class=collection-item>
-                      <img width=271 height=177 src="<?php echo site_url().'static/page_front/images/arquitectura_icono.jpg';?>" alt="Diseño"> 
-                      <a class=collection-wrapper href="<?php echo site_url().'courses/diseno';?>">
-                            <h4 class="name">Diseño</h4>
-                            <div class=number-courses>10 courses</div>
-                        </a>
-                  </li>
-                  <li class=collection-item>
-                      <img width=271 height=177 src="<?php echo site_url().'static/page_front/images/arquitectura_icono.jpg';?>" alt="Advance Career"
-                      class> 
-                      <a class=collection-wrapper href="<?php echo site_url().'courses/autocad';?>">
-                            <h4 class="name">AutoCAD</h4>
-                            <div class=number-courses>8 courses</div>
-                      </a>
-                  </li>
-                  <li class=collection-item>
-                      <img width=271 height=177 src="<?php echo site_url().'static/page_front/images/arquitectura_icono.jpg';?>" alt="Introductory Courses"> 
-                      <a class=collection-wrapper href="<?php echo site_url().'courses/construccion';?>">
-                            <h4 class="name">Construcción</h4>
-                            <div class=number-courses>8 courses</div>
-                      </a>
-                  </li>
-                  <li class=collection-item>
-                      <img width=271 height=177 src="<?php echo site_url().'static/page_front/images/arquitectura_icono.jpg';?>" alt="WordPress"> 
-                      <a class=collection-wrapper href="<?php echo site_url().'courses/urbanismo';?>">
-                            <h4 class="name">Urbanismo</h4>
-                            <div class=number-courses>13 courses</div>
-                      </a>
-                  </li>
+                  <?php 
+                  foreach ($obj_courses as $value) { ?>
+                        <li class=collection-item>
+                              <img width=271 height=177 src="<?php echo site_url()."static/cms/img/cursos/$value->img";?>" alt="<?php echo $value->name;?>"> 
+                                <a class=collection-wrapper href="<?php echo site_url()."cursos/$value->category_slug/$value->slug";?>">
+                                    <h4 class="name"><?php echo $value->name;?></h4>
+                                </a>
+                          </li>
+                  <?php } ?>  
                 </ul>
               </div>
           </div>
@@ -238,44 +216,47 @@
           <div class=thim-block-1>
             <div class=main-course>
               <div class=featured-img>
-                  <span class=course-label>Último</span>
-                  <img width="1012" height=562" src="<?php echo site_url().'static/course/img/hm_image.jpg';?>" alt="The Ultimate Ethical Hacking Boot Camp">
+                  <span class=course-label>TOP</span>
+                  <img width="1012" height=562" src="<?php echo site_url()."static/cms/img/cursos/$obj_courses_principal->img2";?>" alt="<?php echo $obj_courses_principal->name;?>">
                 <div class=content-video>
-                    <span class="fa fa-play-circle" data-mfp-src="https://www.youtube.com/watch?v=fV3Nwaz89xY"></span>
+                    <span class="fa fa-play-circle" data-mfp-src="<?php echo $obj_courses_overview->video;?>"></span>
                   <h3 class="title">
-                      <a href="<?php echo site_url().'couses/personal/finanzas-principiantes'?>">Auto CAD 3D</a>
+                      <a href="<?php echo site_url()."cursos/$obj_courses_principal->category_slug/$obj_courses_principal->slug"?>"><?php echo $obj_courses_principal->name;?></a>
                   </h3>
-                  <p class="description">Este curso es el mejor sistema de gestión de aprendizaje  y viene con muchas características excelentes.Este es el mejor tema WPLMS disponible en el mercado.</p>
+                    <p class="description"><?php echo corta_texto($obj_courses_principal->description,400);?></p>
                 </div>
               </div>
             </div>
-            <div class=course-item>
-              <div class=feature-img>
-                  <img width=138 height=161 src=http://c2a2v9c8.stackpathcdn.com/wp-content/uploads/2017/07/feature-image-course-1-138x161.jpg alt="Affiliate Marketing &#8211; A Beginner&#8217;s Guide"
-                  class>
-                <div class=wrap-author>
-                    <img src=http://c2a2v9c8.stackpathcdn.com/wp-content/uploads/2017/06/shutterstock_184641842-5-e1503472000521-150x150.jpg width=40 height=40
-                    alt="Selena Unique" class="avatar avatar-40 wp-user-avatar wp-user-avatar-40 alignnone photo"> <span class=name><a href=http://wordpresslms.thimpress.com/lp-profile/admin4/>Selena Unique</a></span>
-                  <div
-                    class=sc-review-stars>
-                    <div class=review-stars-rated title="0 out of 5 stars">
-                      <div class="review-stars empty"></div>
-                      <div class="review-stars filled" style=width:0%;></div>
+             <?php 
+             foreach ($obj_courses_related as $value) { ?>
+                <div class="course-item">
+                  <div class="feature-img">
+                      <img width="138" height="161" src="<?php echo site_url()."static/cms/img/cursos/$value->img";?>" alt="<?php echo $value->name;?>">
+                    <div class=wrap-author>
+                      <div class=sc-review-stars>
+                        <div class=review-stars-rated title="5 out of 5 stars">
+                          <div class="review-stars empty"></div>
+                          <div class="review-stars filled" style=width:100%;></div>
+                        </div>
                     </div>
+                  </div>
+                </div>
+                <div class=course-detail>
+                  <h3 class="title">
+                      <a href="<?php echo site_url()."cursos/$value->category_slug/$value->slug";?>"><?php echo $value->name;?></a>
+                  </h3>
+                  <div class=meta>
+                      <span class=number-students>Fecha <?php echo formato_fecha_dia_mes($value->date);?></span>
+                      <span class="price free">S/.<?php echo $value->price;?></span>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class=course-detail>
-              <h3 class="title">
-                  <a href=http://wordpresslms.thimpress.com/courses/affiliate-marketing-a-beginners-guide/>Affiliate Marketing &#8211; A Beginner&#8217;s Guide</a>
-              </h3>
-              <div class=meta>
-                  <span class=number-students>138 Students </span>
-                  <span class="price free">&#36;22.00</span>
-              </div>
-            </div>
-          </div>
-          <div class=course-item>
+              
+              
+             <?php } ?> 
+              
+            
+<!--          <div class=course-item>
             <div class=feature-img><img width=138 height=161 src=http://c2a2v9c8.stackpathcdn.com/wp-content/uploads/2018/01/student-girl-138x161.jpg alt="AWS Certified Solutions Architect &#8211; Associate 2017"
                 class>
               <div class=wrap-author><img src=http://c2a2v9c8.stackpathcdn.com/wp-content/uploads/2018/01/student-girl-100x100.jpg width=40 height=40 alt=ThimPress class="avatar avatar-40 wp-user-avatar wp-user-avatar-40 alignnone photo">                <span class=name><a href=http://wordpresslms.thimpress.com/lp-profile/admin/>ThimPress</a></span>
@@ -293,8 +274,8 @@
               </h3>
               <div class=meta><span class=number-students>170 Students </span><span class="price free">&#36;33.00</span></div>
             </div>
-          </div>
-          <div class=course-item>
+          </div>-->
+<!--          <div class=course-item>
             <div class=feature-img><img width=138 height=161 src=http://c2a2v9c8.stackpathcdn.com/wp-content/uploads/2017/07/girl-1797769-138x161.jpg alt="Learning jQuery Mobile for Beginners"
                 class>
               <div class=wrap-author><img src=http://c2a2v9c8.stackpathcdn.com/wp-content/uploads/2018/01/student-girl-100x100.jpg width=40 height=40 alt=ThimPress class="avatar avatar-40 wp-user-avatar wp-user-avatar-40 alignnone photo">                <span class=name><a href=http://wordpresslms.thimpress.com/lp-profile/admin/>ThimPress</a></span>
@@ -311,7 +292,7 @@
               </h3>
               <div class=meta><span class=number-students>171 Students </span><span class="price free">&#36;66.00</span></div>
             </div>
-          </div>
+          </div>-->
         </div>
         <div class=vc_empty_space style="height: 100px"><span class=vc_empty_space_inner></span></div>
       </div>
@@ -354,17 +335,17 @@
                     <div class="tab-pane active" id=thim_5df6fd163383e-step-0 role=tabpanel>
                       <h4 class="tab-title">Elije el curso de tu preferencia</h4>
                       <p class=description>En U-linex podrás encontrar cientos de cursos que te interesarán. No solamente de tu especialidad sino también materias a fines.</p>
-                      <a href="#" class=readmore>Saber Más</a>
+                      <a href="<?php echo site_url().'cursos';?>" class=readmore>Saber Más</a>
                     </div>
                     <div class="tab-pane " id=thim_5df6fd163383e-step-1 role=tabpanel>
                       <h4 class="tab-title">¡Registrate!</h4>
                       <p class=description>El registro con nosotros es gratuito, en tu oficina virtual podrás ver todo los beneficios que tenemos para ti.</p>
-                      <a href="#" class=readmore>Saber Más</a>
+                      <a href="<?php echo site_url().'cursos';?>" class=readmore>Saber Más</a>
                     </div>
                     <div class="tab-pane " id=thim_5df6fd163383e-step-2 role=tabpanel>
                       <h4 class="tab-title">Empieza a aprender</h4>
                       <p class=description>Al adquirir tu curso, tendrás un abanico de posibilidades, nuevas herramientas que te ayudaran a ser un mejor profesional y llevar la vida que deseas.</p>
-                      <a href="#" class=readmore>Saber Más</a>
+                      <a href="<?php echo site_url().'cursos';?>" class=readmore>Saber Más</a>
                     </div>
                   </div>
                 </div>
@@ -415,22 +396,11 @@
   </div>
   <div id="back-to-top"><i class="fa fa-angle-up" aria-hidden=true></i></div>
     <div class="gallery-slider-content"></div>
-      <script>
-        var BP_Nouveau = {"ajaxurl":"","object_nav_parent":"#buddypress","objects":{"0":"activity","1":"members","4":"xprofile","7":"settings","8":"notifications"},"nonces":{"activity":"fcd5ecf43e","members":"9af41e8848","xprofile":"10dfc2af2b","settings":"8d89e10911"}};
-      </script>
-      <script>
-        window.lazySizesConfig = window.lazySizesConfig || {};window.lazySizesConfig.lazyClass = 'lazyload';window.lazySizesConfig.loadingClass = 'lazyloading';window.lazySizesConfig.loadedClass = 'lazyloaded';lazySizesConfig.loadMode = 1;
-      </script>
-      <script>
-        lazySizes.init();
-      </script>
       <script src=https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js></script>
       <script>
         WebFont.load({google:{families:['Roboto:400,300']}});
       </script>
       <script defer src="<?php echo site_url().'static/page_front/js/autoptimize_282.js';?>"></script>
-      <script src='https://www.google.com/recaptcha/api.js'></script>
-      <script src='<?php echo site_url().'static/page_front/js/script/contact.js';?>'></script>
       <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
 </body>
 </html>

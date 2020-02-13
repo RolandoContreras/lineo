@@ -5,6 +5,8 @@ class Home extends CI_Controller {
     public function __construct(){
         parent::__construct();
             $this->load->model("category_model","obj_category");
+            $this->load->model("courses_model","obj_courses");
+            $this->load->model("videos_model","obj_videos");
     }   
         
 	/**
@@ -26,20 +28,78 @@ class Home extends CI_Controller {
 	{
             //get category
             $data['obj_category'] = $this->nav_category();
+            
+            
+            $params_course_principal = array(
+                                    "select" =>"courses.course_id,
+                                                courses.category_id,
+                                                courses.name,
+                                                courses.slug,
+                                                courses.img2,
+                                                courses.description,
+                                                category.name as category_name,
+                                                category.slug as category_slug",
+                                    "join" => array( 'category, courses.category_id = category.category_id'),
+                                    "where" => "courses.active = 1",
+                                    "order" => "courses.course_id ASC",
+                                );  
+            $data['obj_courses_principal'] = $this->obj_courses->get_search_row($params_course_principal);
+            $course_id = $data['obj_courses_principal']->course_id;
+            //GET videos by course
+            $params_video = array(
+                            "select" =>"videos.video",
+                            "where" => "videos.course_id = $course_id and type = 1");
+            $data['obj_courses_overview'] = $this->obj_videos->get_search_row($params_video);
+            
             //set para home
-            $params = array(
-                        "select" =>"catalog.catalog_id,
-                                    catalog.summary,
-                                    catalog.name,
-                                    catalog.slug,
-                                    catalog.price,
-                                    catalog.description,
-                                    catalog.img,
-                                    catalog.active,
-                                    catalog.date",
-                "where" => "catalog.active = 1 and catalog.status_value = 1",
-                "order" => "catalog.catalog_id DESC");
+            $params_course = array(
+                                    "select" =>"courses.course_id,
+                                                courses.category_id,
+                                                courses.name,
+                                                courses.slug,
+                                                courses.img,
+                                                category.name as category_name,
+                                                category.slug as category_slug",
+                                    "join" => array( 'category, courses.category_id = category.category_id'),
+                                    "where" => "courses.active = 1",
+                                    "order" => "courses.course_id ASC",
+                                    "limit" => "10",
+                                );  
+            $data['obj_courses'] = $this->obj_courses->search($params_course); 
             //set meta title
+            
+            
+            
+            
+            //set para home
+            $params_course_related = array(
+                                    "select" =>"courses.course_id,
+                                                courses.category_id,
+                                                courses.name,
+                                                courses.slug,
+                                                courses.img,
+                                                courses.date,
+                                                courses.price,
+                                                courses.price_del,
+                                                category.name as category_name,
+                                                category.slug as category_slug",
+                                    "join" => array( 'category, courses.category_id = category.category_id'),
+                                    "where" => "courses.active = 1",
+                                    "order" => "courses.course_id DESC",
+                                    "limit" => "3",
+                                );  
+            $data['obj_courses_related'] = $this->obj_courses->search($params_course_related); 
+            
+            //GET principal video
+            $params = array(
+                            "select" =>"videos.video",
+                            "where" => "type = 1");
+            $data['obj_courses_overview'] = $this->obj_videos->get_search_row($params);
+            
+//            var_dump($data['obj_courses_overview']);
+//            die();
+            
+            
             $data['title'] = "Bienvenido";
             $this->load->view('home', $data);
 	}

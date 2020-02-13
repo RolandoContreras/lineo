@@ -257,8 +257,6 @@ class Courses extends CI_Controller {
                             "order" => "RAND()"
                 );
             $data['obj_courses_related'] = $this->obj_courses->search($params);
-//            var_dump($data['obj_courses_related']);
-//            die();
             
             $obj_courses_meta = $data['obj_courses'];
             $course_id = $data['obj_courses']->course_id;
