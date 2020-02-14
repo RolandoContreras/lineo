@@ -3,7 +3,7 @@
 <head>
   <meta charset=UTF-8>
   <meta name=viewport content="width=device-width, initial-scale=1">
-  <title>Cerebrito Digital | Plataforma de Cursos</title>
+  <title>U-Linex | Plataforma de Cursos</title>
    <!--START FAVICON-->
     <link rel="apple-touch-icon" sizes="180x180" href="<?php echo site_url().'static/page_front/img/logo/favicon/apple-touch-icon.png';?>">
     <link rel="icon" type="image/png" sizes="32x32" href="<?php echo site_url().'static/page_front/img/logo/favicon/favicon-32x32.png';?>">
@@ -48,9 +48,10 @@
                       <nav class="thim-font-heading learn-press-breadcrumb">
                           <a href="<?php echo site_url().'course';?>">Inicio</a> 
                           <span class=delimiter>/</span> 
-                          <a href="javascript:void(0);"><?php echo $obj_video->category_name;?></a> 
+                          <a href="javascript:void(0);">Arquitectura</a> 
                          <span class="item-name">
-                             <?php echo $obj_video->name;?>
+                             <?php //echo $obj_video->name;?>
+                             Arquitectura
                          </span>
                       </nav>
                       <ul class=curriculum-sections>

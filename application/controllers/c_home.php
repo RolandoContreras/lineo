@@ -10,154 +10,134 @@ class C_home extends CI_Controller {
 
     public function index()
     {
-        //GET SESION ACTUALY
-        $this->get_session();
-        //GET CUSTOMER_ID
-        $kid_id = $_SESSION['customer']['kit_id'];
-        
-        if($kid_id <= 1){
-            $limit = "3";
-            $order = "video_id Asc";
-        }else{
-            $limit = "12";
-            $order = "video_id Desc";
-        }
-        
-        //GET DATA FOREX VIDEOS
-        $params = array(
-                        "select" =>"name,
-                                    summary,
-                                    img,
-                                    video,
-                                    date",
-                "where" => "category_id = 1 and active = 1",
-                "order" => $order,
-                "limit" => $limit);
-        //GET DATA FROM CUSTOMER
-        $obj_videos_fx= $this->obj_videos->search($params);
-        
-        //GET DATA MARKETING VIDEOS
-        $params = array(
-                        "select" =>"name,
-                                    summary,
-                                    img,
-                                    video,
-                                    date",
-                "where" => "category_id = 2 and active = 1",
-                "order" => $order,
-                "limit" => $limit);
-        //GET DATA FROM CUSTOMER
-        $obj_videos_mkt= $this->obj_videos->search($params);
-        
-        $this->tmp_course->set("obj_videos_fx",$obj_videos_fx);
-        $this->tmp_course->set("obj_videos_mkt",$obj_videos_mkt);
-        $this->tmp_course->render("course/c_home");
+            //GET SESION ACTUALY
+            $this->get_session();
+            //get nav cursos
+            $params = array(
+                        "select" =>"videos.video_id,
+                                    videos.type,
+                                    videos.name,
+                                    videos.slug,
+                                    videos.video,
+                                    videos.description,
+                                    videos.date,
+                                    videos.active,
+                                    courses.slug as courses_slug,
+                                    courses.name as courses_name,
+                                    videos.date",
+                "join" => array( 'courses, courses.course_id = videos.course_id'),
+                "where" => "videos.active = 1",
+                "order" => "videos.video_id DESC",
+                );
+            $obj_video = $this->obj_videos->get_search_row($params);
+            $video = $obj_video->video;
+            
+            $explo_video = explode("=", $video);
+            $video_link = $explo_video[1];
+            //get all videso
+            $params = array(
+                        "select" =>"videos.video_id,
+                                    videos.description,
+                                    videos.type,
+                                    videos.name,
+                                    videos.slug,
+                                    videos.date,
+                                    videos.active,
+                                    courses.slug as courses_slug,
+                                    courses.name as courses_name,
+                                    videos.date",
+                "join" => array( 'courses, courses.course_id = videos.course_id'),
+                "where" => "videos.active = 1",
+                "order" => "videos.video_id ASC");
+            $obj_videos_all = $this->obj_videos->search($params);
+            
+            //SEND DATA
+            $this->tmp_course->set("obj_category_videos",$obj_videos_all);
+            $this->tmp_course->set("obj_videos_all",$obj_videos_all);
+            $this->tmp_course->set("obj_video",$obj_video);
+            $this->tmp_course->set("video_link",$video_link);
+            $this->tmp_course->render("course/c_home");
     }
     
-    public function all()
-    {
-        //GET SESION ACTUALY
-        $this->get_session();
-        //GET CUSTOMER_ID
-        $url = explode("/",uri_string());
-        $category = $url[1];
-        $module = $url[2];
-        
-        if($module == "basic"){
-            $module_id = 1;
-        }elseif($module == "intermediate"){
-            $module_id = 2;
-        }else{
-            $module_id = 3;
-        }
-        
-        //GET ID CATEGORY
-        $params = array(
-                "select" =>"category_id",
-        "where" => "slug like '%$category%'and active = 1",
-        "order" => "category_id DESC");
-        //GET DATA FROM CUSTOMER
-        $obj_category = $this->obj_category->get_search_row($params);
-        
-        if($obj_category->category_id == 1){
-            $text_name = "Forex e Inversiones";
-        }else{
-            $text_name = "Marketing y redes sociales";
-        }
-        
-        //GET VIDEO DATA
-        $params = array(
-                "select" =>"name,
-                            summary,
-                            img,
-                            video,
-                            date",
-        "where" => "category_id = $obj_category->category_id and module = $module_id and active = 1",
-        "order" => "video_id DESC");
-        //GET DATA FROM CUSTOMER
-        $obj_videos = $this->obj_videos->search($params);
-        
-        $this->tmp_course->set("obj_videos",$obj_videos);
-        $this->tmp_course->set("text_name",$text_name);
-        $this->tmp_course->render("course/c_all");
-    }
+    public function detail($slug)
+	{
+            //GET SESION ACTUALY
+            $this->get_session();
+            //get nav cursos
+            $obj_category_videos = $this->nav_videos();
+             //get data catalog
+            $params_categogory_id = array(
+                        "select" =>"category_id",
+                "where" => "slug like '%$slug%'");
+            $obj_category = $this->obj_category->get_search_row($params_categogory_id);
+            $category_id = $obj_category->category_id;
+             
+            $url = explode("/",uri_string());
+            $slug_2 = $url[2];
+            
+            
+             //get catalog
+            $params = array(
+                        "select" =>"videos.video_id,
+                                    videos.summary,
+                                    videos.type,
+                                    videos.name,
+                                    videos.slug,
+                                    videos.video,
+                                    videos.description,
+                                    videos.img2,
+                                    videos.date,
+                                    videos.active,
+                                    category.slug as category_slug,
+                                    category.name as category_name,
+                                    videos.date",
+                "join" => array( 'category, category.category_id = videos.category_id'),
+                "where" => "videos.slug = '$slug_2' and videos.category_id = $category_id and videos.active = 1");
+            $obj_video = $this->obj_videos->get_search_row($params);
+            $video = $obj_video->video;
+            
+            $explo_video = explode("=", $video);
+            $video_link = $explo_video[1];
+            //get all videso
+            $params = array(
+                        "select" =>"videos.video_id,
+                                    videos.summary,
+                                    videos.type,
+                                    videos.name,
+                                    videos.slug,
+                                    videos.date,
+                                    videos.active,
+                                    category.category_id,
+                                    category.slug as category_slug,
+                                    videos.date",
+                "join" => array( 'category, category.category_id = videos.category_id'),
+                "where" => "videos.active = 1",
+                "order" => "videos.category_id ASC");
+            $obj_videos_all = $this->obj_videos->search($params);
+            //SEND DATA
+            
+            $this->tmp_course->set("obj_category_videos",$obj_category_videos);
+            $this->tmp_course->set("obj_videos_all",$obj_videos_all);
+            $this->tmp_course->set("obj_video",$obj_video);
+            $this->tmp_course->set("video_link",$video_link);
+            
+            $this->tmp_course->render("course/c_home");
+	}
     
-    public function document()
-    {
-        //GET SESION ACTUALY
-        $this->get_session();
-        //GET CUSTOMER_ID
-        $this->tmp_course->render("course/c_document");
-    }
-    
-    public function profile()
-    {
-        //GET SESION ACTUALY
-        $this->get_session();
-        //GET CUSTOMER_ID
-        $customer_id = $_SESSION['customer']['customer_id'];
-        //GET DATA PRICE CRIPTOCURRENCY
-        $params = array(
-                        "select" =>"customer.username,
-                                    customer.email,
-                                    customer.first_name,
-                                    customer.last_name,
-                                    customer.btc_address,
-                                    customer.created_at,
-                                    customer.date_start,
-                                    customer.address,
-                                    customer.phone,
-                                    customer.dni,
-                                    customer.active,
-                                    paises.nombre,
-                                    kit.kit_id,
-                                    kit.name as kit",
-                        "where" => "customer.customer_id = $customer_id and customer.status_value = 1 and paises.id_idioma = 7",
-                        "join" => array('kit, customer.kit_id = kit.kit_id',
-                                        'paises, customer.country = paises.id'),
-                        );
-
-        $obj_customer = $this->obj_customer->get_search_row($params);
-        
-        $kit = $obj_customer->kit_id;
-        if($kit == 1){
-            $text_course = "Prueba";
-        }elseif($kit == 2){
-            $text_course = "Inversiones y Marketing - Módulo Basico";
-        }elseif($kit == 3){
-            $text_course = "Inversiones y Marketing - Módulo Intermedio";
-        }else{
-            $text_course = "Inversiones y Marketing - Módulo Avanzando";
+    public function nav_videos(){
+            $params_category_videos = array(
+                        "select" =>"category_id,
+                                    slug,
+                                    name",
+                "where" => "type = 1 and active = 1",
+            );
+            //GET DATA COMMENTS
+            return $obj_category_videos = $this->obj_category->search($params_category_videos);
         }
-        
-        $this->tmp_course->set("text_course",$text_course);
-        $this->tmp_course->set("obj_customer",$obj_customer);
-        $this->tmp_course->render("course/c_profile");
-    }
     
     public function get_session(){          
         if (isset($_SESSION['customer'])){
-            if($_SESSION['customer']['logged_customer']=="TRUE" && $_SESSION['customer']['status']=='1'){               
+            if($_SESSION['customer']['logged_customer']=="TRUE"){               
                 return true;
             }else{
                 redirect(site_url().'home');

@@ -66,9 +66,6 @@ class Home extends CI_Controller {
                                     "limit" => "10",
                                 );  
             $data['obj_courses'] = $this->obj_courses->search($params_course); 
-            //set meta title
-            
-            
             
             
             //set para home
@@ -96,13 +93,27 @@ class Home extends CI_Controller {
                             "where" => "type = 1");
             $data['obj_courses_overview'] = $this->obj_videos->get_search_row($params);
             
-//            var_dump($data['obj_courses_overview']);
-//            die();
-            
-            
+            //set meta title
             $data['title'] = "Bienvenido";
             $this->load->view('home', $data);
 	}
+        
+        public function term_condition()
+	{
+            //get category
+            $data['obj_category'] = $this->nav_category();
+            $data['title'] = "Terminos y Condiciones";
+            $this->load->view('terminos', $data);
+	}
+        
+        public function policy()
+	{
+            //get category
+            $data['obj_category'] = $this->nav_category();
+            $data['title'] = "Política de privacidad y cookies";
+            $this->load->view('policy', $data);
+	}
+        
         
         public function nav_category(){
             $params_category = array(

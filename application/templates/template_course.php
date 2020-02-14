@@ -3,13 +3,12 @@
 <head>
   <meta charset=UTF-8>
   <meta name=viewport content="width=device-width, initial-scale=1">
-  <title>Cerebrito Digital | Plataforma de Cursos</title>
-   <!--START FAVICON-->
-    <link rel="apple-touch-icon" sizes="180x180" href="<?php echo site_url().'static/page_front/img/logo/favicon/apple-touch-icon.png';?>">
-    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo site_url().'static/page_front/img/logo/favicon/favicon-32x32.png';?>">
-    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo site_url().'static/page_front/img/logo/favicon/favicon-16x16.png';?>">
-    <link rel="manifest" href="<?php echo site_url().'static/page_front/img/logo/favicon/site.webmanifest';?>">
-  <!--END FAVICON-->
+  <title>U-linex | Plataforma de Cursos</title>
+   <!--start favicon-->
+  <link rel="apple-touch-icon" sizes="180x180" href="<?php echo site_url().'static/page_front/images/logo/favico/apple-touch-icon.png';?>">
+  <link rel="icon" type="image/png" sizes="32x32" href="<?php echo site_url().'static/page_front/images/logo/favico/favicon-32x32.png';?>">
+  <link rel="icon" type="image/png" sizes="16x16" href="<?php echo site_url().'static/page_front/images/logo/favico/favicon-16x16.png';?>">
+  <link rel="manifest" href="<?php echo site_url().'static/page_front/images/logo/favico/site.webmanifest';?>">
   <link type="text/css" media="all" href="<?php echo site_url().'static/course/css/autoptimize_d8.css';?>" rel="stylesheet">
   <link type="text/css" media="screen" href="<?php echo site_url().'static/course/css/autoptimize_fc6.css';?>" rel="stylesheet">
   <link type="text/css" media="only screen and (max-width: 768px)" href="<?php echo site_url().'static/course/css/autoptimize_dcb.css';?>" rel="stylesheet">
@@ -48,12 +47,12 @@
                       <nav class="thim-font-heading learn-press-breadcrumb">
                           <a href="<?php echo site_url().'course';?>">Inicio</a> 
                           <span class=delimiter>/</span> 
-                          <a href="javascript:void(0);"><?php echo $obj_video->category_name;?></a> 
+                          <a href="javascript:void(0);">Todos los Cursos</a> 
                          <span class="item-name">
-                             <?php echo $obj_video->name;?>
+                             Plataforma U-Linex
                          </span>
                       </nav>
-                      <ul class=curriculum-sections>
+                      <ul class="curriculum-sections">
                         <?php 
                         foreach ($obj_category_videos as $value) { ?>
                                 <li class="section">
@@ -78,22 +77,24 @@
                         <?php } ?>  
                       </ul>
                     </div>
-                    <div id=learn-press-content-item>
+                    <div id="learn-press-content-item">
                       <div class=content-item-scrollable>
                         <div id=course-item-content-header class=thim-course-item-header>
                           <div class=course-item-search>
                             <form>
-                                <input type=text placeholder="Buscar Curso">
-                                <button type=button></button>
+                                <input type="text" placeholder="Buscar Curso">
+                                <button type="button"></button>
                             </form>
                           </div>
                           <div class=thim-course-item-popup-logo>
-                              <a class=lesson-logo href="<?php echo site_url().'course';?>" title="logo">
-                                <img class=logo src="<?php echo site_url().'static/page_front/img/logo/logo.png';?>" alt="logo" width="95">
+                              <a class=lesson-logo href="<?php echo site_url().'plataforma';?>" title="logo">
+                                <img class=logo src="<?php echo site_url().'static/page_front/images/logo/logo-h.png';?>" alt="logo" width="130">
                             </a>
                           </div>
-                          <a href="<?php echo site_url().'backoffice';?>" class=back_course><i class="fa fa-close"></i></a>
+                          <a href="<?php echo site_url().'login';?>" class=back_course><i class="fa fa-close"></i></a>
+                          <a href="<?php echo site_url().'login';?>"><i class="fa fa-close"></i></a>
                           <a class=toggle-content-item href></a>
+                          <a class="">Hola</a>
                         </div>
                         <?php echo $body;?>  
                         <div id=course-item-content-footer></div>
