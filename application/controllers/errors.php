@@ -17,19 +17,35 @@ if (!defined('BASEPATH'))
 
 class Errors extends CI_Controller
 {
+    
  private $data = array();
 
  function __construct()
+ 
  {
  parent::__construct();
  $this->load->helper('html');
+ $this->load->model("category_model","obj_category");
  }
 
  function error_404()
  {
  //llamamos a la vista que muestra el error 404 personalizado
- $this->load->view('errors/404');
+ $data['obj_category'] = $this->nav_category();   
+ //set meta title
+ $data['title'] = "Bienvenido";
+ $this->load->view('errors/404',$data);
  }
+ public function nav_category(){
+            $params_category = array(
+                        "select" =>"category_id,
+                                    slug,
+                                    name",
+                "where" => "active = 1",
+            );
+            //GET DATA COMMENTS
+            return $obj_category = $this->obj_category->search($params_category);
+        }
 }
 /* End of file errors.php */
 /* Location: ./application/controllers/errors.php */
