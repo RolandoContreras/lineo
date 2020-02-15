@@ -94,7 +94,6 @@
                           <a href="<?php echo site_url().'login';?>" class=back_course><i class="fa fa-close"></i></a>
                           <a href="<?php echo site_url().'login';?>"><i class="fa fa-close"></i></a>
                           <a class=toggle-content-item href></a>
-                          <a class="">Hola</a>
                         </div>
                         <?php echo $body;?>  
                         <div id=course-item-content-footer></div>

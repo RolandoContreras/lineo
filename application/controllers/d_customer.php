@@ -13,8 +13,13 @@ class D_customer extends CI_Controller{
            $params = array(
                         "select" =>"customer.customer_id,
                                     customer.name,
+                                    customer.phone,
                                     customer.email,
+                                    paises.nombre as pais,
                                     customer.active",
+                        "join" => array('paises, paises.id = customer.country'),
+                        "where" => ""
+               
                );
            //GET DATA FROM CUSTOMER
            $obj_customer= $this->obj_customer->search($params);

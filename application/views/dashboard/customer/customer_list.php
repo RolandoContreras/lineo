@@ -40,6 +40,10 @@
                                     aria-label="Position: activate to sort column ascending">NOMBRE</th>
                                   <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 100px;"
                                     aria-label="Age: activate to sort column ascending">E-MAIL</th>
+                                  <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 150px;"
+                                    aria-label="Position: activate to sort column ascending">TELÉFONO</th>
+                                  <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 150px;"
+                                    aria-label="Position: activate to sort column ascending">PAÍS</th>
                                   <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 100px;"
                                     aria-label="Age: activate to sort column ascending">ESTADO</th>
                                   <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 100px;"
@@ -53,6 +57,8 @@
                                 <th><?php echo $value->customer_id;?></th>
                                 <td><?php echo $value->name;?></td>
                                 <td><?php echo $value->email;?></td>
+                                <td><?php echo $value->phone;?></td>
+                                <td><?php echo $value->pais;?></td>
                                 <td>
                                     <?php if ($value->active == 0) {
                                         $valor = "No Activo";

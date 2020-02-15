@@ -51,7 +51,7 @@ function login(){
                          texto = texto+'</div>';                 
                          texto = texto+'</center>';
                          $("#mensaje").html(texto);
-                       location.href = site + "plataforma";
+                       location.href = site + "backoffice";
                    }else{
                        $("#mensaje").html();
                          var texto = "";
