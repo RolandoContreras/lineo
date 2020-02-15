@@ -58,17 +58,14 @@
                         <div class=wpb_wrapper>
                           <div class="wpb_text_column wpb_content_element ">
                             <div class=wpb_wrapper>
-                              <h4 class="subtitle">Inicio Rápido</h4>
+                              <h4 class="subtitle">Bienvenido</h4>
                               <div class=wp-social-login-widget>
-                                <div class=wp-social-login-connect-with>Iniciar con tus redes sociales</div>
+                                <div class=wp-social-login-connect-with>Nuevo Registro</div>
                                 <div class=wp-social-login-provider-list>
-                                    <a href=javascript:void(0); title="Conectar con Facebook" class="wp-social-login-provider wp-social-login-provider-facebook" data-provider="Facebook">Facebook</a>
-                                    <a href=javascript:void(0); title="Conectar con Google" class="wp-social-login-provider wp-social-login-provider-google" data-provider="Google">Google</a>
+                                    <img src="<?php echo site_url().'static/page_front/images/logo/logo-h.png';?>" alt="logo">
                                 </div>
-                                <div class=wp-social-login-widget-clearing></div>
-                              </div><input type=hidden id=wsl_popup_base_url value="http://wordpresslms.thimpress.com/wp-login.php?action=wordpress_social_authenticate&#038;mode=login&#038;">
-                              <input
-                                type=hidden id=wsl_login_form_uri value=http://wordpresslms.thimpress.com/wp-login.php></div>
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -77,30 +74,43 @@
                       <div class="vc_column-inner vc_custom_1503993250187">
                         <div class=wpb_wrapper>
                           <div class=thim-login>
-                            <h4 class="subtitle">Iniciar Sesión</h4>
-                            <h2 class="title">Iniciar con tu cuenta de U-linex</h2>
-                            <form name="loginform" id="loginform" action="" method="post">
+                            <h4 class="subtitle">Ingresa tus datos</h4>
+                            <h2 class="title">Registro</h2>
+                            <form name="loginform" id="loginform" action="javascript:void(0);">
                               <p class="login-username">
-                                  <input required type="text" name=2log" placeholder="E-mail *" id=user_login class="input required" value size="20">
+                                  <input required type="text" name="name" placeholder="Nombre *" id="name" class="input required" size="20">
+                              </p>
+                              <p class="login-username">
+                                  <input required type="text" name="email" placeholder="E-mail *" id="email" class="input required" size="20">
                               </p>
                               <p class="login-password">
-                                  <input required type=password name="pwd" placeholder="Contraseña *" id="user_pass" class="input required" value size="20">
+                                  <input required type="password" name="pwd" placeholder="Contraseña *" id="user_pass" class="input required" size="20">
                                   <span id="show_pass"><i class="fa fa-eye"></i></span>
                               </p>
-                                <div class=wrap-fields>
-                                  <p class="forgetmenot login-remember">
-                                      <label for=rememberme>
-                                      <input name=rememberme type=checkbox id=rememberme value=forever> Remember Me</label>
-                                  </p>
-                                  <a class=lost-pass-link href="http://wordpresslms.thimpress.com/account/?action=lostpassword" title="Lost Password">Lost your password?</a>
+                              <p class="login-username">
+                                  <input type="text" name="phone" id="phone" class="input required" placeholder="Teléfono *">
+                              </p>
+                              <p class="login-username">
+                                  <select required="" class="input required" name="country" id="country">
+                                    <option  selected value="">País *</option>
+                                    <?php  foreach ($obj_paises as $key => $value) { ?>
+                                           <option style="border-style: solid !important" value="<?php echo $value->id;?>"><?php echo $value->nombre;?></option>
+                                    <?php } ?>
+                                </select>
+                              </p>
+                              <div class="row">
+                                  <div class="col">
+                                      <div class="g-recaptcha" data-sitekey="6LcXgNcUAAAAANCfGha0FezqnYAFGIWYV4gNbHou"></div>
+                                  </div>
                                 </div>
-                                  <p class="submit login-submit">
-                                      <input type=submit name=wp-submit id=wp-submit class="button button-primary button-large" value=Login>
-                                      <input type=hidden name=redirect_to value=http://wordpresslms.thimpress.com>
-                                      <input type=hidden name=testcookie value=1>
-                                  </p>
+                              <div class="vc_empty_space" style="height: 20px"><span class="vc_empty_space_inner"></span></div>
+                              <p class="submit login-submit">
+                                  <input type="submit" onclick="register();" id="wp-submit" class="button button-primary button-large" value="Crear Registro">
+                              </p>
                             </form>
-                            <p class=link-bottom>Not a member yet? <a href="http://wordpresslms.thimpress.com/account/?action=register&amp;redirect_to">Register Now</a></p>
+                            <p class=link-bottom>¿Ya tienes una cuenta? <a href="<?php echo site_url().'login';?>">Iniciar Sesión</a></p>
+                            <div class="vc_empty_space" style="height: 20px"><span class="vc_empty_space_inner"></span></div>
+                            <div id="mensaje"></div>
                         </div>
                       </div>
                     </div>
@@ -122,24 +132,14 @@
   </div>
   <div id="back-to-top"><i class="fa fa-angle-up" aria-hidden=true></i></div>
     <div class="gallery-slider-content"></div>
-      <script>
-        var BP_Nouveau = {"ajaxurl":"","object_nav_parent":"#buddypress","objects":{"0":"activity","1":"members","4":"xprofile","7":"settings","8":"notifications"},"nonces":{"activity":"fcd5ecf43e","members":"9af41e8848","xprofile":"10dfc2af2b","settings":"8d89e10911"}};
-      </script>
-      <script>
-        window.lazySizesConfig = window.lazySizesConfig || {};window.lazySizesConfig.lazyClass = 'lazyload';window.lazySizesConfig.loadingClass = 'lazyloading';window.lazySizesConfig.loadedClass = 'lazyloaded';lazySizesConfig.loadMode = 1;
-      </script>
-      <script>
-        lazySizes.init();
-      </script>
       <script src=https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js></script>
       <script>
         WebFont.load({google:{families:['Roboto:400,300']}});
       </script>
       <script defer src="<?php echo site_url().'static/page_front/js/autoptimize_282.js';?>"></script>
       <script src='https://www.google.com/recaptcha/api.js'></script>
-      <script src='<?php echo site_url().'static/page_front/js/script/contact.js';?>'></script>
       <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
-      <script src='<?php echo site_url().'static/page_front/js/script/contact.js';?>'></script>
+      <script src='<?php echo site_url().'static/page_front/js/script/register.js';?>'></script>
 </body>
 </html>
 

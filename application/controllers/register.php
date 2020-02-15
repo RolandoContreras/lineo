@@ -6,6 +6,7 @@ class Register extends CI_Controller {
         parent::__construct();
         $this->load->model("customer_model", "obj_customer");
         $this->load->model("category_model","obj_category");
+        $this->load->model("paises_model","obj_paises");
     }
 
 	/**
@@ -28,43 +29,12 @@ class Register extends CI_Controller {
             //get category
             $data['obj_category'] = $this->nav_category();
             //Select params
+            $data['obj_paises'] = $this->list_pais();
             $data['title'] = "Nuevo Registro";
             /// VIEW
             $this->load->view("register", $data);
 		
 	}
-        
-        public function validate_username() {
-            if ($this->input->is_ajax_request()) {
-                //SELECT ID FROM CUSTOMER
-            $username = str_to_minuscula(trim($this->input->post('username')));
-            $param_customer = array(
-                "select" => "customer_id",
-                "where" => "username = '$username'");
-            $customer = count($this->obj_customer->get_search_row($param_customer));
-            if ($customer > 0) {
-                $data['message'] = "true";
-                $data['print'] = "No esta disponible! <i class='fa fa-times-circle-o' aria-hidden='true'></i>";
-            } else {
-                $data['message'] = "false";
-                $data['print'] = "Usuario Disponible! <i class='fa fa-check-square-o' aria-hidden='true'></i>";
-            }
-            echo json_encode($data);
-            }
-        }
-        
-        public function validate_username_register($username) {
-                //SELECT ID FROM CUSTOMER
-            $param_customer = array(
-                "select" => "customer_id",
-                "where" => "username = '$username'");
-            $customer = count($this->obj_customer->get_search_row($param_customer));
-            if ($customer > 0) {
-                return 1;
-            } else {
-                return 0;
-            }
-        }
         
         public function validate()
 	{
@@ -72,73 +42,39 @@ class Register extends CI_Controller {
             //SET TIMEZONE AMERICA
             date_default_timezone_set('America/Lima');
             //get data
-            $username = str_to_minuscula($this->input->post("username"));
             //VALIDATE USERNAME
-            $result = $this->validate_username_register($username);
+            $email = $this->input->post("email");
+            $result = $this->validate_username_register($email);
             
             if($result == 1){
-                $data['status'] = "username";
+                $data['status'] = "email";
             }else{
-                $parent_id = $this->input->post("parent_id");
                 $name = $this->input->post("name");
-                $last_name = $this->input->post("last_name");
-                $email = $this->input->post("email");
-                $dni = $this->input->post("dni");
                 $phone = $this->input->post("phone");
                 $pass = $this->input->post("pass");
-                $address = $this->input->post("address");
                 $country = $this->input->post("country");
             
                 //INSERT TABLE CUSTOMER
                 $data = array(
-                        'first_name' => $name,
-                        'last_name' => $last_name,
-                        'kit_id' => 0,
-                        'range_id' => 0,
-                        'username' => $username,
+                        'name' => $name,
                         'email' => $email,
                         'password' => $pass,
-                        'address' => $address,
                         'phone' => $phone,
-                        'dni' => $dni,
                         'country' => $country,
-                        'active' => 0,
-                        'status_value' => 1,
-                        'created_at' => date("Y-m-d H:i:s"),
+                        'active' => 1,
                     );
                     $customer_id = $this->obj_customer->insert($data);
-                    
-                //GET IDENT    
-                $param_customer = array(
-                            "select" => "ident",
-                            "where" => "customer_id = $parent_id");
-               $customer = $this->obj_unilevel->get_search_row($param_customer);    
-               $ident =  $customer->ident;
-               //CRETE NEW IDENT 
-               $new_ident = $ident.",$parent_id";
-               
-                //CREATE UNILEVEL
-                $data_invoice = array(
-                        'customer_id' => $customer_id,
-                        'parend_id' => $parent_id,
-                        'ident' => $new_ident,
-                        'status_value' => 1,
-                        'created_at' => date("Y-m-d H:i:s"),
-                    );
-                    $this->obj_unilevel->insert($data_invoice);
-                    $data['status'] = "true";
+                    //create session
+                    $data_customer_session['customer_id'] = $customer_id;
+                    $data_customer_session['name'] = $name;
+                    $data_customer_session['email'] = $email;
+                    $data_customer_session['active'] = 1;
+                    $data_customer_session['logged_customer'] = "TRUE";
+                    $_SESSION['customer'] = $data_customer_session; 
+                    $data['status'] = "success";
+//                    $this->message($username, $pass, $name, $email);
             }
             //CREAR NUEVA SECION 
-            $data_customer_session['customer_id'] = $customer_id;
-            $data_customer_session['name'] = $name.' '.$last_name;
-            $data_customer_session['username'] = $username;
-            $data_customer_session['email'] = $email;
-            $data_customer_session['active'] = 0;
-            $data_customer_session['logged_customer'] = "TRUE";
-            $data_customer_session['status'] = 1;
-            $_SESSION['customer'] = $data_customer_session; 
-            $data['status'] = "success";
-            $this->message($username, $pass, $name, $email);
             echo json_encode($data);
             }
 	}
@@ -350,6 +286,28 @@ class Register extends CI_Controller {
         }
       }
       
+        public function list_pais() {
+            //Select params
+            $params = array(
+                "select" => "id, nombre",
+                "where" => "id_idioma = 7");
+            $obj_paises = $this->obj_paises->search($params);
+            return $obj_paises;
+        }
+        
+        public function validate_username_register($email) {
+                //SELECT ID FROM CUSTOMER
+            $param_customer = array(
+                "select" => "customer_id",
+                "where" => "email = '$email'");
+            $customer = $this->obj_customer->total_records($param_customer);
+            if ($customer > 0) {
+                return 1;
+            } else {
+                return 0;
+            }
+        }
+        
         public function nav_category(){
             $params_category = array(
                         "select" =>"category_id,
