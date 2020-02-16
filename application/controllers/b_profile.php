@@ -4,12 +4,15 @@ class B_profile extends CI_Controller {
      function __construct() {
         parent::__construct();
         $this->load->model("customer_model","obj_customer");
+        $this->load->model("category_model","obj_category");
     }
 
     public function index()
     {
         //GET SESION ACTUALY
         $this->get_session();
+        //GET NAV CATEGORY
+        $obj_category_videos = $this->nav_category();
         /// VISTA
         $customer_id = $_SESSION['customer']['customer_id'];
         //GET DATA PRICE CRIPTOCURRENCY
@@ -58,6 +61,17 @@ class B_profile extends CI_Controller {
                 }
                echo json_encode($data); 
             }
+    }
+    
+    public function nav_category(){
+        $params_category = array(
+                    "select" =>"category_id,
+                                slug,
+                                name",
+            "where" => "active = 1",
+        );
+        //GET DATA COMMENTS
+        return $obj_category = $this->obj_category->search($params_category);
     }
     
     public function get_session(){          

@@ -38,20 +38,24 @@
           <?php
           $url = explode("/",uri_string());
             if(isset($url[1])){
-                $nav = "course";
+                $nav = "$url[1]";
             }else{
-                $nav = "";
+                $nav = "home";
             }
             
             $course_syle = "";
             $home_syle = "";
+            $profile_syle = "";
             
             switch ($nav) {
-                case "course":
-                    $course_syle = "active";
+                case "profile":
+                    $profile_syle = "active";
+                    break;
+                case "home":
+                    $home_syle = "active";
                     break;
                 default:
-                    $home_syle = "active";
+                    $course_syle = "active";
                     break;
             }
           ?>
@@ -66,7 +70,7 @@
               </a>
         </li>
         <li class="nav-item">
-              <a href="<?php echo site_url().'backoffice/profile';?>" class="nav-link <?php echo $home_syle;?>">
+              <a href="<?php echo site_url().'backoffice/profile';?>" class="nav-link <?php echo $profile_syle;?>">
                   <span class="pcoded-micon">
                        <i data-feather="users"></i>
                   </span>
@@ -90,7 +94,7 @@
         <li class="nav-item pcoded-hasmenu">
             <a href="#!" class="">
                 <span class="pcoded-micon">
-                    <i data-feather="airplay"></i>
+                    <i data-feather="star"></i>
                 </span>
                 <span class="pcoded-mtext">Mis Cursos</span>
             </a>
