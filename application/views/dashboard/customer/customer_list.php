@@ -44,6 +44,8 @@
                                     aria-label="Position: activate to sort column ascending">TELÉFONO</th>
                                   <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 150px;"
                                     aria-label="Position: activate to sort column ascending">PAÍS</th>
+                                  <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 150px;"
+                                    aria-label="Position: activate to sort column ascending">FECHA</th>
                                   <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 100px;"
                                     aria-label="Age: activate to sort column ascending">ESTADO</th>
                                   <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 100px;"
@@ -59,6 +61,7 @@
                                 <td><?php echo $value->email;?></td>
                                 <td><?php echo $value->phone;?></td>
                                 <td><?php echo $value->pais;?></td>
+                                <td><?php echo formato_fecha_barras($value->date);?></td>
                                 <td>
                                     <?php if ($value->active == 0) {
                                         $valor = "No Activo";
@@ -69,6 +72,7 @@
                                     } ?>
                                     <span class="<?php echo $stilo;?>"><?php echo $valor;?></span>
                                 </td>
+                                
                                 <td>
                                     <div class="operation">
                                             <div class="btn-group">
@@ -85,6 +89,9 @@
                                   <th rowspan="1" colspan="1">ID</th>
                                   <th rowspan="1" colspan="1">NOMBRE</th>
                                   <th rowspan="1" colspan="1">E-MAIL</th>
+                                  <th rowspan="1" colspan="1">TELÉFONO</th>
+                                  <th rowspan="1" colspan="1">PAÍS</th>
+                                  <th rowspan="1" colspan="1">FECHA</th>
                                   <th rowspan="1" colspan="1">ESTADO</th>
                                   <th rowspan="1" colspan="1">ACCIONES</th>
                                 </tr>

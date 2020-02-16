@@ -51,12 +51,37 @@
                                     <label>E-mail</label>
                                     <input class="form-control" type="text" id="email" name="email" value="<?php echo isset($obj_customer->email)?$obj_customer->email:"";?>" class="input-xlarge-fluid" placeholder="Correo Electrónico">
                               </div>
+                              <div class="form-group">
+                                    <label>Teléfono</label>
+                                    <input class="form-control" type="text" id="phone" name="phone" value="<?php echo isset($obj_customer->phone)?$obj_customer->phone:"";?>" class="input-xlarge-fluid" placeholder="Teléfono">
+                              </div>
                           </div>
                           <div class="form-group col-md-6">
                               <div class="form-group">
                                     <label>Fecha de Creación</label>
-                                    <input class="form-control" type="text" id="date" name="date" class="input-small-fluid" placeholder="Fecha de Creación" value="<?php echo isset($obj_customer->date)?$obj_customer->date:"";?>" disabled="">
+                                    <input class="form-control" type="text" id="date" name="date" class="input-small-fluid" placeholder="Fecha de Creación" value="<?php echo isset($obj_customer->date)?$obj_customer->date:"";?>">
                               </div>
+                              <div class="form-group">
+                              <label for="inputState">Pais</label>
+                                <select name="pais" id="pais" class="form-control">
+                                <option value="">[ Seleccionar ]</option>
+                                    <?php foreach ($obj_paises as $value ): ?>
+                                <option value="<?php echo $value->id;?>"
+                                    <?php 
+                                            if(isset($obj_customer->country)){
+                                                    if($obj_customer->country==$value->id){
+                                                        echo "selected";
+                                                    }
+                                            }else{
+                                                      echo "";
+                                            }
+
+                                    ?>><?php echo $value->nombre;?>
+                                </option>
+                                    <?php endforeach; ?>
+                                </select>
+                              </div>
+                              
                               <div class="form-group">
                                 <label for="inputState">Estado</label>
                                     <select name="active" id="active" class="form-control">

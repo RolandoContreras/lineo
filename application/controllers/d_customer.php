@@ -5,6 +5,7 @@ class D_customer extends CI_Controller{
     public function __construct(){
         parent::__construct();
         $this->load->model("customer_model","obj_customer");
+        $this->load->model("paises_model","obj_paises");
     }   
                 
     public function index(){  
@@ -15,10 +16,11 @@ class D_customer extends CI_Controller{
                                     customer.name,
                                     customer.phone,
                                     customer.email,
+                                    customer.date,
                                     paises.nombre as pais,
                                     customer.active",
                         "join" => array('paises, paises.id = customer.country'),
-                        "where" => ""
+                        "where" => "paises.id_idioma = 7"
                
                );
            //GET DATA FROM CUSTOMER
@@ -36,6 +38,8 @@ class D_customer extends CI_Controller{
                 'name' => $this->input->post('name'),
                 'password' => $this->input->post('password'),
                 'email' => $this->input->post('email'),
+                'phone' => $this->input->post('phone'),
+                'country' => $this->input->post('pais'),
                 'date' => $this->input->post("date"),  
                 'active' => $this->input->post('active'),
                 'updated_at' => date("Y-m-d H:i:s"),
@@ -60,6 +64,13 @@ class D_customer extends CI_Controller{
             //RENDER
             $this->tmp_mastercms->set("obj_customer",$obj_customer);
           }
+          
+          //SELECT PAISES
+            $params = array("select" => "",
+                            "where" => "id_idioma = 7");
+            $obj_paises  = $this->obj_paises->search($params);   
+            //RENDER TO VIEW
+            $this->tmp_mastercms->set("obj_paises",$obj_paises);
             $this->tmp_mastercms->render("dashboard/customer/customer_form");    
     }
     
