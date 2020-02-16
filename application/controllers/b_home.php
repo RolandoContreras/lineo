@@ -150,7 +150,7 @@ class B_home extends CI_Controller {
             //get nav cursos
             $obj_category_videos = $this->nav_category();
              //get data catalog
-           $url = explode("/",uri_string());
+            $url = explode("/",uri_string());
             $slug_2 = $url[2];
             //get course
             $params = array(
@@ -175,6 +175,10 @@ class B_home extends CI_Controller {
                             "select" =>"videos.video",
                             "where" => "videos.course_id = $course_id and type = 1");
             $obj_courses_overview = $this->obj_videos->get_search_row($params);
+            //VIDEO LINK
+            $video = $obj_courses_overview->video;
+            $explo_video = explode("=", $video);
+            $video_link = $explo_video[1];
             //GET videos by course
             $params = array(
                             "select" =>"videos.video_id,
@@ -184,9 +188,36 @@ class B_home extends CI_Controller {
                                         videos.time",
                             "where" => "videos.course_id = $course_id and videos.active = 1");
             $obj_videos = $this->obj_videos->search($params);
-            //SEND DATA
             
+            
+            //get category_id
+            $params_categogory_id = array(
+                        "select" =>"category_id",
+                "where" => "slug like '%$slug%'");
+            $obj_category = $this->obj_category->get_search_row($params_categogory_id);
+            $category_id = $obj_category->category_id;
+            //cursos relacionados            
+            $params = array(
+                            "select" =>"courses.course_id,
+                                        courses.category_id,
+                                        courses.name,
+                                        courses.slug,
+                                        courses.img,
+                                        courses.description,
+                                        courses.price,
+                                        courses.price_del,
+                                        courses.date,
+                                        category.name as category_name,
+                                        category.slug as category_slug",
+                            "join" => array( 'category, courses.category_id = category.category_id'),
+                            "where" => "courses.category_id = $category_id and courses.course_id <> $course_id",
+                            "order" => "RAND()"
+                );
+            $obj_courses_related = $this->obj_courses->search($params);
+            //SEND DATA
+            $this->tmp_backoffice->set("video_link",$video_link);
             $this->tmp_backoffice->set("obj_videos",$obj_videos);
+            $this->tmp_backoffice->set("obj_courses_related",$obj_courses_related);
             $this->tmp_backoffice->set("obj_category_videos",$obj_category_videos);
             $this->tmp_backoffice->set("obj_courses_overview",$obj_courses_overview);
             $this->tmp_backoffice->set("obj_courses",$obj_courses);
@@ -244,6 +275,68 @@ class B_home extends CI_Controller {
         $this->tmp_course->set("text_course",$text_course);
         $this->tmp_course->set("obj_customer",$obj_customer);
         $this->tmp_course->render("course/c_profile");
+    }
+    
+    public function add_cart() {
+        if($this->input->is_ajax_request()){   
+                //GET CUSTOMER_ID
+                $price = $this->input->post('price');
+                $course_id = $this->input->post('course_id');
+                $quantity = 1;
+                $name = $this->input->post('name');
+                
+                //ADD CART
+                if($quantity > 0){
+                    $data = array(
+                        'id'      => $course_id,
+                        'qty'     => $quantity,
+                        'price'   => $price,
+                        'name'    => "$name",
+                    );
+                    $cart_id = $this->cart->insert($data);
+
+                    if($cart_id != ""){
+                        $data['status'] = "true";
+                    }else{
+                        $data['status'] = "false";
+                    }
+                }else{
+                    $data['status'] = "false";
+                }
+               echo json_encode($data); 
+        }
+    }
+    
+    public function pay_order()
+    {
+        //GET SESION ACTUALY
+        $this->get_session();
+        //get nav ctalogo
+        $obj_category_videos = $this->nav_category();
+        
+        $this->tmp_backoffice->set("obj_category_videos",$obj_category_videos);
+        $this->tmp_backoffice->render("backoffice/b_pay_order");
+    }
+    
+    public function delete_cart() {
+        
+        if($this->input->is_ajax_request()){   
+               //GET SESION ACTUALY
+                $this->get_session();
+                //GET CUSTOMER_ID
+                
+                $id = $this->input->post('id');
+               //UPDATE CART
+                $data = array(
+                        'rowid' => "$id",
+                        'qty'   => 0
+                );
+
+                $this->cart->update($data);
+                
+               $data['status'] = "true";
+               echo json_encode($data); 
+        }
     }
     
     public function nav_category(){

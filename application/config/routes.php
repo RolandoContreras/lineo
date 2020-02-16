@@ -65,6 +65,12 @@ $route['registro/validate_username'] = "register/validate_username";
 $route['registro/validate'] = "register/validate";
 
 $route['backoffice'] = "b_home";
+
+$route['backoffice/pay_order'] = "b_home/pay_order";
+$route['backoffice/order/add_cart'] = 'b_home/add_cart';
+$route['backoffice/order/delete_cart'] = 'b_home/delete_cart';
+
+
 $route['backoffice/([0-9]+)'] = 'b_home/index/$1';
 $route['backoffice/([0-9a-z_-]+)'] = 'b_home/category/$1';
 $route['backoffice/([0-9a-z_-]+)/([0-9]+)'] = 'b_home/category/$1';

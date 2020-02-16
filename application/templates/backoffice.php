@@ -19,6 +19,9 @@
   <link rel="stylesheet" href="<?php echo site_url().'static/course/css/style.css';?>">
   <link rel="stylesheet" href="<?php echo site_url().'static/course/css/gallery.css';?>">
   <script src="https://unpkg.com/feather-icons"></script>
+  <script type="text/javascript">
+    var site = '<?php echo site_url();?>';
+  </script>
 </head>
 
 <body class="layout-6" style="background-image: url('<?php echo site_url().'static/page_front/images/bg_header.jpg';?>'); background-size: cover;">
@@ -62,6 +65,14 @@
                   <span class="pcoded-mtext">Inicio</span>
               </a>
         </li>
+        <li class="nav-item">
+              <a href="<?php echo site_url().'backoffice/profile';?>" class="nav-link <?php echo $home_syle;?>">
+                  <span class="pcoded-micon">
+                       <i data-feather="users"></i>
+                  </span>
+                  <span class="pcoded-mtext">Perfil</span>
+              </a>
+        </li>
         <li class="nav-item pcoded-hasmenu">
             <a href="#!" class="<?php echo $course_syle;?>">
                 <span class="pcoded-micon">
@@ -77,7 +88,7 @@
             </ul>
         </li>
         <li class="nav-item pcoded-hasmenu">
-            <a href="#!" class="<?php echo $course_syle;?>">
+            <a href="#!" class="">
                 <span class="pcoded-micon">
                     <i data-feather="airplay"></i>
                 </span>
@@ -120,13 +131,29 @@
         </li>
       </ul>
     </div>
-  </header>
+    <div class="collapse navbar-collapse">
+       <?php 
+        //count data cart
+        $cart = count($this->cart->contents());
+       if($cart > 0){ ?>
+            <ul class="navbar-nav ml-auto">
+                <li>
+                  <div class="dropdown drp-user">
+                      <a href="<?php echo site_url().'backoffice/pay_order';?>">
+                          <span title="Pagar Compra" data-toggle="tooltip" data-placement="bottom" data-original-title="Pagar Compra" style="padding: 10px;border-radius: 10px;">
+                              <i data-feather="shopping-cart" style="color: #00a78e;"></i>  
+                              <span class="wrapper-items-number">
+                                        <span class="items-number"></span>
+                                        <button type="button" class="btn btn-icon btn-rounded btn-danger"> <?php echo $cart;?> </button>
+                              </span>
+                          </span>
+                      </a>
+                  </div>
                 </li>
               </ul>
-            </div>
-          </div>
-        </li>
-      </ul>
+       <?php } ?>   
+    </div>
+  </header>
   <?php echo $body;?>
   <script src="<?php echo site_url().'static/course/js/vendor-all.min.js';?>"></script>
   <script src="<?php echo site_url().'static/course/js/bootstrap.min.js';?>"></script>

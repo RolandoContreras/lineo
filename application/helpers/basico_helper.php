@@ -60,6 +60,16 @@ function delete_last_caracter($string){
     return $new_string;
 }
 
+function quitar_punto_number($number){
+    $number = str_replace('.','',$number);
+    return $number;
+}
+
+function quitar_2_ultimos_numero($number){
+    $number = str_replace('.','',$number);
+    return $number;
+}
+
 function format_number_dolar($number){
     $decimals ="2";
     $number = number_format($number, $decimals);
