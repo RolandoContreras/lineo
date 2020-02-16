@@ -8,14 +8,21 @@ class B_home extends CI_Controller {
         $this->load->model("category_model","obj_category");
         $this->load->model("courses_model","obj_courses");
         $this->load->model("invoices_model","obj_invoices");
+        $this->load->model("customer_courses_model","obj_customer_courses");
     }
 
     public function index()
     {
         //GET SESION ACTUALY
         $this->get_session();
+        //get customer id
+        $customer_id = $_SESSION['customer']['customer_id'];
         //GET NAV CURSOS
         $obj_category_videos = $this->nav_category();
+        //get courses by customer
+        $obj_courses_by_customer = $this->courses_by_customer($customer_id);
+        //GET CUSTOMER ID
+        $customer_id = $_SESSION['customer']['customer_id'];
         
         if(isset($_GET['search'])){
                 $search = $_GET['search'];
@@ -68,9 +75,10 @@ class B_home extends CI_Controller {
             $obj_pagination = $this->pagination->create_links();
             /// DATA
             $obj_courses = $this->obj_courses->search_data($params_course, $config["per_page"],$this->uri->segment(2));
-        //GET DATA FROM CUSTOMER
+            //GET DATA CURSOS COMPRADOS
             
         $url = 'backoffice';
+        $this->tmp_backoffice->set("obj_courses_by_customer",$obj_courses_by_customer);    
         $this->tmp_backoffice->set("url",$url);    
         $this->tmp_backoffice->set("category_name",$category_name);
         $this->tmp_backoffice->set("obj_pagination",$obj_pagination);
@@ -153,6 +161,12 @@ class B_home extends CI_Controller {
              //get data catalog
             $url = explode("/",uri_string());
             $slug_2 = $url[2];
+            //get category_id
+            $params_categogory_id = array(
+                        "select" =>"category_id",
+                "where" => "slug like '%$slug%'");
+            $obj_category = $this->obj_category->get_search_row($params_categogory_id);
+            $category_id = $obj_category->category_id;
             //get course
             $params = array(
                             "select" =>"courses.course_id,
@@ -166,8 +180,8 @@ class B_home extends CI_Controller {
                                         courses.date,
                                         category.name as category_name,
                                         category.slug as category_slug",
-                            "join" => array( 'category, courses.category_id = category.category_id'),
-                            "where" => "courses.slug = '$slug_2'");
+                            "join" => array('category, courses.category_id = category.category_id'),
+                            "where" => "courses.slug = '$slug_2' and courses.category_id = $category_id");
             $obj_courses = $this->obj_courses->get_search_row($params);
             $course_id = $obj_courses->course_id;
             
@@ -191,12 +205,7 @@ class B_home extends CI_Controller {
             $obj_videos = $this->obj_videos->search($params);
             
             
-            //get category_id
-            $params_categogory_id = array(
-                        "select" =>"category_id",
-                "where" => "slug like '%$slug%'");
-            $obj_category = $this->obj_category->get_search_row($params_categogory_id);
-            $category_id = $obj_category->category_id;
+            
             //cursos relacionados            
             $params = array(
                             "select" =>"courses.course_id,
@@ -323,6 +332,23 @@ class B_home extends CI_Controller {
         );
         //GET DATA COMMENTS
         return $obj_category = $this->obj_category->search($params_category);
+    }
+    
+    public function courses_by_customer($customer_id){
+        $params_customer_courses = array(
+                                    "select" =>"courses.course_id,
+                                                courses.name,
+                                                courses.category_id,
+                                                courses.slug as course_slug,
+                                                customer.customer_id,
+                                                category.slug as category_slug",
+                                    "join" => array('customer, customer_courses.customer_id = customer.customer_id',
+                                                    'courses, customer_courses.course_id = courses.course_id',
+                                                    'category, courses.category_id = category.category_id'),
+                                    "where" => "customer.customer_id = $customer_id",
+                                    "order" => "courses.course_id DESC",
+                                ); 
+        return $obj_customer_courses = $this->obj_customer_courses->search($params_customer_courses);
     }
     
     public function get_session(){          

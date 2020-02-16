@@ -47,52 +47,40 @@
                       <nav class="thim-font-heading learn-press-breadcrumb">
                           <a href="<?php echo site_url().'course';?>">Inicio</a> 
                           <span class=delimiter>/</span> 
-                          <a href="javascript:void(0);">Todos los Cursos</a> 
+                          <a href="javascript:void(0);">Mi Curso</a> 
                          <span class="item-name">
                              Plataforma U-Linex
                          </span>
                       </nav>
                       <ul class="curriculum-sections">
-                        <?php 
-                        foreach ($obj_category_videos as $value) { ?>
                                 <li class="section">
-                                  <h4 class="section-header"><span class=collapse></span>Sección &nbsp;<span class=section-description><?php echo $value->name;?></span></h4>
-                                  <ul class=section-content>
-                                      <?php 
-                                      foreach ($obj_videos_all as $value_all_videos) { 
-                                            if($value->category_id == $value_all_videos->category_id){?> 
-                                                <li class="course-item course-item-lp_lesson course-item-487 item-preview has-status">
-                                                  <span class=course-format-icon><i class="fa fa-play"></i></span>
-                                                  <a class=section-item-link href="<?php echo site_url()."course/$value_all_videos->category_slug/$value_all_videos->slug";?>">
-                                                        <span  class=item-name><?php echo $value_all_videos->name;?></span>
-                                                        <span class=course-item-meta>
-                                                            <span class="lp-label lp-label-preview">Revisar</span>
-                                                        </span>
-                                                    </a>
-                                                </li>
-                                           <?php } ?>
-                                      <?php } ?>
-                                  </ul>
+                                  <h4 class="section-header"><span class=collapse></span>Curso &nbsp;<span class=section-description><?php echo $obj_courses->name;?></span></h4>
+                                      <ul class=section-content>
+                                          <?php foreach ($obj_videos as $key => $value) { 
+                                                        $key += 1;?> 
+                                                    <li class="course-item course-item-lp_lesson course-item-487 item-preview has-status">
+                                                      <span class=course-format-icon><i class="fa fa-play"></i></span>
+                                                      <a class=section-item-link href="">
+                                                            <span  class=item-name><?php echo "$key".".0 ". $value->name;?></span>
+                                                            <span class=course-item-meta>
+                                                                <span class="lp-label lp-label-preview">Ver Vídeo</span>
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                               <?php } ?>
+                                      </ul>
                                 </li>
-                        <?php } ?>  
                       </ul>
                     </div>
                     <div id="learn-press-content-item">
                       <div class=content-item-scrollable>
                         <div id=course-item-content-header class=thim-course-item-header>
-                          <div class=course-item-search>
-                            <form>
-                                <input type="text" placeholder="Buscar Curso">
-                                <button type="button"></button>
-                            </form>
-                          </div>
                           <div class=thim-course-item-popup-logo>
                               <a class=lesson-logo href="<?php echo site_url().'plataforma';?>" title="logo">
                                 <img class=logo src="<?php echo site_url().'static/page_front/images/logo/logo-h.png';?>" alt="logo" width="130">
                             </a>
                           </div>
-                          <a href="<?php echo site_url().'login';?>" class=back_course><i class="fa fa-close"></i></a>
-                          <a href="<?php echo site_url().'login';?>"><i class="fa fa-close"></i></a>
+                          <a href="<?php echo site_url().'backoffice';?>" class=back_course><i class="fa fa-close"></i></a>
                           <a class=toggle-content-item href></a>
                         </div>
                         <?php echo $body;?>  
