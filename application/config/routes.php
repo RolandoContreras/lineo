@@ -55,11 +55,6 @@ $route['cursos/([0-9a-z_-]+)'] = 'courses/category/$1';
 $route['cursos/([0-9a-z_-]+)/([0-9]+)'] = 'courses/category/$1';
 $route['cursos/([0-9a-z_-]+)/([0-9a-z_-]+)'] = 'courses/detail/$1';
 
-$route['courses/extras/([0-9a-z_-]+)'] = 'courses/detail';
-$route['courses/personal/([0-9a-z_-]+)'] = 'courses/detail';
-$route['courses/profetional/([0-9a-z_-]+)'] = 'courses/detail';
-$route['courses/finance/([0-9a-z_-]+)'] = 'courses/detail';
-
 $route['registro'] = "register/index";
 $route['registro/validate_username'] = "register/validate_username";
 $route['registro/validate'] = "register/validate";
@@ -67,8 +62,10 @@ $route['registro/validate'] = "register/validate";
 $route['backoffice'] = "b_home";
 
 $route['backoffice/pay_order'] = "b_home/pay_order";
+$route['backoffice/shopping'] = "b_home/order";
 $route['backoffice/order/add_cart'] = 'b_home/add_cart';
 $route['backoffice/order/delete_cart'] = 'b_home/delete_cart';
+
 
 
 $route['backoffice/([0-9]+)'] = 'b_home/index/$1';

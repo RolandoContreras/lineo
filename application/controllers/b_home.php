@@ -7,6 +7,7 @@ class B_home extends CI_Controller {
         $this->load->model("videos_model","obj_videos");
         $this->load->model("category_model","obj_category");
         $this->load->model("courses_model","obj_courses");
+        $this->load->model("invoices_model","obj_invoices");
     }
 
     public function index()
@@ -223,60 +224,34 @@ class B_home extends CI_Controller {
             $this->tmp_backoffice->set("obj_courses",$obj_courses);
             $this->tmp_backoffice->render("backoffice/b_detail");
 	}
-    
-    public function document()
-    {
-        //GET SESION ACTUALY
-        $this->get_session();
-        //GET CUSTOMER_ID
-        $this->tmp_course->render("course/c_document");
-    }
-    
-    public function profile()
+        
+    public function order()
     {
         //GET SESION ACTUALY
         $this->get_session();
         //GET CUSTOMER_ID
         $customer_id = $_SESSION['customer']['customer_id'];
-        //GET DATA PRICE CRIPTOCURRENCY
+        //get nav ctalogo
+        $obj_category_videos = $this->nav_category();
+        //GET DATA INVOICES BY CUSTOMER
         $params = array(
-                        "select" =>"customer.username,
-                                    customer.email,
-                                    customer.first_name,
-                                    customer.last_name,
-                                    customer.btc_address,
-                                    customer.created_at,
-                                    customer.date_start,
-                                    customer.address,
-                                    customer.phone,
-                                    customer.dni,
-                                    customer.active,
-                                    paises.nombre,
-                                    kit.kit_id,
-                                    kit.name as kit",
-                        "where" => "customer.customer_id = $customer_id and customer.status_value = 1 and paises.id_idioma = 7",
-                        "join" => array('kit, customer.kit_id = kit.kit_id',
-                                        'paises, customer.country = paises.id'),
+                        "select" =>"invoices.invoice_id,
+                                    invoices.date,
+                                    invoices.total,
+                                    invoices.active,
+                                    customer.name,
+                                    courses.name as course_name",
+                        "where" => "invoices.customer_id = $customer_id",
+                        "join" => array('customer, customer.customer_id = invoices.customer_id',
+                                        'courses, courses.course_id = invoices.course_id'),
                         );
 
-        $obj_customer = $this->obj_customer->get_search_row($params);
+        $obj_invoices = $this->obj_invoices->search($params);
+        $this->tmp_backoffice->set("obj_category_videos",$obj_category_videos);
+        $this->tmp_backoffice->set("obj_invoices",$obj_invoices);
+        $this->tmp_backoffice->render("backoffice/b_order");
+    }    
         
-        $kit = $obj_customer->kit_id;
-        if($kit == 1){
-            $text_course = "Prueba";
-        }elseif($kit == 2){
-            $text_course = "Inversiones y Marketing - Módulo Basico";
-        }elseif($kit == 3){
-            $text_course = "Inversiones y Marketing - Módulo Intermedio";
-        }else{
-            $text_course = "Inversiones y Marketing - Módulo Avanzando";
-        }
-        
-        $this->tmp_course->set("text_course",$text_course);
-        $this->tmp_course->set("obj_customer",$obj_customer);
-        $this->tmp_course->render("course/c_profile");
-    }
-    
     public function add_cart() {
         if($this->input->is_ajax_request()){   
                 //GET CUSTOMER_ID

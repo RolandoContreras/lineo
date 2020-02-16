@@ -22,6 +22,8 @@
   <script type="text/javascript">
     var site = '<?php echo site_url();?>';
   </script>
+  <script src="<?php echo site_url().'static/cms/js/core/jquery-1.11.1.min.js';?>"></script>
+  <script src="<?php echo site_url().'static/cms/js/core/bootstrap.min.js';?>"></script>
 </head>
 
 <body class="layout-6" style="background-image: url('<?php echo site_url().'static/page_front/images/bg_header.jpg';?>'); background-size: cover;">
@@ -46,6 +48,7 @@
             $course_syle = "";
             $home_syle = "";
             $profile_syle = "";
+            $shopping_syle = "";
             
             switch ($nav) {
                 case "profile":
@@ -53,6 +56,9 @@
                     break;
                 case "home":
                     $home_syle = "active";
+                    break;
+                case "shopping":
+                    $shopping_syle = "active";
                     break;
                 default:
                     $course_syle = "active";
@@ -93,10 +99,10 @@
         </li>
         <li class="nav-item pcoded-hasmenu">
             <a href="#!" class="">
-                <span class="pcoded-micon">
-                    <i data-feather="star"></i>
+                <span class="pcoded-micon text-c-green">
+                    <b><i data-feather="star"></i></b>
                 </span>
-                <span class="pcoded-mtext">Mis Cursos</span>
+                <span class="pcoded-mtext text-c-green"><b>Mis Cursos</b></span>
             </a>
             <ul class="pcoded-submenu">
                 <?php 
@@ -104,6 +110,14 @@
                         <li><a href='<?php echo site_url()."backoffice/$value->slug";?>' class=""><?php echo $value->name;?></a></li>          
                 <?php } ?>
             </ul>
+        </li>
+        <li class="nav-item">
+              <a href="<?php echo site_url().'backoffice/shopping';?>" class="nav-link <?php echo $shopping_syle;?>">
+                  <span class="pcoded-micon">
+                       <i data-feather="shopping-cart"></i>
+                  </span>
+                  <span class="pcoded-mtext">Mis Compras</span>
+              </a>
         </li>
         <li class="nav-item">
               <a href="<?php echo site_url().'login/logout';?>" class="nav-link">
@@ -160,6 +174,8 @@
   </header>
   <?php echo $body;?>
   <script src="<?php echo site_url().'static/course/js/vendor-all.min.js';?>"></script>
+  <script src="<?php echo site_url().'static/cms/js/core/datatables.min.js';?>"></script>
+  <script src="<?php echo site_url().'static/cms/js/core/tbl-datatable-custom.js';?>"></script>
   <script src="<?php echo site_url().'static/course/js/bootstrap.min.js';?>"></script>
   <script src="<?php echo site_url().'static/course/js/pcoded.min.js';?>"></script>
   <script src="<?php echo site_url().'static/course/js/ekko-lightbox.min.js';?>"></script>
@@ -173,5 +189,4 @@
       feather.replace()
   </script>
 </body>
-
 </html>

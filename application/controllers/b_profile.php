@@ -30,8 +30,8 @@ class B_profile extends CI_Controller {
                         );
 
         $obj_customer = $this->obj_customer->get_search_row($params);
-        
-        //GET PRICE CURRENCY
+        //SEND DATA
+        $this->tmp_backoffice->set("obj_category_videos",$obj_category_videos);
         $this->tmp_backoffice->set("obj_customer",$obj_customer);
         $this->tmp_backoffice->render("backoffice/b_profile");
     }
