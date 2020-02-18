@@ -56,7 +56,7 @@ class Panel extends CI_Controller{
                                     (select count(*) from category) as total_category,
                                     (select count(*) from courses) as total_courses,
                                     (select count(*) from invoices) as total_invoices,
-                                    (SELECT count(*) FROM (curstomer_courses) JOIN courses ON courses.course_id = curstomer_courses.course_id) as total_comprado,
+                                    (SELECT count(*) FROM (customer_courses) JOIN courses ON courses.course_id = customer_courses.course_id) as total_comprado,
                                     (select count(*) from users) as total_users");
         $obj_total = $this->obj_comments->get_search_row($params);
         

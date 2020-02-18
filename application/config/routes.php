@@ -66,13 +66,10 @@ $route['backoffice/shopping'] = "b_home/order";
 $route['backoffice/order/add_cart'] = 'b_home/add_cart';
 $route['backoffice/order/delete_cart'] = 'b_home/delete_cart';
 
-
-
 $route['backoffice/([0-9]+)'] = 'b_home/index/$1';
 $route['backoffice/([0-9a-z_-]+)'] = 'b_home/category/$1';
 $route['backoffice/([0-9a-z_-]+)/([0-9]+)'] = 'b_home/category/$1';
 $route['backoffice/([0-9a-z_-]+)/([0-9a-z_-]+)'] = 'b_home/detail/$1';
-
 
 $route['plataforma'] = "c_home";
 $route['plataforma/([0-9]+)'] = 'c_home/index/$1';
@@ -80,19 +77,13 @@ $route['plataforma/([0-9a-z_-]+)'] = 'c_home/category/$1';
 $route['plataforma/([0-9a-z_-]+)/([0-9]+)'] = 'c_home/category/$1';
 $route['plataforma/([0-9a-z_-]+)/([0-9a-z_-]+)'] = 'c_home/detail/$1';
 
-
 $route['backoffice/profile'] = "b_profile";
 $route['backoffice/profile/update_password'] = "b_profile/update_password";
-$route['backoffice/profile/update_bank'] = "b_profile/update_bank";
 
-$route['backoffice/plan'] = "b_plan";
-$route['backoffice/plan/create_invoice'] = "b_plan/create_invoice";
 
 $route['backoffice/history'] = "b_finance";
 $route['backoffice/invoice'] = "b_finance/invoice";
 $route['backoffice/invoice/upload'] = "b_finance/upload";
-
-$route['backoffice/files'] = "b_files";
 
 $route['dashboard'] = "dashboard";
 $route['dashboard/panel'] = "panel";
@@ -134,6 +125,12 @@ $route['dashboard/usuarios/load'] = "d_users/load";
 $route['dashboard/usuarios/load/([0-9]+)'] = "d_users/load/$1";
 $route['dashboard/usuarios/validate'] = "d_users/validate";
 $route['dashboard/usuarios/delete'] = "d_users/delete";
+
+$route['dashboard/activaciones'] = "d_activate";
+$route['dashboard/activaciones/load'] = "d_activate/load";
+$route['dashboard/activaciones/validate_user'] = "d_activate/validate_user";
+$route['dashboard/activaciones/active'] = "d_activate/active";
+$route['dashboard/activaciones/update_confirmation'] = "d_activate/update_confirmation";
 
 $route['dashboard/reportes/asociados'] = "d_report_customer";
 $route['dashboard/reportes/cuentas'] = "d_report_membership";

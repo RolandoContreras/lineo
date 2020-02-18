@@ -59,15 +59,15 @@
                 case "panel":
                     $panel_syle = "active";
                     break;
-//                case "activaciones":
-//                    $activaciones_syle = "active";
-//                    break;
-//                case "activar_pagos":
-//                    $pagos_syle = "active";
-//                    break;
-//                case "document":
-//                    $document_syle = "active";
-//                    break;
+                case "activaciones":
+                    $activaciones_syle = "active";
+                    break;
+                case "activar_pagos":
+                    $pagos_syle = "active";
+                    break;
+                case "document":
+                    $document_syle = "active";
+                    break;
                 default:
                     $mantenimiento_syle = "active";
                     break;
@@ -100,14 +100,14 @@
                 <?php } ?>
             </ul>
         </li>
-<!--        <li class="nav-item">
+        <li class="nav-item">
             <a href="<?php echo site_url()."dashboard/activaciones";?>" class="nav-link <?php echo $activaciones_syle;?>">
                 <span class="pcoded-micon">
                     <i data-feather="check-circle"></i>
                 </span>
                 <span class="pcoded-mtext">Activaciones</span>
             </a>
-        </li>-->
+        </li>
         <li class="nav-item pcoded-hasmenu">
             <a href="#!" class="">
                 <span class="pcoded-micon">
