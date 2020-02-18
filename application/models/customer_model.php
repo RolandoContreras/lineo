@@ -67,6 +67,30 @@ class Customer_Model extends CI_Model{
     public function fields(){
     }
     
+    public function checkUser($userData = array()){
+        if(!empty($userData)){
+            //check whether user data already exists in database with same oauth info
+            $this->db->select($this->table_id);
+            $this->db->from($this->table);
+            $this->db->where(array('oauth_provider'=>$userData['oauth_provider'], 'oauth_uid'=>$userData['oauth_uid']));
+            $prevQuery = $this->db->get();
+            $prevCheck = $prevQuery->num_rows();
+            $user_id = "";
+            if($prevCheck == 0){
+                //insert user data
+                $userData['date']  = date("Y-m-d H:i:s");
+                $insert = $this->db->insert($this->table, $userData);
+                //get user ID
+                $user_id = $this->db->insert_id();
+            }else{
+                $query = $prevQuery->row();
+                $user_id = $query->customer_id;
+            }
+        }
+        //return user ID
+        return $user_id;
+    }
+    
     public function insert($data){
       $this->db->insert($this->table, $data);
       return $this->db->insert_id();

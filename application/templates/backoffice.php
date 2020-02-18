@@ -131,7 +131,7 @@
               </a>
         </li>
         <li class="nav-item">
-              <a href="<?php echo site_url().'login/logout';?>" class="nav-link">
+              <a href="<?php echo site_url().'salir';?>" class="nav-link">
                   <span class="pcoded-micon">
                        <i data-feather="log-out"></i>
                   </span>
