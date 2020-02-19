@@ -89,9 +89,13 @@ class B_home extends CI_Controller {
     
     public function category($slug)
 	{
-            
+            $this->get_session();
+            //get customer id
+            $customer_id = $_SESSION['customer']['customer_id'];
             //GET NAV CURSOS
             $obj_category_videos = $this->nav_category();
+            //get courses by customer
+            $obj_courses_by_customer = $this->courses_by_customer($customer_id);
             //get data catalog
             $params_categogory_id = array(
                         "select" =>"category_id,
@@ -147,6 +151,7 @@ class B_home extends CI_Controller {
             $category_name = "Cursos de $obj_category->name";
             $url = 'backoffice';
             $this->tmp_backoffice->set("url",$url);    
+            $this->tmp_backoffice->set("obj_courses_by_customer",$obj_courses_by_customer);    
             $this->tmp_backoffice->set("category_name",$category_name);
             $this->tmp_backoffice->set("obj_pagination",$obj_pagination);
             $this->tmp_backoffice->set("obj_category_videos",$obj_category_videos);
@@ -242,6 +247,8 @@ class B_home extends CI_Controller {
         $customer_id = $_SESSION['customer']['customer_id'];
         //get nav ctalogo
         $obj_category_videos = $this->nav_category();
+        //get courses by customer
+        $obj_courses_by_customer = $this->courses_by_customer($customer_id);
         //GET DATA INVOICES BY CUSTOMER
         $params = array(
                         "select" =>"invoices.invoice_id,
@@ -257,6 +264,7 @@ class B_home extends CI_Controller {
 
         $obj_invoices = $this->obj_invoices->search($params);
         $this->tmp_backoffice->set("obj_category_videos",$obj_category_videos);
+        $this->tmp_backoffice->set("obj_courses_by_customer",$obj_courses_by_customer);
         $this->tmp_backoffice->set("obj_invoices",$obj_invoices);
         $this->tmp_backoffice->render("backoffice/b_order");
     }    

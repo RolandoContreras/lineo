@@ -5,14 +5,19 @@ class B_profile extends CI_Controller {
         parent::__construct();
         $this->load->model("customer_model","obj_customer");
         $this->load->model("category_model","obj_category");
+        $this->load->model("customer_courses_model","obj_customer_courses");
     }
 
     public function index()
     {
         //GET SESION ACTUALY
         $this->get_session();
+        //GET CUSTOMER_ID
+        $customer_id = $_SESSION['customer']['customer_id'];
         //GET NAV CATEGORY
         $obj_category_videos = $this->nav_category();
+        //get courses by customer
+        $obj_courses_by_customer = $this->courses_by_customer($customer_id);
         /// VISTA
         $customer_id = $_SESSION['customer']['customer_id'];
         //GET DATA PRICE CRIPTOCURRENCY
@@ -31,6 +36,7 @@ class B_profile extends CI_Controller {
 
         $obj_customer = $this->obj_customer->get_search_row($params);
         //SEND DATA
+        $this->tmp_backoffice->set("obj_courses_by_customer",$obj_courses_by_customer);
         $this->tmp_backoffice->set("obj_category_videos",$obj_category_videos);
         $this->tmp_backoffice->set("obj_customer",$obj_customer);
         $this->tmp_backoffice->render("backoffice/b_profile");
@@ -72,6 +78,23 @@ class B_profile extends CI_Controller {
         );
         //GET DATA COMMENTS
         return $obj_category = $this->obj_category->search($params_category);
+    }
+    
+    public function courses_by_customer($customer_id){
+        $params_customer_courses = array(
+                                    "select" =>"courses.course_id,
+                                                courses.name,
+                                                courses.category_id,
+                                                courses.slug as course_slug,
+                                                customer.customer_id,
+                                                category.slug as category_slug",
+                                    "join" => array('customer, customer_courses.customer_id = customer.customer_id',
+                                                    'courses, customer_courses.course_id = courses.course_id',
+                                                    'category, courses.category_id = category.category_id'),
+                                    "where" => "customer.customer_id = $customer_id",
+                                    "order" => "courses.course_id DESC",
+                                ); 
+        return $obj_customer_courses = $this->obj_customer_courses->search($params_customer_courses);
     }
     
     public function get_session(){          
