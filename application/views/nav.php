@@ -56,7 +56,6 @@
                       </div>
                     </div>
               </div>
-              </p>
               </div>
               </li>
             <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-22 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default">

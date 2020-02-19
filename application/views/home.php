@@ -18,7 +18,11 @@
       <div id=home-main-content class="home-content home-page container" role=main>
         <div data-vc-full-width=true data-vc-full-width-init=false class="vc_row wpb_row vc_row-fluid home1-skills vc_custom_1528682589403 thim-background-overlay thim-bg-advance-overlay overlay-position-br vc_row-has-fill">
           <div class=overlay style="background-color: rgba(12,12,12,0.6)"></div>
-          <div class="advance-overlay thim_svg_5df6fd15bdaf6 br "><svg class=svg-overlay viewBox="0 0 1903 633" preserveAspectRatio=xMinYMin><rect clip-path=url(#thim_svg_5df6fd15bdaf6) class=svg-background width=1903 height=633 fill=#ffffff /><image clip-path=url(#thim_svg_5df6fd15bdaf6) class=svg-image x=1301 y width=602 height=406 xlink:href=http://c2a2v9c8.stackpathcdn.com/wp-content/uploads/2017/06/overlay-1.jpg /></svg>
+          <div class="advance-overlay thim_svg_5df6fd15bdaf6 br">
+              <svg class=svg-overlay viewBox="0 0 1903 633" preserveAspectRatio=xMinYMin>
+              <rect clip-path=url(#thim_svg_5df6fd15bdaf6) class=svg-background width=1903 height=633 fill=#ffffff />
+              <image clip-path=url(#thim_svg_5df6fd15bdaf6) class=svg-image x=1301 y width=602 height=406 xlink:href="<?php echo site_url().'static/page_front/images/overlay-1.jpg';?>"/>
+              </svg>
             <svg class=svg-clip-path>
               <defs>
                 <clipPath id="thim_svg_5df6fd15bdaf6">
@@ -157,7 +161,11 @@
   </div>
   <div data-vc-full-width=true data-vc-full-width-init=false class="vc_row wpb_row vc_row-fluid home1-collection vc_custom_1503631674893 thim-background-overlay thim-bg-advance-overlay overlay-position-bl vc_row-has-fill">
     <div class=overlay style="background-color: rgba(12,12,12,0.6)"></div>
-    <div class="advance-overlay thim_svg_5df6fd15cf8bc bl "><svg class=svg-overlay viewBox="0 0 1903 633" preserveAspectRatio=xMinYMin><rect clip-path=url(#thim_svg_5df6fd15cf8bc) class=svg-background width=1903 height=633 fill=#ffffff /><image clip-path=url(#thim_svg_5df6fd15cf8bc) class=svg-image x y width=305 height=401 xlink:href=http://c2a2v9c8.stackpathcdn.com/wp-content/uploads/2017/06/layer-148.png /></svg>
+    <div class="advance-overlay thim_svg_5df6fd15cf8bc bl ">
+        <svg class=svg-overlay viewBox="0 0 1903 633" preserveAspectRatio=xMinYMin>
+        <rect clip-path=url(#thim_svg_5df6fd15cf8bc) class=svg-background width=1903 height=633 fill=#ffffff />
+        <image clip-path=url(#thim_svg_5df6fd15cf8bc) class=svg-image x y width=305 height=401 xlink:href="<?php echo site_url().'static/page_front/images/layer-148.png';?>"/>
+        </svg>
       <svg
         class=svg-clip-path>
         <defs>
@@ -251,48 +259,7 @@
                   </div>
                 </div>
               </div>
-              
-              
              <?php } ?> 
-              
-            
-<!--          <div class=course-item>
-            <div class=feature-img><img width=138 height=161 src=http://c2a2v9c8.stackpathcdn.com/wp-content/uploads/2018/01/student-girl-138x161.jpg alt="AWS Certified Solutions Architect &#8211; Associate 2017"
-                class>
-              <div class=wrap-author><img src=http://c2a2v9c8.stackpathcdn.com/wp-content/uploads/2018/01/student-girl-100x100.jpg width=40 height=40 alt=ThimPress class="avatar avatar-40 wp-user-avatar wp-user-avatar-40 alignnone photo">                <span class=name><a href=http://wordpresslms.thimpress.com/lp-profile/admin/>ThimPress</a></span>
-                <div class=sc-review-stars>
-                  <div class=review-stars-rated title="0 out of 5 stars">
-                    <div class="review-stars empty"></div>
-                    <div class="review-stars filled" style=width:0%;></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class=course-detail>
-              <h3 class="title"><a href=http://wordpresslms.thimpress.com/courses/aws-certified-solutions-architect-associate-2017/>AWS Certified Solutions Architect &#8211;
-                Associate 2017</a>
-              </h3>
-              <div class=meta><span class=number-students>170 Students </span><span class="price free">&#36;33.00</span></div>
-            </div>
-          </div>-->
-<!--          <div class=course-item>
-            <div class=feature-img><img width=138 height=161 src=http://c2a2v9c8.stackpathcdn.com/wp-content/uploads/2017/07/girl-1797769-138x161.jpg alt="Learning jQuery Mobile for Beginners"
-                class>
-              <div class=wrap-author><img src=http://c2a2v9c8.stackpathcdn.com/wp-content/uploads/2018/01/student-girl-100x100.jpg width=40 height=40 alt=ThimPress class="avatar avatar-40 wp-user-avatar wp-user-avatar-40 alignnone photo">                <span class=name><a href=http://wordpresslms.thimpress.com/lp-profile/admin/>ThimPress</a></span>
-                <div class=sc-review-stars>
-                  <div class=review-stars-rated title="0 out of 5 stars">
-                    <div class="review-stars empty"></div>
-                    <div class="review-stars filled" style=width:0%;></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class=course-detail>
-              <h3 class="title"><a href=http://wordpresslms.thimpress.com/courses/learning-jquery-mobile-for-beginners/>Learning jQuery Mobile for Beginners</a>
-              </h3>
-              <div class=meta><span class=number-students>171 Students </span><span class="price free">&#36;66.00</span></div>
-            </div>
-          </div>-->
         </div>
         <div class=vc_empty_space style="height: 100px"><span class=vc_empty_space_inner></span></div>
       </div>
@@ -300,7 +267,11 @@
   </div>
   </div>
   <div data-vc-full-width=true data-vc-full-width-init=false class="vc_row wpb_row vc_row-fluid overlay-y overflow-visible z-index-99 repeat-x vc_custom_1503636486698 thim-bg-advance-overlay overlay-position-tl vc_row-has-fill">
-    <div class="advance-overlay thim_svg_5df6fd1630e5b tl "><svg class=svg-overlay viewBox="0 0 1903 633" preserveAspectRatio=xMinYMin><rect clip-path=url(#thim_svg_5df6fd1630e5b) class=svg-background width=1903 height=633 fill=#ffffff /><image clip-path=url(#thim_svg_5df6fd1630e5b) class=svg-image x y=318 width=467 height=315 xlink:href=http://c2a2v9c8.stackpathcdn.com/wp-content/uploads/2017/06/group-6.png /></svg>
+    <div class="advance-overlay thim_svg_5df6fd1630e5b tl">
+        <svg class=svg-overlay viewBox="0 0 1903 633" preserveAspectRatio=xMinYMin>
+        <rect clip-path=url(#thim_svg_5df6fd1630e5b) class=svg-background width=1903 height=633 fill=#ffffff />
+        <image clip-path=url(#thim_svg_5df6fd1630e5b) class=svg-image x y=318 width=467 height=315 xlink:href="<?php echo site_url().'static/page_front/images/group-6.png';?>"/>
+        </svg>
       <svg
         class=svg-clip-path>
         <defs>
@@ -326,7 +297,7 @@
               <div class=steps-wrapper>
                 <h3 class="sc-title">Sé un profesional experto<br>Con U-linex</h3>
                 <div class=steps>
-                  <ul class=nav role=tablist>
+                  <ul class=nav role="tablist">
                     <li class=nav-item><a class="nav-link active" data-toggle=tab href=#thim_5df6fd163383e-step-0 role=tab>1<span>Paso</span></a></li>
                     <li class=nav-item><a class="nav-link " data-toggle=tab href=#thim_5df6fd163383e-step-1 role=tab>2<span>Paso</span></a></li>
                     <li class=nav-item><a class="nav-link " data-toggle=tab href=#thim_5df6fd163383e-step-2 role=tab>3<span>Paso</span></a></li>
@@ -364,9 +335,9 @@
   <div class="vc_row-full-width vc_clearfix"></div>
   <div data-vc-full-width=true data-vc-full-width-init=false class="vc_row wpb_row vc_row-fluid bg-postion-bottom vc_custom_1503635158678 thim-background-overlay thim-bg-advance-overlay overlay-position-tr vc_row-has-fill">
     <div class=overlay style="background-color: rgba(0,0,0,0.4)"></div>
-    <div class="advance-overlay thim_svg_5df6fd163d0f6 tr "><svg class=svg-overlay viewBox="0 0 1903 405" preserveAspectRatio=xMinYMin><rect clip-path=url(#thim_svg_5df6fd163d0f6) class=svg-background width=1903 height=405 fill=#18c1f0 /></svg>
-      <svg
-        class=svg-clip-path>
+    <div class="advance-overlay thim_svg_5df6fd163d0f6 tr ">
+        <svg class=svg-overlay viewBox="0 0 1903 405" preserveAspectRatio=xMinYMin><rect clip-path=url(#thim_svg_5df6fd163d0f6) class=svg-background width=1903 height=405 fill=#18c1f0 /></svg>
+        <svg class=svg-clip-path>
         <defs>
           <clipPath id="thim_svg_5df6fd163d0f6">
             <polygon points="0 0, 1903 0, 1903 405, 0 0" />

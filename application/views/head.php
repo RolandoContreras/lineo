@@ -31,5 +31,5 @@
   <script type="text/javascript">
     var site = '<?php echo site_url();?>';
   </script>
-  <!--<script src="<?php echo site_url().'static/backoffice/js/script/pay_order.js';?>"></script>-->
+  <script src="<?php echo site_url().'static/backoffice/js/script/pay_order.js';?>"></script>
 </head>
