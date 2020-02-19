@@ -114,14 +114,7 @@
                                     <li><a>No tiene cursos</a></li>          
                          <?php } ?>
                     </ul>
-                    
-                    
-                    
-                    
                 </li>
-        
-            
-        
         <li class="nav-item">
               <a href="<?php echo site_url().'backoffice/shopping';?>" class="nav-link <?php echo $shopping_syle;?>">
                   <span class="pcoded-micon">

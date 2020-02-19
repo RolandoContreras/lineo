@@ -1850,9 +1850,9 @@ header#masthead.template-layout-2 .header-v2.style2 .widget_shopping_cart {
 }
 header#masthead.template-layout-2 .header-v2.style2 .elementor-widget-wp-widget-woocommerce_widget_cart .items-number,
 header#masthead.template-layout-2 .header-v2.style2 .widget_shopping_cart .items-number {
-    right: unset;
+/*    right: unset;
     top: 0;
-    margin-left: 0
+    margin-left: 0*/
 }
 header#masthead.template-layout-2 .header-v2.style2 #header-mini-cart {
     margin-top: 10px;
