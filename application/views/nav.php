@@ -3,34 +3,50 @@
         <div class="menu-mobile-effect navbar-toggle" data-effect=mobile-effect>Cerrar <i class="fa fa-times" aria-hidden=true></i></div>
         <div class="thim-mobile-search-cart ">
           <div class="thim-search-wrapper hidden-lg-up">
-            <form role=search method=get class=search-form action="">
-                <input type=search class=search-field placeholder="Busca tu Curso?" value name="search" title="Buscar Cursos:">
-                <button type=submit class=search-submit>
-                    <span class="ion-android-search"></span>
+            <form role="search" method="get" class="search-form active" action="<?php echo site_url().'cursos'?>">
+                <input type="search" class="search-field" placeholder="Buscar tu Curso" value name="search" autofocus="">
+                <button type="submit" class="search-submit">
+                    <i class="fa fa-search pointer" aria-hidden="true"></i>
                 </button>
             </form>
           </div>
-          <div class="thim-mini-cart hidden-lg-up">
-            <div class="widget woocommerce widget_shopping_cart">
-              <div class=minicart_hover id=header-mini-cart>
-                  <span class=cart-items-number>
-                      <span class=text>Mi Carrito</span> 
-                      <i class="ion ion-android-cart"></i>
-                      <span class="wrapper-items-number ">
-                          <span class=items-number>0</span>
-                      </span>
-                </span>
-                <div class="clear"></div>
-              </div>
-              <div class=widget_shopping_cart_content style="display: none;"></div>
-            </div>
-          </div>
+          <?php $this->load->view("header_cart");?>
         </div>
+        <?php
+          $url = explode("/",uri_string());
+            if(isset($url[0])){
+                $nav = $url[0];
+            }else{
+                $nav = "";
+            }
+            $home_syle = "";
+            $contact_syle = "";
+            $courses_syle = "";
+            $register_syle = "";
+            $login_syle = "";
+            switch ($nav) {
+                case "contacto":
+                    $contact_syle = "current-menu-ancestor";
+                    break;
+                case "cursos":
+                    $courses_syle = "current-menu-ancestor";
+                    break;
+                case "registro":
+                    $register_syle = "widget_thim-login-2";
+                    break;
+                case "login":
+                    $login_syle = "widget_thim-login-2";
+                    break;
+                default:
+                    $home_syle = "current-menu-ancestor";
+                    break;
+            }
+          ?>  
         <ul class="nav navbar-nav">
-          <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-22 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default">
+          <li class="menu-item menu-item-type-custom menu-item-object-custom <?php echo $home_syle;?> menu-item-22 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default">
               <a href="<?php echo site_url();?>" class=tc-menu-inner>Inicio</a>
           </li>
-            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-48 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-builder">
+            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-48 <?php echo $courses_syle;?> tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-builder">
                 <a class=tc-menu-inner>Cursos</a>
               <div class='tc-megamenu-wrapper tc-megamenu-holder mega-sub-menu sub-menu'>
                 <p>
@@ -58,23 +74,16 @@
               </div>
               </div>
               </li>
-            <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-22 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default">
+            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-22 <?php echo $contact_syle;?> tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default">
               <a href="<?php echo site_url().'contacto';?>" class=tc-menu-inner>Contacto</a>
             </li>                
-            <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-22 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default">
-              <a href="<?php echo site_url().'login';?>" class=tc-menu-inner>Iniciar Sesión</a>
-            </li>                
-            <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-22 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default">
-              <a href="<?php echo site_url().'registro';?>" class=tc-menu-inner>Registro</a>
-            </li>                
-
         </ul>
         <div class=off-canvas-widgetarea>
           <div class="widget widget_text">
             <div class=textwidget>
               <ul>
                 <li><i class="fa fa-phone" aria-hidden=true></i> <a>+(51) 998 878 636</a></li>
-                <li><i class="fa fa-envelope-o" aria-hidden=true></i> <a><span class="__cf_email__">contacto@u-linex.com</span></a></li>
+                <li><i class="fa fa-envelope" aria-hidden=true></i> <a><span class="">contacto@u-linex.com</span></a></li>
               </ul>
             </div>
           </div>

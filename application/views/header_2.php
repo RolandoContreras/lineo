@@ -13,12 +13,41 @@
                 <img src="<?php echo site_url().'static/page_front/images/logo/logo-black.png';?>" alt="Logo" width="78" height="60">
                 <img class=retina-logo-sticky src="<?php echo site_url().'static/page_front/images/logo/logo.png';?>" alt="Logo" width="695" height="100"></a>
           </div>
+          <?php
+          $url = explode("/",uri_string());
+            if(isset($url[0])){
+                $nav = $url[0];
+            }else{
+                $nav = "";
+            }
+            $home_syle = "";
+            $contact_syle = "";
+            $courses_syle = "";
+            $register_syle = "";
+            $login_syle = "";
+            switch ($nav) {
+                case "contacto":
+                    $contact_syle = "current-menu-parent";
+                    break;
+                case "cursos":
+                    $courses_syle = "current-menu-parent";
+                    break;
+                case "registro":
+                    $register_syle = "widget_thim-login-2";
+                    break;
+                case "login":
+                    $login_syle = "widget_thim-login-2";
+                    break;
+                default:
+                    $home_syle = "current-menu-parent";
+                    break;
+            }?>   
           <div class=width-navigation>
             <ul id=primary-menu class=main-menu>
-                <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-22 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default">
+                <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor <?php echo $home_syle;?> menu-item-22 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default">
                     <a href="<?php echo site_url();?>" class=tc-menu-inner>Inicio</a> 
                 </li>
-                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-48 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-builder">
+                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-48 <?php echo $courses_syle;?> tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-builder">
                     <a class=tc-menu-inner>Cursos</a>
                     <ul class="sub-menu">
                         <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-3815 tc-menu-item tc-menu-depth-1 tc-menu-align-left">
@@ -31,15 +60,15 @@
                         <?php } ?>
                     </ul>
                 </li>
-                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-48 tc-menu-item tc-menu-depth-0 tc-menu-align-left">
+                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-48 <?php echo $contact_syle;?> tc-menu-item tc-menu-depth-0 tc-menu-align-left">
                     <a class=tc-menu-inner href="<?php echo site_url().'contacto';?>">Contacto</a>
                 </li>
             </ul>
             <div class="header-right">
               <div class="widget widget_thim-login">
                 <div class="thim-link-login">
-                    <a class="register" href="<?php echo site_url().'registro';?>">Registro</a><span class=slash>/</span>
-                    <a href="<?php echo site_url().'login';?>" class="login">Ingresar</a>
+                    <a href="<?php echo site_url().'registro';?>" class="register <?php echo $register_syle;?>">Registro</a><span class=slash>/</span>
+                    <a href="<?php echo site_url().'login';?>" class="login <?php echo $login_syle;?>">Ingresar</a>
                 </div>
               </div>
                     <a href="https://api.whatsapp.com/send?phone=51998878636" title="Whatssapp U-LINEX" target="_blank" rel="noopener">
