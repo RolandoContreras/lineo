@@ -1690,13 +1690,8 @@ header#masthead.template-layout-2.affix .header-v2.style2 .main-header {
     padding-bottom: 10px
 }
 header#masthead.template-layout-2.palette-transparent.affix-top .header-v2.style2 {
-    background: rgba(0, 0, 0, .7);
-    background: -moz-linear-gradient(to top, rgba(0, 0, 0, .7) 0, rgba(28, 28, 28, .56) 20%, rgba(0, 0, 0, 0) 100%);
-    background: -webkit-gradient(left top, left bottom, color-stop(0, rgba(0, 0, 0, .7)), color-stop(20%, rgba(28, 28, 28, .56)), color-stop(100%, rgba(0, 0, 0, 0)));
-    background: -webkit-linear-gradient(to top, rgba(0, 0, 0, .7) 0, rgba(28, 28, 28, .56) 20%, rgba(0, 0, 0, 0) 100%);
-    background: -o-linear-gradient(to top, rgba(0, 0, 0, .7) 0, rgba(28, 28, 28, .56) 20%, rgba(0, 0, 0, 0) 100%);
-    background: -ms-linear-gradient(to top, rgba(0, 0, 0, .7) 0, rgba(28, 28, 28, .56) 20%, rgba(0, 0, 0, 0) 100%);
-    background: linear-gradient(to bottom, rgba(0, 0, 0, .7) 0, rgba(28, 28, 28, .56) 20%, rgba(0, 0, 0, 0) 100%)
+    background: rgba(0, 0, 0, 1);
+    background: #0c171f;
 }
 header#masthead.template-layout-2.palette-transparent.affix-top .header-v2.style2 .width-navigation {
     font-size: inherit
