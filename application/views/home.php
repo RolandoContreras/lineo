@@ -31,7 +31,7 @@
               </defs>
               </svg>
           </div>
-          <div class=vc_empty_space style="height: 50px"><span class=vc_empty_space_inner></span></div>
+          <div class=vc_empty_space style="height: 80px"><span class=vc_empty_space_inner></span></div>
           <div class="wpb_column vc_column_container vc_col-sm-12">
             <div class=vc_column-inner>
               <div class=wpb_wrapper>
