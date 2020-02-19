@@ -61,6 +61,7 @@ class Register extends CI_Controller {
                         'password' => $pass,
                         'phone' => $phone,
                         'country' => $country,
+                        'date' => date("Y-m-d H:i:s"),
                         'active' => 1,
                     );
                     $customer_id = $this->obj_customer->insert($data);
@@ -71,7 +72,13 @@ class Register extends CI_Controller {
                     $data_customer_session['active'] = 1;
                     $data_customer_session['logged_customer'] = "TRUE";
                     $_SESSION['customer'] = $data_customer_session; 
-                    $data['status'] = "success";
+                    
+                    $cart = count($this->cart->contents());
+                    if($cart > 0){
+                        $data['status'] = "success2";
+                    }else{
+                        $data['status'] = "success";
+                    }
 //                    $this->message($username, $pass, $name, $email);
             }
             //CREAR NUEVA SECION 

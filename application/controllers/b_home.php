@@ -302,7 +302,7 @@ class B_home extends CI_Controller {
     public function pay_order()
     {
         //GET SESION ACTUALY
-        $this->get_session();
+        $this->get_session_pay_order();
         //get nav ctalogo
         $obj_category_videos = $this->nav_category();
         
@@ -368,6 +368,18 @@ class B_home extends CI_Controller {
             }
         }else{
             redirect(site_url().'home');
+        }
+    }
+    
+    public function get_session_pay_order(){          
+        if (isset($_SESSION['customer'])){
+            if($_SESSION['customer']['logged_customer']=="TRUE"){               
+                return true;
+            }else{
+                redirect(site_url().'login');
+            }
+        }else{
+            redirect(site_url().'login');
         }
     }
 }

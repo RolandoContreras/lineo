@@ -91,7 +91,17 @@ function register(){
                                  texto = texto+'</center>';
                                  $("#mensaje").html(texto);
                                  $("#email").focus();
-                            }else{
+                            }else if(data.status == "success2"){
+                               $("#mensaje").html();
+                                 var texto = "";
+                                 texto = texto+'<center>';
+                                 texto = texto+'<div class="alert alert-success">';
+                                 texto = texto+'<p>Bienvenido</p>';
+                                 texto = texto+'</div>';                 
+                                 texto = texto+'</center>';
+                                 $("#mensaje").html(texto);
+                                 location.href = site + "backoffice/pay_order";
+                             }else{
                                 $("#mensaje").html();
                                  var texto = "";
                                  texto = texto+'<center>';
@@ -100,11 +110,10 @@ function register(){
                                  texto = texto+'</div>';                 
                                  texto = texto+'</center>';
                                  $("#mensaje").html(texto);
-                                 location.href = site + "plataforma";
+                                 location.href = site + "backoffice";
                             }
                         }         
                       }); 
-                   
             }else{
                 document.getElementById("message_email").style.display = "block";
                 $("#email").focus();

@@ -58,16 +58,19 @@
                                     </td>
                                 </tr>
                             <?php endforeach;?>
-                            <tr>
+                              </tbody>
+                              <tfoot>
+                                  <tr>
                                 <th></th>
                                 <th class="text-c-black"><b>TOTAL</b></th>
                                 <th class="text-c-purple">
                                         <span class="badge badge-pill badge-success" style="font-size: 100%;">
-                                            S/. <?php echo $this->cart->format_number($this->cart->total()); ?>
+                                            S/. <?php echo $this->cart->format_number($this->cart->total());?>
                                         </span>
                                 </th>
                                 <th></th>
-                              </tbody>
+                                </tr>
+                              </tfoot>
                             </table>
                               <br/>
                               <div id="message"></div>

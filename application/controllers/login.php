@@ -81,7 +81,13 @@ class Login extends CI_Controller {
                     $data_customer_session['logged_customer'] = "TRUE";
                     $data_customer_session['active'] = $obj_customer->active;
                     $_SESSION['customer'] = $data_customer_session; 
-                    $data['status'] = "true";
+                    //verify cart shop
+                    $cart = count($this->cart->contents());
+                    if($cart > 0){
+                        $data['status'] = "true2";
+                    }else{
+                        $data['status'] = "true";
+                    }
             }else{
                    $data['status'] = "false";
             }

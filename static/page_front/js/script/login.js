@@ -51,7 +51,17 @@ function login(){
                          texto = texto+'</div>';                 
                          texto = texto+'</center>';
                          $("#mensaje").html(texto);
-                       location.href = site + "backoffice";
+                         location.href = site + "backoffice";
+                   }else if(data.status == "true2"){
+                       $("#mensaje").html();
+                         var texto = "";
+                         texto = texto+'<center>';
+                         texto = texto+'<div class="alert alert-success">';
+                         texto = texto+'<p>Bienvenido</p>';
+                         texto = texto+'</div>';                 
+                         texto = texto+'</center>';
+                         $("#mensaje").html(texto);
+                         location.href = site + "backoffice/pay_order";
                    }else{
                        $("#mensaje").html();
                          var texto = "";
