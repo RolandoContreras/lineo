@@ -231,7 +231,7 @@
                   <h3 class="title">
                       <a href="<?php echo site_url()."cursos/$obj_courses_principal->category_slug/$obj_courses_principal->slug"?>"><?php echo $obj_courses_principal->name;?></a>
                   </h3>
-                    <p class="description"><?php echo corta_texto($obj_courses_principal->description,400);?></p>
+                    <div class="description_hide"><?php echo corta_texto($obj_courses_principal->description,400);?></div>
                 </div>
               </div>
             </div>

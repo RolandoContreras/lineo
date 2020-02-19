@@ -24941,8 +24941,11 @@ header#masthead.site-header.affix {
     .responsive .thim-sc-steps.layout-1 .content-box, .responsive .thim-sc-steps.layout-2 .content-box, .responsive .thim-textbox .title {
         padding: 0 20px
     }
-    .responsive .thim-block-1 .main-course .content-video .description {
+    .responsive .thim-block-1 .main-course .content-video .description{
         display: none
+    }
+    .description_hide{
+        display: none !important;
     }
     .responsive .thim-courses-block-2 .no-gutter>[class*=col-] {
         min-height: 295px
