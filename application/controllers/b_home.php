@@ -276,17 +276,16 @@ class B_home extends CI_Controller {
                 $course_id = $this->input->post('course_id');
                 $quantity = 1;
                 $name = $this->input->post('name');
-                
+                $name_cart = convert_slug_cart($name);
                 //ADD CART
                 if($quantity > 0){
                     $data = array(
                         'id'      => $course_id,
                         'qty'     => $quantity,
                         'price'   => $price,
-                        'name'    => "$name",
+                        'name'    => "$name_cart",
                     );
                     $cart_id = $this->cart->insert($data);
-
                     if($cart_id != ""){
                         $data['status'] = "true";
                     }else{

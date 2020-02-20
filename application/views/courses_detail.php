@@ -21,16 +21,14 @@
             <div class="breadcrumb-content ">
                 <div class="breadcrumbs-wrapper container">
                     <div class="learn-press-course-buttons lp-course-buttons">
-                        <!--<form enctype="multipart/form-data" action="javascript:void(0);">-->
-                            <button onclick="add_cart('<?php echo $obj_courses->course_id;?>','<?php echo $obj_courses->price;?>','<?php echo $obj_courses->name;?>');" class="button"><i class="fas fa-shopping-cart"></i>&nbsp;&nbsp; Comprar el Curso </button>
-                            <!--<input onclick="add_cart('<?php echo $obj_courses->course_id;?>','<?php echo $obj_courses->price;?>','<?php echo $obj_courses->name;?>');" type="text" value="Enviar" class="button" />-->
-                        <!--</form>-->
+                            <button onclick="add_cart_home('<?php echo $obj_courses->course_id;?>','<?php echo $obj_courses->price;?>','<?php echo $obj_courses->name;?>');" class="button"><i class="fas fa-shopping-cart"></i>&nbsp;&nbsp; Comprar el Curso </button>
                     </div>
                 </div>
             </div>
             <span class=overlay-top-header style="background-color: rgba(0,0,0,0.5);"></span>
           <div class="content container">
             <div class=text-title>
+                <div id="message"></div>
               <h1><?php echo $obj_courses->name;?></h1>
             </div>
             <div class=text-description>
@@ -95,6 +93,7 @@
                       <div class=course-meta></div>
                       <div id=thim-landing-course-menu-tab>
                         <div class="container wrapper clearfix">
+                            <div id="message2"></div>
                           <ul class=course-landing-tab>
                             <li role="presentation" class="course-nav-tab-overview active">
                                 <a href=#tab-overview>Visión General</a>
@@ -104,10 +103,9 @@
                               <span class=course-origin-price>S/.<?php echo $obj_courses->price_del;?></span>
                               <span class=course-price>S/.<?php echo $obj_courses->price;?></span>
                             <div class="learn-press-course-buttons lp-course-buttons">
-                              <form name=purchase-course class="purchase-course guest_checkout" method=post enctype=multipart/form-data>
-                                <button class="lp-button button button-purchase-course">Comprar el Curso </button>
-                              </form>
+                                  <button onclick="add_cart_home('<?php echo $obj_courses->course_id;?>','<?php echo $obj_courses->price;?>','<?php echo $obj_courses->name;?>');" class="button"><i class="fas fa-shopping-cart"></i>&nbsp;&nbsp; Comprar el Curso </button>
                             </div>
+                              
                           </div>
                         </div>
                       </div>
@@ -149,9 +147,6 @@
                             </ul>
                           </li>
                         </ul>
-                          
-                          
-                          
                     <div class=thim-related-course>
                       <h3 class="related-title">Cursos Relacionados</h3>
                       <div class="courses-carousel archive-courses course-grid owl-carousel owl-theme" data-cols=3>

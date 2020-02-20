@@ -31,6 +31,10 @@
 .vc_custom_1503636515884 {
     background-image: url(../images/bg-1-png?id=156) !important;
 }
+.description_hide{
+    display: none;
+}
+
 @media print {
     .pmpro_a-print {
         display: none;

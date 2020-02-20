@@ -43,6 +43,12 @@ function convert_slug($url){
     return strtolower(str_replace($search, $replace, $url));
 }
 
+function convert_slug_cart($url){
+    $search  = array('á', 'é', 'í', 'ó', 'ú','ñ','Á', 'É', 'Í', 'Ó', 'Ú');
+    $replace = array('a', 'e', 'i', 'o', 'u','n','a', 'e', 'i', 'o', 'u');    
+    return strtolower(str_replace($search, $replace, $url));
+}
+
 function convert_query($slug){
     $search  = array('-');
     $replace = array(' ');    

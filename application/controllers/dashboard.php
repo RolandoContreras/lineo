@@ -11,6 +11,11 @@ class Dashboard extends CI_Controller {
     }
     
     public function validate(){
+        if (isset($_SERVER['HTTP_ORIGIN'])) {  
+            header("Access-Control-Allow-Origin: {$_SERVER['HTTP_ORIGIN']}");  
+            header('Access-Control-Allow-Credentials: true');  
+            header('Access-Control-Max-Age: 86400');   
+        }
         if($this->input->is_ajax_request()){    
             $this->form_validation->set_rules('email','email',"required|trim|valid_email|callback_validar_user");
             $this->form_validation->set_rules('password','password','required|trim');              

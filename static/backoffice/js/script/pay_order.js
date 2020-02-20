@@ -80,4 +80,49 @@ function add_cart(course_id,price,name){
             }            
         });
 }
+function add_cart_home(course_id,price,name){
+        $.ajax({
+            type: "post",
+            url: site + "backoffice/order/add_cart",
+            dataType: "json",
+            data: {course_id: course_id,
+                   price: price,
+                   name: name},
+
+            success:function(data){            
+                if(data.status == "true"){
+                    $("#message").html();
+                    $("#message2").html();
+                     var texto = "";
+                     texto = texto+'<center>';
+                     texto = texto+'<div class="alert alert-success">';
+                     texto = texto+'<p>Producto Agregado</p>';
+                     texto = texto+'</div>';                 
+                     texto = texto+'</center>';
+                     $("#message").html(texto);
+                     $("#message2").html(texto);
+                     location.reload();
+                }else{
+                    $("#message").html();
+                    $("#message2").html();
+                     var texto = "";
+                     texto = texto+'<center>';
+                     texto = texto+'<div class="alert alert-danger">';
+                     texto = texto+'<p>Hubo un error</p>';
+                     texto = texto+'</div>';                 
+                     texto = texto+'</center>';
+                     $("#message").html(texto);
+                     $("#message").html(texto);
+                     $("#message2").html();
+                     var texto = "";
+                     texto = texto+'<center>';
+                     texto = texto+'<div class="alert alert-danger">';
+                     texto = texto+'<p>Hubo un error</p>';
+                     texto = texto+'</div>';                 
+                     texto = texto+'</center>';
+                     $("#message2").html(texto);
+                }
+            }            
+        });
+}
 
