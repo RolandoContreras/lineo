@@ -9,6 +9,7 @@ class B_home extends CI_Controller {
         $this->load->model("courses_model","obj_courses");
         $this->load->model("invoices_model","obj_invoices");
         $this->load->model("customer_courses_model","obj_customer_courses");
+        $this->load->library('culqi');
     }
 
     public function index()
@@ -307,6 +308,66 @@ class B_home extends CI_Controller {
         
         $this->tmp_backoffice->set("obj_category_videos",$obj_category_videos);
         $this->tmp_backoffice->render("backoffice/b_pay_order");
+    }
+    
+    public function active_course(){
+        //ACTIVE CUSTOMER NORMALY
+         try {
+           //GET SESION ACTUALY
+           $this->get_session();
+           //UPDATED SET TIME ZONE
+           date_default_timezone_set('America/Lima');
+           //get customer
+           $customer_id = $_SESSION['customer']['customer_id'];
+           //SELECT DATA CUSTOMER
+           $params_customer = array(
+                        "select" =>"name",
+                "where" => "customer_id = $customer_id",
+                );
+            //GET DATA COMMENTS
+             $obj_customer = $this->obj_customer->get_search_row($params_customer);
+             
+               $price_cart =  $this->cart->format_number($this->cart->total());
+               $price =  $this->input->post('price');
+               $token = $this->input->post('token');
+               $email = $this->input->post('email');
+               //make charged
+               $charge = $this->culqi->charge($token,$price,$email,$obj_customer->name);
+               
+               $price_cart = explode(".", $price_cart);
+               $price = $price_cart[0];
+               $price= quitar_coma_number($price); 
+               //INSERT INVOICE
+             
+                $option = "";
+                foreach ($this->cart->contents() as $items) {
+                    //CREATE INVOICE
+                    $data_invoice = array(
+                        'customer_id' => $customer_id,
+                        'course_id' => $items['id'],
+                        'sub_total' => $items['price'],
+                        'igv' => 0,
+                        'total' => $items['price'],
+                        'date' => date("Y-m-d H:i:s"),
+                        'active' => 2,
+                    );
+                    $invoice_id = $this->obj_invoices->insert($data_invoice);
+                    //CREATE CUSTOMER COURSE
+                    $data = array(
+                        'customer_id' => $customer_id,
+                        'course_id' => $items['id'],
+                    );
+                    $this->obj_customer_courses->insert($data);
+                }   
+               //DESTROY CART
+               $this->cart->destroy();
+               // Respuesta
+               $data['status'] = "true";
+               echo json_encode($charge);
+        } catch (Exception $e) {
+            $data['status'] = "false";
+            echo json_encode($e->getMessage());
+        }
     }
     
     public function delete_cart() {

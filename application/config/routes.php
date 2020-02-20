@@ -65,6 +65,7 @@ $route['backoffice/pay_order'] = "b_home/pay_order";
 $route['backoffice/shopping'] = "b_home/order";
 $route['backoffice/order/add_cart'] = 'b_home/add_cart';
 $route['backoffice/order/delete_cart'] = 'b_home/delete_cart';
+$route['backoffice/active_course'] = 'b_home/active_course';
 
 $route['backoffice/([0-9]+)'] = 'b_home/index/$1';
 $route['backoffice/([0-9a-z_-]+)'] = 'b_home/category/$1';

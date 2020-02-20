@@ -86,26 +86,15 @@
                                   </div>
                                 <div class="col-sm-12">
                                       <div class="card-block text-center">
-                                          <button type="button" class="btn btn-primary" id="buyButton" data-price="<?php echo quitar_punto_number($this->cart->format_number($this->cart->total())); ?>">Pagar</button>
+                                          <button type="button" class="btn shadow-2 btn-success btn-lg" id="buyButton" data-price="<?php echo quitar_punto_number($this->cart->format_number($this->cart->total())); ?>"><i data-feather="credit-card"></i>&nbsp; Pagar</button>
+                                            <button class="btn btn shadow-2 btn-success btn-lg" type="button" style="display: none;" id="spinner">
+                                              <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                              Verificando ...
+                                            </button>
                                       </div>
                                   </div>
                             </div>
-                          <div class="form-group has-feedback" id="pay_success_2" style="display: none">
-                              <center>
-                                 <div class="alert alert-success">
-                                    <button class="close" data-dismiss="alert" type="button">×</button>
-                                    <p>La venta se realizo éxitosamente</p>
-                                 </div>                 
-                             </center>
-                          </div>
-                          <div class="form-group has-feedback" id="pay_info" style="display: none">
-                                 <center>
-                                     <div class="alert alert-danger">
-                                        <button class="close" data-dismiss="alert" type="button">×</button>
-                                        <p>Hubo un error, verifique los datos de la tarjeta</p>
-                                     </div>                 
-                                 </center>
-                            </div>
+                          <div id="pay_info"></div>
                       </div>
                     </div>
                   </div>
@@ -120,7 +109,11 @@
 </section>
 <script src="<?php echo site_url();?>static/backoffice/js/script/pay_order.js"></script>
 <script>
-  Culqi.publicKey = 'pk_live_d4ZedlvJFWdrXoiI';
+   $("#buyButton").click(function(){
+      $("#spinner").show();
+      $("#buyButton").hide();
+    });
+  Culqi.publicKey = 'pk_test_afc652f5ee5883c7';
   var  price = "";
   $('#buyButton').on('click', function(e) {
       price = $(this).attr('data-price');
@@ -128,7 +121,7 @@
         lang: 'auto',
         modal: true,
         style: {
-          logo: '<?php echo site_url().'static/page_front/images/logo/logo-fuego.png';?>',
+          logo: '<?php echo site_url().'static/page_front/images/logo/logo-black.png';?>',
           maincolor: '#0ec1c1',
           buttontext: '#ffffff',
           maintext: '#4A4A4A',
@@ -136,9 +129,9 @@
         }
     });
       Culqi.settings({
-        title: 'Cultura Imparable',
+        title: 'U-Linex',
         currency: 'PEN',
-        description: 'Venta de Producto y/o Servicio',
+        description: 'Venta de Cursos',
         amount: price
       });
     Culqi.open();
@@ -149,7 +142,7 @@
       if (Culqi.token) { // ¡Objeto Token creado exitosamente!
           var token = Culqi.token.id;
           var email = Culqi.token.email;
-          var url = site + "catalogo/pay_order/process_pay_invoice"
+          var url = site + "backoffice/active_course";
           $.ajax({
              url: url,
              method : 'post',
@@ -161,10 +154,22 @@
              dataType: 'JSON',  
              success: function(data){
                  if(data.object == "charge"){
-                    document.getElementById("pay_success_2").style.display = "block";
-                    location.href = site + "catalogo/order";
+                    $("#pay_info").html();
+                    var texto = "";
+                    texto = texto+'<div class="alert alert-success">';
+                    texto = texto+'<p style="text-align: center;">El pago se realizó exitosamente</p>';
+                    texto = texto+'</div>';                 
+                    $("#pay_info").html(texto);
+                    location.href = site + "backoffice/shopping";
                 }else {
-                    document.getElementById("pay_info").style.display = "block";
+                    $("#pay_info").html();
+                    var texto = "";
+                    texto = texto+'<div class="alert alert-info">';
+                    texto = texto+'<p style="text-align: center;">Hubo un error, verifique los datos de la tarjeta</p>';
+                    texto = texto+'</div>';                 
+                    $("#pay_info").html(texto);
+                    $("#spinner").hide();
+                    $("#buyButton").show();
                  } 
              },
              error : function(data){
@@ -178,3 +183,4 @@
     };
 
 </script>
+

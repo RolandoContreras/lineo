@@ -55,6 +55,11 @@ function convert_query($slug){
     return strtolower(str_replace($search, $replace, $slug));
 }
 
+function quitar_coma_number($number){    
+    $number = str_replace(',','',$number);    
+    return $number;
+}
+
 function format_number_moneda_soles($number){
     $decimals ="2";
     $number = number_format($number, $decimals);

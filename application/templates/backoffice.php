@@ -24,6 +24,9 @@
   </script>
   <script src="<?php echo site_url().'static/cms/js/core/jquery-1.11.1.min.js';?>"></script>
   <script src="<?php echo site_url().'static/cms/js/core/bootstrap.min.js';?>"></script>
+  <!--culqi-->
+  <script src="https://checkout.culqi.com/js/v3"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 </head>
 
 <body class="layout-6" style="background-image: url('<?php echo site_url().'static/page_front/images/bg_header.jpg';?>'); background-size: cover;">
