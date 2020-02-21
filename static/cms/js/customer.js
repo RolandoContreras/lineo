@@ -40,7 +40,8 @@ function delete_customer(customer_id){
             className: 'btn-danger'
         }
     },
-    callback: function () {
+    callback: function (result) {
+        if(result == true){
          $.ajax({
                    type: "post",
                    url: site+"dashboard/clientes/delete",
@@ -50,6 +51,7 @@ function delete_customer(customer_id){
                    location.reload();
                    }         
            });
+        }
     }
     });
 }

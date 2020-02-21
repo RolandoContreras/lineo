@@ -23,8 +23,9 @@ function delete_category(category_id){
             className: 'btn-danger'
         }
     },
-    callback: function () {
-         $.ajax({
+    callback: function (result) {
+        if(result == true){
+            $.ajax({
                    type: "post",
                    url: site+"dashboard/categorias/delete",
                    dataType: "json",
@@ -33,6 +34,7 @@ function delete_category(category_id){
                    location.reload();
                    }         
            });
-    }
+        }
+      }
     });
 }

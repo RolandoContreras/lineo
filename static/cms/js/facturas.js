@@ -19,8 +19,9 @@ function delete_invoices(invoice_id){
             className: 'btn-danger'
         }
     },
-    callback: function () {
-         $.ajax({
+    callback: function (result) {
+        if(result == true){
+            $.ajax({
                    type: "post",
                    url: site+"dashboard/facturas/delete",
                    dataType: "json",
@@ -29,6 +30,7 @@ function delete_invoices(invoice_id){
                    location.reload();
                    }         
            });
+        }
     }
     });
 }

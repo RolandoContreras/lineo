@@ -23,8 +23,9 @@ function delete_users(user_id){
             className: 'btn-danger'
         }
     },
-    callback: function () {
-         $.ajax({
+    callback: function (result) {
+        if(result == true){
+            $.ajax({
                    type: "post",
                    url: site+"dashboard/usuarios/delete",
                    dataType: "json",
@@ -33,6 +34,7 @@ function delete_users(user_id){
                    location.reload();
                    }         
            });
+        }
     }
     });
 }

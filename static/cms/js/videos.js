@@ -23,8 +23,9 @@ function delete_video(video_id){
             className: 'btn-danger'
         }
     },
-    callback: function () {
-         $.ajax({
+    callback: function (result) {
+        if(result == true){
+            $.ajax({
                    type: "post",
                    url: site+"dashboard/videos/delete",
                    dataType: "json",
@@ -33,6 +34,7 @@ function delete_video(video_id){
                    location.reload();
                    }         
            });
+        }
     }
     });
 }

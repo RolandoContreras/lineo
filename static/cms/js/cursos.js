@@ -23,8 +23,9 @@ function delete_course(course_id){
             className: 'btn-danger'
         }
     },
-    callback: function () {
-         $.ajax({
+    callback: function (result) {
+        if(result == true){
+            $.ajax({
                    type: "post",
                    url: site+"dashboard/cursos/delete",
                    dataType: "json",
@@ -33,6 +34,7 @@ function delete_course(course_id){
                    location.reload();
                    }         
            });
+        }
     }
     });
 }
