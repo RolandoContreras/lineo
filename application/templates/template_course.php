@@ -46,7 +46,7 @@
                     <div id=tab-curriculum style="height: 68px;"></div>
                     <div class=course-curriculum id=learn-press-course-curriculum>
                       <nav class="thim-font-heading learn-press-breadcrumb">
-                          <a href="<?php echo site_url().'course';?>">Inicio</a> 
+                          <a href="<?php echo site_url().'backoffice';?>">Inicio</a> 
                           <span class=delimiter>/</span> 
                           <a href="javascript:void(0);">Mi Curso</a> 
                          <span class="item-name">
@@ -80,14 +80,13 @@
                     </div>
                     <div id="learn-press-content-item">
                       <div class=content-item-scrollable>
-                        <div id=course-item-content-header class=thim-course-item-header>
+                        <div id=course-item-content-header class="thim-course-item-header" style="background-image:url(<?php echo site_url().'static/page_front/images/bg_header.jpg';?>) !important;">
                           <div class=thim-course-item-popup-logo>
                               <a class=lesson-logo href="<?php echo site_url().'plataforma';?>" title="logo">
-                                <img class=logo src="<?php echo site_url().'static/page_front/images/logo/logo-h.png';?>" alt="logo" width="130">
+                                <img class=logo src="<?php echo site_url().'static/page_front/images/logo/logo-h-b.png';?>" alt="logo" width="200">
                             </a>
                           </div>
-                          <a href="<?php echo site_url().'backoffice';?>" class=back_course><i class="fa fa-close"></i></a>
-                          <a class=toggle-content-item href></a>
+                          <a class=toggle-content-item></a>
                         </div>
                         <?php echo $body;?>  
                         <div id=course-item-content-footer></div>
