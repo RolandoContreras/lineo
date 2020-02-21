@@ -14,6 +14,7 @@
   <link type="text/css" media="only screen and (max-width: 768px)" href="<?php echo site_url().'static/course/css/autoptimize_dcb.css';?>" rel="stylesheet">
   <link rel="stylesheet" href="<?php echo site_url().'static/course/css/dashicons.min.css';?>" type="text/css" media="all">
   <link rel="stylesheet" href="<?php echo site_url().'static/course/css/autoptimize_single_cf7.css';?>" type=text/css media="all">
+  <link rel="stylesheet" href="<?php echo site_url().'static/course/css/style.css';?>" type=text/css media="all">
   <script src="<?php echo site_url().'static/course/js/jquery.js';?>"></script>
   <script>
     var lpGlobalSettings = {"localize":{}};
@@ -57,10 +58,15 @@
                                   <h4 class="section-header"><span class=collapse></span>Curso &nbsp;<span class=section-description><?php echo $obj_courses->name;?></span></h4>
                                       <ul class=section-content>
                                           <?php foreach ($obj_videos as $key => $value) { 
-                                                        $key += 1;?> 
-                                                    <li class="course-item course-item-lp_lesson course-item-487 item-preview has-status">
+                                                $key += 1;
+                                                     if($obj_courses_overview->video_id == $value->video_id){
+                                                          $style = "current";
+                                                     }else{
+                                                         $style = "";
+                                                     }?> 
+                                                    <li class="course-item course-item-lp_lesson course-item-487 item-preview has-status <?php echo $style?>">
                                                       <span class=course-format-icon><i class="fa fa-play"></i></span>
-                                                      <a class=section-item-link href="">
+                                                      <a class=section-item-link href="<?php echo site_url()."plataforma/$slug/$value->courses_slug/$value->slug";?>">
                                                             <span  class=item-name><?php echo "$key".".0 ". $value->name;?></span>
                                                             <span class=course-item-meta>
                                                                 <span class="lp-label lp-label-preview">Ver Vídeo</span>

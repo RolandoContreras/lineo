@@ -77,6 +77,7 @@ $route['plataforma/([0-9]+)'] = 'c_home/index/$1';
 $route['plataforma/([0-9a-z_-]+)'] = 'c_home/category/$1';
 $route['plataforma/([0-9a-z_-]+)/([0-9]+)'] = 'c_home/category/$1';
 $route['plataforma/([0-9a-z_-]+)/([0-9a-z_-]+)'] = 'c_home/detail/$1';
+$route['plataforma/([0-9a-z_-]+)/([0-9a-z_-]+)/([0-9a-z_-]+)'] = 'c_home/detail/$1';
 
 $route['backoffice/profile'] = "b_profile";
 $route['backoffice/profile/update_password'] = "b_profile/update_password";
