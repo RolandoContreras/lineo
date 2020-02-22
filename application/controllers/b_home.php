@@ -303,9 +303,14 @@ class B_home extends CI_Controller {
     {
         //GET SESION ACTUALY
         $this->get_session_pay_order();
+        //get customer id
+        $customer_id = $_SESSION['customer']['customer_id'];
         //get nav ctalogo
         $obj_category_videos = $this->nav_category();
-        
+        //get cursos comprados
+        $obj_courses_by_customer = $this->courses_by_customer($customer_id);
+        //SEND DATA
+        $this->tmp_backoffice->set("obj_courses_by_customer",$obj_courses_by_customer);
         $this->tmp_backoffice->set("obj_category_videos",$obj_category_videos);
         $this->tmp_backoffice->render("backoffice/b_pay_order");
     }

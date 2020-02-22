@@ -15,6 +15,11 @@
   <link rel="stylesheet" href="<?php echo site_url().'static/course/css/dashicons.min.css';?>" type="text/css" media="all">
   <link rel="stylesheet" href="<?php echo site_url().'static/course/css/autoptimize_single_cf7.css';?>" type=text/css media="all">
   <link rel="stylesheet" href="<?php echo site_url().'static/course/css/style.css';?>" type=text/css media="all">
+  <!--TAB CSS-->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <!--END TAB CSS-->
   <script src="<?php echo site_url().'static/course/js/jquery.js';?>"></script>
   <script>
     var lpGlobalSettings = {"localize":{}};

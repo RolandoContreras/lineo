@@ -7,6 +7,7 @@ class C_home extends CI_Controller {
         $this->load->model("videos_model","obj_videos");
         $this->load->model("category_model","obj_category");
         $this->load->model("courses_model","obj_courses");
+        $this->load->model("video_message_model","obj_video_message");
     }
     
     public function detail($slug)
@@ -84,11 +85,25 @@ class C_home extends CI_Controller {
                 "order" => "videos.video_id ASC",
                 );
             $obj_videos = $this->obj_videos->search($params);
-            //SEND DATA
+            //get all message
             
+            
+            $params = array(
+                        "select" =>"video_message.video_message_id,
+                                    video_message.date,
+                                    video_message.message,
+                                    video_message.respose,
+                                    customer.name",
+                "join" => array('customer, video_message.customer_id = customer.customer_id'),
+                "order" => "video_message.video_id = $obj_courses_overview->video_id",
+                "order" => "video_message.video_message_id ASC",
+                );
+            $obj_video_message = $this->obj_video_message->search($params);
+            //SEND DATA
             $this->tmp_course->set("slug",$slug);
             $this->tmp_course->set("course_img",$course_img);
             $this->tmp_course->set("obj_courses_overview",$obj_courses_overview);
+            $this->tmp_course->set("obj_video_message",$obj_video_message);
             $this->tmp_course->set("obj_videos",$obj_videos);
             $this->tmp_course->set("obj_courses",$obj_courses);
             $this->tmp_course->set("video_link",$video_link);
