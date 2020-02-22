@@ -110,6 +110,30 @@ class C_home extends CI_Controller {
             $this->tmp_course->render("course/c_home");
 	}
     
+    public function send_message() {
+        if($this->input->is_ajax_request()){   
+                //GET CUSTOMER_ID
+                $customer_id = $_SESSION['customer']['customer_id'];
+                $message = $this->input->post('comment');
+                $video_id = $this->input->post('video_id');
+                //ADD VIDEO_MESSAGE
+                    $data = array(
+                        'customer_id'      => $customer_id,
+                        'video_id'     => $video_id,
+                        'message'   => $message,
+                        'date'   => date("Y-m-d H:i:s"),
+                        'active'    => 1,
+                    );
+                    $video_message_id = $this->obj_video_message->insert($data);
+                    if($video_message_id != ""){
+                        $data['status'] = "true";
+                    }else{
+                        $data['status'] = "false";
+                    }
+               echo json_encode($data); 
+        }
+    }    
+        
     public function nav_videos(){
             $params_category_videos = array(
                         "select" =>"category_id,

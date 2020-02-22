@@ -25,6 +25,9 @@
     var lpGlobalSettings = {"localize":{}};
   </script>
   <script src="https://use.fontawesome.com/bd71157fab.js"></script>
+  <script type="text/javascript">
+    var site = '<?php echo site_url();?>';
+  </script>
 </head>
 <body class="lp_course-template-default single single-lp_course postid-486 wp-embed-responsive theme-wordpress-lms wordpress-lms learnpress learnpress-page pmpro-body-has-access woocommerce-no-js pagetitle-show bg-type-color thim-body-visual-composer responsive lp_login_popup box-shadow auto-login ltr learnpress-v3 course-free header-template-overlay thim-lp-layout-2 lp-landing wpb-js-composer js-comp-ver-6.0.5 vc_responsive course-item-popup viewing-course-item viewing-course-item-489 course-item-lp_lesson">
   <div id=thim-preloading>

@@ -24,15 +24,15 @@
                         <div id="home" class="tab-pane fade in active">
                           <div class="content-item-description lesson-description">
                             <div class="section-item-link">
-                                <span class="item-name" style="color:#888 !important">Fecha: <?php echo formato_fecha_dia_mes($obj_courses_overview->date);?></span>
-                            </div><br/>
+                                <span class="item-name">Fecha: <?php echo formato_fecha_dia_mes($obj_courses_overview->date);?></span>
+                            </div>
                             <p style="color:#888 !important">
                                 <?php echo $obj_courses_overview->description;?>
                             </p>
                         </div>
                         </div>
                         <div id="menu1" class="tab-pane fade">
-                                  <div class="card chat-sanders">
+                                  <div class="chat-sanders">
                                     <div class="card-block m-t-30 p-0">
                                       <div class="scroll-div ps ps--active-y">
                                           <?php 
@@ -77,10 +77,12 @@
                                     </div>
                                     <div class="right-icon-control border-top">
                                       <div class="input-group input-group-button p-10">
-                                          <input type="text" class="form-control border-0 text-muted" placeholder="Escribe tu pregunta"/>
+                                          <input type="text" name="comment" id="comment" class="form-control border-0 text-muted" placeholder="Escribe tu pregunta"/>
                                         <div class="input-group-append">
-                                            <button class="btn" type="button"><i class="fa f-20 fa-paper-plane"></i></button>
+                                            <button class="btn" onclick="write_message('<?php echo $obj_courses_overview->video_id;?>');" type="button"><i class="fa f-20 fa-paper-plane"></i></button>
                                         </div>
+                                          <br/>
+                                          <div id="message"></div>
                                       </div>
                                     </div>
                                   </div>
@@ -119,7 +121,7 @@
       </div>
     </div>
   </div>
-  
 </div>
+<script src="<?php echo site_url().'static/course/js/script/c_home.js';?>"></script>  
 
 

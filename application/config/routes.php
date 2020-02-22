@@ -73,6 +73,7 @@ $route['backoffice/([0-9a-z_-]+)/([0-9]+)'] = 'b_home/category/$1';
 $route['backoffice/([0-9a-z_-]+)/([0-9a-z_-]+)'] = 'b_home/detail/$1';
 
 $route['plataforma'] = "c_home";
+$route['plataforma/send_message'] = "c_home/send_message";
 $route['plataforma/([0-9]+)'] = 'c_home/index/$1';
 $route['plataforma/([0-9a-z_-]+)'] = 'c_home/category/$1';
 $route['plataforma/([0-9a-z_-]+)/([0-9]+)'] = 'c_home/category/$1';
