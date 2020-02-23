@@ -31,4 +31,11 @@
   <script>
     var site = '<?php echo site_url();?>';
   </script>
+  <?php 
+   if(isset($meta_description_og)){ ?>
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="<?php echo $title;?>"/>
+        <meta property="og:description" content="<?php echo corta_texto($meta_description_og,300);?>" />
+        <meta property="og:image" content="<?php echo $meta_img_og;?>" />
+   <?php  } ?>
 </head>

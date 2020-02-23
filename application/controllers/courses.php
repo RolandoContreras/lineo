@@ -206,6 +206,7 @@ class Courses extends CI_Controller {
                                         courses.slug,
                                         courses.description,
                                         courses.img2,
+                                        courses.img,
                                         courses.price,
                                         courses.price_del,
                                         courses.date,
@@ -257,12 +258,13 @@ class Courses extends CI_Controller {
                             "order" => "RAND()"
                 );
             $data['obj_courses_related'] = $this->obj_courses->search($params);
-            
+            //get data   
             $obj_courses_meta = $data['obj_courses'];
-            $course_id = $data['obj_courses']->course_id;
-            
-            //view
+            //SEND DATA META OG: FACEBOOK
             $data['title'] = "Cursos | $obj_courses_meta->category_name | $obj_courses_meta->name";      
+            $data['meta_description_og'] = "$obj_courses_meta->description";
+            $data['meta_img_og'] = site_url()."static/cms/img/cursos/$obj_courses_meta->img";
+            //view
             $this->load->view('courses_detail',$data);
 	}
         
