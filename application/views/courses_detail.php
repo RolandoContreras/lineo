@@ -41,7 +41,7 @@
       </div>
       <div class="container site-content ">
         <div class=row>
-          <main id=main class="site-main col-sm-12 full-width">
+          <div id=main class="site-main col-sm-12 full-width">
             <article id=post-458 class="sidebar-right post-458 lp_course type-lp_course status-publish has-post-thumbnail hentry course_category-busines-course course_category-design course_tag-business-tag course_tag-theme course_tag-wordpress pmpro-has-access course">
               <div class=entry-content>
                 <div id=lp-single-course class=lp-single-course>
@@ -189,8 +189,9 @@
       </div>
   </div>
   </div>
+  </div>
   </article>
-  </main>
+  </div>
   </div>
   </div>
   </section>

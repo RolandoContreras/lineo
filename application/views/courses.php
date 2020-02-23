@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <?php $this->load->view("head");?>
 <body class="home-page bp-legacy home page-template page-template-templates page-template-home-page page-template-templateshome-page-php page page-id-36 wp-embed-responsive theme-wordpress-lms pmpro-body-has-access woocommerce-no-js pagetitle-show bg-type-color thim-body-visual-composer responsive box-shadow auto-login ltr home1-section learnpress-v3 header-template-default wpb-js-composer js-comp-ver-6.0.5 vc_responsive no-js">
   <div id=thim-preloading>
@@ -70,7 +70,7 @@
   </div>
   <div class="container site-content ">
     <div class=row>
-      <main id=main class="site-main col-sm-12 col-md-9 flex-first">
+      <div id=main class="site-main col-sm-12 col-md-9 flex-first">
         <article id=post-0 class="post-0 post type-post status-publish format-standard hentry pmpro-has-access page type-page">
           <div class=entry-content>
             <div id=lp-archive-courses class=lp-archive-courses>
@@ -92,7 +92,7 @@
               <div class="learn-press-courses row">
                   <?php
                   foreach ($obj_courses as $value) { ?>
-                        <article class="col-md-4 col-12 col-sm-6 col-xs-6 lpr-course post-486 lp_course type-lp_course status-publish has-post-thumbnail hentry course_category-busines-course course_tag-business-tag course_tag-theme course_tag-wordpress course">
+                        <div class="col-md-4 col-12 col-sm-6 col-xs-6 lpr-course post-486 lp_course type-lp_course status-publish has-post-thumbnail hentry course_category-busines-course course_tag-business-tag course_tag-theme course_tag-wordpress course">
                               <div class="content">
                                 <div class="thumbnail">
                                     <a href="<?php echo site_url()."cursos/$value->category_slug/$value->slug";?>" class="img_thumbnail">
@@ -104,19 +104,19 @@
                                   <div class="button-when-logged has-wishlist"></div>
                                 </div>
                                 <div class=sub-content>
-                                  <h3 class="title">
+                                  <h2 class="title">
                                       <a href="<?php echo site_url()."cursos/$value->category_slug/$value->slug";?>"><?php echo $value->name;?></a>
-                                  </h3>
+                                  </h2>
                                   <div class="date-comment">
                                       <span class="date-meta"><?php echo formato_fecha_dia_mes_ano($value->date);?></span></div>
                                   <div class="content-list">
                                     <div class="course-description">
-                                      <p><?php echo $value->description;?></p>
+                                      <?php echo $value->description;?>
                                     </div>
                                   </div>
                                 </div>
                               </div>
-                          </article>
+                          </div>
                   <?php } ?>
             </div>
   <nav class=learn-press-pagination>
@@ -134,7 +134,7 @@
   </div>
   </div>
   </article>
-  </main>
+  </div>
   <aside id=secondary class="sidebar-courses widget-area col-md-3 sticky-sidebar flex-last">
     <aside id=thim-courses-categories-2 class="widget widget_thim-courses-categories">
       <h4 class="widget-title">Categorías</h4>
@@ -175,7 +175,6 @@
   </div>
   </section>
   </div>
-
   <!--START FOOTER-->
   <?php $this->load->view("footer");?>  
   <!--END FOOTER-->

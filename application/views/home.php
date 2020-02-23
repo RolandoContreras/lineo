@@ -225,7 +225,7 @@
             <div class=main-course>
               <div class=featured-img>
                   <span class=course-label>TOP</span>
-                  <img width="1012" height=562" src="<?php echo site_url()."static/cms/img/cursos/$obj_courses_principal->img2";?>" alt="<?php echo $obj_courses_principal->name;?>">
+                  <img width="1012" height="562" src="<?php echo site_url()."static/cms/img/cursos/$obj_courses_principal->img2";?>" alt="<?php echo $obj_courses_principal->name;?>">
                 <div class=content-video>
                     <span class="fa fa-play-circle" data-mfp-src="<?php echo $obj_courses_overview->video;?>"></span>
                   <h3 class="title">

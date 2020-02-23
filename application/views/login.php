@@ -48,7 +48,7 @@
     </div>
     <div class="container site-content no-padding">
       <div class="row">
-       <main id=main class="site-main col-sm-12 full-width">
+       <div id=main class="site-main col-sm-12 full-width">
            <div class="vc_empty_space" style="height: 92px"><span class="vc_empty_space_inner"></span></div>
               <article id=post-522 class="post-522 page type-page status-publish hentry pmpro-has-access">
                 <div class=entry-content>
@@ -112,7 +112,7 @@
           </div>
           </article>
            <div class="vc_empty_space" style="height: 92px"><span class="vc_empty_space_inner"></span></div>
-          </main>
+          </div>
         </div>
     </div>
  </section>

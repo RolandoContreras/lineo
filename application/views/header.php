@@ -15,7 +15,7 @@
           </div>
           <div class="thim-search-wrapper hidden-md-down">
               <form role="search" method="get" class="search-form active" action="<?php echo site_url().'cursos'?>">
-                <input type="search" class="search-field" placeholder="Buscar tu Curso" value name="search" autofocus="">
+                <input type="search" class="search-field" placeholder="Buscar tu Curso" name="search">
                 <button type="submit" class="search-submit"><span class=ion-android-search></span></button>
             </form>
           </div>

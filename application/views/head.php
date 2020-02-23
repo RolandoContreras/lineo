@@ -28,7 +28,7 @@
     function tc_insert_internal_css(css) { var tc_style = document.createElement("style"); tc_style.type = "text/css"; tc_style.setAttribute('data-type', 'tc-internal-css'); var tc_style_content = document.createTextNode(css); tc_style.appendChild(tc_style_content); document.head.appendChild(tc_style); }
   </script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-  <script type="text/javascript">
+  <script>
     var site = '<?php echo site_url();?>';
   </script>
 </head>

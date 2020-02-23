@@ -55,10 +55,10 @@
             </aside>
           </div>
           <div class="footer-col footer-col5 col-xs-12 col-md-2">
-            <aside id=nav_menu-4 class="widget widget_nav_menu">
+            <aside class="widget widget_nav_menu">
               <h3 class="widget-title">Cursos</h3>
               <div class=menu-support-container>
-                <ul id=menu-support class=menu>
+                <ul class=menu>
                     <?php 
                     foreach ($obj_category as $value) { ?>
                         <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-30 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default">
@@ -70,17 +70,17 @@
             </aside>
           </div>
             <div class="footer-col footer-col5 col-xs-12 col-md-2">
-            <aside id=nav_menu-4 class="widget widget_nav_menu">
+            <aside class="widget widget_nav_menu">
               <h3 class="widget-title">Terminos</h3>
               <div class=menu-support-container>
-                <ul id=menu-support class=menu>
-                  <li id=menu-item-30 class="menu-item menu-item-type-custom menu-item-object-custom menu-item-30 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default">
+                <ul class=menu>
+                  <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-30 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default">
                       <a href="<?php echo site_url().'terminos-condiciones';?>" class=tc-menu-inner>Términos y condiciones</a>
                   </li>
-                  <li id=menu-item-31 class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default">
+                  <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default">
                       <a href="<?php echo site_url().'politica-privacidad';?>" class=tc-menu-inner>Política De Privacidad Y Cookies</a>
                   </li>
-                  <li id=menu-item-31 class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default">
+                  <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default">
                       <a href="#" class=tc-menu-inner>Preguntas Frecuentes</a>
                   </li>
                 </ul>

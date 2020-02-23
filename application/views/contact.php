@@ -48,7 +48,7 @@
     </div>
     <div class="container site-content no-padding">
       <div class="row">
-        <main id="main" class="site-main col-sm-12 full-width">
+        <div id="main" class="site-main col-sm-12 full-width">
           <article id="post-34" class="post-34 page type-page status-publish hentry pmpro-has-access">
               <div class=vc_empty_space style="height: 50px"><span class=vc_empty_space_inner></span></div>
             <div class="entry-content">
@@ -132,7 +132,7 @@
         <div class="wpb_gmaps_widget wpb_content_element">
           <div class="wpb_wrapper">
             <div class="wpb_map_wraper">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d76234.91055190127!2d-77.01268700378829!3d-12.152157280974192!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1ses-419!2spe!4v1581348043337!5m2!1ses-419!2spe" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d76234.91055190127!2d-77.01268700378829!3d-12.152157280974192!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1ses-419!2spe!4v1581348043337!5m2!1ses-419!2spe" width="600" height="450" style="border:0;" allowfullscreen=""></iframe>
                 </div>
           </div>
         </div>
@@ -143,7 +143,7 @@
 <div class="vc_row-full-width vc_clearfix"></div>
 </div>
 </article>
-</main>
+</div>
 </div>
 </div>
 </section>
