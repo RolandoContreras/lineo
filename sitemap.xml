@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+                <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"><url>
+                <loc>http://localhost/lineo/cursos/diseno/cad3d</loc>
+                <lastmod>2020-02-10 17:33:37</lastmod>
+                <changefreq>weekly</changefreq>
+                <priority>0.80</priority>
+                </url><url>
+                <loc>http://localhost/lineo/cursos/arquitectura/arquitectura-basica</loc>
+                <lastmod>2020-02-20 16:19:08</lastmod>
+                <changefreq>weekly</changefreq>
+                <priority>0.80</priority>
+                </url><url>
+                <loc>http://localhost/lineo/cursos/arquitectura</loc>
+                <lastmod>2020-02-21 20:41:58</lastmod>
+                <changefreq>weekly</changefreq>
+                <priority>0.80</priority>
+                </url><url>
+                <loc>http://localhost/lineo/cursos/diseno</loc>
+                <lastmod>2020-02-21 20:41:51</lastmod>
+                <changefreq>weekly</changefreq>
+                <priority>0.80</priority>
+                </url><url><loc>http://localhost/lineo/</loc><changefreq>weekly</changefreq>
+                       <priority>0.80</priority></url><br/><url><loc>http://localhost/lineo/home</loc><changefreq>weekly</changefreq>
+                       <priority>0.80</priority></url><br/><url><loc>http://localhost/lineo/contacto</loc><changefreq>weekly</changefreq>
+                       <priority>0.80</priority></url><br/><url><loc>http://localhost/lineo/registro</loc><changefreq>weekly</changefreq>
+                       <priority>0.80</priority></url><br/><url><loc>http://localhost/lineo/login</loc><changefreq>weekly</changefreq>
+                       <priority>0.80</priority></url><br/><url><loc>http://localhost/lineo/terminos-condiciones</loc><changefreq>weekly</changefreq>
+                       <priority>0.80</priority></url><br/><url><loc>http://localhost/lineo/politica-privacidad</loc><changefreq>weekly</changefreq>
+                       <priority>0.80</priority></url><br/></urlset>
