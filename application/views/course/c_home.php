@@ -7,13 +7,12 @@
                 <div class="vc_empty_space" style="height: 10px"><span class="vc_empty_space_inner"></span></div>
                 <div class="feature-img">
                     <div class=wrapper>
-                        <iframe width=980 height=550 src="https://www.youtube.com/embed/<?php echo $video_link;?>" frameborder allowfullscreen></iframe>
+                        <iframe src="https://player.vimeo.com/video/<?php echo $video_link;?>" width="1050" height="600" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
                     </div>
                 </div>
                 <div class="vc_empty_space" style="height: 50px"><span class="vc_empty_space_inner"></span></div>
                 
                 <div class=content-item-summary>
-                    <div class="container">
                       <h3><?php echo $obj_courses_overview->name;?></h3>
                       <br/>
                       <ul class="nav nav-tabs">
@@ -88,7 +87,6 @@
                                   </div>
                         </div>
                       </div>
-                    </div>
                   </div>
             </div>
               <div class="vc_empty_space" style="height: 10px"><span class="vc_empty_space_inner"></span></div>

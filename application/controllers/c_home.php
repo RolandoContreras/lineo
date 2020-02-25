@@ -64,8 +64,8 @@ class C_home extends CI_Controller {
                 $obj_courses_overview = $this->obj_videos->get_search_row($params);
             //VIDEO LINK
             $video = $obj_courses_overview->video;
-            $explo_video = explode("=", $video);
-            $video_link = $explo_video[1];
+            $explo_video = explode("/", $video);
+            $video_link = $explo_video[3];
             //get videos
             $params = array(
                         "select" =>"videos.video_id,
