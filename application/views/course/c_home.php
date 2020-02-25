@@ -8,11 +8,12 @@
                         <div class="feature-img">
                             <div class=wrapper>
                                 <div class="row justify-content-center">
-                                    <div class="col-md-12">
+                                    <div class="col-md-11">
                                         <div class="embed-responsive embed-responsive-16by9">
                                             <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/<?php echo $video_link; ?>" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
                                         </div>
                                     </div>
+                                    <!--<div class="col-md-1"></div>-->
                                 </div>
                 
                             </div>
@@ -40,7 +41,7 @@
                                 <div id="menu1" class="tab-pane fade">
                                     <div class="chat-sanders">
                                         <div class="card-block m-t-30 p-0">
-                                            <div class="scroll-div ps ps--active-y">
+                                            <div class="ps ps--active-y">
                                                 <?php foreach ($obj_video_message as $value) { ?>
                                                     <div style="padding:0 30px 35px 30px;">
                                                         <div class="row m-b-20 received-chat align-items-end">
