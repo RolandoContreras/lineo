@@ -87,7 +87,7 @@ scr<!DOCTYPE html>
                       </ul>
                     </div>
                     <div id="learn-press-content-item">
-                      <div class=content-item-scrollable>
+                      <div class="content-item-scrollable">
                         <div id=course-item-content-header class="thim-course-item-header" style="background-image:url(<?php echo site_url().'static/page_front/images/bg_header.jpg';?>) !important;">
                             <div class=course-item-search>
                                 <a href="<?php echo site_url().'backoffice';?>">
@@ -119,7 +119,6 @@ scr<!DOCTYPE html>
   <div id=back-to-top><i class="fa fa-angle-up" aria-hidden=true></i></div>
   <div id=tp_style_selector>
     <div class="style-toggle close"></div>
-    <div class="style-toggle open"></div>
   </div>
   <script src=https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js></script>
   <script>
