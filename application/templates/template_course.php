@@ -89,6 +89,12 @@
                     <div id="learn-press-content-item">
                       <div class=content-item-scrollable>
                         <div id=course-item-content-header class="thim-course-item-header" style="background-image:url(<?php echo site_url().'static/page_front/images/bg_header.jpg';?>) !important;">
+                            <div class=course-item-search>
+                                <a href="<?php echo site_url().'backoffice';?>">
+                                    <i class="fa fa-home fa-2x" aria-hidden="true" style="color:white"></i>
+                                </a>
+                                
+                          </div>
                           <div class=thim-course-item-popup-logo>
                               <a class=lesson-logo href="<?php echo site_url().'plataforma';?>" title="logo">
                                 <img class=logo src="<?php echo site_url().'static/page_front/images/logo/logo-h-b.png';?>" alt="logo" width="200">
