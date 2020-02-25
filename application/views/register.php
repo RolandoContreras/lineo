@@ -58,13 +58,7 @@
                         <div class=wpb_wrapper>
                           <div class="wpb_text_column wpb_content_element ">
                             <div class=wpb_wrapper>
-                              <h4 class="subtitle">Bienvenido</h4>
-                              <div class=wp-social-login-widget>
-                                <div class=wp-social-login-connect-with>Nuevo Registro</div>
-                                <div class=wp-social-login-provider-list>
-                                    <img src="<?php echo site_url().'static/page_front/images/logo/logo-h.png';?>" alt="logo">
-                                </div>
-                              </div>
+                                <img src="<?php echo site_url().'static/page_front/images/logo/logo-h.png';?>" alt="logo"/>
                             </div>
                           </div>
                         </div>

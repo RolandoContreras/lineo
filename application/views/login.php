@@ -58,15 +58,7 @@
                         <div class=wpb_wrapper>
                           <div class="wpb_text_column wpb_content_element ">
                             <div class=wpb_wrapper>
-                              <h4 class="subtitle">Inicio Rápido</h4>
-                              <div class=wp-social-login-widget>
-                                <div class=wp-social-login-connect-with>Iniciar con tus redes sociales</div>
-                                <div class=wp-social-login-provider-list>
-                                    <!--<a href=javascript:void(0); title="Conectar con Google" class="wp-social-login-provider wp-social-login-provider-google" data-provider="Google">Google</a>-->
-                                    <a href="<?php echo $authURL; ?>" title="Conectar con Facebook" class="wp-social-login-provider wp-social-login-provider-facebook" data-provider="Facebook">Facebook</a>
-                                </div>
-                                <div class=wp-social-login-widget-clearing></div>
-                              </div>
+                                <img src="<?php echo site_url().'static/page_front/images/logo/logo-h.png';?>" alt="logo"/>
                             </div>
                           </div>
                         </div>
