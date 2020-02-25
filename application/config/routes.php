@@ -119,6 +119,10 @@ $route['dashboard/clientes/load/([0-9]+)'] = "d_customer/load/$1";
 $route['dashboard/clientes/validate'] = "d_customer/validate";
 $route['dashboard/clientes/delete'] = "d_customer/delete";
 
+$route['dashboard/preguntas'] = "d_preguntas";
+$route['dashboard/preguntas/save'] = "d_preguntas/save";
+$route['dashboard/preguntas/delete'] = "d_preguntas/delete";
+
 $route['dashboard/comentarios'] = "d_comments";
 $route['dashboard/comentarios/cambiar_status'] = "d_comments/change_status";
 $route['dashboard/comentarios/cambiar_status_no'] = "d_comments/change_status_no";

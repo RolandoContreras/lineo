@@ -91,6 +91,7 @@
                 <li class="pcoded-hasmenu"><a href="<?php echo site_url()."dashboard/comentarios";?>"><i class="icon-large icon-th"></i>Comentarios</a></li>
                 <li class="pcoded-hasmenu"><a href="<?php echo site_url()."dashboard/cursos";?>"><i class="icon-large icon-th"></i>Cursos</a></li>
                 <li class="pcoded-hasmenu"><a href="<?php echo site_url()."dashboard/facturas";?>"><i class="icon-large icon-th"></i>Facturas</a></li>
+                <li class="pcoded-hasmenu"><a href="<?php echo site_url()."dashboard/preguntas";?>"><i class="icon-large icon-th"></i>Preguntas</a></li>
                 <li class="pcoded-hasmenu"><a href="<?php echo site_url()."dashboard/videos";?>"><i class="icon-large icon-th"></i>Videos</a></li>
                 <?php if($_SESSION['usercms']['privilage'] == 2){ ?>
                 <li class="pcoded-hasmenu" ><a href="<?php echo site_url()."dashboard/usuarios";?>"><i class="icon-large icon-th"></i>Usuarios</a></li>

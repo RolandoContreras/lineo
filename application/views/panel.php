@@ -83,11 +83,11 @@
                   <div class="card-block">
                     <div class="row">
                       <div class="col">
-                          <i class="text-c-green" data-feather="shopping-cart" text-c-green></i>
-                        <h6 class="m-t-50 m-b-0">Last week’s orders</h6>
+                          <i class="text-c-green" data-feather="eye" text-c-green></i>
+                        <h6 class="m-t-50 m-b-0">Preguntas</h6>
                       </div>
                       <div class="col text-right">
-                        <h3 class="text-c-green f-w-300">589</h3><span class="text-muted d-block">New Order</span><span class="badge theme-bg text-white m-t-20">1434</span></div>
+                        <h3 class="text-c-green f-w-300"><?php echo $obj_total->total_message?></h3><span class="text-muted d-block">Total por Responder</span></div>
                     </div>
                   </div>
                 </div>

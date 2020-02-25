@@ -57,7 +57,8 @@ class Panel extends CI_Controller{
                                     (select count(*) from courses) as total_courses,
                                     (select count(*) from invoices) as total_invoices,
                                     (SELECT count(*) FROM (customer_courses) JOIN courses ON courses.course_id = customer_courses.course_id) as total_comprado,
-                                    (select count(*) from users) as total_users");
+                                    (select count(*) from users) as total_users,
+                                    (select count(*) from video_message where active = 1) as total_message");
         $obj_total = $this->obj_comments->get_search_row($params);
         
         $this->tmp_mastercms->set('year',$year);
