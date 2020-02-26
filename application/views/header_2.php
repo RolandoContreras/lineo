@@ -10,7 +10,7 @@
                 <img class=retina-logo src="<?php echo site_url().'static/page_front/images/logo/logo.png';?>" alt="logo" width="100" height="102">
                 <img class=mobile-logo src="<?php echo site_url().'static/page_front/images/logo/logo.png';?>" alt="logo" width=100 height=51></a>
             <a href="<?php echo site_url();?>"  class="sticky-logo">
-                <img src="<?php echo site_url().'static/page_front/images/logo/logo-black.png';?>" alt="Logo" width="78" height="60">
+                <img src="<?php echo site_url().'static/page_front/images/logo/logo.png';?>" alt="Logo" width="78" height="60">
                 <img class=retina-logo-sticky src="<?php echo site_url().'static/page_front/images/logo/logo.png';?>" alt="Logo" width="695" height="100"></a>
           </div>
           <?php
