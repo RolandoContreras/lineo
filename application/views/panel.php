@@ -197,7 +197,7 @@
                           </div>
                         </div><canvas class="flot-overlay" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 80px; height: 45px;" width="80"
                           height="45"></canvas></div>
-                        <h3 class="f-w-300 pt-3 mb-0 text-center"><?php echo format_number_miles($obj_invoices->count_total_mes);?></h3>
+                        <h3 class="f-w-300 pt-3 mb-0 text-center"><?php echo !empty($obj_invoices->count_total_mes)?$$obj_invoices->count_total_mes:"0";?></h3>
                     </div>
                     <div class="col-6">
                       <div id="transactions2" style="height: 45px; width: 80px; margin: 0px auto; padding: 0px; position: relative;"><canvas class="flot-base" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 80px; height: 45px;" width="80"
@@ -215,7 +215,7 @@
                           </div>
                         </div><canvas class="flot-overlay" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 80px; height: 45px;" width="80"
                           height="45"></canvas></div>
-                      <h3 class="f-w-300 pt-3 mb-0 text-center">S/.<?php echo $obj_invoices->total_mes;?></h3>
+                      <h3 class="f-w-300 pt-3 mb-0 text-center">S/.<?php echo !empty($obj_invoices->total_mes)?$obj_invoices->total_mes:"0.00";?></h3>
                     </div>
                   </div>
                 </div>
@@ -230,8 +230,7 @@
                     <div class="btn-group card-option"><button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="feather icon-more-horizontal"></i></button>
                       <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
                         <li class="dropdown-item full-card"><a href="#!"><span><i class="feather icon-maximize"></i> maximize</span><span style="display:none"><i class="feather icon-minimize"></i> Restore</span></a></li>
-                        <li
-                          class="dropdown-item minimize-card"><a href="#!"><span><i class="feather icon-minus"></i> collapse</span><span style="display:none"><i class="feather icon-plus"></i> expand</span></a></li>
+                        <li class="dropdown-item minimize-card"><a href="#!"><span><i class="feather icon-minus"></i> collapse</span><span style="display:none"><i class="feather icon-plus"></i> expand</span></a></li>
                           <li
                             class="dropdown-item reload-card"><a href="#!"><i class="feather icon-refresh-cw"></i> reload</a></li>
                             <li class="dropdown-item close-card"><a href="#!"><i class="feather icon-trash"></i> remove</a></li>
@@ -259,7 +258,7 @@
                           height="90"></canvas></div>
                     </div>
                     <div class="col-6">
-                        <h3 class="f-w-300 mb-0 float-right">S/.<?php echo $obj_invoices->total_semana;?></h3>
+                        <h3 class="f-w-300 mb-0 float-right">S/.<?php echo !empty($obj_invoices->total_semana)?$obj_invoices->total_semana:"0.00";?></h3>
                     </div>
                   </div>
                 </div>
