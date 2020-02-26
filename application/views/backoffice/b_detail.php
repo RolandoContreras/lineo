@@ -34,7 +34,7 @@
                                   <div class="row justify-content-center">
                                     <div class="col-md-12">
                                       <div class="embed-responsive embed-responsive-16by9">
-                                          <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/<?php echo $video_link;?>" allowfullscreen=""></iframe>
+                                          <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/<?php echo $video_link; ?>" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
                                       </div>
                                     </div>
                                   </div>

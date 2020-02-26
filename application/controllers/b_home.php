@@ -164,7 +164,10 @@ class B_home extends CI_Controller {
 	{
             //get nav cursos
             $obj_category_videos = $this->nav_category();
-             //get data catalog
+            //get customer id
+            $customer_id = $_SESSION['customer']['customer_id'];
+            $obj_courses_by_customer = $this->courses_by_customer($customer_id);
+             //get data video
             $url = explode("/",uri_string());
             $slug_2 = $url[2];
             //get category_id
@@ -198,8 +201,8 @@ class B_home extends CI_Controller {
             $obj_courses_overview = $this->obj_videos->get_search_row($params);
             //VIDEO LINK
             $video = $obj_courses_overview->video;
-            $explo_video = explode("=", $video);
-            $video_link = $explo_video[1];
+            $explo_video = explode("/", $video);
+            $video_link = $explo_video[3];
             //GET videos by course
             $params = array(
                             "select" =>"videos.video_id,
@@ -209,9 +212,6 @@ class B_home extends CI_Controller {
                                         videos.time",
                             "where" => "videos.course_id = $course_id and videos.active = 1");
             $obj_videos = $this->obj_videos->search($params);
-            
-            
-            
             //cursos relacionados            
             $params = array(
                             "select" =>"courses.course_id,
@@ -231,6 +231,7 @@ class B_home extends CI_Controller {
                 );
             $obj_courses_related = $this->obj_courses->search($params);
             //SEND DATA
+            $this->tmp_backoffice->set("obj_courses_by_customer",$obj_courses_by_customer);
             $this->tmp_backoffice->set("video_link",$video_link);
             $this->tmp_backoffice->set("obj_videos",$obj_videos);
             $this->tmp_backoffice->set("obj_courses_related",$obj_courses_related);
