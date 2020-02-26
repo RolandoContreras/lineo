@@ -215,7 +215,7 @@
                           </div>
                         </div><canvas class="flot-overlay" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 80px; height: 45px;" width="80"
                           height="45"></canvas></div>
-                      <h3 class="f-w-300 pt-3 mb-0 text-center"><?php echo format_number_dolar($obj_invoices->total_mes);?></h3>
+                      <h3 class="f-w-300 pt-3 mb-0 text-center">S/.<?php echo $obj_invoices->total_mes;?></h3>
                     </div>
                   </div>
                 </div>
@@ -259,7 +259,7 @@
                           height="90"></canvas></div>
                     </div>
                     <div class="col-6">
-                        <h3 class="f-w-300 mb-0 float-right"><?php echo format_number_dolar($obj_invoices->total_semana);?></h3>
+                        <h3 class="f-w-300 mb-0 float-right">S/.<?php echo $obj_invoices->total_semana;?></h3>
                     </div>
                   </div>
                 </div>
