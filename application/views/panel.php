@@ -138,7 +138,7 @@
                 <div class="card-block">
                   <div class="row align-items-center justify-content-center">
                     <div class="col-6">
-                        <h3 class="f-w-300 mb-0 float-left"><?php echo format_number_dolar($obj_invoices->total_year);?></h3>
+                        <h3 class="f-w-300 mb-0 float-left">S/.<?php echo !empty($obj_invoices->total_year)?$obj_invoices->total_year:"0";?></h3>
                     </div>
                     <div class="col-6">
                       <div id="transactions" class="float-right" style="height: 90px; width: 80px; margin: 0px auto; padding: 0px; position: relative;"><canvas class="flot-base" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 80px; height: 90px;" width="80"
@@ -197,7 +197,7 @@
                           </div>
                         </div><canvas class="flot-overlay" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 80px; height: 45px;" width="80"
                           height="45"></canvas></div>
-                        <h3 class="f-w-300 pt-3 mb-0 text-center"><?php echo !empty($obj_invoices->count_total_mes)?$$obj_invoices->count_total_mes:"0";?></h3>
+                        <h3 class="f-w-300 pt-3 mb-0 text-center"><?php echo !empty($obj_invoices->count_total_mes)?$obj_invoices->count_total_mes:"0";?></h3>
                     </div>
                     <div class="col-6">
                       <div id="transactions2" style="height: 45px; width: 80px; margin: 0px auto; padding: 0px; position: relative;"><canvas class="flot-base" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 80px; height: 45px;" width="80"

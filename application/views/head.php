@@ -38,4 +38,5 @@
         <meta property="og:description" content="<?php echo $meta_description_og;?>" />
         <meta property="og:image" content="<?php echo $meta_img_og;?>" />
    <?php  } ?>
+        <link rel="stylesheet" href="<?php echo site_url().'static/page_front/css/md-modal.css';?>">
 </head>

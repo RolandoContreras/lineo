@@ -1,1 +1,73 @@
 .vc_custom_1528682589403{margin-bottom:-62px!important;background-image:url(../images/bg_header.jpg?id=4085)!important;background-position:center!important;background-repeat:no-repeat!important;background-size:cover!important}.vc_custom_1503631674893{background-image:url(../images/cursos.jpg?id=176)!important;background-position:center!important;background-repeat:no-repeat!important;background-size:cover!important}.vc_custom_1503636486698{margin-bottom:0!important;background:#18c1f0 url(../images/bg-12345.png?id=217)!important}.vc_custom_1498535615583{background:#18c1f0 url(../images/layer-148.png?id=168)!important;background-position:0 0!important;background-repeat:no-repeat!important}.vc_custom_1503635158678{padding-top:249px!important;padding-bottom:111px!important;background-image:url(../images/image_footer_2.jpg?id=161)!important;background-position:center!important;background-repeat:no-repeat!important;background-size:cover!important}.vc_custom_1503636515884{background-image:url(../images/bg-1-png?id=156)!important}.description_hide{display:none}@media print{.pmpro_a-print{display:none;position:absolute;left:-9999px}}
+.conocer_mas {
+    font-size: 11px;
+    text-transform: uppercase;
+    line-height: 1.38;
+    letter-spacing: .3px;
+    padding: 0 20px 10px 30px;
+    margin-bottom: 0;
+    font-weight: 400;
+    cursor: pointer;
+    color: #aaa !important;
+}
+.course-title {
+    font-size: 16px;
+    line-height: 1.38;
+    letter-spacing: .3px;
+    text-transform: uppercase;
+    padding: 0 20px 10px 30px;
+    margin-bottom: 0;
+    font-weight: 400;
+    cursor: pointer;
+}
+.black{
+    color:black !important;
+}
+.color_template{
+    color:#0c171f !important;
+}
+.buton_header{
+box-shadow: 12.9px 15.3px 18px 0 rgba(0,0,0,.08);
+font-size: 14px;
+letter-spacing: .3px;
+text-align: left;
+-webkit-border-radius: 20px;
+-moz-border-radius: 20px;
+border-radius: 20px;
+text-transform: uppercase;
+height: 35px;
+padding: 0 30px;
+line-height: 35px;
+display: inline-block;
+font-weight: 400;
+background-color:white;
+}
+.button_cuentas{
+    color: #ffffff;
+    background-color: #FF5A00;
+    font-family: "Roboto", Sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    padding: 10px 20px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+}
+.button_cuentas:hover{
+    background-color: rgb(179, 2, 243);
+}
+.theme-bg2 {
+    background: linear-gradient(-135deg,#899FD4 0%,#A389D4 100%);
+}
+.md-overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    top: 0;
+    left: 0;
+    z-index: 1030;
+    opacity: 0;
+    background: rgba(0,0,0,.55);
+    -webkit-transition: all .3s;
+    transition: all .3s;
+}
