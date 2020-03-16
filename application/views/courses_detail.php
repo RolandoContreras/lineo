@@ -25,8 +25,9 @@
                     </div>
                 </div>
             </div>
-            <span class=overlay-top-header style="background-color: rgba(0,0,0,0.5);"></span>
+           <span class=overlay-top-header style="background-color: rgba(0,0,0,0.5);"></span>
           <div class="content container">
+              <div class=vc_empty_space style="height: 75px"><span class=vc_empty_space_inner></span></div>
             <div class=text-title>
                 <div id="message"></div>
               <h1><?php echo $obj_courses->name;?></h1>
@@ -214,5 +215,8 @@
       <script defer src="<?php echo site_url().'static/page_front/js/autoptimize_282.js';?>"></script>
       <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
       <script src="<?php echo site_url().'static/backoffice/js/script/pay_order.js';?>"></script>
+      <script src="<?php echo site_url().'static/backoffice/js/sweetalert.min.js';?>"></script>      
+      <script src="<?php echo site_url().'static/page_front/js/modalEffects.js';?>"></script>
+      <script src="<?php echo site_url().'static/page_front/js/classie.js';?>"></script>
 </body>
 </html>

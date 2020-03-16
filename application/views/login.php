@@ -20,6 +20,7 @@
       <div class="main-top parallax" style="background-image:url(<?php echo site_url().'static/page_front/images/bg_header.jpg';?>);">
           <span class="overlay-top-header" style="background-color: rgba(0,0,0,0.5);"></span>
         <div class="content container">
+         <div class=vc_empty_space style="height: 75px"><span class=vc_empty_space_inner></span></div>
           <div class="row">
             <div class="text-title col-md-6">
               <h1>Iniciar Sesión</h1>
@@ -124,6 +125,8 @@
       <script src='<?php echo site_url().'static/page_front/js/script/contact.js';?>'></script>
       <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
       <script src='<?php echo site_url().'static/page_front/js/script/login.js';?>'></script>
+      <script src="<?php echo site_url().'static/page_front/js/modalEffects.js';?>"></script>
+      <script src="<?php echo site_url().'static/page_front/js/classie.js';?>"></script>
 </body>
 </html>
 

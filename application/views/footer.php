@@ -110,3 +110,20 @@
       </div>
     </div>
   </footer>
+<div class="md-modal md-effect-1" id="modal-1">
+    <div class="md-content">
+        <h3 class="theme-bg2">Números de cuenta</h3>
+        <div>
+            <ul>
+                <li>
+                    <strong>Banco de crédito (BCP):</strong><br/> Ahorro Soles BCP <br/>192-1321951384-12383213-89<br/>
+                    <img src="<?php echo site_url().'static/page_front/images/bcp_logo.png';?>" alt="logo bcp" width="130"/><br/><br/>
+                </li>
+                <li><strong>Banco de Interbank :</strong><br/>Ahorro Soles Interbank <br/> 192-1321951384-12383213-89<br/>
+                    <img src="<?php echo site_url().'static/page_front/images/interbank_logo.png';?>" alt="logo bcp" width="130"/><br/><br/>
+                </li>
+            </ul>
+            <button class="btn btn-primary md-close">Cerrar!</button>
+        </div>
+    </div>
+</div>

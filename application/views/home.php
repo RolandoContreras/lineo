@@ -362,18 +362,6 @@
             <!--START FOOTER-->
             <?php $this->load->view("footer"); ?>  
             <!--END FOOTER-->
-            <div class="md-modal md-effect-1" id="modal-1">
-                <div class="md-content">
-                    <h3 class="theme-bg2">Números de cuenta</h3>
-                    <div>
-                        <ul>
-                            <li><strong>Banco de crédito (BCP):</strong><br/> modal windows will probably tell you something important so don't forget to read what they say.</li>
-                            <li><strong>Banco de Interbank :</strong><br/> a modal window enjoys a certain kind of attention; just look at it and appreciate its presence.</li>
-                        </ul>
-                        <button class="btn btn-primary md-close">Cerrar!</button>
-                    </div>
-                </div>
-            </div>
         </div>
         <div class="md-overlay"></div>
         <div id="back-to-top"><i class="fa fa-angle-up" aria-hidden=true></i></div>
