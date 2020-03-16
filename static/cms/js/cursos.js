@@ -38,3 +38,21 @@ function delete_course(course_id){
     }
     });
 }
+function crear_modulo(){
+    var modulo = document.getElementById("modulo").value;
+      if(modulo > 0){  
+            var texto = "";
+            var i = 0;               
+            for (i = 0; i < modulo; i++) {
+                n = i + 1;
+              texto = texto+'<div class="input-group mb-3">';
+              texto = texto+'<div class="input-group-prepend">';
+              texto = texto+'<span class="input-group-text" id="basic-addon3">Módulo'+ n +'</span>';
+              texto = texto+'</div>';
+              texto = texto+'<input id="module_'+n+'" name="module_'+n+'" type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="Ingrese Nombre del Módulo">';
+              texto = texto+'</div>';
+              texto = texto+'<br/>';
+            }
+            $("#respose").html(texto);
+        }
+}

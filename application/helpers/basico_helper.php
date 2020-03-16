@@ -30,6 +30,11 @@ function encrypt($cadena){
     return($encrypted);
 }
 
+function eliminar_ultimo_caracter($string){    
+    $new_value = substr($string, 0, -1);    
+    return $new_value;
+}
+
 function decrypt($cadena){
      $key='c7850f98Tc0150Z2191Y29abb3f9fbc9i';  // Una clave de codificacion, debe usarse la misma para encriptar y desencriptar
      $string = base64_decode($cadena); //decodifico la cadena

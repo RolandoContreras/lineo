@@ -68,7 +68,7 @@
                           </div>
                           <div class="form-group col-md-6">
                               <div class="form-group">
-                                    <label>Enlace (https://www.youtube.com/watch?v=RBrVHrelWcY)</label>
+                                    <label>Enlace (https://vimeo.com/81399537)</label>
                                     <input class="form-control" type="text" id="video" name="video" value="<?php echo isset($obj_videos->video)?$obj_videos->video:"";?>" class="input-xlarge-fluid" placeholder="Video">
                               </div>
                               <div class="form-group">
@@ -85,7 +85,7 @@
                               </div>
                               <div class="form-group">
                                   <label for="inputState">Curso</label>
-                                    <select name="course_id" id="course_id" class="form-control">
+                                    <select onclick="create_module();" name="course_id" id="course_id" class="form-control">
                                     <option value="">[ Seleccionar ]</option>
                                         <?php foreach ($obj_courses as $value ): ?>
                                     <option value="<?php echo $value->course_id;?>"
@@ -103,25 +103,16 @@
                                 </select>
                               </div>
                               <div class="form-group">
+                                  <label for="inputState">Módulos</label>
+                                  <select name="module_id" id="module_id" class="form-control">
+                                      <option value="<?php echo isset($obj_videos->module_id)?$obj_videos->module_id:"";;?>"><?php echo isset($obj_videos->module_name)?$obj_videos->module_name:"";?>
+                                    </option>
+                                  </select>
+                              </div>
+                              <div class="form-group">
                                 <label>Tiempo (minutos)</label>
                                 <input class="form-control" type="text" id="time" name="time" value="<?php echo isset($obj_videos->time)?$obj_videos->time:"";?>" class="input-xlarge-fluid" placeholder="Duración del vídeo">
                               </div>
-                              
-                              <?php 
-//                                  if(isset($obj_videos)){ ?>
-<!--                                      <div class="form-group">
-                                          <label>Imagen Actual</label><br/>
-                                          <img src='<?php echo site_url()."static/course/img/$obj_videos->img";?>' width="100" />
-                                          <input class="form-control" type="hidden" name="img2" id="img2" value="//<?php echo isset($obj_videos)?$obj_videos->img:"";?>">
-                                      </div>-->
-                            <?php // } ?>
-<!--                              <div class="form-group">
-                                    <label>Imagen</label>
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="validatedCustomFile" value="Upload Imagen de Envio" name="image_file" id="image_file">
-                                        <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
-                                    </div>
-                              </div>-->
                           </div>
                         </div>
                         <button type="submit" class="btn btn-primary">Guardar</button>

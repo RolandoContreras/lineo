@@ -6,6 +6,7 @@ class Courses extends CI_Controller {
         parent::__construct();
             $this->load->model("category_model","obj_category");
             $this->load->model("courses_model","obj_courses");
+            $this->load->model("modules_model","obj_modules");
             $this->load->model("videos_model","obj_videos");
     }   
 
@@ -218,23 +219,34 @@ class Courses extends CI_Controller {
             $obj_courses_meta = $data['obj_courses'];
             $course_id = $data['obj_courses']->course_id;
             
-             //GET videos by course
+            //obtener modulos por cursos
             $params = array(
-                            "select" =>"videos.video",
-                            "where" => "videos.course_id = $course_id and type = 1");
-            $data['obj_courses_overview'] = $this->obj_videos->get_search_row($params);
-            
+                            "select" =>"module_id,
+                                        name",
+                            "where" => "course_id = $course_id");
+            $data['obj_modules'] = $this->obj_modules->search($params);
+            $data['total_modules'] = count($data['obj_modules']);
+            //establecer modulos id para busqqueda
+            $array_data = "";
+            foreach ($data['obj_modules'] as $value) {
+                $array_data .= $value->module_id.",";
+            }
+            $array_data = eliminar_ultimo_caracter($array_data);
             //GET videos by course
             $params = array(
                             "select" =>"videos.video_id,
                                         videos.name,
+                                        videos.module_id,
+                                        videos.video,
+                                        videos.type,
                                         videos.slug,
-                                        videos.time,
-                                        (SELECT video FROM (videos) WHERE course_id = $course_id and type = 1) as link_video",
-                            "where" => "videos.course_id = $course_id and videos.active = 1");
+                                        videos.time",
+                            "where" => "videos.module_id in ($array_data) and videos.active = 1",
+                            "order" => "videos.video_id ASC");
             $data['obj_videos'] = $this->obj_videos->search($params);
-            $data['total_videos'] = count($data['obj_videos']);
             
+            //obtener el total de los vídeos
+            $data['total_videos'] = count($data['obj_videos']);
              //get category_id
             $params_categogory_id = array(
                         "select" =>"category_id",

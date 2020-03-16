@@ -45,6 +45,8 @@
                                     aria-label="Position: activate to sort column ascending">TÍTULO</th>
                                   <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 197px;"
                                     aria-label="Office: activate to sort column ascending">CURSO</th>
+                                  <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 197px;"
+                                    aria-label="Office: activate to sort column ascending">MÓDULO</th>
                                   <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 135px;"
                                     aria-label="Salary: activate to sort column ascending">TIPO</th>
                                   <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 135px;"
@@ -63,6 +65,7 @@
                             <td><?php echo formato_fecha_barras($value->date);?></td>
                             <td><b><?php echo $value->name;?></b></td>
                             <td><span class="badge badge-pill badge-info" style="font-size: 100%;"><?php echo $value->course_name;?></span></td>
+                            <td><span class="badge badge-pill badge-secondary" style="font-size: 100%;"><?php echo $value->module_name;?></span></td>
                             <td class="label-info">
                                 <?php if ($value->type == 1) {
                                     $valor = "Resumen";
@@ -74,7 +77,6 @@
                                 <span><?php echo $valor;?></span>
                             </td>
                             <td><?php echo $value->video;?></td>
-                            <!--<td><img src='<?php echo site_url()."static/course/img/$value->img";?>' width="180"/></td>-->
                             <td>
                                 <?php if ($value->active == 0) {
                                     $valor = "No Activo";
@@ -102,6 +104,7 @@
                                   <th rowspan="1" colspan="1">FECHA</th>
                                   <th rowspan="1" colspan="1">TÍTULO</th>
                                   <th rowspan="1" colspan="1">CURSO</th>
+                                  <th rowspan="1" colspan="1">MÓDULO</th>
                                   <th rowspan="1" colspan="1">TIPO</th>
                                   <th rowspan="1" colspan="1">ENLACE</th>
                                   <th rowspan="1" colspan="1">ESTADO</th>

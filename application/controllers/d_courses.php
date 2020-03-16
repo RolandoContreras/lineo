@@ -6,6 +6,7 @@ class D_courses extends CI_Controller{
         parent::__construct();
         $this->load->model("category_model","obj_category");
         $this->load->model("courses_model","obj_courses");
+        $this->load->model("modules_model","obj_modules");
     }   
                 
     public function index(){  
@@ -54,6 +55,16 @@ class D_courses extends CI_Controller{
             ); 
             $obj_courses  = $this->obj_courses->get_search_row($params); 
             //RENDER
+            //verificar si tiene modulos
+            $param_module = array(
+                        "select" =>"module_id,
+                                    name",    
+                        "where" => "course_id = $course_id",
+            ); 
+            $obj_modules  = $this->obj_modules->search($param_module); 
+            if(count($obj_modules) > 0){
+                $this->tmp_mastercms->set("obj_modules",$obj_modules);
+            }
             $this->tmp_mastercms->set("obj_courses",$obj_courses);
           }
           //GET CATEGORIES
@@ -124,6 +135,41 @@ class D_courses extends CI_Controller{
                 'updated_by' => $_SESSION['usercms']['user_id']
                 );          
              $this->obj_courses->update($course_id, $data);
+             
+             //verificar si tiene modulos
+            $param_module = array(
+                        "select" =>"module_id,name",    
+                        "where" => "course_id = $course_id",
+            ); 
+            $obj_modules  = $this->obj_modules->total_records($param_module); 
+            if($obj_modules == 0){
+                $modulo = $this->input->post("modulo");
+               //get data from moddulo
+                if($modulo == 1){
+                    $module = $this->input->post("module_1");
+                    if(!is_null($module)){
+                             $data = array(
+                                'name' => $module,
+                                'course_id' => $course_id,
+                                'date' => date("Y-m-d H:i:s"),  
+                                );          
+                             $this->obj_modules->insert($data);
+                        }
+                }else{
+                      for ($i = 1; $i <= $modulo; $i++) {
+                      $module = $this->input->post("module_$i");
+                        if(!is_null($module)){
+                             $data = array(
+                                'name' => $module,
+                                'course_id' => $course_id,
+                                'date' => date("Y-m-d H:i:s"),  
+                                );          
+                             $this->obj_modules->insert($data);
+                        }
+                    }   
+                }
+            }
+             
         }else{
             $data = array(
                 'name' => $this->input->post("name"),
@@ -137,7 +183,33 @@ class D_courses extends CI_Controller{
                 'date' => date("Y-m-d H:i:s"),  
                 'active' => $this->input->post('active'),  
                 );          
-             $this->obj_courses->insert($data);        
+             $this->obj_courses->insert($data);
+             //obtner valor de módulo
+              $modulo = $this->input->post("modulo");
+               //get data from moddulo
+                if($modulo == 1){
+                    $module = $this->input->post("module_1");
+                    if(!is_null($module)){
+                             $data = array(
+                                'name' => $module,
+                                'course_id' => $course_id,
+                                'date' => date("Y-m-d H:i:s"),  
+                                );          
+                             $this->obj_modules->insert($data);
+                        }
+                }else{
+                      for ($i = 1; $i <= $modulo; $i++) {
+                      $module = $this->input->post("module_$i");
+                        if(!is_null($module)){
+                             $data = array(
+                                'name' => $module,
+                                'course_id' => $course_id,
+                                'date' => date("Y-m-d H:i:s"),  
+                                );          
+                             $this->obj_modules->insert($data);
+                        }
+                    }   
+                }        
             //SAVE DATA IN TABLE    
         }    
         redirect(site_url()."dashboard/cursos");

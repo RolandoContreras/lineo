@@ -15,6 +15,7 @@
    <?php $this->load->view("header");?> 
    <?php $this->load->view("nav");?>
     <div id=main-content>
+     
       <section class=content-area>
         <div class="page-title layout-1">
             <div class="main-top parallax" style="background-image:url(<?php echo site_url().'static/page_front/images/bg_header.jpg';?>);">
@@ -22,6 +23,7 @@
             <div class="content container">
               <div class=row>
                 <div class="text-title col-md-6">
+                    <div class=vc_empty_space style="height: 50px"><span class=vc_empty_space_inner></span></div>
                   <h1>Cursos</h1>
                 </div>
                 <div class="text-description col-md-6">

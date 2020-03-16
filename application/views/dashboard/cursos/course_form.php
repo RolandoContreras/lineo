@@ -128,6 +128,49 @@
                                       }else{echo "";} ?>>Inactivo</option>
                                 </select>
                             </div>
+                            <?php 
+                              if(isset($obj_modules)){ ?>
+                                    <div class="form-group">
+                                        <?php  foreach ($obj_modules as $key => $value) { $key =$key + 1;?> 
+                                            <div class="input-group mb-3">
+                                                  <div class="input-group-prepend">
+                                                  <span class="input-group-text" id="basic-addon3">Módulo <?php echo $key;?></span>
+                                                  </div>
+                                                <input type="text" class="form-control" aria-describedby="basic-addon3" value="<?php echo $value->name;?>" disabled="">
+                                            </div>
+                                        <?php } ?>
+                                    </div> 
+                                  
+                              <?php }else{ ?>
+                                   <div class="form-group">
+                                        <label for="inputState">Ingrese cantidad de módulos</label>
+                                        <select onclick="crear_modulo();" name="modulo" id="modulo" class="form-control">
+                                             <option value="1" selected=""> 1 </option>
+                                             <option value="2"> 2 </option>
+                                             <option value="3"> 3 </option>
+                                             <option value="4"> 4 </option>
+                                             <option value="5"> 5 </option>
+                                             <option value="6"> 6 </option>
+                                             <option value="7"> 7 </option>
+                                             <option value="8"> 8 </option>
+                                             <option value="9"> 9 </option>
+                                             <option value="10"> 10 </option>
+                                        </select>
+                                    </div>
+                                      <div class="form-group">
+                                          <div id="respose">
+                                              <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="basic-addon3">Módulo 1</span>
+                                                    </div>
+                                                    <input type="text" id="module_1" name="module_1" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="Ingrese Nombre del Módulo">
+                                                </div>
+                                          </div>
+                                    </div>
+                              <?php } ?>  
+                              
+                              
+                              
                           </div>
                           
                         </div>

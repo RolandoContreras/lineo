@@ -66,7 +66,14 @@
                       </div>
                       <div class="course-thumbnail">
                           <img src="<?php echo site_url()."static/cms/img/cursos/$obj_courses->img2";?>" alt="<?php echo $obj_courses->name;?>" title="<?php echo $obj_courses->name;?>"> 
-                          <a href="<?php echo $obj_courses_overview->video;?>" class="play-button video-thumbnail">
+                          <?php
+                                foreach ($obj_videos as $value) {
+                                    if($value->type == 1){
+                                        $link_video = $value->video;
+                                    }
+                                }
+                          ?>
+                          <a href="<?php echo isset($link_video)!=""?$link_video:"";?>" class="play-button video-thumbnail">
                               <span class="video-thumbnail hvr-push"></span>
                           </a>
                         <div class="time">
