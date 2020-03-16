@@ -128,33 +128,36 @@
                           <div class=title>
                             <h2 class="course-curriculum-title">Contenido</h2>
                           </div>
-                          <span class=total-lessons>Aprendizaje total: <span class=text><?php echo $total_videos;?> lecciones</span></span>
+                          <span class=total-lessons>Módulos: <span class="text"><?php echo $total_modules;?> Modulos</span></span>
+                          <span class="total-time">Lecciones: <span class=text><?php echo $total_videos; ?> Lecciones</span></span>
                         </div>
-                        <ul class=curriculum-sections>
-                          <li class=section id=section-257 data-id=257>
-                            <ul class=section-content>
-                               <?php 
-                               
-                               foreach ($obj_videos as $key => $value) { ?>
-                                <?php $key += 1;?>
-                                   <li class="course-item course-item-lp_lesson course-item-459 item-preview has-status" data-type=lp_lesson>
-                                      <span class=course-format-icon><i class="fa fa-play"></i></span>
-                                        <div class="meta-rank">
-                                          <div class="rank">
-                                              <span class="label">Vídeo <?php echo $key.".0";?></span>
-                                          </div>
-                                        </div>
-                                      <a class="section-item-link">
-                                                <span class=item-name><?php echo $value->name;?></span>
-                                                <span class=course-item-meta>
-                                                    <span class="item-meta duration"><?php echo $value->time;?> min</span>
-                                                </span>
-                                      </a>
-                                    </li> 
-                               <?php } ?> 
-                            </ul>
-                          </li>
-                        </ul>
+                        <ul class="curriculum-sections">
+                                                                    <?php foreach ($obj_modules as $value) { ?>
+                                                                        <li class=section id=section-257 data-id=257>
+                                                                            <h4 class="section-header">
+                                                                                <span class=collapse></span><?php echo $value->name; ?>
+                                                                            </h4>
+                                                                            <ul class="section-content">
+                                                                                <?php
+                                                                                foreach ($obj_videos as $video) {
+                                                                                    if ($value->module_id == $video->module_id) {
+                                                                                        ?>
+                                                                                        <li class="course-item course-item-lp_lesson course-item-445 item-locked" data-type=lp_lesson>
+                                                                                            <span class=course-format-icon><i class="fa fa-play-circle"></i></span>
+                                                                                            <div class=meta-rank>
+                                                                                                <div class=rank><span class=label>Vídeo</span></div>
+                                                                                            </div>
+                                                                                            <a class=section-item-link>
+                                                                                            <span class=item-name><?php echo $video->name;?></span>
+                                                                                            <span class=course-item-meta><span class="item-meta duration"><?php echo $video->time;?> min</span><span class="lp-icon item-status"></span></span>
+                                                                                            </a>
+                                                                                        </li>
+                                                                                    <?php } ?>
+                                                                                <?php } ?>
+                                                                            </ul>
+                                                                        </li>
+                                                                    <?php } ?>
+                                                                </ul>
                     <div class=thim-related-course>
                       <h3 class="related-title">Cursos Relacionados</h3>
                       <div class="courses-carousel archive-courses course-grid owl-carousel owl-theme" data-cols=3>

@@ -218,7 +218,6 @@ class Courses extends CI_Controller {
             $data['obj_courses'] = $this->obj_courses->get_search_row($params);
             $obj_courses_meta = $data['obj_courses'];
             $course_id = $data['obj_courses']->course_id;
-            
             //obtener modulos por cursos
             $params = array(
                             "select" =>"module_id,

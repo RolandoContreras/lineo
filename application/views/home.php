@@ -208,7 +208,7 @@
                                             <div class="border border-top"></div>
                                             <img  width="150" src="<?php echo site_url() . 'static/page_front/images/logo/separate.png'; ?>" alt="separator">
                                             <div class="border border-bottom"></div>
-                                            <h3 class="primary-heading">Todos los Cursos</h3>
+                                            <h3 class="primary-heading">CURSOS DISPONIBLES</h3>
                                         </div>
                                     </div>
                                 </div>
