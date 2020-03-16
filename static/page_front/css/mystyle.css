@@ -71,3 +71,13 @@ background-color:white;
     -webkit-transition: all .3s;
     transition: all .3s;
 }
+.red{
+    color: red !important;
+    font-weight: bold !important;
+}
+.black{
+    color: black !important;
+}
+.white{
+ color: white !important;   
+}

@@ -182,9 +182,9 @@
                                       <a href="<?php echo site_url()."cursos/$value->slug";?>"><?php echo $value->name;?></a>
                                   </h2>
                                 </div>
-                                  <span class="date-comment">
-                                    <span class="date"><?php echo formato_fecha_dia_mes_ano($value->date);?></span>
-                                </span>
+                                  <div class="conocer_mas">
+                                    <a href="<?php echo site_url() . "cursos/$value->category_slug/$value->slug"; ?>"><span class="button_cuentas">Conoce Más <i class="fa fa-arrow-right" aria-hidden="true"></i></span></a>
+                                </div>
                               </div>
                         </div>
                         <?php } ?>  

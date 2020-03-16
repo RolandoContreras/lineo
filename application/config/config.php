@@ -22,8 +22,8 @@
 | a PHP script and you can easily do that on your own.
 |
 */
-//$config['base_url'] = 'http://cevolutionweb.com';
-$config['base_url'] = 'http://localhost/lineo';
+$config['base_url'] = 'https://u-linex.com';
+//$config['base_url'] = 'http://localhost/lineo';
 
 
 /*
@@ -136,7 +136,7 @@ $config['subclass_prefix'] = 'MY_';
 | DO NOT CHANGE THIS UNLESS YOU FULLY UNDERSTAND THE REPERCUSSIONS!!
 |
 */
-$config['permitted_uri_chars'] = 'a-z 0-9~%.:_\-=+/';
+$config['permitted_uri_chars'] = 'a-z 0-9~%.:_\-=+|&/';
 
 
 /*

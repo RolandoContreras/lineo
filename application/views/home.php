@@ -237,7 +237,7 @@
                                                                                     <img src="<?php echo site_url() . "static/cms/img/cursos/$value->img"; ?>" alt="<?php echo $value->name;?>" width="400" height="400">
                                                                                 </a>
                                                                                 <div class="price">
-                                                                                    <span class="course-origin-price line-price">S/.<?php echo $value->price_del;?></span><span class="course-price">S/.<?php echo $value->price;?></span>
+                                                                                    <span class="course-origin-price line-price">S/.<?php echo $value->price_del;?></span><span class="course-price red">S/.<?php echo $value->price;?></span>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="sub-content">
@@ -245,7 +245,7 @@
                                                                                     <a href="<?php echo site_url() . "cursos/$value->category_slug/$value->slug"; ?>"><?php echo $value->name;?></a>
                                                                                 </h3>
                                                                                 <div class="conocer_mas">
-                                                                                    <span class="date">Conoce Más <i class="fa fa-arrow-right" aria-hidden="true"></i></span>
+                                                                                    <a href="<?php echo site_url() . "cursos/$value->category_slug/$value->slug"; ?>"><span class="button_cuentas">Conoce Más <i class="fa fa-arrow-right" aria-hidden="true"></i></span></a>
                                                                                 </div>
                                                                             </div>
                                                                         </div>

@@ -183,7 +183,7 @@ class D_courses extends CI_Controller{
                 'date' => date("Y-m-d H:i:s"),  
                 'active' => $this->input->post('active'),  
                 );          
-             $this->obj_courses->insert($data);
+             $course_id = $this->obj_courses->insert($data);
              //obtner valor de módulo
               $modulo = $this->input->post("modulo");
                //get data from moddulo

@@ -70,9 +70,6 @@
                         <?php } ?>
                     </ul>
                 </li>
-<!--                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-48 <?php echo $contact_syle;?> tc-menu-item tc-menu-depth-0 tc-menu-align-left">
-                    <a class=tc-menu-inner href="<?php echo site_url().'contacto';?>">Contacto</a>
-                </li>-->
             </ul>
             <div class="header-right">
               <div class="widget widget_thim-login">

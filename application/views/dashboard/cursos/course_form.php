@@ -86,7 +86,7 @@
                                       </div>
                             <?php } ?>
                               <div class="form-group">
-                                    <label>Imagen 1 (Tamaño 365 x 405)</label>
+                                    <label>Imagen 1 (Tamaño 480 x 360)</label>
                                     <div class="custom-file">
                                         <input type="file" class="custom-file-input" id="validatedCustomFile" value="Upload Imagen de Envio" name="image_file" id="image_file">
                                         <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>

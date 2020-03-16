@@ -77,8 +77,8 @@
           <div class=entry-content>
             <div id=lp-archive-courses class=lp-archive-courses>
             <div class=thim-course-top>
-              <div class="display grid-list-switch lpr_course-switch " data-cookie=lpr_course-switch data-layout=grid><a href=javascript:; class="grid switchToGrid switcher-active"><i class="fa fa-th"></i></a>
-                <a href=javascript:; class="list switchToList"><i class="fa fa-th-list"></i></a>
+              <div class="display grid-list-switch lpr_course-switch " data-cookie=lpr_course-switch data-layout=grid>
+                  <a href=javascript:; class="grid switchToGrid switcher-active"><i class="fa fa-th"></i></a>
               </div>
               <div class=course-index><span>Showing 1-9 of <?php echo $total;?> resultado</span></div>
               <div class=courses-searching>
@@ -101,7 +101,7 @@
                                       <img width=365 height=405 src="<?php echo site_url()."static/cms/img/cursos/$value->img";?>" alt="<?php echo $value->name;?>"> 
                                   </a>
                                     <span class="price">
-                                        <span class="course-origin-price">S/.<?php echo $value->price;?></span><span class="course-price">S/.<?php echo $value->price_del;?></span>
+                                        <span class="course-origin-price">S/.<?php echo $value->price;?></span><span class="course-price red">S/.<?php echo $value->price_del;?></span>
                                     </span>
                                   <div class="button-when-logged has-wishlist"></div>
                                 </div>
@@ -109,13 +109,9 @@
                                   <h2 class="title">
                                       <a href="<?php echo site_url()."cursos/$value->category_slug/$value->slug";?>"><?php echo $value->name;?></a>
                                   </h2>
-                                  <div class="date-comment">
-                                      <span class="date-meta"><?php echo formato_fecha_dia_mes_ano($value->date);?></span></div>
-                                  <div class="content-list">
-                                    <div class="course-description">
-                                      <?php echo $value->description;?>
-                                    </div>
-                                  </div>
+                                  <div class="conocer_mas">
+                                    <a href="<?php echo site_url() . "cursos/$value->category_slug/$value->slug"; ?>"><span class="button_cuentas">Conoce Más <i class="fa fa-arrow-right" aria-hidden="true"></i></span></a>
+                                </div>
                                 </div>
                               </div>
                           </div>
@@ -164,7 +160,7 @@
                           <a href="<?php echo site_url()."cursos/$value->category_slug/$value->slug";?>"><?php echo $value->name;?></a>
                       </h4>
                       <div class="price">
-                          <span class="course-origin-price">S/.<?php echo $value->price_del;?></span><span class="course-price">S/.<?php echo $value->price;?></span>
+                          <span class="course-origin-price">S/.<?php echo $value->price_del;?></span><span class="course-price red">S/.<?php echo $value->price;?></span>
                       </div>
                     </div>
                   </li>
