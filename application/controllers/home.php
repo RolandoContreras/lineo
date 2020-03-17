@@ -7,6 +7,7 @@ class Home extends CI_Controller {
             $this->load->model("category_model","obj_category");
             $this->load->model("courses_model","obj_courses");
             $this->load->model("videos_model","obj_videos");
+            $this->load->model("paises_model","obj_paises");
     }   
         
 	/**
@@ -84,6 +85,14 @@ class Home extends CI_Controller {
             $this->load->view('policy', $data);
 	}
         
+        public function pagar()
+	{
+            //get category
+            $data['obj_category'] = $this->nav_category();
+            $data['obj_paises'] = $this->list_pais();
+            $data['title'] = "Finalizar Compra";
+            $this->load->view('pay_home', $data);
+	}
         
         public function nav_category(){
             $params_category = array(
@@ -96,4 +105,12 @@ class Home extends CI_Controller {
             return $obj_category = $this->obj_category->search($params_category);
         }
         
+        public function list_pais() {
+            //Select params
+            $params = array(
+                "select" => "id, nombre",
+                "where" => "id_idioma = 7");
+            $obj_paises = $this->obj_paises->search($params);
+            return $obj_paises;
+        }
 }

@@ -67,6 +67,8 @@
                                             <p class="title" style=color:#df6c4f>Revit Arquitectura</p>
                                             <p class="sub-title" style=color:#ffffff>Curso</p>
                                         </div>  
+                                        <div>
+                                        </div>
                                     </div>
                                     <div class="thim-sc-button hide-separator center">
                                         <a href="<?php echo site_url() . 'cursos'; ?>" target=_self class="btn btn-secondary btn-md">
@@ -82,7 +84,7 @@
                                             <div
                                                 class="border border-bottom"></div>
                                             <h3 class="primary-heading">El mejor lugar para prepararte para el futuro</h3>
-                                                                                    </div>
+                                        </div>
                                     </div>
                                     <div class=vc_empty_space style="height: 50px"><span class=vc_empty_space_inner></span></div>
                                 </div>
@@ -230,26 +232,26 @@
                                                             <div class="archive-courses course-grid archive_switch">
                                                                 <div class="learn-press-courses row">
                                                                     <?php foreach ($obj_courses as $value) { ?>
-                                                                    <article id="post-486" class="col-md-3 col-12 col-sm-6 col-xs-6 lpr-course post-486 lp_course type-lp_course status-publish has-post-thumbnail hentry course_category-busines-course course_tag-business-tag course_tag-theme course_tag-wordpress pmpro-has-access course">
-                                                                        <div class="content">
-                                                                            <div class="thumbnail">
-                                                                                <a href="<?php echo site_url() . "cursos/$value->category_slug/$value->slug"; ?>" class="img_thumbnail">
-                                                                                    <img src="<?php echo site_url() . "static/cms/img/cursos/$value->img"; ?>" alt="<?php echo $value->name;?>" width="400" height="400">
-                                                                                </a>
-                                                                                <div class="price">
-                                                                                    <span class="course-origin-price line-price">S/.<?php echo $value->price_del;?></span><span class="course-price red">S/.<?php echo $value->price;?></span>
+                                                                        <article id="post-486" class="col-md-3 col-12 col-sm-6 col-xs-6 lpr-course post-486 lp_course type-lp_course status-publish has-post-thumbnail hentry course_category-busines-course course_tag-business-tag course_tag-theme course_tag-wordpress pmpro-has-access course">
+                                                                            <div class="content">
+                                                                                <div class="thumbnail">
+                                                                                    <a href="<?php echo site_url() . "cursos/$value->category_slug/$value->slug"; ?>" class="img_thumbnail">
+                                                                                        <img src="<?php echo site_url() . "static/cms/img/cursos/$value->img"; ?>" alt="<?php echo $value->name; ?>" width="400" height="400">
+                                                                                    </a>
+                                                                                    <div class="price">
+                                                                                        <span class="course-origin-price line-price">S/.<?php echo $value->price_del; ?></span><span class="course-price red">S/.<?php echo $value->price; ?></span>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="sub-content">
+                                                                                    <h3 class="title">
+                                                                                        <a href="<?php echo site_url() . "cursos/$value->category_slug/$value->slug"; ?>"><?php echo $value->name; ?></a>
+                                                                                    </h3>
+                                                                                    <div class="conocer_mas">
+                                                                                        <a href="<?php echo site_url() . "cursos/$value->category_slug/$value->slug"; ?>"><span class="button_cuentas">Conoce Más <i class="fa fa-arrow-right" aria-hidden="true"></i></span></a>
+                                                                                    </div>
                                                                                 </div>
                                                                             </div>
-                                                                            <div class="sub-content">
-                                                                                <h3 class="title">
-                                                                                    <a href="<?php echo site_url() . "cursos/$value->category_slug/$value->slug"; ?>"><?php echo $value->name;?></a>
-                                                                                </h3>
-                                                                                <div class="conocer_mas">
-                                                                                    <a href="<?php echo site_url() . "cursos/$value->category_slug/$value->slug"; ?>"><span class="button_cuentas">Conoce Más <i class="fa fa-arrow-right" aria-hidden="true"></i></span></a>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </article>
+                                                                        </article>
                                                                     <?php } ?>
                                                                 </div>
                                                             </div>
@@ -372,7 +374,8 @@
         </script>
         <script defer src="<?php echo site_url() . 'static/page_front/js/autoptimize_282.js'; ?>"></script>
         <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
-        <script src="<?php echo site_url().'static/page_front/js/modalEffects.js';?>"></script>
-        <script src="<?php echo site_url().'static/page_front/js/classie.js';?>"></script>
+        <script src="<?php echo site_url().'static/page_front/js/modalEffects.js'; ?>"></script>
+        <script src="<?php echo site_url().'static/page_front/js/classie.js'; ?>"></script>
+        <script src="<?php echo site_url().'static/backoffice/js/sweetalert.min.js';?>"></script>     
     </body>
 </html>

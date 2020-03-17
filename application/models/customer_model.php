@@ -17,15 +17,11 @@ BITSHARE S.A.C
 
 class customer_model_atributos{	
     var $customer_id='';
-    var $kit_id='';
-    var $username='';
     var $email='';
     var $password='';
-    var $first_name='';
+    var $name='';
     var $last_name='';
-    var $dni='';
     var $address='';
-    var $btc_address='';
     var $country='';
     var $phone='';
     var $active=''; 
@@ -44,15 +40,12 @@ class Customer_Model extends CI_Model{
 	$this->table_id = 'customer_id';
         $this->customer_id='';
         $this->range_id='';
-        $this->kit_id='';
-        $this->username='';
         $this->email='';
         $this->password='';
-	$this->first_name='';
+	$this->name='';
         $this->last_name='';
         $this->dni='';
         $this->address='';
-        $this->btc_address='';
         $this->country='';
 	$this->phone='';
         $this->active='';
