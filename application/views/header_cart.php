@@ -23,7 +23,7 @@
                                   <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">S/.</span><?php echo $this->cart->format_number($this->cart->total());?></span>
                               </p>
                               <p class="woocommerce-mini-cart__buttons buttons">
-                                  <a href="<?php echo site_url().'backoffice/pay_order';?>" class="button checkout wc-forward">Pagar</a>
+                                  <a href="<?php echo site_url().'compra';?>" class="button checkout wc-forward">Pagar</a>
                               </p>
                             </div>
                       </div>    

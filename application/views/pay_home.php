@@ -175,18 +175,16 @@
                                                                 <p class="mp-subtitle-basic-checkout">
                                                                     Tarjetas de crédito
                                                                 </p>
-                                                                <img src="https://www.mercadopago.com/org-img/MP3/API/logos/visa.gif" alt="">
-                                                                <img src="https://www.mercadopago.com/org-img/MP3/API/logos/amex.gif" alt="">
-                                                                <img src="https://www.mercadopago.com/org-img/MP3/API/logos/master.gif" alt="">
+                                                                <img src="<?php echo site_url().'static/page_front/images/visa.gif';?>" alt="visa">
+                                                                <img src="<?php echo site_url().'static/page_front/images/amex.gif';?>" alt="amex">
+                                                                <img src="<?php echo site_url().'static/page_front/images/master.gif';?>" alt="master">
                                                             </div>
                                                             <div class=vc_empty_space style="height: 35px"><span class=vc_empty_space_inner></span></div>
                                                             <div class="frame-tarjetas">
                                                                 <p class="submp-title-checkout">Tarjetas de débito</p>
-                                                                <img src="https://www.mercadopago.com/org-img/MP3/API/logos/debvisa.gif" class="mp-img-fluid mp-img-tarjetas" alt="">
-                                                                <img src="https://www.mercadopago.com/org-img/MP3/API/logos/debmaster.gif" class="mp-img-fluid mp-img-tarjetas" alt="">
+                                                                <img src="<?php echo site_url().'static/page_front/images/debvisa.gif';?>" alt="visa débito">
+                                                                <img src="<?php echo site_url().'static/page_front/images/debmaster.gif';?>" alt="mastercard débito">
                                                             </div>
-                                                            
-                                                            
                                                             <div style=" text-align: center;">
                                                                 <button type="submit" class="btn btn-success mb-2"> <i class="fas fa-shopping-cart"></i> Pagar</button>
                                                             </div>
@@ -211,15 +209,14 @@
         <div id="back-to-top"><i class="fa fa-angle-up" aria-hidden=true></i></div>
         <div class="gallery-slider-content"></div>
         <script src=https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js></script>
-        <script>
-                                                                                    WebFont.load({google: {families: ['Roboto:400,300']}});
-        </script>
+        <script>WebFont.load({google: {families: ['Roboto:400,300']}});</script>
         <script defer src="<?php echo site_url() . 'static/page_front/js/autoptimize_282.js'; ?>"></script>
         <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
-        <script src='<?php echo site_url() . 'static/page_front/js/script/login.js'; ?>'></script>
-        <script src="http://html.codedthemes.com/datta-able/bootstrap/assets/plugins/smart-wizard/js/jquery.smartWizard.min.js"></script>
-        <script src="http://html.codedthemes.com/datta-able/bootstrap/assets/js/pages/wizard-custom.js"></script>
-        <script src="<?php echo site_url(); ?>static/backoffice/js/script/pay_order.js"></script>
+        <script src="<?php echo site_url().'static/page_front/js/plugins/jquery.smartWizard.min.js';?>"></script>
+        <script src="<?php echo site_url().'static/page_front/js/plugins/wizard-custom.js';?>"></script>
+        <link rel="stylesheet" href="<?php echo site_url().'static/page_front/css/plugins/smart_wizard.min.css';?>">
+        <link rel="stylesheet" href="<?php echo site_url().'static/page_front/css/plugins/smart_wizard_theme_dots.min.css';?>">
+        <link rel="stylesheet" href="<?php echo site_url().'static/page_front/css/plugins/style.css';?>">
     </body>
 </html>
 

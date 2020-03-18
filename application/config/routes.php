@@ -59,7 +59,7 @@ $route['registro'] = "register/index";
 $route['registro/validate_username'] = "register/validate_username";
 $route['registro/validate'] = "register/validate";
 
-$route['pagar'] = "home/pagar";
+$route['compra'] = "home/pagar";
 
 $route['backoffice'] = "b_home";
 

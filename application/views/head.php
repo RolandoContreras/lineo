@@ -39,7 +39,6 @@
         <meta property="og:image" content="<?php echo $meta_img_og;?>" />
    <?php  } ?>
         <link rel="stylesheet" href="<?php echo site_url().'static/page_front/css/md-modal.css';?>">
-        <link rel="stylesheet" href="http://html.codedthemes.com/datta-able/bootstrap/assets/plugins/smart-wizard/css/smart_wizard.min.css">
-        <link rel="stylesheet" href="http://html.codedthemes.com/datta-able/bootstrap/assets/plugins/smart-wizard/css/smart_wizard_theme_dots.min.css">
-        <link rel="stylesheet" href="http://html.codedthemes.com/datta-able/bootstrap/assets/css/style.css">
+
+        
 </head>
