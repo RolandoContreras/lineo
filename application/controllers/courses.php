@@ -243,16 +243,9 @@ class Courses extends CI_Controller {
                             "where" => "videos.module_id in ($array_data) and videos.active = 1",
                             "order" => "videos.video_id ASC");
             $data['obj_videos'] = $this->obj_videos->search($params);
-            
             //obtener el total de los vídeos
             $data['total_videos'] = count($data['obj_videos']);
-             //get category_id
-            $params_categogory_id = array(
-                        "select" =>"category_id",
-                "where" => "slug like '%$slug%'");
-            $obj_category = $this->obj_category->get_search_row($params_categogory_id);
-            $category_id = $obj_category->category_id;
-            
+             //get cursos relacionados por categoría
             $params = array(
                             "select" =>"courses.course_id,
                                         courses.category_id,
@@ -265,7 +258,7 @@ class Courses extends CI_Controller {
                                         category.name as category_name,
                                         category.slug as category_slug",
                             "join" => array( 'category, courses.category_id = category.category_id'),
-                            "where" => "courses.category_id = $category_id and courses.course_id <> $course_id",
+                            "where" => "category.slug = '$slug' and courses.course_id <> $course_id",
                             "order" => "RAND()"
                 );
             $data['obj_courses_related'] = $this->obj_courses->search($params);

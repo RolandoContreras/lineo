@@ -58,24 +58,10 @@ function add_cart(course_id,price,name){
 
             success:function(data){            
                 if(data.status == "true"){
-                    $("#message").html();
-                     var texto = "";
-                     texto = texto+'<center>';
-                     texto = texto+'<div class="alert alert-success">';
-                     texto = texto+'<p>Producto Agregado</p>';
-                     texto = texto+'</div>';                 
-                     texto = texto+'</center>';
-                     $("#message").html(texto);
-                     location.reload();
+                    swal("Producto Agregado", "", "success");
+                    window.setTimeout(function(){location.reload()},1000);
                 }else{
-                    $("#message").html();
-                     var texto = "";
-                     texto = texto+'<center>';
-                     texto = texto+'<div class="alert alert-danger">';
-                     texto = texto+'<p>Hubo un error</p>';
-                     texto = texto+'</div>';                 
-                     texto = texto+'</center>';
-                     $("#message").html(texto);
+                    swal("Hubo un error!", "No se pudo agregar el producto!", "error");
                 }
             }            
         });

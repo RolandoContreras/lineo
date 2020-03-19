@@ -51,9 +51,9 @@
                         <?php
                         foreach ($obj_courses as $value) { ?>
                           <figure class="effect-apollo">
-                              <img width="365" height="340" src="<?php echo site_url()."static/cms/img/cursos/$value->img";?>" alt="advance-3">
+                              <img src="<?php echo site_url()."static/cms/img/cursos/$value->img";?>" alt="advance-3">
                             <figcaption>
-                                <h2><span style="font-size: 32px !important;font-weight: 300 !important;"><?php echo $value->name;?></span></h2>
+                                <!--<h2><span style="font-size: 32px !important;font-weight: 300 !important;"><?php echo $value->name;?></span></h2>-->
                               <p><?php echo corta_texto($value->description, 100);?></p>
                               <a href="<?php echo site_url()."backoffice/$value->category_slug/$value->slug";?>">Ver Más</a>
                             </figcaption>

@@ -8,6 +8,7 @@ class B_home extends CI_Controller {
         $this->load->model("category_model","obj_category");
         $this->load->model("courses_model","obj_courses");
         $this->load->model("invoices_model","obj_invoices");
+        $this->load->model("modules_model","obj_modules");
         $this->load->model("customer_courses_model","obj_customer_courses");
         $this->load->library('culqi');
     }
@@ -170,12 +171,6 @@ class B_home extends CI_Controller {
              //get data video
             $url = explode("/",uri_string());
             $slug_2 = $url[2];
-            //get category_id
-            $params_categogory_id = array(
-                        "select" =>"category_id",
-                "where" => "slug like '%$slug%'");
-            $obj_category = $this->obj_category->get_search_row($params_categogory_id);
-            $category_id = $obj_category->category_id;
             //get course
             $params = array(
                             "select" =>"courses.course_id,
@@ -190,28 +185,37 @@ class B_home extends CI_Controller {
                                         category.name as category_name,
                                         category.slug as category_slug",
                             "join" => array('category, courses.category_id = category.category_id'),
-                            "where" => "courses.slug = '$slug_2' and courses.category_id = $category_id");
+                            "where" => "courses.slug = '$slug_2' and category.slug = '$slug'");
             $obj_courses = $this->obj_courses->get_search_row($params);
             $course_id = $obj_courses->course_id;
-            
-             //GET videos by course
+            //obtener modulos por cursos
             $params = array(
-                            "select" =>"videos.video",
-                            "where" => "videos.course_id = $course_id and type = 1");
-            $obj_courses_overview = $this->obj_videos->get_search_row($params);
-            //VIDEO LINK
-            $video = $obj_courses_overview->video;
-            $explo_video = explode("/", $video);
-            $video_link = $explo_video[3];
+                            "select" =>"module_id,
+                                        name",
+                            "where" => "course_id = $course_id");
+            $obj_modules = $this->obj_modules->search($params);
+            $total_modules = count($obj_modules);    
+            //establecer modulos id para busqqueda
+            $array_data = "";
+            foreach ($obj_modules as $value) {
+                $array_data .= $value->module_id.",";
+            }
+            $array_data = eliminar_ultimo_caracter($array_data);
             //GET videos by course
             $params = array(
                             "select" =>"videos.video_id,
                                         videos.name,
-                                        videos.slug,
+                                        videos.module_id,
+                                        videos.video,
                                         videos.date,
+                                        videos.type,
+                                        videos.slug,
                                         videos.time",
-                            "where" => "videos.course_id = $course_id and videos.active = 1");
+                            "where" => "videos.module_id in ($array_data) and videos.active = 1",
+                            "order" => "videos.video_id ASC");
             $obj_videos = $this->obj_videos->search($params);
+            //obtener el total de los vídeos
+            $total_videos = count($obj_videos);
             //cursos relacionados            
             $params = array(
                             "select" =>"courses.course_id,
@@ -226,17 +230,17 @@ class B_home extends CI_Controller {
                                         category.name as category_name,
                                         category.slug as category_slug",
                             "join" => array( 'category, courses.category_id = category.category_id'),
-                            "where" => "courses.category_id = $category_id and courses.course_id <> $course_id",
+                            "where" => "category.slug = '$slug' and courses.course_id <> $course_id",
                             "order" => "RAND()"
                 );
             $obj_courses_related = $this->obj_courses->search($params);
+            
             //SEND DATA
             $this->tmp_backoffice->set("obj_courses_by_customer",$obj_courses_by_customer);
-            $this->tmp_backoffice->set("video_link",$video_link);
+            $this->tmp_backoffice->set("obj_modules",$obj_modules);
             $this->tmp_backoffice->set("obj_videos",$obj_videos);
             $this->tmp_backoffice->set("obj_courses_related",$obj_courses_related);
             $this->tmp_backoffice->set("obj_category_videos",$obj_category_videos);
-            $this->tmp_backoffice->set("obj_courses_overview",$obj_courses_overview);
             $this->tmp_backoffice->set("obj_courses",$obj_courses);
             $this->tmp_backoffice->render("backoffice/b_detail");
 	}
