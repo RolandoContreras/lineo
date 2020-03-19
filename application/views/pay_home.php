@@ -57,6 +57,7 @@
                                 <article id=post-522 class="post-522 page type-page status-publish hentry pmpro-has-access">
                                     <div class=entry-content>
                                         <div class="vc_row wpb_row vc_row-fluid account-login-page">
+                                            <div id="mensaje"></div>
                                             <div class="col-sm-12">
                                                 <div id="smartwizard" class="sw-main sw-theme-dots">
                                                     <ul class="nav nav-tabs step-anchor">
@@ -81,7 +82,7 @@
                                                     </ul>
                                                     <div class="sw-container tab-content">
                                                         <div id="step-1" class="tab-pane step-content" style="display: block;">
-                                                            <h5>Detalle de facturación</h5>
+                                                            <h5>Detalle de facturación</h5> 
                                                             <hr>
                                                             <div class="col-md-12">
                                                                 <form>
@@ -107,7 +108,7 @@
                                                                     </div>
                                                                     <div class="form-group">
                                                                         <label for="exampleInputEmail1">País *</label>
-                                                                        <select class="form-control">
+                                                                        <select name="pais" id="pais" class="form-control">
                                                                             <option value="">Seleccionar País</option>
                                                                             <?php foreach ($obj_paises as $value) { ?>
                                                                                 <option value="<?php echo $value->id ?>"><?php echo $value->nombre; ?></option>
@@ -186,9 +187,16 @@
                                                                 <img src="<?php echo site_url().'static/page_front/images/debmaster.gif';?>" alt="mastercard débito">
                                                             </div>
                                                             <div style=" text-align: center;">
-                                                                <button type="submit" class="btn btn-success mb-2"> <i class="fas fa-shopping-cart"></i> Pagar</button>
+                                                                <div class="col-sm-12">
+                                                                      <div class="card-block text-center">
+                                                                          <button type="button" class="btn shadow-2 btn-success btn-lg" id="buyButton" data-price="<?php echo quitar_punto_number($this->cart->format_number($this->cart->total())); ?>"><i class="fas fa-shopping-cart"></i>&nbsp; Pagar</button>
+                                                                            <button class="btn btn shadow-2 btn-success btn-lg" type="button" style="display: none;" id="spinner">
+                                                                              <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                                                              Verificando ...
+                                                                            </button>
+                                                                      </div>
+                                                                  </div>
                                                             </div>
-                                                            
                                                         </div>
                                                     </div>
                                                 </div>
@@ -212,11 +220,20 @@
         <script>WebFont.load({google: {families: ['Roboto:400,300']}});</script>
         <script defer src="<?php echo site_url() . 'static/page_front/js/autoptimize_282.js'; ?>"></script>
         <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+        <script src="<?php echo site_url().'static/page_front/js/modalEffects.js';?>"></script>
+        <script src="<?php echo site_url().'static/page_front/js/classie.js';?>"></script>
         <script src="<?php echo site_url().'static/page_front/js/plugins/jquery.smartWizard.min.js';?>"></script>
         <script src="<?php echo site_url().'static/page_front/js/plugins/wizard-custom.js';?>"></script>
         <link rel="stylesheet" href="<?php echo site_url().'static/page_front/css/plugins/smart_wizard.min.css';?>">
         <link rel="stylesheet" href="<?php echo site_url().'static/page_front/css/plugins/smart_wizard_theme_dots.min.css';?>">
-        <link rel="stylesheet" href="<?php echo site_url().'static/page_front/css/plugins/style.css';?>">
+        <link rel="stylesheet" href="<?php echo site_url().'static/page_front/css/style.css';?>">
+        <script src="<?php echo site_url().'static/page_front/js/script/pay_home.js';?>"></script>
+        <script>
+   $("#buyButton").click(function(){
+      $("#spinner").show();
+      $("#buyButton").hide();
+    });
+</script>
     </body>
 </html>
 
