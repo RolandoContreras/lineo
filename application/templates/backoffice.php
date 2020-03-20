@@ -53,10 +53,14 @@
             $home_syle = "";
             $profile_syle = "";
             $shopping_syle = "";
+            $mis_cursos_syle = "";
             
             switch ($nav) {
                 case "profile":
                     $profile_syle = "active";
+                    break;
+                case "miscursos":
+                    $mis_cursos_syle = "active";
                     break;
                 case "home":
                     $home_syle = "active";
@@ -87,38 +91,14 @@
                   <span class="pcoded-mtext">Perfil</span>
               </a>
         </li>
-        <li class="nav-item pcoded-hasmenu">
-            <a href="#!" class="<?php echo $course_syle;?>">
-                <span class="pcoded-micon">
-                    <i data-feather="airplay"></i>
-                </span>
-                <span class="pcoded-mtext">Cursos</span>
-            </a>
-            <ul class="pcoded-submenu">
-                <?php 
-                    foreach ($obj_category_videos as $value) { ?>
-                        <li><a href='<?php echo site_url()."backoffice/$value->slug";?>' class=""><?php echo $value->name;?></a></li>          
-                <?php } ?>
-            </ul>
-        </li>
-        
                 <li class="nav-item pcoded-hasmenu">
-                    <a href="#!" class="">
+                    <a href="<?php echo site_url().'backoffice/miscursos';?>" class="nav-link <?php echo $mis_cursos_syle;?>">
                         <span class="pcoded-micon text-c-green">
                             <b><i data-feather="star"></i></b>
                         </span>
                         <span class="pcoded-mtext text-c-green"><b>Mis Cursos</b></span>
                     </a>
-                    <ul class="pcoded-submenu">
-                        <?php if(isset($obj_courses_by_customer) && count($obj_courses_by_customer) > 0){ ?>
-                            <?php foreach ($obj_courses_by_customer as $value) { ?>
-                                    <li><a href='<?php echo site_url()."plataforma/$value->category_slug/$value->course_slug";?>' class=""><?php echo $value->name;?></a></li>          
-                            <?php } ?>
-                         <?php }else{ ?>
-                                    <li><a>No tiene cursos</a></li>          
-                         <?php } ?>
-                    </ul>
-                </li>
+                                    </li>
         <li class="nav-item">
               <a href="<?php echo site_url().'backoffice/shopping';?>" class="nav-link <?php echo $shopping_syle;?>">
                   <span class="pcoded-micon">

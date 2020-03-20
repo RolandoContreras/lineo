@@ -21,8 +21,6 @@ class B_home extends CI_Controller {
         $customer_id = $_SESSION['customer']['customer_id'];
         //GET NAV CURSOS
         $obj_category_videos = $this->nav_category();
-        //get courses by customer
-        $obj_courses_by_customer = $this->courses_by_customer($customer_id);
         //GET CUSTOMER ID
         $customer_id = $_SESSION['customer']['customer_id'];
         
@@ -80,7 +78,6 @@ class B_home extends CI_Controller {
             //GET DATA CURSOS COMPRADOS
             
         $url = 'backoffice';
-        $this->tmp_backoffice->set("obj_courses_by_customer",$obj_courses_by_customer);    
         $this->tmp_backoffice->set("url",$url);    
         $this->tmp_backoffice->set("category_name",$category_name);
         $this->tmp_backoffice->set("obj_pagination",$obj_pagination);
@@ -320,6 +317,26 @@ class B_home extends CI_Controller {
         $this->tmp_backoffice->render("backoffice/b_pay_order");
     }
     
+    public function mis_cursos()
+    {
+        //GET SESION ACTUALY
+        $this->get_session();
+        //establecer nombre
+        $category_name = "Todo mis Cursos";
+        //get customer id
+        $customer_id = $_SESSION['customer']['customer_id'];
+        //obtener cursos comprados
+        $obj_courses_by_customer = $this->courses_by_customer($customer_id);
+        //get nav ctalogo
+        $obj_category_videos = $this->nav_category();
+        //SEND DATA
+        $this->tmp_backoffice->set("obj_courses_by_customer",$obj_courses_by_customer);
+        $this->tmp_backoffice->set("obj_category_videos",$obj_category_videos);
+        $this->tmp_backoffice->set("category_name",$category_name);
+        $this->tmp_backoffice->render("backoffice/b_miscursos");
+    }
+    
+    
     public function active_course(){
         //ACTIVE CUSTOMER NORMALY
          try {
@@ -415,9 +432,14 @@ class B_home extends CI_Controller {
     public function courses_by_customer($customer_id){
         $params_customer_courses = array(
                                     "select" =>"courses.course_id,
-                                                courses.name,
                                                 courses.category_id,
-                                                courses.slug as course_slug,
+                                                courses.name,
+                                                courses.slug,
+                                                courses.description,
+                                                courses.img,
+                                                courses.price,
+                                                courses.price_del,
+                                                courses.date,
                                                 customer.customer_id,
                                                 category.slug as category_slug",
                                     "join" => array('customer, customer_courses.customer_id = customer.customer_id',

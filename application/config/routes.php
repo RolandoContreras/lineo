@@ -68,11 +68,15 @@ $route['backoffice/shopping'] = "b_home/order";
 $route['backoffice/order/add_cart'] = 'b_home/add_cart';
 $route['backoffice/order/delete_cart'] = 'b_home/delete_cart';
 $route['backoffice/active_course'] = 'b_home/active_course';
+$route['backoffice/miscursos'] = 'b_home/mis_cursos';
 
 $route['backoffice/([0-9]+)'] = 'b_home/index/$1';
 $route['backoffice/([0-9a-z_-]+)'] = 'b_home/category/$1';
 $route['backoffice/([0-9a-z_-]+)/([0-9]+)'] = 'b_home/category/$1';
 $route['backoffice/([0-9a-z_-]+)/([0-9a-z|&_-]+)'] = 'b_home/detail/$1';
+
+
+
 
 $route['plataforma'] = "c_home";
 $route['plataforma/send_message'] = "c_home/send_message";

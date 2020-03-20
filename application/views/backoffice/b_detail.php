@@ -10,7 +10,7 @@
                     <h5 class="m-b-10">Listado</h5>
                   </div>
                   <ul class="breadcrumb">
-                      <li class="breadcrumb-item"><a href="<?php echo site_url().'bacoffice';?>"><i data-feather="home"></i></a></li>
+                      <li class="breadcrumb-item"><a href="<?php echo site_url().'backoffice';?>"><i data-feather="home"></i></a></li>
                     <li class="breadcrumb-item"><a>Videos Todos</a></li>
                   </ul>
                 </div>

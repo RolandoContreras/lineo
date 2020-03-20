@@ -1,0 +1,17 @@
+.conocer_mas {
+    font-size: 11px;
+    text-transform: uppercase;
+    line-height: 1.38;
+    letter-spacing: .3px;
+    padding: 0 20px 10px 30px;
+    margin-bottom: 0;
+    font-weight: 400;
+    cursor: pointer;
+    color: #aaa !important;
+}
+.white{
+    color: white !important;
+}
+.upper{
+    color: white !important;
+}
