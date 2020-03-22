@@ -1,5 +1,21 @@
-<div class=content-item-wrap>
-    <div class="wpb_column vc_column_container vc_col-sm-12">
+<div class="col-xl-12 col-lg-12">
+    <div class="card">
+        <div class="card-header">
+            <h5 class="mb-3"><i class="fas fa-ticket-alt m-r-5"></i>Curso: <?php echo $obj_courses->name;?></h5>
+            <button class="btn btn-success float-right"><i class="fa fa-check m-r-5"></i>Completo</button>
+        </div>
+        <div class="card-block">
+            <div class="m-b-20">
+                <h6>Progreso</h6>
+                <div class="progress">
+                  <div class="progress-bar bg-success" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                </div>
+            </div>
+            <hr/>
+            <div class="card-header">
+            <h4 class="mb-3"><i class="fas fa-ticket-alt m-r-5"></i>Vídeo: <?php echo $obj_courses_overview->name; ?></h4>
+        </div>
+            <div class="wpb_column vc_column_container vc_col-sm-12">
         <div class="vc_column-inner">
             <div class="wpb_wrapper">
                 <div class="thim-block-1">
@@ -18,11 +34,11 @@
                         </div>
                         <div class="vc_empty_space" style="height: 50px"><span class="vc_empty_space_inner"></span></div>
                         <div class=content-item-summary>
-                            <h3><?php echo $obj_courses_overview->name; ?></h3>
-                            <br/>
                             <ul class="nav nav-tabs">
-                                <li class="active"><a data-toggle="tab" href="#home">Descripción del Curso</a></li>
-                                <li><a data-toggle="tab" href="#menu1">Preguntas y Respuestas</a></li>
+                                <li class="active"><a data-toggle="tab" class="color_888" href="#home">Descripción del Curso</a></li>
+                                <li><a data-toggle="tab" href="#menu1" class="color_888">Preguntas y Respuestas</a></li>
+                                <li><a data-toggle="tab" href="#menu2" class="color_888">Materiales</a></li>
+                                <li><a data-toggle="tab" href="#menu3" class="color_888">Certificado</a></li>
                             </ul>
                             <div class="tab-content">
                                 <div id="home" class="tab-pane fade in active">
@@ -90,6 +106,42 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div id="menu2" class="tab-pane fade">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h5>Descargar Material</h5>
+                                        </div>
+                                        <div class="card-block task-attachment">
+                                            <ul class="media-list p-0">
+                                                <li class="media d-flex m-b-15">
+                                                    <div class="m-r-20 file-attach"><i class="fa fa-file f-28 text-muted"></i></div>
+                                                    <div class="media-body">
+                                                        <a href="#!" class="m-b-5 d-block text-secondary">Diagrama de Campo</a>
+                                                    </div>
+                                                    <div class="float-right text-muted"><i class="fa fa-download"></i></div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="menu3" class="tab-pane fade">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h5>Descargar Certificado</h5>
+                                        </div>
+                                        <div class="card-block task-attachment">
+                                            <ul class="media-list p-0">
+                                                <li class="media d-flex m-b-15">
+                                                    <div class="m-r-20 file-attach"><i class="fa fa-file-image-o f-28 text-muted"></i></div>
+                                                    <div class="media-body">
+                                                        <a href="#!" class="m-b-5 d-block text-secondary">Certificado</a>
+                                                    </div>
+                                                    <div class="float-right text-muted"><i class="fa fa-download"></i></div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -124,7 +176,10 @@
                                 <div class="meta" style="margin-top: 10px !important;">
                                     <span><i class="fa fa-history"></i> <?php echo $value->time . " min"; ?></span>
                                 </div>
-                                <a href="<?php echo site_url() . "plataforma/$slug/$obj_courses->slug/$value->slug"; ?>"><span class="lp-label lp-label-preview lp-landing" style="background: green !important;">Ver Vídeo</span></a>
+                                <a href="<?php echo site_url() . "plataforma/$slug/$obj_courses->slug/$value->slug"; ?>">
+                                    <span class="lp-label lp-label-preview lp-landing" style="background: green !important;">Ver Vídeo</span>
+                                </a>
+                                <label class="check-task done-task float-right" style="margin-left:20px;"><span class="leter-normal">Visto</span></label>
                             </div>
                         </div>
                     <?php } ?>
@@ -132,7 +187,18 @@
             </div>
         </div>
     </div>
+                
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-block">
+            <!--<div class=content-item-wrap>-->
+    
+<!--</div>-->
+        </div>
+    </div>
 </div>
+
 <script src="<?php echo site_url() . 'static/course/js/script/c_home.js'; ?>"></script>  
 
 

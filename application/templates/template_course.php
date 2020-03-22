@@ -16,7 +16,8 @@ scr<!DOCTYPE html>
   <link rel="stylesheet" href="<?php echo site_url().'static/course/css/autoptimize_single_cf7.css';?>" type=text/css media="all">
   <link rel="stylesheet" href="<?php echo site_url().'static/course/css/style.css';?>" type=text/css media="all">
   <!--TAB CSS-->
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="<?php echo site_url().'static/backoffice/css/mystyle.css';?>">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <!--END TAB CSS-->
@@ -53,20 +54,12 @@ scr<!DOCTYPE html>
                   <div id=learn-press-course class=course-summary>
                     <div id=tab-curriculum style="height: 68px;"></div>
                     <div class=course-curriculum id=learn-press-course-curriculum>
-                      <nav class="thim-font-heading learn-press-breadcrumb">
-                          <a href="<?php echo site_url().'backoffice';?>">Inicio</a> 
-                          <span class=delimiter>/</span> 
-                          <a href="javascript:void(0);">Mi Curso</a> 
-                         <span class="item-name">
-                             <?php echo $obj_courses->name;?>
-                         </span>
-                      </nav>
                       <ul class="curriculum-sections">
                                 <li class="section">
                                     <?php 
                                     foreach ($obj_modules as $value) {?>
                                         <h4 class="section-header">
-                                            <span class=collapse></span>Módulo /Sección<span class=section-description><?php echo $value->name;?></span>
+                                            <span class="collapse"></span><?php echo $value->name;?>
                                         </h4>
                                         <?php 
                                         foreach ($obj_videos as $key => $videos) { 
@@ -78,15 +71,25 @@ scr<!DOCTYPE html>
                                                          $style = "";
                                                      }?> 
                                                 <ul class=section-content>
-                                                    <li class="course-item course-item-lp_lesson course-item-487 item-preview has-status <?php echo $style?>">
-                                                      <span class=course-format-icon><i class="fa fa-play"></i></span>
-                                                      <a class=section-item-link href="<?php echo site_url()."plataforma/$slug/$obj_courses->slug/$videos->slug";?>">
-                                                            <span  class=item-name><?php echo "$key".".0 ". $videos->name;?></span>
-                                                            <span class=course-item-meta>
-                                                                <span class="lp-label lp-label-preview">Ver Vídeo</span>
-                                                            </span>
-                                                        </a>
-                                                    </li>
+                                                    <div class="card-block">
+                                                        <div class="new-task">
+                                                            <div class="to-do-list mb-4">
+                                                                <div class="checkbox-fade fade-in-primary">
+                                                                    <label class="check-task done-task">
+                                                                        <input type="checkbox" checked="checked">
+                                                                        <span class="cr mr-3">
+                                                                            <i class="cr-icon fa fa-check txt-primary"></i>
+                                                                        </span>
+                                                                        <a href="<?php echo site_url()."plataforma/$slug/$obj_courses->slug/$videos->slug";?>">
+                                                                            <span class="leter-normal">
+                                                                                <?php echo "$key".".0 ". $videos->name;?>
+                                                                            </span>
+                                                                        </a>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </ul>
                                         <?php }
                                         }
