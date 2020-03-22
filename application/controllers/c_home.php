@@ -6,6 +6,7 @@ class C_home extends CI_Controller {
         $this->load->model("customer_model","obj_customer");
         $this->load->model("videos_model","obj_videos");
         $this->load->model("category_model","obj_category");
+        $this->load->model("modules_model","obj_modules");
         $this->load->model("courses_model","obj_courses");
         $this->load->model("video_message_model","obj_video_message");
     }
@@ -17,17 +18,11 @@ class C_home extends CI_Controller {
             $this->get_session();
             //get slug
             $url = explode("/",uri_string());
+            $slug_category = $url[1];
             $slug_2 = $url[2];
-            $slug_3 = $url[3];
-            //get category_id
-            $params_categogory_id = array(
-                        "select" =>"category_id,
-                                    name",   
-                "where" => "slug like '%$slug%'");
-            $obj_category = $this->obj_category->get_search_row($params_categogory_id);
-            $category_id = $obj_category->category_id;
-            
-            //get course
+            $slug_3 = isset($url[3])?$url[3]:"";
+           
+            //obtener curso
             $params = array(
                             "select" =>"courses.course_id,
                                         courses.category_id,
@@ -41,16 +36,43 @@ class C_home extends CI_Controller {
                                         category.name as category_name,
                                         category.slug as category_slug",
                             "join" => array('category, courses.category_id = category.category_id'),
-                            "where" => "courses.slug = '$slug_2' and courses.category_id = $category_id");
+                            "where" => "courses.slug = '$slug_2' and category.slug = '$slug_category'");
             $obj_courses = $this->obj_courses->get_search_row($params);
             $course_id = $obj_courses->course_id;
             $course_img = $obj_courses->img;
+            //obtener modulos por cursos
+            $params = array(
+                            "select" =>"module_id,
+                                        name",
+                            "where" => "course_id = $course_id");
+            $obj_modules = $this->obj_modules->search($params);
+            //establecer modulos id para busqqueda
+            $array_data = "";
+            foreach ($obj_modules as $value) {
+                $array_data .= $value->module_id.",";
+            }
+            $array_data = eliminar_ultimo_caracter($array_data);
+            //GET videos by course
+            $params = array(
+                            "select" =>"videos.video_id,
+                                        videos.name,
+                                        videos.module_id,
+                                        videos.video,
+                                        videos.date,
+                                        videos.type,
+                                        videos.slug,
+                                        videos.time",
+                            "where" => "videos.module_id in ($array_data) and videos.active = 1",
+                            "order" => "videos.video_id ASC");
+            $obj_videos = $this->obj_videos->search($params);
             
-            if(isset($slug_3)){
+            //obtener video actual
+            if($slug_3 != ""){
                 $where = "slug = '$slug_3'"; 
             }else{
                $where = "videos.type = 1";
             }
+            
              //GET videos by course
             $params = array(
                             "select" =>"video_id,
@@ -60,34 +82,14 @@ class C_home extends CI_Controller {
                                         description,
                                         time,
                                         date",
-                            "where" => "course_id = $course_id and $where ");
+                            "where" => "videos.module_id in ($array_data) and $where ");
                 $obj_courses_overview = $this->obj_videos->get_search_row($params);
-            //VIDEO LINK
+//            VIDEO LINK
             $video = $obj_courses_overview->video;
             $explo_video = explode("/", $video);
             $video_link = $explo_video[3];
-            //get videos
-            $params = array(
-                        "select" =>"videos.video_id,
-                                    videos.type,
-                                    videos.name,
-                                    videos.slug,
-                                    videos.time,
-                                    videos.video,
-                                    videos.description,
-                                    videos.date,
-                                    videos.active,
-                                    courses.slug as courses_slug,
-                                    courses.name as courses_name,
-                                    videos.date",
-                "join" => array( 'courses, courses.course_id = videos.course_id'),
-                "where" => "courses.course_id = $course_id and videos.active = 1",
-                "order" => "videos.video_id ASC",
-                );
-            $obj_videos = $this->obj_videos->search($params);
+            
             //get all message
-            
-            
             $params = array(
                         "select" =>"video_message.video_message_id,
                                     video_message.date,
@@ -105,6 +107,7 @@ class C_home extends CI_Controller {
             $this->tmp_course->set("obj_courses_overview",$obj_courses_overview);
             $this->tmp_course->set("obj_video_message",$obj_video_message);
             $this->tmp_course->set("obj_videos",$obj_videos);
+            $this->tmp_course->set("obj_modules",$obj_modules);
             $this->tmp_course->set("obj_courses",$obj_courses);
             $this->tmp_course->set("video_link",$video_link);
             $this->tmp_course->render("course/c_home");

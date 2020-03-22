@@ -31,13 +31,16 @@
                                 <div class="grid">
                                 <?php
                                 foreach ($obj_courses_by_customer as $value) { ?>
-                                  <figure class="effect-apollo">
-                                      <img src="<?php echo site_url()."static/cms/img/cursos/$value->img";?>" alt="advance-3">
-                                    <figcaption>
-                                      <p><?php echo corta_texto($value->description, 100);?></p>
-                                      <a href="<?php echo site_url()."backoffice/$value->category_slug/$value->slug";?>">Ver Más</a>
-                                    </figcaption>
-                                  </figure>
+                                  <a href="<?php echo site_url() . "plataforma/$value->category_slug/$value->slug"; ?>">
+                                        <figure class="effect-lexi">
+                                                <img src="<?php echo site_url() . "static/cms/img/cursos/$value->img"; ?>" alt="<?php echo $value->name;?>">
+                                            <figcaption>
+                                                <p class="white"><?php echo $value->name;?><br/><br/>
+                                                    <span class="button_cuentas">Ver Curso <i class="fa fa-arrow-right" aria-hidden="true"></i></span>
+                                                </p>
+                                            </figcaption>
+                                        </figure>
+                                    </a>    
                                 <?php } ?>
                                 </div>
                          <?php }else{ ?>

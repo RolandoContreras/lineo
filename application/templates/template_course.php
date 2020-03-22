@@ -58,31 +58,39 @@ scr<!DOCTYPE html>
                           <span class=delimiter>/</span> 
                           <a href="javascript:void(0);">Mi Curso</a> 
                          <span class="item-name">
-                             Plataforma U-Linex
+                             <?php echo $obj_courses->name;?>
                          </span>
                       </nav>
                       <ul class="curriculum-sections">
                                 <li class="section">
-                                  <h4 class="section-header"><span class=collapse></span>Curso &nbsp;<span class=section-description><?php echo $obj_courses->name;?></span></h4>
-                                      <ul class=section-content>
-                                          <?php foreach ($obj_videos as $key => $value) { 
-                                                $key += 1;
-                                                     if($obj_courses_overview->video_id == $value->video_id){
+                                    <?php 
+                                    foreach ($obj_modules as $value) {?>
+                                        <h4 class="section-header">
+                                            <span class=collapse></span>Módulo /Sección<span class=section-description><?php echo $value->name;?></span>
+                                        </h4>
+                                        <?php 
+                                        foreach ($obj_videos as $key => $videos) { 
+                                            if($value->module_id == $videos->module_id){
+                                                    $key += 1;
+                                                     if($obj_courses_overview->video_id == $videos->video_id){
                                                           $style = "current";
                                                      }else{
                                                          $style = "";
                                                      }?> 
+                                                <ul class=section-content>
                                                     <li class="course-item course-item-lp_lesson course-item-487 item-preview has-status <?php echo $style?>">
                                                       <span class=course-format-icon><i class="fa fa-play"></i></span>
-                                                      <a class=section-item-link href="<?php echo site_url()."plataforma/$slug/$value->courses_slug/$value->slug";?>">
-                                                            <span  class=item-name><?php echo "$key".".0 ". $value->name;?></span>
+                                                      <a class=section-item-link href="<?php echo site_url()."plataforma/$slug/$obj_courses->slug/$videos->slug";?>">
+                                                            <span  class=item-name><?php echo "$key".".0 ". $videos->name;?></span>
                                                             <span class=course-item-meta>
                                                                 <span class="lp-label lp-label-preview">Ver Vídeo</span>
                                                             </span>
                                                         </a>
                                                     </li>
-                                               <?php } ?>
-                                      </ul>
+                                                </ul>
+                                        <?php }
+                                        }
+                                    } ?>
                                 </li>
                       </ul>
                     </div>

@@ -191,7 +191,6 @@ class B_home extends CI_Controller {
                                         name",
                             "where" => "course_id = $course_id");
             $obj_modules = $this->obj_modules->search($params);
-            $total_modules = count($obj_modules);    
             //establecer modulos id para busqqueda
             $array_data = "";
             foreach ($obj_modules as $value) {
@@ -211,8 +210,6 @@ class B_home extends CI_Controller {
                             "where" => "videos.module_id in ($array_data) and videos.active = 1",
                             "order" => "videos.video_id ASC");
             $obj_videos = $this->obj_videos->search($params);
-            //obtener el total de los vídeos
-            $total_videos = count($obj_videos);
             //cursos relacionados            
             $params = array(
                             "select" =>"courses.course_id,

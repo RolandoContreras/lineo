@@ -13,13 +13,10 @@
                                             <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/<?php echo $video_link; ?>" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
                                         </div>
                                     </div>
-                                    <!--<div class="col-md-1"></div>-->
                                 </div>
-                
                             </div>
                         </div>
                         <div class="vc_empty_space" style="height: 50px"><span class="vc_empty_space_inner"></span></div>
-
                         <div class=content-item-summary>
                             <h3><?php echo $obj_courses_overview->name; ?></h3>
                             <br/>
@@ -104,7 +101,7 @@
                             $link = "javascript:void(0)";
                         } else {
                             $style = "";
-                            $link = site_url() . "plataforma/$slug/$value->courses_slug/$value->slug";
+                            $link = site_url() . "plataforma/$slug/$obj_courses->slug/$value->slug";
                         }
                         ?>
                         <div class="course-item" style="margin-bottom: 10px !important;" style_play>
@@ -122,12 +119,12 @@
                             </a>
                             <div class="course-detail">
                                 <h3 class="title" style="margin-top: 10px !important;">
-                                    <a href="<?php echo site_url() . "plataforma/$slug/$value->courses_slug/$value->slug"; ?>"><?php echo $value->name; ?></a>
+                                    <a href="<?php echo site_url() . "plataforma/$slug/$obj_courses->slug/$value->slug"; ?>"><?php echo $value->name; ?></a>
                                 </h3>
                                 <div class="meta" style="margin-top: 10px !important;">
                                     <span><i class="fa fa-history"></i> <?php echo $value->time . " min"; ?></span>
                                 </div>
-                                <a href="<?php echo site_url() . "plataforma/$slug/$value->courses_slug/$value->slug"; ?>"><span class="lp-label lp-label-preview lp-landing" style="background: green !important;">Ver Vídeo</span></a>
+                                <a href="<?php echo site_url() . "plataforma/$slug/$obj_courses->slug/$value->slug"; ?>"><span class="lp-label lp-label-preview lp-landing" style="background: green !important;">Ver Vídeo</span></a>
                             </div>
                         </div>
                     <?php } ?>
