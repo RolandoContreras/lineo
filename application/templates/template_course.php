@@ -64,27 +64,40 @@ scr<!DOCTYPE html>
                                         <?php 
                                         foreach ($obj_videos as $key => $videos) { 
                                             if($value->module_id == $videos->module_id){
-                                                    $key += 1;
-                                                     if($obj_courses_overview->video_id == $videos->video_id){
-                                                          $style = "current";
-                                                     }else{
-                                                         $style = "";
-                                                     }?> 
+                                                    $key += 1;?> 
                                                 <ul class=section-content>
                                                     <div class="card-block">
                                                         <div class="new-task">
                                                             <div class="to-do-list mb-4">
                                                                 <div class="checkbox-fade fade-in-primary">
                                                                     <label class="check-task done-task">
-                                                                        <input type="checkbox" checked="checked">
-                                                                        <span class="cr mr-3">
-                                                                            <i class="cr-icon fa fa-check txt-primary"></i>
-                                                                        </span>
-                                                                        <a href="<?php echo site_url()."plataforma/$slug/$obj_courses->slug/$videos->slug";?>">
-                                                                            <span class="leter-normal">
-                                                                                <?php echo "$key".".0 ". $videos->name;?>
+                                                                        <?php 
+                                                                        if($videos->video_id <= $video_actual->video_actual){?>
+                                                                            <input type="checkbox" checked="checked">
+                                                                            <span class="cr mr-3">
+                                                                                <i class="cr-icon fa fa-check txt-primary"></i>
                                                                             </span>
-                                                                        </a>
+                                                                            <a href="<?php echo site_url()."plataforma/$slug/$obj_courses->slug/$videos->slug";?>">
+                                                                                <span class="leter-normal">
+                                                                                    <?php echo "$key".".0 ". $videos->name;
+                                                                                    if($obj_courses_overview->video_id == $videos->video_id){ ?>
+                                                                                        <div class="float-right">
+                                                                                            <i class="cr-icon fa fa-play" style="opacity: 1 !important;margin-top: 5px;"></i>
+                                                                                        </div>
+                                                                                     <?php } ?>
+                                                                                </span>
+                                                                            </a>
+                                                                        <?php }else{ ?>
+                                                                            <input type="checkbox">
+                                                                            <span class="cr mr-3">
+                                                                                <i class="cr-icon fa fa-check "></i>
+                                                                            </span>  
+                                                                            <a href="<?php echo site_url()."plataforma/$slug/$obj_courses->slug/$videos->slug";?>">
+                                                                                <div class="leter-normal">
+                                                                                    <?php echo "$key".".0 ". $videos->name;?> 
+                                                                                </div>
+                                                                            </a>
+                                                                        <?php } ?>
                                                                     </label>
                                                                 </div>
                                                             </div>

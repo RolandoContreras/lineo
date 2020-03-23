@@ -19,6 +19,10 @@ class customer_courses_model_atributos{
     var $customer_course_id='';
     var $customer_id='';
     var $course_id='';
+    var $video_actual='';
+    var $total_video='';
+    var $updated_at='';
+    var $updated_by='';
 }
 
 class Customer_courses_Model extends CI_Model{ 
@@ -30,6 +34,10 @@ class Customer_courses_Model extends CI_Model{
         $this->customer_course_id='';
         $this->customer_id='';
         $this->course_id='';
+        $this->video_actual='';
+        $this->total_video='';
+        $this->updated_at='';
+        $this->updated_by='';
 	$this->fields = new customer_courses_model_atributos();
     }   
     
@@ -48,6 +56,18 @@ class Customer_courses_Model extends CI_Model{
     public function update($pk, $data){
         $this->db->where($this->table_id, $pk);
         $this->db->update($this->table, $data);
+    }
+    
+    public function update_total_video($pk, $data){
+        $this->db->where($this->table_id, $pk);
+        $this->db->update($this->table, $data);
+       
+       $this->db->select('*');
+       $this->db->from($this->table);       
+       $this->db->where($this->table_id,$pk);
+       $query =  $this->db->get(); 
+       return $query->row();
+        
     }
 
     public function delete($pk){

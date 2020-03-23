@@ -9,7 +9,8 @@ class C_home extends CI_Controller {
         $this->load->model("modules_model","obj_modules");
         $this->load->model("courses_model","obj_courses");
         $this->load->model("video_message_model","obj_video_message");
-    }
+        $this->load->model("customer_courses_model","obj_customer_courses");
+        }
     
     public function detail($slug)
 	{
@@ -40,6 +41,9 @@ class C_home extends CI_Controller {
             $obj_courses = $this->obj_courses->get_search_row($params);
             $course_id = $obj_courses->course_id;
             $course_img = $obj_courses->img;
+            
+            
+            
             //obtener modulos por cursos
             $params = array(
                             "select" =>"module_id,
@@ -65,15 +69,13 @@ class C_home extends CI_Controller {
                             "where" => "videos.module_id in ($array_data) and videos.active = 1",
                             "order" => "videos.video_id ASC");
             $obj_videos = $this->obj_videos->search($params);
-            
             //obtener video actual
             if($slug_3 != ""){
                 $where = "slug = '$slug_3'"; 
             }else{
-               $where = "videos.type = 1";
+                    $where = "videos.type = 1";
             }
-            
-             //GET videos by course
+            //GET videos by course
             $params = array(
                             "select" =>"video_id,
                                         slug,
@@ -82,13 +84,19 @@ class C_home extends CI_Controller {
                                         description,
                                         time,
                                         date",
-                            "where" => "videos.module_id in ($array_data) and $where ");
+                            "where" => "videos.module_id in ($array_data) and $where");
                 $obj_courses_overview = $this->obj_videos->get_search_row($params);
+                
+            //obtener video actual en reproduccion
+            $video_actual = $this->select_video_actual($course_id, $obj_courses_overview->video_id); 
+            //obtener porcentaje avanzado
+            $total_videos = count($obj_videos);
+            $total_visto = $video_actual->total_video;
+            $percent = ($total_visto / $total_videos) * 100;
 //            VIDEO LINK
             $video = $obj_courses_overview->video;
             $explo_video = explode("/", $video);
             $video_link = $explo_video[3];
-            
             //get all message
             $params = array(
                         "select" =>"video_message.video_message_id,
@@ -97,7 +105,7 @@ class C_home extends CI_Controller {
                                     video_message.respose,
                                     customer.name",
                 "join" => array('customer, video_message.customer_id = customer.customer_id'),
-                "order" => "video_message.video_id = $obj_courses_overview->video_id",
+                "where" => "video_message.video_id = $obj_courses_overview->video_id",
                 "order" => "video_message.video_message_id ASC",
                 );
             $obj_video_message = $this->obj_video_message->search($params);
@@ -107,12 +115,51 @@ class C_home extends CI_Controller {
             $this->tmp_course->set("obj_courses_overview",$obj_courses_overview);
             $this->tmp_course->set("obj_video_message",$obj_video_message);
             $this->tmp_course->set("obj_videos",$obj_videos);
+            $this->tmp_course->set("percent",$percent);
             $this->tmp_course->set("obj_modules",$obj_modules);
             $this->tmp_course->set("obj_courses",$obj_courses);
             $this->tmp_course->set("video_link",$video_link);
+            $this->tmp_course->set("video_actual",$video_actual);
+            
             $this->tmp_course->render("course/c_home");
 	}
     
+    public function select_video_actual($course_id,$video_id) {
+                //GET CUSTOMER_ID por session
+                $customer_id = $_SESSION['customer']['customer_id'];
+                //GET VIDEO ACTUAL
+                $params = array(
+                            "select" =>"customer_course_id,
+                                        video_actual,
+                                        total_video",
+                    "where" => "customer_id = $customer_id and course_id = $course_id",
+                    );
+                $video_actual = $this->obj_customer_courses->get_search_row($params);
+                
+                    if($video_actual->total_video == 0){
+                            //ADD VIDEO_MESSAGE
+                            $data = array(
+                                'video_actual' => $video_id,
+                                'total_video' => 1,
+                            );
+                           $video_actual = $this->obj_customer_courses->update_total_video($video_actual->customer_course_id,  $data); 
+                    }else{
+                       if($video_actual->video_actual < $video_id){
+                            $total_video = $video_actual->total_video + 1;
+                            //ADD VIDEO_MESSAGE
+                            $data = array(
+                                'video_actual' => $video_id,
+                                'total_video' => $total_video,
+                            );
+                           $video_actual = $this->obj_customer_courses->update_total_video($video_actual->customer_course_id,  $data);
+                        } 
+                    }
+                    
+                //ACTUALIZAR VIDEO
+                $obj_video_actual = $this->obj_customer_courses->get_search_row($params);
+                return $obj_video_actual;
+    }      
+        
     public function send_message() {
         if($this->input->is_ajax_request()){   
                 //GET CUSTOMER_ID

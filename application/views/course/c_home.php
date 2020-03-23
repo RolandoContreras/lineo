@@ -8,7 +8,7 @@
             <div class="m-b-20">
                 <h6>Progreso</h6>
                 <div class="progress">
-                  <div class="progress-bar bg-success" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                  <div class="progress-bar bg-success" role="progressbar" style="width: <?php echo $percent;?>%;" aria-valuenow="<?php echo $percent;?>" aria-valuemin="0" aria-valuemax="100"><?php echo $percent;?>%</div>
                 </div>
             </div>
             <hr/>
@@ -179,7 +179,10 @@
                                 <a href="<?php echo site_url() . "plataforma/$slug/$obj_courses->slug/$value->slug"; ?>">
                                     <span class="lp-label lp-label-preview lp-landing" style="background: green !important;">Ver Vídeo</span>
                                 </a>
-                                <label class="check-task done-task float-right" style="margin-left:20px;"><span class="leter-normal">Visto</span></label>
+                                <?php 
+                                if($value->video_id <= $video_actual->video_actual){ ?>
+                                    <label class="check-task done-task float-right" style="margin-left:20px;"><span class="leter-normal">Visto</span></label>
+                                <?php } ?>
                             </div>
                         </div>
                     <?php } ?>
