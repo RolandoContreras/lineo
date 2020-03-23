@@ -2,7 +2,12 @@
     <div class="card">
         <div class="card-header">
             <h5 class="mb-3"><i class="fas fa-ticket-alt m-r-5"></i>Curso: <?php echo $obj_courses->name;?></h5>
-            <button class="btn btn-success float-right"><i class="fa fa-check m-r-5"></i>Completo</button>
+            <?php 
+            if($complete == 1){ ?>
+                <button class="btn btn-success float-right"><i class="fa fa-check m-r-5"></i>Completo</button>
+            <?php  }else{ ?>
+                <button class="btn btn-warning float-right"><i class="fa fa-circle-o-notch m-r-5"></i>En Progreso</button>
+            <?php  } ?>
         </div>
         <div class="card-block">
             <div class="m-b-20">
@@ -191,13 +196,6 @@
         </div>
     </div>
                 
-        </div>
-    </div>
-    <div class="card">
-        <div class="card-block">
-            <!--<div class=content-item-wrap>-->
-    
-<!--</div>-->
         </div>
     </div>
 </div>

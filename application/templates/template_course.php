@@ -1,4 +1,4 @@
-scr<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset=UTF-8>
@@ -149,5 +149,6 @@ scr<!DOCTYPE html>
     WebFont.load({google:{families:['Roboto:400,300']}});
   </script>
   <script defer src="<?php echo site_url().'static/course/js/autoptimize_ff6.js';?>"></script>
+  <script src="<?php echo site_url() . 'static/backoffice/js/sweetalert.min.js'; ?>"></script>      
 </body>
 </html>

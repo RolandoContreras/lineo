@@ -113,6 +113,47 @@
                                 <label>Tiempo (minutos)</label>
                                 <input class="form-control" type="text" id="time" name="time" value="<?php echo isset($obj_videos->time)?$obj_videos->time:"";?>" class="input-xlarge-fluid" placeholder="Duración del vídeo">
                               </div>
+                               <?php 
+                              if(isset($obj_archives)){ ?>
+                                    <div class="form-group">
+                                        <?php  foreach ($obj_archives as $key => $value) { $key =$key + 1;?> 
+                                            <div class="input-group mb-3">
+                                                  <div class="input-group-prepend">
+                                                  <span class="input-group-text" id="basic-addon3">Archivo <?php echo $key;?></span>
+                                                  </div>
+                                                  <input type="text" class="form-control" aria-describedby="basic-addon3" value="<?php echo $value->name;?>" disabled="">
+                                            </div>
+                                        <div class="input-group mb-3">
+                                                  <div class="input-group-prepend">
+                                                  <span class="input-group-text" id="basic-addon3"><i class="fa fa-file f-28 text-muted" aria-hidden="true"></i></span>
+                                                  </div>
+                                                  <input type="text" class="form-control" aria-describedby="basic-addon3" value="<?php echo $value->link;?>" disabled="">
+                                            </div>
+                                        <br/><hr/>
+                                        <?php } ?>
+                                    </div> 
+                              <?php }else{ ?>
+                                <div class="form-group">
+                                    <label for="inputState">Ingrese cantidad de archivos</label>
+                                    <select onclick="crear_archivos();" name="archive" id="archive" class="form-control">
+                                         <option value="0" selected=""> Seleccionar Archivos </option>
+                                         <option value="1"> 1 </option>
+                                         <option value="2"> 2 </option>
+                                         <option value="3"> 3 </option>
+                                         <option value="4"> 4 </option>
+                                         <option value="5"> 5 </option>
+                                         <option value="6"> 6 </option>
+                                         <option value="7"> 7 </option>
+                                         <option value="8"> 8 </option>
+                                         <option value="9"> 9 </option>
+                                         <option value="10"> 10 </option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                      <div id="respose_archive"></div>
+                                </div>
+                                  
+                              <?php } ?>
                           </div>
                         </div>
                         <button type="submit" class="btn btn-primary">Guardar</button>

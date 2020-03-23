@@ -93,7 +93,12 @@ class C_home extends CI_Controller {
             $total_videos = count($obj_videos);
             $total_visto = $video_actual->total_video;
             $percent = ($total_visto / $total_videos) * 100;
-//            VIDEO LINK
+            //update complete
+            $complete = 0;
+            if($percent == 100){
+               $complete = $this->update_video_100($video_actual->customer_course_id); 
+            }
+            //VIDEO LINK
             $video = $obj_courses_overview->video;
             $explo_video = explode("/", $video);
             $video_link = $explo_video[3];
@@ -120,9 +125,18 @@ class C_home extends CI_Controller {
             $this->tmp_course->set("obj_courses",$obj_courses);
             $this->tmp_course->set("video_link",$video_link);
             $this->tmp_course->set("video_actual",$video_actual);
-            
+            $this->tmp_course->set("complete",$complete);
             $this->tmp_course->render("course/c_home");
 	}
+    
+    public function update_video_100($customer_course_id) {
+                //actualizar a completo el curso by customer
+                $data = array(
+                    'complete' => 1,
+                );
+               $this->obj_customer_courses->update_total_video($customer_course_id,  $data); 
+               return 1;
+    }   
     
     public function select_video_actual($course_id,$video_id) {
                 //GET CUSTOMER_ID por session
@@ -131,7 +145,8 @@ class C_home extends CI_Controller {
                 $params = array(
                             "select" =>"customer_course_id,
                                         video_actual,
-                                        total_video",
+                                        total_video,
+                                        complete",
                     "where" => "customer_id = $customer_id and course_id = $course_id",
                     );
                 $video_actual = $this->obj_customer_courses->get_search_row($params);
@@ -154,11 +169,9 @@ class C_home extends CI_Controller {
                            $video_actual = $this->obj_customer_courses->update_total_video($video_actual->customer_course_id,  $data);
                         } 
                     }
-                    
                 //ACTUALIZAR VIDEO
-                $obj_video_actual = $this->obj_customer_courses->get_search_row($params);
-                return $obj_video_actual;
-    }      
+                return $video_actual;
+    } 
         
     public function send_message() {
         if($this->input->is_ajax_request()){   

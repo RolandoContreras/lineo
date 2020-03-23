@@ -7,6 +7,7 @@ class D_courses extends CI_Controller{
         $this->load->model("category_model","obj_category");
         $this->load->model("courses_model","obj_courses");
         $this->load->model("modules_model","obj_modules");
+        
     }   
                 
     public function index(){  
@@ -169,7 +170,7 @@ class D_courses extends CI_Controller{
                     }   
                 }
             }
-             
+           
         }else{
             $data = array(
                 'name' => $this->input->post("name"),
@@ -209,7 +210,21 @@ class D_courses extends CI_Controller{
                              $this->obj_modules->insert($data);
                         }
                     }   
-                }        
+                }
+                //crear archivos por curso
+                if($archive != ""){
+                    for ($i = 1; $i <= $archive; $i++) {
+                          $archive = $this->input->post("archive_$i");
+                          $archive_link = $this->input->post("archive_link_$i");
+                                 $data = array(
+                                    'course_id' => $course_id,
+                                    'name' => $archive,
+                                    'link' => $archive_link,
+                                    );          
+                                 $this->obj_archives->insert($data);
+                        }  
+                }
+                
             //SAVE DATA IN TABLE    
         }    
         redirect(site_url()."dashboard/cursos");

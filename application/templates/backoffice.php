@@ -108,6 +108,14 @@
               </a>
         </li>
         <li class="nav-item">
+              <a href="<?php echo site_url().'backoffice/certificados';?>" class="nav-link <?php echo $profile_syle;?>">
+                  <span class="pcoded-micon">
+                       <i data-feather="layers"></i>
+                  </span>
+                  <span class="pcoded-mtext">Certificados</span>
+              </a>
+        </li>
+        <li class="nav-item">
               <a href="<?php echo site_url().'salir';?>" class="nav-link">
                   <span class="pcoded-micon">
                        <i data-feather="log-out"></i>

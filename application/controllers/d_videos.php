@@ -8,6 +8,7 @@ class D_videos extends CI_Controller{
         $this->load->model("videos_model","obj_videos");
         $this->load->model("modules_model","obj_modules");
         $this->load->model("courses_model","obj_courses");
+        $this->load->model("archives_model","obj_archives");
     }   
                 
     public function index(){  
@@ -58,6 +59,18 @@ class D_videos extends CI_Controller{
             $obj_videos  = $this->obj_videos->get_search_row($params);  
             //RENDER
             $this->tmp_mastercms->set("obj_videos",$obj_videos);
+            
+            //verificar si tiene archivos
+            $param_archive = array(
+                        "select" =>"archive_id,
+                                    name,
+                                    link",    
+                        "where" => "video_id = $video_id",
+            ); 
+            $obj_archives  = $this->obj_archives->search($param_archive); 
+            if(count($obj_archives) > 0){
+                $this->tmp_mastercms->set("obj_archives",$obj_archives);
+            }
           }
       
           $params = array(
@@ -90,7 +103,40 @@ class D_videos extends CI_Controller{
                 'updated_by' => $_SESSION['usercms']['user_id']
                 );          
              $this->obj_videos->update($video_id, $data);
+            //verificar si tiene archivos
+            $param_archives = array(
+                        "select" =>"*",    
+                        "where" => "video_id = $video_id",
+            ); 
+            $obj_archives  = $this->obj_archives->total_records($param_archives);
+            
+            if($obj_archives == 0){
+                $archive = $this->input->post("archive");
+               //get data from moddulo
+                if($archive == 1){
+                    $archive_name = $this->input->post("archive_1");
+                    $archive_link = $this->input->post("archive_link_1");
+                             $data = array(
+                                'name' => $archive_name,
+                                'video_id' => $video_id,
+                                 'link' => $archive_link,
+                                );          
+                             $this->obj_archives->insert($data);
+                }else{
+                      for ($i = 1; $i <= $archive; $i++) {
+                      $archive_name = $this->input->post("archive_$i");
+                    $archive_link = $this->input->post("archive_link_$i");
+                             $data = array(
+                                'name' => $archive_name,
+                                'video_id' => $video_id,
+                                 'link' => $archive_link,
+                                );                    
+                             $this->obj_archives->insert($data);
+                    }   
+                }
+            }
         }else{
+            //SAVE DATA IN TABLE    
             $data = array(
                 'name' => $this->input->post('name'),
                 'slug' => convert_slug($this->input->post('name')),
@@ -103,7 +149,21 @@ class D_videos extends CI_Controller{
                 'active' => $this->input->post('active'),  
                 );          
              $this->obj_videos->insert($data);        
-            //SAVE DATA IN TABLE    
+             
+             //crear archivos por curso
+             $archive = $this->input->post("archive");
+                if($archive != ""){
+                    for ($i = 0; $i <= $archive; $i++) {
+                          $archive = $this->input->post("archive_$i");
+                          $archive_link = $this->input->post("archive_link_$i");
+                                 $data = array(
+                                    'name' => $archive_name,
+                                    'video_id' => $video_id,
+                                    'link' => $archive_link,
+                                    );          
+                                 $this->obj_archives->insert($data);
+                        }  
+                }
         }    
         redirect(site_url()."dashboard/videos");
     }
