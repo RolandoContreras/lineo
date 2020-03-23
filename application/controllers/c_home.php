@@ -10,6 +10,7 @@ class C_home extends CI_Controller {
         $this->load->model("courses_model","obj_courses");
         $this->load->model("video_message_model","obj_video_message");
         $this->load->model("customer_courses_model","obj_customer_courses");
+        $this->load->model("archives_model","obj_archives");
         }
     
     public function detail($slug)
@@ -114,6 +115,13 @@ class C_home extends CI_Controller {
                 "order" => "video_message.video_message_id ASC",
                 );
             $obj_video_message = $this->obj_video_message->search($params);
+            //obtener material del video actual
+            $params_archive = array(
+                        "select" =>"name,
+                                    link",
+                "where" => "video_id = $obj_courses_overview->video_id"
+                );
+            $obj_archive = $this->obj_archives->search($params_archive);
             //SEND DATA
             $this->tmp_course->set("slug",$slug);
             $this->tmp_course->set("course_img",$course_img);
@@ -126,6 +134,7 @@ class C_home extends CI_Controller {
             $this->tmp_course->set("video_link",$video_link);
             $this->tmp_course->set("video_actual",$video_actual);
             $this->tmp_course->set("complete",$complete);
+            $this->tmp_course->set("obj_archive",$obj_archive);
             $this->tmp_course->render("course/c_home");
 	}
     
