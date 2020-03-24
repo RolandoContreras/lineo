@@ -125,7 +125,7 @@ class D_videos extends CI_Controller{
                 }else{
                       for ($i = 1; $i <= $archive; $i++) {
                       $archive_name = $this->input->post("archive_$i");
-                    $archive_link = $this->input->post("archive_link_$i");
+                      $archive_link = $this->input->post("archive_link_$i");
                              $data = array(
                                 'name' => $archive_name,
                                 'video_id' => $video_id,
@@ -148,21 +148,32 @@ class D_videos extends CI_Controller{
                 'date' => date("Y-m-d H:i:s"),  
                 'active' => $this->input->post('active'),  
                 );          
-             $this->obj_videos->insert($data);        
+             $video_id = $this->obj_videos->insert($data);        
              
              //crear archivos por curso
              $archive = $this->input->post("archive");
                 if($archive != ""){
-                    for ($i = 0; $i <= $archive; $i++) {
-                          $archive = $this->input->post("archive_$i");
+                    if($archive == 1){
+                        $archive_name = $this->input->post("archive_1");
+                        $archive_link = $this->input->post("archive_link_1");
+                                 $data = array(
+                                    'name' => $archive_name,
+                                    'video_id' => $video_id,
+                                     'link' => $archive_link,
+                                    );          
+                                 $this->obj_archives->insert($data);
+                    }else{
+                          for ($i = 1; $i <= $archive; $i++) {
+                          $archive_name = $this->input->post("archive_$i");
                           $archive_link = $this->input->post("archive_link_$i");
                                  $data = array(
                                     'name' => $archive_name,
                                     'video_id' => $video_id,
-                                    'link' => $archive_link,
-                                    );          
+                                     'link' => $archive_link,
+                                    );                    
                                  $this->obj_archives->insert($data);
-                        }  
+                        }   
+                    }
                 }
         }    
         redirect(site_url()."dashboard/videos");

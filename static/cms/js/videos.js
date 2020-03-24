@@ -38,6 +38,30 @@ function delete_video(video_id){
     }
     });
 }
+
+function create_module(){
+    var course_id = document.getElementById("course_id").value;
+      if(course_id > 0){
+            $.ajax({
+                   type: "post",
+                   url: site+"dashboard/videos/verificar_curso",
+                   dataType: "json",
+                   data: {course_id : course_id},
+                   success:function(data){                             
+                   obj_modules = data.obj_modules;
+                            var texto = "";
+                            texto = texto+'<option value="">Seleccionar Módulo</option>';
+                            var x = 0;               
+                            $.each(obj_modules, function(){
+                                texto = texto+'<option value="'+obj_modules[x]['module_id']+'">'+obj_modules[x]['name']+'</option>';
+                                x++; 
+                            });
+                    $("#module_id").html(texto);
+                   }         
+           });
+        }
+}
+
 function crear_archivos(){
     var archive = document.getElementById("archive").value;
       if(archive > 0){  
