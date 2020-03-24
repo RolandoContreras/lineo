@@ -42,7 +42,10 @@
                             <ul class="nav nav-tabs">
                                 <li class="active"><a data-toggle="tab" class="color_888" href="#home">Descripción del Curso</a></li>
                                 <li><a data-toggle="tab" href="#menu1" class="color_888">Preguntas y Respuestas</a></li>
-                                <li><a data-toggle="tab" href="#menu2" class="color_888">Materiales</a></li>
+                                <li><a data-toggle="tab" href="#menu2" class="color_888">Materiales &nbsp;&nbsp; 
+                                        <span class="label theme-bg2 text-white f-14 f-w-400 "><?php echo count($obj_archive);?></span>
+                                                            
+                                    </a> </li>
                                 <li><a data-toggle="tab" href="#menu3" class="color_888">Certificado</a></li>
                             </ul>
                             <div class="tab-content">

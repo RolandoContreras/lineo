@@ -69,6 +69,10 @@ $route['backoffice/order/add_cart'] = 'b_home/add_cart';
 $route['backoffice/order/delete_cart'] = 'b_home/delete_cart';
 $route['backoffice/active_course'] = 'b_home/active_course';
 $route['backoffice/miscursos'] = 'b_home/mis_cursos';
+$route['backoffice/certificados'] = "b_home/certificados";
+$route['backoffice/certificados/imprimir'] = "b_home/imprimir";
+
+
 
 $route['backoffice/([0-9]+)'] = 'b_home/index/$1';
 $route['backoffice/([0-9a-z_-]+)'] = 'b_home/category/$1';
@@ -86,10 +90,12 @@ $route['plataforma/([0-9a-z_-]+)/([0-9a-z_|&-]+)/([0-9a-z|&_-]+)'] = 'c_home/det
 $route['backoffice/profile'] = "b_profile";
 $route['backoffice/profile/update_password'] = "b_profile/update_password";
 
-
 $route['backoffice/history'] = "b_finance";
 $route['backoffice/invoice'] = "b_finance/invoice";
 $route['backoffice/invoice/upload'] = "b_finance/upload";
+
+
+
 
 $route['dashboard'] = "dashboard";
 $route['dashboard/panel'] = "panel";
