@@ -6,6 +6,10 @@ function edit_course(course_id){
      var url = 'dashboard/cursos/load/'+course_id;
      location.href = site+url;   
 }
+function view_videos(course_id){    
+     var url = 'dashboard/videos/'+course_id;
+     location.href = site+url;   
+}
 function cancel_course(){
 	var url= 'dashboard/cursos';
 	location.href = site+url;

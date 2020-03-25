@@ -1,13 +1,17 @@
-function new_video(){
-	var url= 'dashboard/videos/load';
+function back_cursos(){
+	var url= 'dashboard/cursos';
 	location.href = site+url;
 }
-function edit_video(video_id){    
-     var url = 'dashboard/videos/load/'+video_id;
+function new_video(course_id){
+	var url= 'dashboard/videos/'+course_id+'/load';
+	location.href = site+url;
+}
+function edit_video(course_id, video_id){    
+     var url = 'dashboard/videos/'+course_id+'/load/'+video_id;
      location.href = site+url;   
 }
-function cancel_video(){
-	var url= 'dashboard/videos';
+function cancel_video(course_id){
+	var url= 'dashboard/videos/'+course_id;
 	location.href = site+url;
 }
 function delete_video(video_id){

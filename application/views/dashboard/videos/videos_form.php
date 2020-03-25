@@ -29,7 +29,7 @@
                     <h5>Datos</h5>
                   </div>
                   <div class="card-body">
-                    <form enctype="multipart/form-data" method="post" action="<?php echo site_url()."dashboard/videos/validate";?>">
+                    <form enctype="multipart/form-data" method="post" action="<?php echo site_url()."dashboard/videos/$course_id/validate";?>">
                         <div class="form-row">
                             <div class="form-group col-md-12">
                                 <?php 
@@ -47,27 +47,6 @@
                                 <input class="form-control" type="text" id="name" name="name" value="<?php echo isset($obj_videos->name)?$obj_videos->name:"";?>" class="input-xlarge-fluid" placeholder="Titulo">
                               </div>
                               <div class="form-group">
-                                  <label>Descripción</label>
-                                  <textarea class="form-control" name="description" id="description" placeholder="Descripción"><?php echo isset($obj_videos->description)?$obj_videos->description:"";?></textarea>
-                                  <script>
-                                        CKEDITOR.replace('description');
-                                </script>
-                              </div>
-                              <div class="form-group">
-                                    <label for="inputState">Estado</label>
-                                    <select name="active" id="active" class="form-control">
-                                     <option value="">[ Seleccionar ]</option>
-                                      <option value="1" <?php if(isset($obj_videos)){
-                                          if($obj_videos->active == 1){ echo "selected";}
-                                      }else{echo "";} ?>>Activo</option>
-                                      <option value="0" <?php if(isset($obj_videos)){
-                                          if($obj_videos->active == 0){ echo "selected";}
-                                      }else{echo "";} ?>>Inactivo</option>
-                                    </select>
-                              </div>
-                          </div>
-                          <div class="form-group col-md-6">
-                              <div class="form-group">
                                     <label>Enlace (https://vimeo.com/81399537)</label>
                                     <input class="form-control" type="text" id="video" name="video" value="<?php echo isset($obj_videos->video)?$obj_videos->video:"";?>" class="input-xlarge-fluid" placeholder="Video">
                               </div>
@@ -83,30 +62,44 @@
                                           }else{echo "";} ?>>Normal</option>
                                 </select>
                               </div>
+<!--                              <div class="form-group">
+                                  <label>Descripción</label>
+                                  <textarea class="form-control" name="description" id="description" placeholder="Descripción"><?php echo isset($obj_videos->description)?$obj_videos->description:"";?></textarea>
+                                  <script>
+                                        CKEDITOR.replace('description');
+                                </script>
+                              </div>-->
+                              <div class="form-group">
+                                    <label for="inputState">Estado</label>
+                                    <select name="active" id="active" class="form-control">
+                                     <option value="">[ Seleccionar ]</option>
+                                      <option value="1" <?php if(isset($obj_videos)){
+                                          if($obj_videos->active == 1){ echo "selected";}
+                                      }else{echo "";} ?>>Activo</option>
+                                      <option value="0" <?php if(isset($obj_videos)){
+                                          if($obj_videos->active == 0){ echo "selected";}
+                                      }else{echo "";} ?>>Inactivo</option>
+                                    </select>
+                              </div>
+                          </div>
+                          <div class="form-group col-md-6">
+                              
                               <div class="form-group">
                                   <label for="inputState">Curso</label>
-                                    <select onclick="create_module();" name="course_id" id="course_id" class="form-control">
-                                    <option value="">[ Seleccionar ]</option>
-                                        <?php foreach ($obj_courses as $value ): ?>
-                                    <option value="<?php echo $value->course_id;?>"
-                                        <?php 
-                                                if(isset($obj_videos->course_id)){
-                                                        if($obj_videos->course_id==$value->course_id){
-                                                            echo "selected";
-                                                        }
-                                                }else{
-                                                          echo "";
-                                                }
-                                        ?>><?php echo $value->name;?>
-                                    </option>
-                                        <?php endforeach; ?>
+                                  <select name="course_id" id="course_id" class="form-control" disabled="">
+                                        <option value="<?php echo $obj_courses->course_id;?>"><?php  echo $obj_courses->name;?></option>
                                 </select>
                               </div>
                               <div class="form-group">
                                   <label for="inputState">Módulos</label>
                                   <select name="module_id" id="module_id" class="form-control">
-                                      <option value="<?php echo isset($obj_videos->module_id)?$obj_videos->module_id:"";;?>"><?php echo isset($obj_videos->module_name)?$obj_videos->module_name:"";?>
-                                    </option>
+                                      <option value="">Seleccionar Módulo</option>
+                                      <?php
+                                       foreach ($obj_modules as $value) { ?>
+                                            <option  <?php if(isset($obj_videos)){
+                                              if($obj_videos->module_id == $value->module_id){ echo "selected";}
+                                          }else{echo "";} ?> value="<?php echo $value->module_id;?>"><?php echo $value->name;?></option>
+                                       <?php } ?>
                                   </select>
                               </div>
                               <div class="form-group">
@@ -136,7 +129,7 @@
                                 <div class="form-group">
                                     <label for="inputState">Ingrese cantidad de archivos</label>
                                     <select onclick="crear_archivos();" name="archive" id="archive" class="form-control">
-                                         <option value="0" selected=""> Seleccionar Archivos </option>
+                                         <option value="0" selected=""> Seleccionar cantidad de archivos </option>
                                          <option value="1"> 1 </option>
                                          <option value="2"> 2 </option>
                                          <option value="3"> 3 </option>
@@ -152,12 +145,11 @@
                                 <div class="form-group">
                                       <div id="respose_archive"></div>
                                 </div>
-                                  
                               <?php } ?>
                           </div>
                         </div>
                         <button type="submit" class="btn btn-primary">Guardar</button>
-                        <button class="btn btn-danger" type="reset" onclick="cancel_video();">Cancelar</button>                    
+                        <button class="btn btn-danger" type="reset" onclick="cancel_video('<?php echo $course_id;?>');">Cancelar</button>                    
                     </form>
                 </div>
             </div>

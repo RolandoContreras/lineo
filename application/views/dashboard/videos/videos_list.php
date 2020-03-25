@@ -13,6 +13,7 @@
                 </div>
                 <ul class="breadcrumb">
                   <li class="breadcrumb-item"><a href="<?php echo site_url().'dashboard/';?>">Panel</a></li>
+                  <li class="breadcrumb-item"><a href="<?php echo site_url().'dashboard/cursos';?>">Cursos</a></li>
                   <li class="breadcrumb-item"><a>Vídeos</a></li>
                 </ul>
               </div>
@@ -26,7 +27,8 @@
                 <div class="card">
                   <div class="card-header">
                     <h5>Listado de Videos</h5>
-                    <button class="btn btn-secondary" type="button" onclick="new_video();"><span><span class="pcoded-micon"><i data-feather="plus"></i></span> Nuevo</span></button>
+                    <button class="btn btn-secondary" type="button" onclick="new_video('<?php echo $course_id;?>');"><span><span class="pcoded-micon"><i data-feather="plus"></i></span> Nuevo</span></button>
+                    <button class="btn btn-primary" type="button" onclick="back_cursos('<?php echo $course_id;?>');"><span><span class="pcoded-micon"><i data-feather="arrow-left"></i></span> Regresar Cursos</span></button>
                   </div>
                   <div class="card-block">
                     <div class="table-responsive">
@@ -90,7 +92,7 @@
                             <td>
                                 <div class="operation">
                                         <div class="btn-group">
-                                            <button class="btn btn-secondary" type="button" onclick="edit_video('<?php echo $value->video_id;?>');"><span><span class="pcoded-micon"><i data-feather="edit"></i></span> Editar</span></button>
+                                            <button class="btn btn-secondary" type="button" onclick="edit_video('<?php echo $course_id;?>','<?php echo $value->video_id;?>');"><span><span class="pcoded-micon"><i data-feather="edit"></i></span> Editar</span></button>
                                             <button class="btn btn-secondary" type="button" onclick="delete_video('<?php echo $value->video_id;?>');"><span><span class="pcoded-micon"><i data-feather="trash-2"></i></span> Eliminar</span></button>
                                         </div>
                                 </div>
