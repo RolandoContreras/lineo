@@ -335,6 +335,25 @@ class B_home extends CI_Controller {
     
     public function certificados()
     {
+        
+        $textofuente = "fonts/Oswald-Bold.ttf";  
+        // En la raiz de nuestro codeigniter tenemos la carpeta fonts             
+        // Llamamos al model que nos consigue los datos del socio             
+        // Cogemos la imagen del fondo de la licencia             
+        $img = $this->loadJpeg("certificado");             
+        $textocolor = imagecolorallocate($img, 0, 0, 0);   
+        // Definimos el color del texto             
+        // Ponemos texto encima de la imagen             
+        imagettftext($img, 30, 0, 175, 675, $textcolor, $textfont, "Rolando Contreras");             
+        imagettftext($img, 30, 0, 1360, 675, $textcolor, $textfont, "45887343");             
+        imagettftext($img, 30, 0, 175, 825, $textcolor, $textfont, "06/06/1989");             
+        // Se crea la imagen directamente             
+        header('Content-Type: image/jpeg');             
+        imagejpeg($img);             
+        imagedestroy($img); 
+     
+
+
         //GET SESION ACTUALY
         $this->get_session();
         //establecer nombre

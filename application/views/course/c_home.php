@@ -20,20 +20,16 @@
             <div class="card-header">
             <h4 class="mb-3"><i class="fas fa-ticket-alt m-r-5"></i>Vídeo: <?php echo $obj_courses_overview->name; ?></h4>
         </div>
-            <div class="wpb_column vc_column_container vc_col-sm-12">
-        <div class="vc_column-inner">
+        <div class="vc_col-sm-9">
             <div class="wpb_wrapper">
                 <div class="thim-block-1">
-                    <div class="main-course">
                         <div class="vc_empty_space" style="height: 10px"><span class="vc_empty_space_inner"></span></div>
                         <div class="feature-img">
                             <div class=wrapper>
                                 <div class="row justify-content-center">
-                                    <div class="col-md-11">
                                         <div class="embed-responsive embed-responsive-16by9">
                                             <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/<?php echo $video_link; ?>" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
                                         </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -51,7 +47,7 @@
                                 <?php } ?>
                             </ul>
                             <div class="tab-content">
-                                <div id="menu2" class="tab-pane fade">
+                                <div id="menu2" class="tab-pane active">
                                     <div class="card">
                                         <div class="card-header">
                                             <h5>Descargar Material</h5>
@@ -102,8 +98,16 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
                     <div class="vc_empty_space" style="height: 10px"><span class="vc_empty_space_inner"></span></div>
+                </div>
+            </div>
+    </div>
+            <div class="col-sm-3">
+                <div class="vc_column-inner">
+            <div class="wpb_wrapper">
+                <div class="thim-block-1">
+                    <div class="vc_empty_space" style="height: 10px"><span class="vc_empty_space_inner"></span></div>
+                    <div id="main-course" style="overflow-y:auto">
                     <?php
                     foreach ($obj_videos as $value) {
                         if ($value->video_id == $obj_courses_overview->video_id) {
@@ -114,6 +118,8 @@
                             $link = site_url() . "plataforma/$slug/$obj_courses->slug/$value->slug";
                         }
                         ?>
+                    
+                    <div class="overflow">
                         <div class="course-item" style="margin-bottom: 10px !important;" style_play>
                             <a href="<?php echo $link; ?>">
                                 <div class="feature-img">
@@ -143,11 +149,16 @@
                                 <?php } ?>
                             </div>
                         </div>
+                        </div>     
                     <?php } ?>
+                </div>
                 </div>
             </div>
         </div>
-    </div>
+                
+                
+                
+            </div>
                 
         </div>
     </div>
