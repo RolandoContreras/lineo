@@ -89,6 +89,7 @@ class D_activate extends CI_Controller{
                     $data = array(
                         'customer_id' => $customer_id,
                         'course_id' => $course_id,
+                        'date_start' => date("Y-m-d H:i:s"),
                     );
                     $this->obj_customer_courses->insert($data);
                     $data['status'] = "true";

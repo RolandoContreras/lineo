@@ -94,6 +94,8 @@ class C_home extends CI_Controller {
             $total_videos = count($obj_videos);
             $total_visto = $video_actual->total_video;
             $percent = ($total_visto / $total_videos) * 100;
+            //redondear arriba
+            $percent =  ceil ($percent);
             //update complete
             $complete = 0;
             if($percent == 100){
@@ -142,6 +144,7 @@ class C_home extends CI_Controller {
                 //actualizar a completo el curso by customer
                 $data = array(
                     'complete' => 1,
+                    'date_end' => date("Y-m-d H:i:s"),
                 );
                $this->obj_customer_courses->update_total_video($customer_course_id,  $data); 
                return 1;
