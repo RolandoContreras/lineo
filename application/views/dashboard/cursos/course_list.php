@@ -79,6 +79,7 @@
                                             <div class="btn-group">
                                                <button class="btn btn-secondary" type="button" onclick="edit_course('<?php echo $value->course_id;?>');"><span><span class="pcoded-micon"><i data-feather="edit"></i></span> Editar</span></button>
                                                <button class="btn btn-secondary" type="button" onclick="delete_course('<?php echo $value->course_id;?>');"><span><span class="pcoded-micon"><i data-feather="trash-2"></i></span> Eliminar</span></button>
+                                               <button class="btn btn-secondary" type="button" onclick="view_modulos('<?php echo $value->course_id;?>');"><span><span class="pcoded-micon"><i data-feather="eye"></i></span> Módulos</span></button>
                                                <button class="btn btn-secondary" type="button" onclick="view_videos('<?php echo $value->course_id;?>');"><span><span class="pcoded-micon"><i data-feather="eye"></i></span> Vídeos</span></button>
                                             </div>
                                     </div>

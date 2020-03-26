@@ -72,8 +72,6 @@ $route['backoffice/miscursos'] = 'b_home/mis_cursos';
 $route['backoffice/certificados'] = "b_home/certificados";
 $route['backoffice/certificados/imprimir'] = "b_home/imprimir";
 
-
-
 $route['backoffice/([0-9]+)'] = 'b_home/index/$1';
 $route['backoffice/([0-9a-z_-]+)'] = 'b_home/category/$1';
 $route['backoffice/([0-9a-z_-]+)/([0-9]+)'] = 'b_home/category/$1';
@@ -111,6 +109,12 @@ $route['dashboard/cursos/load'] = "d_courses/load";
 $route['dashboard/cursos/load/([0-9]+)'] = "d_courses/load/$1";
 $route['dashboard/cursos/validate'] = "d_courses/validate";
 $route['dashboard/cursos/delete'] = "d_courses/delete";
+
+$route['dashboard/modulos/([0-9]+)'] = "d_modulos";
+$route['dashboard/modulos/([0-9]+)/load'] = "d_modulos/load";
+$route['dashboard/modulos/([0-9]+)/load/([0-9]+)'] = "d_modulos/load/$1";
+$route['dashboard/modulos/([0-9]+)/validate'] = "d_modulos/validate";
+$route['dashboard/modulos/delete'] = "d_modulos/delete";
 
 $route['dashboard/videos/([0-9]+)'] = "d_videos";
 $route['dashboard/videos/([0-9]+)/load'] = "d_videos/load";
