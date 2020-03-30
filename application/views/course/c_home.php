@@ -48,38 +48,38 @@
                             </ul>
                             <div class="tab-content">
                                 <div id="menu2" class="tab-pane active">
-                                    <div class="card">
+                                    <!--<div class="card">-->
                                         <div class="card-header">
                                             <h5>Descargar Material</h5>
                                         </div>
                                         <div class="card-block task-attachment">
-                                            <ul class="media-list p-0">
-                                                <?php 
+                                            <?php 
                                                 if(count($obj_archive) > 0){
                                                     foreach ($obj_archive as $value) { ?>
-                                                    <li class="media d-flex m-b-15">
-                                                        <div class="m-r-20 file-attach"><i class="fa fa-file f-28 text-muted"></i></div>
-                                                        <div class="media-body">
-                                                            <a class="m-b-5 d-block text-secondary"><?php echo $value->name;?></a>
-                                                        </div>
-                                                        <div class="float-right text-muted">
-                                                            <a href="<?php echo $value->link;?>" target="_blank" download>
-                                                                <i class="fa fa-download"></i>
-                                                            </a>
-                                                        </div>
-                                                    </li>
-                                                <?php } 
-                                                }else{ ?>
+                                                        <ul class="media-list p-0">
+                                                                <li class="media d-flex m-b-15">
+                                                                    <div class="m-r-20 file-attach"><i class="fa fa-file f-28 text-muted"></i></div>
+                                                                    <div class="media-body">
+                                                                        <a class="m-b-5 d-block text-secondary"><?php echo $value->name;?></a>
+                                                                    </div>
+                                                                    <div class="float-right text-muted">
+                                                                        <a href="<?php echo $value->link;?>" target="_blank" download>
+                                                                            <i class="fa fa-download"></i>
+                                                                        </a>
+                                                                    </div>
+                                                                </li>
+                                                            <?php } ?>
+                                                        </ul>
+                                            <?php }else{ ?>
                                                     <div class="alert alert-secondary" role="alert">
                                                         No hay materiales a descargar
                                                     </div>
                                                 <?php } ?>
-                                            </ul>
                                         </div>
-                                    </div>
+                                    <!--</div>-->
                                 </div>
                                 <div id="menu3" class="tab-pane fade">
-                                    <div class="card">
+                                    <!--<div class="card">-->
                                         <div class="card-header">
                                             <h5>Descargar Certificado</h5>
                                         </div>
@@ -94,7 +94,7 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                    </div>
+                                    <!--</div>-->
                                 </div>
                             </div>
                         </div>

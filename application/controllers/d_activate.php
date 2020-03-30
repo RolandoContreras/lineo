@@ -69,7 +69,8 @@ class D_activate extends CI_Controller{
 
                     //GET DATA FROM TABLE COURSE
                     $params = array(
-                            "select" =>"price",
+                            "select" =>"price,
+                                        duration",
                             "where" => "course_id = $course_id"
                     );
                     //GET DATA FROM BONUS
@@ -86,10 +87,16 @@ class D_activate extends CI_Controller{
                     );
                     $invoice_id = $this->obj_invoices->insert($data_invoice);
                     //CREATE CUSTOMER COURSE
+                    //today
+                    $today = date("Y-m-d");
+                    $duration = $obj_courses->duration==null?0:$obj_courses->duration;
+                    //sumar el tiempo de duración
+                    $today_curso =  date("Y-m-d",strtotime($today."+ $duration days"));
                     $data = array(
                         'customer_id' => $customer_id,
                         'course_id' => $course_id,
                         'date_start' => date("Y-m-d H:i:s"),
+                        'duration_time' => $today_curso,
                     );
                     $this->obj_customer_courses->insert($data);
                     $data['status'] = "true";

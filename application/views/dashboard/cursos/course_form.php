@@ -75,6 +75,19 @@
                                     <?php endforeach; ?>
                             </select>
                               </div>
+                            <div class="form-group">
+                                <label for="inputState">Duración</label>
+                                <select name="duration" id="duration" class="form-control">
+                                <option value="">[ Seleccionar ]</option>
+                                <option value="1" <?php echo isset($obj_courses) && $obj_courses->duration == 1?"selected":"";?>>1 día</option>
+                                <option value="15" <?php echo isset($obj_courses) && $obj_courses->duration == 15?"selected":"";?>>15 días</option>
+                                <option value="30" <?php echo isset($obj_courses) && $obj_courses->duration == 30?"selected":"";?>>30 días (1 mes)</option>
+                                <option value="90" <?php echo isset($obj_courses) && $obj_courses->duration == 90?"selected":"";?>>90 días (3 meses)</option>
+                                <option value="180" <?php echo isset($obj_courses) && $obj_courses->duration == 180?"selected":"";?>>180 días (6 meses)</option>
+                                <option value="365" <?php echo isset($obj_courses) && $obj_courses->duration == 365?"selected":"";?>>365 (1 año)</option>
+                                </select>
+                             </div>
+                              
                           </div>
                           <div class="form-group col-md-6">
                               <?php 
@@ -168,11 +181,7 @@
                                           </div>
                                     </div>
                               <?php } ?>  
-                              
-                              
-                              
                           </div>
-                          
                         </div>
                         <button type="submit" class="btn btn-primary">Guardar</button>
                         <button class="btn btn-danger" type="reset" onclick="cancel_course();">Cancelar</button>                    
