@@ -2,6 +2,10 @@ function new_activate(){
     var url= 'dashboard/activaciones/load';
     location.href = site+url;
 }
+function edit_activate(customer_course_id){
+    var url= 'dashboard/activaciones/load/' + customer_course_id;
+    location.href = site+url;
+}
 function cancel_activate_kit(){
     var url= 'dashboard/activaciones';
     location.href = site+url;

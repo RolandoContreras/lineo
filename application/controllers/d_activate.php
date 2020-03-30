@@ -14,25 +14,43 @@ class D_activate extends CI_Controller{
         
            $this->get_session();
            $params = array(
-                        "select" =>"invoices.invoice_id,
-                                    invoices.date,
-                                    invoices.total,
-                                    customer.customer_id,
+                        "select" =>"courses.name as course_name,
+                                    courses.duration,
+                                    customer_courses.duration_time,
                                     customer.email,
                                     customer.name,
-                                    courses.name as course_name,
-                                    invoices.active",
-                "join" => array( 'courses, invoices.course_id = courses.course_id',
-                                 'customer, invoices.customer_id = customer.customer_id'),
-                "order" => "invoices.invoice_id DESC");
+                                    customer_courses.customer_course_id,
+                                    customer_courses.complete,
+                                    customer_courses.date_start",
+                "join" => array( 'courses, customer_courses.course_id = courses.course_id',
+                                 'customer, customer_courses.customer_id = customer.customer_id'),
+                "order" => "customer_courses.customer_course_id DESC");
             //GET DATA FROM INVOICES
-            $obj_invoices = $this->obj_invoices->search($params);
+            $obj_customer_courses = $this->obj_customer_courses->search($params);
             //SEND DATA
-            $this->tmp_mastercms->set("obj_invoices",$obj_invoices);
+            $this->tmp_mastercms->set("obj_customer_courses",$obj_customer_courses);
             $this->tmp_mastercms->render("dashboard/activate/activate_list");
     }
     
-    public function load(){
+    public function load($customer_course_id = NULL){
+            if($customer_course_id){
+               $params = array(
+                        "select" =>"courses.name as course_name,
+                                    courses.duration,
+                                    customer_courses.duration_time,
+                                    customer.customer_id,
+                                    customer.email,
+                                    customer.name,
+                                    customer_courses.customer_course_id,
+                                    customer_courses.complete,
+                                    customer_courses.date_start",
+                "join" => array( 'courses, customer_courses.course_id = courses.course_id',
+                                 'customer, customer_courses.customer_id = customer.customer_id'),
+                "order" => "customer_courses.customer_course_id DESC");
+                $obj_customer_courses = $this->obj_customer_courses->search($params); 
+                $this->tmp_mastercms->set("obj_customer_courses",$obj_customer_courses);
+            }
+        
             //OBTENER CLIENTES INACTIVOS
             $params = array(
                         "select" =>"email,
@@ -41,7 +59,6 @@ class D_activate extends CI_Controller{
             );
             //GET DATA COMMENTS
             $obj_customer = $this->obj_customer->search($params);
-            
             //OBTENER COURSE ACTIVE
             $params = array(
                         "select" =>"name,

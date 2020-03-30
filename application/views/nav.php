@@ -85,7 +85,7 @@
           <div class="widget widget_text">
             <div class=textwidget>
               <ul>
-                <li><i class="fa fa-phone" aria-hidden=true></i> <a>+(51) 998 878 636</a></li>
+                <li><i class="fa fa-phone" aria-hidden=true></i> <a>+(51) 969511373</a></li>
                 <li><i class="fa fa-envelope" aria-hidden=true></i> <a><span class="">contacto@u-linex.com</span></a></li>
               </ul>
             </div>

@@ -39,7 +39,7 @@
                                   <th class="sorting_asc" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 100px;" aria-sort="ascending"
                                     aria-label="Name: activate to sort column descending">ID</th>
                                   <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 100px;"
-                                    aria-label="Age: activate to sort column ascending">Fecha</th>
+                                    aria-label="Age: activate to sort column ascending">Fecha Inicio</th>
                                   <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 150px;"
                                     aria-label="Position: activate to sort column ascending">Usuario</th>
                                   <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 150px;"
@@ -47,36 +47,47 @@
                                   <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 100px;"
                                     aria-label="Age: activate to sort column ascending">Curso</th>
                                   <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 100px;"
-                                    aria-label="Age: activate to sort column ascending">Importe</th>
+                                    aria-label="Age: activate to sort column ascending">Duración</th>
+                                  <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 100px;"
+                                    aria-label="Age: activate to sort column ascending">Fecha Termino</th>
                                   <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 100px;"
                                     aria-label="Age: activate to sort column ascending">Estado</th>
+                                  <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 100px;"
+                                    aria-label="Age: activate to sort column ascending">Acciones</th>
                                 </tr>
                               </thead>
                               <tbody>
-                                <?php foreach ($obj_invoices as $key => $value): ?>
-                                <th><?php echo $value->invoice_id;?></th>
-                                <td><?php echo formato_fecha_barras($value->date);?></td>
+                                <?php foreach ($obj_customer_courses as $key => $value): ?>
+                                <th><?php echo $value->customer_course_id;?></th>
+                                <td><span class="badge badge-pill badge-success" style="font-size: 100%;"><?php echo formato_fecha_barras($value->date_start);?></span></td>
                                 <td><b><?php echo "@".$value->email;?></b></td>
                                 <td><?php echo $value->name;?></td>
-                                <td><?php echo $value->course_name;?></td>
                                 <td>
-                                     <span class="badge badge-pill badge-info" style="font-size: 100%;">S/.<?php echo $value->total;?></span>                               
+                                     <span class="badge badge-pill badge-info" style="font-size: 100%;"><?php echo $value->course_name;?></span>                               
                                 </td>
                                 <td>
-                                    <?php if ($value->active == 1) {
-                                        $valor = "Esperando Activación";
-                                        $stilo = "label label-info";
-                                    }elseif($value->active == 2){
-                                        $valor = "Procesado";
+                                    <span class="badge badge-pill badge-secondary" style="font-size: 100%;"><?php echo $value->duration." días";?></span>
+                                </td>
+                                <td>
+                                    <span class="badge badge-pill badge-success" style="font-size: 100%;"><?php echo formato_fecha_barras($value->duration_time);?></span>                               
+                                </td>
+                                <td>
+                                    <?php if ($value->complete == 1) {
+                                        $valor = "Completo";
                                         $stilo = "label label-success";
-                                    }elseif($value->active == 0){
-                                        $valor = "Sin Acción";
-                                        $stilo = "label";
                                     }else{
-                                        $valor = "Cancelado";
-                                        $stilo = "label label-danger";
+                                        $valor = "En Curso";
+                                        $stilo = "label label-warning";
                                     }?>
                                     <span class="<?php echo $stilo ?>"><?php echo $valor;?></span>
+                                </td>
+                                <td>
+                                    <div class="operation">
+                                            <div class="btn-group">
+                                               <button class="btn btn-secondary" type="button" onclick="edit_activate('<?php echo $value->customer_course_id;?>');"><span><span class="pcoded-micon"><i data-feather="edit"></i></span> Editar</span></button>
+                                               <button class="btn btn-secondary" type="button" onclick="delete_activate('<?php echo $value->customer_course_id;?>');"><span><span class="pcoded-micon"><i data-feather="trash-2"></i></span> Eliminar</span></button>
+                                            </div>
+                                    </div>
                                 </td>
                             </tr>
                             <?php endforeach; ?>
@@ -84,12 +95,14 @@
                               <tfoot>
                                 <tr>
                                   <th rowspan="1" colspan="1">ID</th>
-                                  <th rowspan="1" colspan="1">Fecha</th>
+                                  <th rowspan="1" colspan="1">Fecha Inicio</th>
                                   <th rowspan="1" colspan="1">Usuario</th>
                                   <th rowspan="1" colspan="1">Cliente</th>
                                   <th rowspan="1" colspan="1">Curso</th>
-                                  <th rowspan="1" colspan="1">Total</th>                                  
+                                  <th rowspan="1" colspan="1">Duración</th>                                  
+                                  <th rowspan="1" colspan="1">Fecha Termino</th>                                  
                                   <th rowspan="1" colspan="1">Estado</th>
+                                  <th rowspan="1" colspan="1">Acciones</th>
                                 </tr>
                               </tfoot>
                             </table>

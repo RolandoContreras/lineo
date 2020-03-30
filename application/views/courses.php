@@ -101,7 +101,7 @@
                                       <img width=365 height=405 src="<?php echo site_url()."static/cms/img/cursos/$value->img";?>" alt="<?php echo $value->name;?>"> 
                                   </a>
                                     <span class="price">
-                                        <span class="course-origin-price">S/.<?php echo $value->price;?></span><span class="course-price red">S/.<?php echo $value->price_del;?></span>
+                                        <span class="course-origin-price">S/.<?php echo $value->price_del;?></span><span class="course-price red">S/.<?php echo $value->price;?></span>
                                     </span>
                                   <div class="button-when-logged has-wishlist"></div>
                                 </div>

@@ -149,6 +149,7 @@ $route['dashboard/usuarios/delete'] = "d_users/delete";
 
 $route['dashboard/activaciones'] = "d_activate";
 $route['dashboard/activaciones/load'] = "d_activate/load";
+$route['dashboard/activaciones/load/([0-9]+)'] = "d_activate/load/$1";
 $route['dashboard/activaciones/validate_user'] = "d_activate/validate_user";
 $route['dashboard/activaciones/active'] = "d_activate/active";
 $route['dashboard/activaciones/update_confirmation'] = "d_activate/update_confirmation";
