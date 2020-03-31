@@ -35,19 +35,22 @@ class D_activate extends CI_Controller{
     public function load($customer_course_id = NULL){
             if($customer_course_id){
                $params = array(
-                        "select" =>"courses.name as course_name,
-                                    courses.duration,
+                        "select" =>"customer_courses.customer_course_id,
                                     customer_courses.duration_time,
+                                    courses.course_id,
+                                    courses.name as course_name,
+                                    courses.duration,
                                     customer.customer_id,
+                                    customer.customer_id,
+                                    customer.phone,
                                     customer.email,
                                     customer.name,
-                                    customer_courses.customer_course_id,
                                     customer_courses.complete,
                                     customer_courses.date_start",
                 "join" => array( 'courses, customer_courses.course_id = courses.course_id',
                                  'customer, customer_courses.customer_id = customer.customer_id'),
-                "order" => "customer_courses.customer_course_id DESC");
-                $obj_customer_courses = $this->obj_customer_courses->search($params); 
+                "where" => "customer_courses.customer_course_id = $customer_course_id");
+                $obj_customer_courses = $this->obj_customer_courses->get_search_row($params); 
                 $this->tmp_mastercms->set("obj_customer_courses",$obj_customer_courses);
             }
         
@@ -74,55 +77,62 @@ class D_activate extends CI_Controller{
             $this->tmp_mastercms->render("dashboard/activate/active_form");    
     }
     
-    public function active(){
+    public function validate(){
         //ACTIVE CUSTOMER NORMALY
-        if($this->input->is_ajax_request()){  
                 date_default_timezone_set('America/Lima');
                 //SELECT CUSTOMER_ID
+                $customer_course_id = $this->input->post("customer_course_id");
                 $customer_id = $this->input->post("customer_id");
                 $course_id = $this->input->post("course_id");
                 
-                if($customer_id != "" && $course_id != ""){
-
-                    //GET DATA FROM TABLE COURSE
-                    $params = array(
-                            "select" =>"price,
-                                        duration",
-                            "where" => "course_id = $course_id"
-                    );
-                    //GET DATA FROM BONUS
-                    $obj_courses = $this->obj_courses->get_search_row($params);
-                    //CREATE INVOICE
-                    $data_invoice = array(
-                        'customer_id' => $customer_id,
-                        'course_id' => $course_id,
-                        'sub_total' => $obj_courses->price,
-                        'igv' => 0,
-                        'total' => $obj_courses->price,
-                        'date' => date("Y-m-d H:i:s"),
-                        'active' => 2,
-                    );
-                    $invoice_id = $this->obj_invoices->insert($data_invoice);
-                    //CREATE CUSTOMER COURSE
-                    //today
-                    $today = date("Y-m-d");
-                    $duration = $obj_courses->duration==null?0:$obj_courses->duration;
-                    //sumar el tiempo de duración
-                    $today_curso =  date("Y-m-d",strtotime($today."+ $duration days"));
-                    $data = array(
-                        'customer_id' => $customer_id,
-                        'course_id' => $course_id,
-                        'date_start' => date("Y-m-d H:i:s"),
-                        'duration_time' => $today_curso,
-                    );
-                    $this->obj_customer_courses->insert($data);
-                    $data['status'] = "true";
+                if($customer_course_id != ""){
+                    if($customer_id != "" && $course_id != ""){
+                        //obtener valores
+                        $course_id = $this->input->post("course_id");
+                        $duration_time = trim($this->input->post("duration_time"));
+                        $duration_time = formato_fecha_datapicker_to_bd($duration_time);
+                        $data = array(
+                                'duration_time' => $duration_time,
+                            );
+                            $this->obj_customer_courses->update($customer_course_id, $data);
+                    }
                 }else{
-                    $data['status'] = "false";
+                        if($customer_id != "" && $course_id != ""){
+                            //GET DATA FROM TABLE COURSE
+                            $params = array(
+                                    "select" =>"price,
+                                                duration",
+                                    "where" => "course_id = $course_id"
+                            );
+                            //GET DATA FROM BONUS
+                            $obj_courses = $this->obj_courses->get_search_row($params);
+                            //CREATE INVOICE
+                            $data_invoice = array(
+                                'customer_id' => $customer_id,
+                                'course_id' => $course_id,
+                                'sub_total' => $obj_courses->price,
+                                'igv' => 0,
+                                'total' => $obj_courses->price,
+                                'date' => date("Y-m-d H:i:s"),
+                                'active' => 2,
+                            );
+                            $invoice_id = $this->obj_invoices->insert($data_invoice);
+                            //CREATE CUSTOMER COURSE
+                            //today
+                            $today = date("Y-m-d");
+                            $duration = $obj_courses->duration==null?0:$obj_courses->duration;
+                            //sumar el tiempo de duración
+                            $today_curso =  date("Y-m-d",strtotime($today."+ $duration days"));
+                            $data = array(
+                                'customer_id' => $customer_id,
+                                'course_id' => $course_id,
+                                'date_start' => date("Y-m-d H:i:s"),
+                                'duration_time' => $today_curso,
+                            );
+                            $this->obj_customer_courses->insert($data);
+                        }
                 }
-                echo json_encode($data); 
-                exit();
-            }
+            redirect(site_url()."dashboard/activaciones");
     }
     
     public function validate_user() {

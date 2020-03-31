@@ -118,7 +118,7 @@ function formato_fecha($fecha){
     return  $dia_semana." ".$dia." de ".$mostrar_mes." del ".$anio;
 }
 
-function formato_fecha_dia_mes_ano($fecha){    
+function formato_fecha_dia_de_mes_de_ano($fecha){    
     $dia=substr($fecha, 8, 2);
     $mes=substr($fecha, 5, 2);
     $anio=substr($fecha, 0, 4);
@@ -127,6 +127,23 @@ function formato_fecha_dia_mes_ano($fecha){
     $mostrar_mes = mostrar_mes($mes);
     return $dia." de ".$mostrar_mes.", ".$anio;
 }
+
+function formato_fecha_bd_to_datapicker($fecha){    
+    $dia=substr($fecha, 8, 2);
+    $mes=substr($fecha, 5, 2);
+    $anio=substr($fecha, 0, 4);
+    return $mes."/".$dia."/".$anio;
+}
+
+function formato_fecha_datapicker_to_bd($fecha){
+    
+    $array_date = explode("/", $fecha);
+    $dia=$array_date[1];
+    $mes=$array_date[0];
+    $anio=$array_date[2];
+    return $anio."/".$mes."/".$dia;
+}
+
 
 function formato_fecha_dia_mes($fecha){    
     $dia=substr($fecha, 8, 2);
