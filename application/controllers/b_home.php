@@ -326,7 +326,10 @@ class B_home extends CI_Controller {
         $obj_courses_by_customer = $this->courses_by_customer($customer_id);
         //get nav ctalogo
         $obj_category_videos = $this->nav_category();
+        //obtener fecha actual    
+        $today = date("Y-m-d");
         //SEND DATA
+        $this->tmp_backoffice->set("today",$today);
         $this->tmp_backoffice->set("obj_courses_by_customer",$obj_courses_by_customer);
         $this->tmp_backoffice->set("obj_category_videos",$obj_category_videos);
         $this->tmp_backoffice->set("category_name",$category_name);
@@ -462,7 +465,8 @@ class B_home extends CI_Controller {
     
     public function courses_by_customer($customer_id){
         $params_customer_courses = array(
-                                    "select" =>"courses.course_id,
+                                    "select" =>"customer_courses.duration_time,
+                                                courses.course_id,
                                                 courses.category_id,
                                                 courses.name,
                                                 courses.slug,

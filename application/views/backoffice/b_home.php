@@ -91,7 +91,7 @@
 </section>
 <script>
     $(document).ready(function () {
-        swal("Recibe hasta un 70% de descuento", "Mira todos los cursos que tenemos para ti. Apúrate que el momento de aprender es ahora.", "success");
+        swal("Recibe hasta un 75% de descuento", "Mira todos los cursos que tenemos para ti. Apúrate que el momento de aprender es ahora.", "success");
     });
 </script>
 <script src="<?php echo site_url() . 'static/backoffice/js/sweetalert.min.js'; ?>"></script>      

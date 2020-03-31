@@ -29,19 +29,31 @@
                           <?php 
                           if(count($obj_courses_by_customer) > 0){?>
                                 <div class="grid">
-                                <?php
-                                foreach ($obj_courses_by_customer as $value) { ?>
-                                  <a href="<?php echo site_url() . "plataforma/$value->category_slug/$value->slug"; ?>">
-                                        <figure class="effect-lexi">
-                                                <img src="<?php echo site_url() . "static/cms/img/cursos/$value->img"; ?>" alt="<?php echo $value->name;?>">
-                                            <figcaption>
-                                                <p class="white"><?php echo $value->name;?><br/><br/>
-                                                    <span class="button_cuentas">Ver Curso <i class="fa fa-arrow-right" aria-hidden="true"></i></span>
-                                                </p>
-                                            </figcaption>
-                                        </figure>
-                                    </a>    
-                                <?php } ?>
+                                <?php foreach ($obj_courses_by_customer as $value) {
+                                   if($value->duration_time != "" && $value->duration_time < "$today"){ ?>
+                                    <a href="javascript:void(0);" onclick="show_tiempo();">
+                                                <figure class="effect-lexi">
+                                                        <img src="<?php echo site_url() . "static/cms/img/cursos/$value->img"; ?>" alt="<?php echo $value->name;?>">
+                                                    <figcaption>
+                                                        <p class="white"><?php echo $value->name;?><br/><br/>
+                                                            <span class="button_cuentas">Ver Curso <i class="fa fa-arrow-right" aria-hidden="true"></i></span>
+                                                        </p>
+                                                    </figcaption>
+                                                </figure>
+                                            </a>   
+                                 <?php }else{ ?>
+                                        <a href="<?php echo site_url() . "plataforma/$value->category_slug/$value->slug"; ?>">
+                                            <figure class="effect-lexi">
+                                                    <img src="<?php echo site_url() . "static/cms/img/cursos/$value->img"; ?>" alt="<?php echo $value->name;?>">
+                                                <figcaption>
+                                                    <p class="white"><?php echo $value->name;?><br/><br/>
+                                                        <span class="button_cuentas">Ver Curso <i class="fa fa-arrow-right" aria-hidden="true"></i></span>
+                                                    </p>
+                                                </figcaption>
+                                            </figure>
+                                        </a>    
+                                 <?php  }
+                                } ?>
                                 </div>
                          <?php }else{ ?>
                                     <div class="alert alert-secondary" role="alert">
@@ -57,5 +69,11 @@
       </div>
     </div>
   </section>
+<script>
+    function show_tiempo(){
+        swal("Tiempo de vualización terminado", "Comuníquese con nosotros para poder extender el tiempo de visualización del curso", "error");
+    }
+</script>
+<script src="<?php echo site_url() . 'static/backoffice/js/sweetalert.min.js'; ?>"></script> 
 
     
