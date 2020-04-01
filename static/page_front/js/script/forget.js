@@ -25,22 +25,14 @@ function recuperar(){
             if(email_2 == true){
                    $.ajax({
                    type: "post",
-                   url: site+"contact/send_messages",
+                   url: site+"forget/recuperar",
                    dataType: "json",
-                   data: {name : name,
-                          email : email,
-                          subject : subject,
-                          message : message
-                          },
+                   data: {email : email},
                    success:function(data){
                        if(data.message == true){
-                           $("#respose").html();
-                            var texto = "";
-                            texto = texto+'<div class="alert alert-success">';
-                            texto = texto+'<button class="close" data-dismiss="alert" type="button">×</button>';
-                            texto = texto+'<p style="text-align: center;">Mensaje enviado, en la brevedad nos comunicaremos con usted.</p>';
-                            texto = texto+'</div>';                 
-                            $("#respose").html(texto);
+                           swal("Mensaje enviado", "En breves minutos le llegará un correo electrónico con tu contraseña actual. Gracias", "success");
+                       }else{
+                           swal("E-mail no registrado", "El e-mail que ingresó no está registrado con nosotros. Gracias", "error");
                        }
                    }         
                  });

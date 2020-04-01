@@ -89,7 +89,7 @@
                             </form>
                             <p class="link-bottom">¿Aún no eres miembro? <a href="<?php echo site_url().'registro';?>">¡Regístrate ahora!</a></p>
                             <div class="vc_empty_space" style="height: 20px"><span class="vc_empty_space_inner"></span></div>
-                            <div id="mensaje"></div>
+                            <div id="respose"></div>
                         </div>
                       </div>
                     </div>
@@ -117,9 +117,9 @@
       <script src='https://www.google.com/recaptcha/api.js'></script>
       <script src='<?php echo site_url().'static/page_front/js/script/forget.js';?>'></script>
       <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
-      <script src='<?php echo site_url().'static/page_front/js/script/login.js';?>'></script>
       <script src="<?php echo site_url().'static/page_front/js/modalEffects.js';?>"></script>
       <script src="<?php echo site_url().'static/page_front/js/classie.js';?>"></script>
+      <script src="<?php echo site_url() . 'static/backoffice/js/sweetalert.min.js'; ?>"></script>      
 </body>
 </html>
 
