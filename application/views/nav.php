@@ -77,15 +77,15 @@
               </div>
               </div>
               </li>
-<!--            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-22 <?php echo $contact_syle;?> tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default">
+            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-22 <?php echo $contact_syle;?> tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default">
               <a href="<?php echo site_url().'contacto';?>" class=tc-menu-inner>Contacto</a>
-            </li>                -->
+            </li>                
         </ul>
         <div class=off-canvas-widgetarea>
           <div class="widget widget_text">
             <div class=textwidget>
               <ul>
-                <li><i class="fa fa-phone" aria-hidden=true></i> <a>+(51) 969511373</a></li>
+                <li><i class="fa fa-phone" aria-hidden=true></i> <a>+(51) 936676268</a></li>
                 <li><i class="fa fa-envelope" aria-hidden=true></i> <a><span class="">contacto@u-linex.com</span></a></li>
               </ul>
             </div>

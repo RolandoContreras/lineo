@@ -80,9 +80,6 @@
                   <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default">
                       <a href="<?php echo site_url().'politica-privacidad';?>" class=tc-menu-inner>Política De Privacidad Y Cookies</a>
                   </li>
-<!--                  <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default">
-                      <a href="#" class=tc-menu-inner>Preguntas Frecuentes</a>
-                  </li>-->
                 </ul>
               </div>
             </aside>

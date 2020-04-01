@@ -87,7 +87,7 @@
                               <div class="vc_empty_space" style="height: 20px"><span class="vc_empty_space_inner"></span></div>
                                 <div class="wrap-fields">
                                   <p class="forgetmenot login-remember">
-                                      <a class=lost-pass-link href="<?php echo site_url().'recuperar_contraseña';?>" title="¿Olvidaste tu contraseña?">¿Olvidaste tu contraseña?</a>
+                                      <a class=lost-pass-link href="<?php echo site_url().'recuperar_contrasena';?>" title="¿Olvidaste tu contraseña?">¿Olvidaste tu contraseña?</a>
                                   </p>
                                 </div>
                                   <p class="submit login-submit">

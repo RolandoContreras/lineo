@@ -85,7 +85,7 @@
                                                             <h5>Detalle de facturación</h5> 
                                                             <hr>
                                                             <div class="col-md-12">
-                                                                <form>
+                                                                <form action="javascript:void(0);" enctype="multipart/form-data">
                                                                     <div class="form-group">
                                                                         <label for="exampleInputEmail1">Nombres *</label>
                                                                         <input type="text" class="form-control" id="name" placeholder="Ingrese Nombres">

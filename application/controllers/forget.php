@@ -2,6 +2,10 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Forget extends CI_Controller {
+    public function __construct() {
+        parent::__construct();
+        $this->load->model("category_model","obj_category");
+    }
 
 	/**
 	 * Index Page for this controller.
@@ -20,6 +24,21 @@ class Forget extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('forget');
+            $data['obj_category'] = $this->nav_category();
+            //send meta title
+            $data['title'] = "Recuperar Contraseña";
+            //enviar datos
+	    $this->load->view('forget', $data);
 	}
+        
+        public function nav_category(){
+            $params_category = array(
+                        "select" =>"category_id,
+                                    slug,
+                                    name",
+                "where" => "active = 1",
+            );
+            //GET DATA COMMENTS
+            return $obj_category = $this->obj_category->search($params_category);
+    }
 }
