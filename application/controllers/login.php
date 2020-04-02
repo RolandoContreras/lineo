@@ -37,6 +37,7 @@ class Login extends CI_Controller {
                 $data_customer_session['customer_id'] = $user_id;
                 $data_customer_session['name'] = $userData['name'];
                 $data_customer_session['email'] = $userData['email'];
+                $data_customer_session['img'] = $userData['img'];
                 $data_customer_session['active'] = 1;
                 $data_customer_session['country'] = 89;
                 $data_customer_session['logged_customer'] = "TRUE";
@@ -70,14 +71,15 @@ class Login extends CI_Controller {
             $params = array("select" =>"customer.customer_id,
                                         customer.name,
                                         customer.email,
+                                        customer.img,
                                         customer.active",
                              "where" => "customer.email = '$email' and customer.password = '$pass' and customer.active = 1");
             $obj_customer = $this->obj_customer->get_search_row($params);
-            
             if (isset($obj_customer->customer_id) != ""){
                     $data_customer_session['customer_id'] = $obj_customer->customer_id;
                     $data_customer_session['name'] = $obj_customer->name;
                     $data_customer_session['email'] = $obj_customer->email;
+                    $data_customer_session['img'] = $obj_customer->img;
                     $data_customer_session['logged_customer'] = "TRUE";
                     $data_customer_session['active'] = $obj_customer->active;
                     $_SESSION['customer'] = $data_customer_session; 

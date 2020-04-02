@@ -72,6 +72,8 @@ $route['backoffice/miscursos'] = 'b_home/mis_cursos';
 $route['backoffice/certificados'] = "b_home/certificados";
 $route['backoffice/certificados/imprimir'] = "b_home/imprimir";
 
+$route['backoffice/profile/upload'] = "b_profile/upload";
+
 $route['backoffice/([0-9]+)'] = 'b_home/index/$1';
 $route['backoffice/([0-9a-z_-]+)'] = 'b_home/category/$1';
 $route['backoffice/([0-9a-z_-]+)/([0-9]+)'] = 'b_home/category/$1';

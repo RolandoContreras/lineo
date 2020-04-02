@@ -76,6 +76,9 @@
                                   <input required type="text" name="name" placeholder="Nombre *" id="name" class="input required" size="20">
                               </p>
                               <p class="login-username">
+                                  <input required type="text" name="last_name" placeholder="Apellidos *" id="last_name" class="input required" size="20">
+                              </p>
+                              <p class="login-username">
                                   <input required type="text" name="email" placeholder="E-mail *" id="email" class="input required" size="20">
                               </p>
                               <p class="login-password">
