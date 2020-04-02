@@ -19,7 +19,7 @@
   <link rel="stylesheet" href="<?php echo site_url().'static/course/css/style.css';?>">
   <link rel="stylesheet" href="<?php echo site_url().'static/course/css/gallery.css';?>">
   <link rel="stylesheet" href="<?php echo site_url().'static/backoffice/css/mystyle.css';?>">
-  <link rel="stylesheet" href="http://html.codedthemes.com/datta-able/bootstrap/assets/css/pages/fileupload.css">
+  <link rel="stylesheet" href="<?php echo site_url().'static/backoffice/css/fileupload.css';?>">
   
   <script src="https://unpkg.com/feather-icons"></script>
   <script type="text/javascript">
