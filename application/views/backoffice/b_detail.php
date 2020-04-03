@@ -101,7 +101,7 @@
                                                                 <p class="m-0"><?php echo $videos->name;?></p>
                                                               </td>
                                                               <td>
-                                                                  <h6 class="text-muted"><span class="pcoded-micon text-c-grey"><i data-feather="calendar"></i></span><?php echo formato_fecha_dia_mes_ano($videos->date);?></h6>
+                                                                  <h6 class="text-muted"><span class="pcoded-micon text-c-grey"><i data-feather="calendar"></i></span><?php echo formato_fecha_barras($videos->date);?></h6>
                                                               </td>
                                                               <td>
                                                                   <h6 class="text-muted"><span class="pcoded-micon text-c-grey"><i data-feather="watch"></i></span><?php echo $videos->time."min";?></h6>
