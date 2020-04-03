@@ -154,20 +154,11 @@
              dataType: 'JSON',  
              success: function(data){
                  if(data.object == "charge"){
-                    $("#pay_info").html();
-                    var texto = "";
-                    texto = texto+'<div class="alert alert-success">';
-                    texto = texto+'<p style="text-align: center;">El pago se realizó exitosamente</p>';
-                    texto = texto+'</div>';                 
-                    $("#pay_info").html(texto);
+                    swal("Pago realizado", "Gracias por confiar en U-linex, ingresar a MIS CURSOS y disfruta de tu nuevo curso.", "success");             
                     location.href = site + "backoffice/shopping";
                 }else {
                     $("#pay_info").html();
-                    var texto = "";
-                    texto = texto+'<div class="alert alert-info">';
-                    texto = texto+'<p style="text-align: center;">Hubo un error, verifique los datos de la tarjeta</p>';
-                    texto = texto+'</div>';                 
-                    $("#pay_info").html(texto);
+                    swal("Pago no realizado", "Hubo un error, verifique los datos de la tarjeta", "error");             
                     $("#spinner").hide();
                     $("#buyButton").show();
                  } 
@@ -183,4 +174,5 @@
     };
 
 </script>
+<script src="<?php echo site_url() . 'static/backoffice/js/sweetalert.min.js'; ?>"></script>      
 

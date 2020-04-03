@@ -392,6 +392,8 @@ class B_home extends CI_Controller {
                $price =  $this->input->post('price');
                $token = $this->input->post('token');
                $email = $this->input->post('email');
+               //obtener día de hoy
+               $today = date("Y-m-d");
                //make charged
                $charge = $this->culqi->charge($token,$price,$email,$obj_customer->name);
                
@@ -413,10 +415,22 @@ class B_home extends CI_Controller {
                         'active' => 2,
                     );
                     $invoice_id = $this->obj_invoices->insert($data_invoice);
+                    $course_id = $items['id'];
+                    $params = array(
+                        "select" =>"duration",
+                        "where" => "course_id = $course_id",
+                        );
+                    //GET DATA COMMENTS
+                     $obj_courses = $this->obj_courses->get_search_row($params);
                     //CREATE CUSTOMER COURSE
+                    $duration = $obj_courses->duration==null?0:$obj_courses->duration;
+                    //sumar el tiempo de duración
+                    $today_curso =  date("Y-m-d",strtotime($today."+ $duration days"));
                     $data = array(
                         'customer_id' => $customer_id,
                         'course_id' => $items['id'],
+                        'date_start' => date("Y-m-d H:i:s"),
+                        'duration_time' => $today_curso,
                     );
                     $this->obj_customer_courses->insert($data);
                 }   
