@@ -39,6 +39,7 @@
         <meta property="og:image" content="<?php echo $meta_img_og;?>" />
    <?php  } ?>
         <link rel="stylesheet" href="<?php echo site_url().'static/page_front/css/md-modal.css';?>">
-
-        
+  <!--culqi-->
+  <script src="https://checkout.culqi.com/js/v3"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 </head>

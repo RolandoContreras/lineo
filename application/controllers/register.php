@@ -57,6 +57,7 @@ class Register extends CI_Controller {
                 //INSERT TABLE CUSTOMER
                 $data = array(
                         'name' => $name,
+                        'last_name' => $name,
                         'email' => $email,
                         'password' => $pass,
                         'phone' => $phone,

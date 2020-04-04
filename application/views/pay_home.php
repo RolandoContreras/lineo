@@ -43,7 +43,7 @@
                                         <span class=breadcrum-icon><i class="fa fa-angle-right" aria-hidden=true></i></span>
                                     </li>
                                     <li>
-                                        <span title="Iniciar Sesión">Iniciar Sesión</span>
+                                        <span title="Comprar Curso">Comprar Curso</span>
                                     </li>
                                 </ul>
                             </div>
@@ -54,6 +54,7 @@
                             <div class="col-sm-2"></div>
                             <div id=main class="site-main col-sm-9 full-width">
                                 <div class="vc_empty_space" style="height: 92px"><span class="vc_empty_space_inner"></span></div>
+                                <div id="message"></div>
                                 <article id=post-522 class="post-522 page type-page status-publish hentry pmpro-has-access">
                                     <div class=entry-content>
                                         <div class="vc_row wpb_row vc_row-fluid account-login-page">
@@ -229,11 +230,114 @@
         <link rel="stylesheet" href="<?php echo site_url().'static/page_front/css/style.css';?>">
         <script src="<?php echo site_url().'static/page_front/js/script/pay_home.js';?>"></script>
         <script>
-   $("#buyButton").click(function(){
-      $("#spinner").show();
-      $("#buyButton").hide();
+  Culqi.publicKey = 'pk_test_afc652f5ee5883c7';
+  var  price = "";
+  var  name = "";
+  var  last_name = "";
+  var  email2 = "";
+  var  phone = "";
+  var  password = "";
+  var  pais = "";
+  $('#buyButton').on('click', function(e) {
+      price = $(this).attr('data-price');
+      name = $("#name").val();
+      last_name = $("#last_name").val();
+      email2 = $("#email").val();
+      phone = $("#phone").val();
+      password = $("#password").val();
+      pais = $("#pais").val();
+      Culqi.options({
+        lang: 'auto',
+        modal: true,
+        style: {
+          logo: '<?php echo site_url().'static/page_front/images/logo/logo-black.png';?>',
+          maincolor: '#0ec1c1',
+          buttontext: '#ffffff',
+          maintext: '#4A4A4A',
+          desctext: '#4A4A4A'
+        }
     });
+      Culqi.settings({
+        title: 'U-Linex',
+        currency: 'PEN',
+        description: 'Venta de Cursos',
+        amount: price
+      });
+      if(name == "" || last_name == "" || email2 == "" || phone == "" || password == "" || pais == ""){
+        $("#message").html();
+         var texto = "";
+         texto = texto+'<div class="alert alert-danger">';
+         texto = texto+'Ingrese Correctamente sus datos personales';
+         texto = texto+'<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>';
+         texto = texto+'</div>';                 
+         $("#message").html(texto);
+      }else{
+          var email_3 = validar_email(email2);
+          if(email_3 == true){
+              $("#spinner").show();
+              $("#buyButton").hide();
+              Culqi.open();
+              e.preventDefault();
+          }else{
+              $("#message").html();
+             var texto = "";
+             texto = texto+'<div class="alert alert-danger">';
+             texto = texto+'El E-mail ingresado es invalido';
+             texto = texto+'<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>';
+             texto = texto+'</div>';                 
+             $("#message").html(texto);
+          }    
+      }
+    });
+    
+    function culqi() {
+      if (Culqi.token) { // ¡Objeto Token creado exitosamente!
+          var token = Culqi.token.id;
+          var email = Culqi.token.email;
+          var url = site + "activar_curso";
+          $.ajax({
+             url: url,
+             method : 'post',
+             data: {
+                 name:name,
+                 last_name:last_name,
+                 email2:email2,
+                 phone:phone,
+                 password:password,
+                 pais:pais,
+                 price:price,
+                 email:email,
+                 token:token
+             },
+             dataType: 'JSON',  
+             success: function(data){
+                 if(data.object == "charge"){
+                    swal("Pago realizado", "Gracias por confiar en U-linex, ingresar a MIS CURSOS y disfruta de tu nuevo curso.", "success");             
+                    location.href = site + "backoffice";
+                }else {
+                    $("#pay_info").html();
+                    swal("Pago no realizado", "Hubo un error, verifique los datos de la tarjeta", "error");             
+                    $("#spinner").hide();
+                    $("#buyButton").show();
+                 } 
+             },
+             error : function(data){
+                 alert(data.user_message);
+             }
+          });
+      } else { 
+          console.log(Culqi.error);
+          alert(Culqi.error.user_message);
+      }
+    };
+
+function validar_email( email ){
+    var regex = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    return regex.test(email) ? true : false;
+}
+
 </script>
+<script src="<?php echo site_url() . 'static/backoffice/js/sweetalert.min.js'; ?>"></script>      
     </body>
 </html>
 
