@@ -73,7 +73,7 @@
                             <h2 class="title">Registro</h2>
                             <form name="loginform" id="loginform" action="javascript:void(0);">
                               <p class="login-username">
-                                  <input required type="text" name="name" placeholder="Nombre *" id="name" class="input required" size="20">
+                                  <input required type="text" name="name" placeholder="Nombres *" id="name" class="input required" size="20">
                               </p>
                               <p class="login-username">
                                   <input required type="text" name="last_name" placeholder="Apellidos *" id="last_name" class="input required" size="20">
@@ -140,6 +140,7 @@
       <script src='<?php echo site_url().'static/page_front/js/script/register.js';?>'></script>
       <script src="<?php echo site_url().'static/page_front/js/modalEffects.js';?>"></script>
       <script src="<?php echo site_url().'static/page_front/js/classie.js';?>"></script>
+      <script src="<?php echo site_url() . 'static/backoffice/js/sweetalert.min.js'; ?>"></script>      
 </body>
 </html>
 

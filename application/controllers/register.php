@@ -50,6 +50,7 @@ class Register extends CI_Controller {
                 $data['status'] = "email";
             }else{
                 $name = $this->input->post("name");
+                $last_name = $this->input->post("last_name");
                 $phone = $this->input->post("phone");
                 $pass = $this->input->post("pass");
                 $country = $this->input->post("country");
@@ -57,7 +58,7 @@ class Register extends CI_Controller {
                 //INSERT TABLE CUSTOMER
                 $data = array(
                         'name' => $name,
-                        'last_name' => $name,
+                        'last_name' => $last_name,
                         'email' => $email,
                         'password' => $pass,
                         'phone' => $phone,
@@ -70,6 +71,7 @@ class Register extends CI_Controller {
                     $data_customer_session['customer_id'] = $customer_id;
                     $data_customer_session['name'] = $name;
                     $data_customer_session['email'] = $email;
+                    $data_customer_session['img'] = "";
                     $data_customer_session['active'] = 1;
                     $data_customer_session['logged_customer'] = "TRUE";
                     $_SESSION['customer'] = $data_customer_session; 
@@ -80,7 +82,7 @@ class Register extends CI_Controller {
                     }else{
                         $data['status'] = "success";
                     }
-                    $this->message($name, $email);
+//                    $this->message($name, $email);
             }
             //CREAR NUEVA SECION 
             echo json_encode($data);
