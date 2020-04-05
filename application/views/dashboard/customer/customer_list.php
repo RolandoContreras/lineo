@@ -37,7 +37,9 @@
                                   <th class="sorting_asc" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 100px;" aria-sort="ascending"
                                     aria-label="Name: activate to sort column descending">ID</th>
                                   <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 150px;"
-                                    aria-label="Position: activate to sort column ascending">NOMBRE</th>
+                                    aria-label="Position: activate to sort column ascending">NOMBRES</th>
+                                  <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 150px;"
+                                    aria-label="Position: activate to sort column ascending">APELLIDOS</th>
                                   <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 100px;"
                                     aria-label="Age: activate to sort column ascending">E-MAIL</th>
                                   <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 150px;"
@@ -58,6 +60,7 @@
                                 <tr>
                                 <th><?php echo $value->customer_id;?></th>
                                 <td><?php echo $value->name;?></td>
+                                <td><?php echo $value->last_name;?></td>
                                 <td><?php echo $value->email;?></td>
                                 <td><?php echo $value->phone;?></td>
                                 <td><?php echo $value->pais;?></td>
@@ -87,7 +90,8 @@
                               <tfoot>
                                 <tr>
                                   <th rowspan="1" colspan="1">ID</th>
-                                  <th rowspan="1" colspan="1">NOMBRE</th>
+                                  <th rowspan="1" colspan="1">NOMBRES</th>
+                                  <th rowspan="1" colspan="1">APELLIDOS</th>
                                   <th rowspan="1" colspan="1">E-MAIL</th>
                                   <th rowspan="1" colspan="1">TELÉFONO</th>
                                   <th rowspan="1" colspan="1">PAÍS</th>

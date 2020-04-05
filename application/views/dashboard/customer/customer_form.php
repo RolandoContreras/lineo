@@ -40,8 +40,12 @@
                             </div>
                           <div class="form-group col-md-6">
                               <div class="form-group">
-                                  <label>Nombre</label>
+                                  <label>Nombres</label>
                                   <input class="form-control" type="text" id="name" name="name" value="<?php echo isset($obj_customer->name)?$obj_customer->name:"";?>" class="input-xlarge-fluid" placeholder="Nombre">
+                              </div>
+                              <div class="form-group">
+                                  <label>Apellidos</label>
+                                  <input class="form-control" type="text" id="last_name" name="last_name" value="<?php echo isset($obj_customer->last_name)?$obj_customer->last_name:"";?>" class="input-xlarge-fluid" placeholder="Apellidos">
                               </div>
                               <div class="form-group">
                                   <label>Contraseña</label>
@@ -51,12 +55,12 @@
                                     <label>E-mail</label>
                                     <input class="form-control" type="text" id="email" name="email" value="<?php echo isset($obj_customer->email)?$obj_customer->email:"";?>" class="input-xlarge-fluid" placeholder="Correo Electrónico">
                               </div>
+                          </div>
+                          <div class="form-group col-md-6">
                               <div class="form-group">
                                     <label>Teléfono</label>
                                     <input class="form-control" type="text" id="phone" name="phone" value="<?php echo isset($obj_customer->phone)?$obj_customer->phone:"";?>" class="input-xlarge-fluid" placeholder="Teléfono">
                               </div>
-                          </div>
-                          <div class="form-group col-md-6">
                               <div class="form-group">
                                     <label>Fecha de Creación</label>
                                     <input class="form-control" type="text" id="date" name="date" class="input-small-fluid" placeholder="Fecha de Creación" value="<?php echo isset($obj_customer->date)?$obj_customer->date:"";?>">

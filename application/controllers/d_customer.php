@@ -14,6 +14,7 @@ class D_customer extends CI_Controller{
            $params = array(
                         "select" =>"customer.customer_id,
                                     customer.name,
+                                    customer.last_name,
                                     customer.phone,
                                     customer.email,
                                     customer.date,
@@ -36,6 +37,7 @@ class D_customer extends CI_Controller{
         $customer_id = $this->input->post("customer_id");
         $data = array(
                 'name' => $this->input->post('name'),
+                'last_name' => $this->input->post('last_name'),
                 'password' => $this->input->post('password'),
                 'email' => $this->input->post('email'),
                 'phone' => $this->input->post('phone'),
