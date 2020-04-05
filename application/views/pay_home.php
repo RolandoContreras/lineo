@@ -338,6 +338,7 @@ function validar_email( email ){
 
 </script>
 <script src="<?php echo site_url() . 'static/backoffice/js/sweetalert.min.js'; ?>"></script>      
-    </body>
+<script src="<?php echo site_url();?>static/page_front/js/script/pay.js"></script>
+</body>
 </html>
 

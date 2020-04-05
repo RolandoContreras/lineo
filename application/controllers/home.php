@@ -95,7 +95,12 @@ class Home extends CI_Controller {
             $data['obj_category'] = $this->nav_category();
             $data['obj_paises'] = $this->list_pais();
             $data['title'] = "Finalizar Compra";
-            $this->load->view('pay_home', $data);
+            
+            if($this->cart->contents() != null){
+                $this->load->view('pay_home', $data);
+            }else{
+                redirect(site_url()."cursos");
+            }
 	}
         
         public function active_course(){
@@ -131,7 +136,7 @@ class Home extends CI_Controller {
                     );
                     $customer_id = $this->obj_customer->insert($data);
                     //enviar mensaje de bievenida
-//                    $this->message($name, $email2, $password);
+                    $this->message($name, $email2, $password);
                $price_cart = explode(".", $price_cart);
                $price = $price_cart[0];
                $price= quitar_coma_number($price); 
@@ -188,8 +193,23 @@ class Home extends CI_Controller {
             echo json_encode($e->getMessage());
         }
     }
+    
+        public function delete_cart() {
+            if($this->input->is_ajax_request()){   
+                //obtener id de cart
+                    $id = $this->input->post('id');
+                   //UPDATE CART
+                    $data = array(
+                            'rowid' => "$id",
+                            'qty'   => 0
+                    );
+                    $this->cart->update($data);
+                   $data['status'] = "true";
+                   echo json_encode($data); 
+            }
+        }
         
-    public function message($name, $email, $password){    
+        public function message($name, $email, $password){    
                 $mensaje = wordwrap("<html>
                     
  <div bgcolor='#E9E9E9' style='background:#fff;margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Roboto','Oxygen','Ubuntu','Cantarell','Fira Sans','Droid Sans','Helvetica Neue',sans-serif;font-size:14px'>
