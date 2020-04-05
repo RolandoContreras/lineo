@@ -97,7 +97,7 @@
             <div class="col-sm-6 text-right">
               <ul id=copyright-menu class=list-inline>
                 <li id=menu-item-16 class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default">
-                    <a href="https://www.facebook.com" class=tc-menu-inner>Facebook</a></li>
+                    <a href="https://www.facebook.com/U-linex-103662281176014/" target="_blank" class=tc-menu-inner>Facebook</a></li>
                 <li id=menu-item-4232 class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4232 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default">
                     <a href="https://www.youtube.com" class=tc-menu-inner>Youtube</a></li>
               </ul>

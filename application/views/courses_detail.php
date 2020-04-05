@@ -160,7 +160,7 @@
                                                                 </ul>
                     <div class=thim-related-course>
                       <h3 class="related-title">Cursos Relacionados</h3>
-                      <div class="courses-carousel archive-courses course-grid owl-carousel owl-theme" data-cols=3>
+                      <div class="courses-carousel archive-courses course-grid owl-carousel owl-theme">
                         <?php 
                         foreach ($obj_courses_related as $value) { ?>
                           <div class="inner-course ">
@@ -171,12 +171,6 @@
                                 <div class="course-price">
                                     <span class="course-origin-price">S/.<?php echo $value->price_del;?></span>
                                     <span class="price">S/.<?php echo $value->price;?></span>
-                                </div>
-                                <div class=course-rating>
-                                  <div class=review-stars-rated title="0 out of 5 stars">
-                                    <div class="review-stars empty"></div>
-                                    <div class="review-stars filled" style=width:100%;></div>
-                                  </div>
                                 </div>
                               </div>
                               <div class=item-list-center>

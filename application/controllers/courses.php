@@ -259,7 +259,8 @@ class Courses extends CI_Controller {
                                         category.slug as category_slug",
                             "join" => array( 'category, courses.category_id = category.category_id'),
                             "where" => "category.slug = '$slug' and courses.course_id <> $course_id",
-                            "order" => "RAND()"
+                            "order" => "RAND()",
+                            "limit" => "3"
                 );
             $data['obj_courses_related'] = $this->obj_courses->search($params);
             //get data   
