@@ -40253,7 +40253,6 @@ pre code {
 
 .table td,
 .table th {
-    padding: .75rem;
     vertical-align: top;
     border-top: 1px solid #eceeef
 }
@@ -51318,12 +51317,12 @@ th {
 table,
 td,
 tr {
-    border: 1px solid #ccc
+    border: 0px solid #ccc
 }
 
 td,
 th {
-    border-width: 0 1px 1px 0
+    border-width: 0 0px 0px 0
 }
 
 table {

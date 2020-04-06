@@ -51,7 +51,7 @@
                         <img src="<?php echo site_url()."static/backoffice/images/avatar.jpg";?>" class="img-radius" alt="Perfil">
                 <?php  } ?>
             </a>
-            <div class="nav-item pcoded-menu-caption"><b>¡Hola!,</b><?php echo $_SESSION['customer']['name']?></div>
+            <div class="nav-item pcoded-menu-caption"><b>¡Hola!, </b><?php echo $_SESSION['customer']['name']?></div>
         </div>
         <hr/>
         <ul class="nav pcoded-inner-navbar">

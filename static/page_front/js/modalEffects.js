@@ -1,5 +1,6 @@
 var ModalEffects = (function() {
     function init() {
+    
         var overlay = document.querySelector('.md-overlay');
         [].slice.call(document.querySelectorAll('.md-trigger')).forEach(function(el, i) {
             var modal = document.querySelector('#' + el.getAttribute('data-modal')),
@@ -19,6 +20,7 @@ var ModalEffects = (function() {
             el.addEventListener('click', function(ev) {
                 classie.add(modal, 'md-show');
                 $('body').addClass(el.getAttribute('data-modal'));
+                
                 overlay.removeEventListener('click', removeModalHandler);
                 overlay.addEventListener('click', removeModalHandler);
                 if (classie.has(el, 'md-setperspective')) {
