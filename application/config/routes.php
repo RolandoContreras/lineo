@@ -49,6 +49,8 @@ $route['politica-privacidad'] = 'home/policy';
 $route['activar_curso'] = 'home/active_course';
 $route['delete_cart'] = 'home/delete_cart';
 
+$route['mensaje'] = 'home/mensaje';
+
 $route['login'] = 'login';
 $route['recuperar_contrasena'] = 'forget';
 

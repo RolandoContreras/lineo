@@ -108,7 +108,7 @@
 </footer>
 <div class="md-modal md-effect-1" id="modal-1">
     <div class="md-content">
-        <h3 class="theme-bg3 font-size-25 text-center">NÚMEROS DE CUENTA <button class="btn md-close float-right cursor-pointer"><i class="fa fa-times" aria-hidden="true"></i></button></h3>
+        <h3 class="theme-bg3 font-size-20 text-center">NÚMEROS DE CUENTA <button class="btn md-close float-right cursor-pointer"><i class="fa fa-times" aria-hidden="true"></i></button></h3>
         <div class="table-responsive">
             <table class="table table-hover">
                 <tbody>

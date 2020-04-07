@@ -71,8 +71,8 @@
                                         </div>
                                     </div>
                                     <div class="thim-sc-button hide-separator center">
-                                        <a href="<?php echo site_url() . 'cursos'; ?>" target=_self class="btn btn-secondary btn-md">
-                                            <span class=text>Ver todos los cursos</span>
+                                        <a href="javascript:void(0);" class="md-trigger btn btn-secondary btn-md shadow" data-modal="modal-2">
+                                            <span>SOLICITA MÁS INFORMACIÓN</span>
                                         </a>
                                     </div>
                                     <div
@@ -350,7 +350,6 @@
                                 <div class=wpb_wrapper>
                                     <div class="wpb_text_column wpb_content_element thim-textbox width-small">
                                         <div class=wpb_wrapper>
-                                            <p class=sub-title style="text-align: center;"> Learn on the go</p>
                                             <h3 class="title" style="text-align: center;">Accede a tus cursos a cualquier hora y en cualquier parte del mundo.</h3>
                                         </div>
                                     </div>
@@ -365,6 +364,49 @@
             <?php $this->load->view("footer"); ?>  
             <!--END FOOTER-->
         </div>
+        <!--//modal-->
+    <div class="md-modal md-effect-1" id="modal-2">
+    <div class="md-content">
+        <button class="btn btn-success md-close float-right cursor-pointer"><i class="fa fa-times" aria-hidden="true"></i></button>
+        <div class="table-responsive" style="background-color:#FFF;">
+            <div class="thim-form-login wpb_column vc_column_container vc_col-sm-12">
+                      <div class="vc_custom_1503993250187">
+                          <div class="thim-login message-modal-border">
+                            <h4 class="subtitle">Regístrate para más información</h4>
+                            <br/>
+                            <form name="loginform" id="loginform" action="javascript:void(0);">
+                              <p class="login-username">
+                                  <input required type="text" name="name" placeholder="Nombres *" id="name" class="input required" size="20">
+                              </p>
+                              <p class="login-username">
+                                  <input required type="text" name="last_name" placeholder="Apellidos *" id="last_name" class="input required" size="20">
+                              </p>
+                              <p class="login-username">
+                                  <input required type="text" name="email" placeholder="E-mail *" id="email" class="input required" size="20">
+                              </p>
+                              <p class="login-username">
+                                  <input type="text" name="phone" id="phone" class="input required" placeholder="Teléfono *">
+                              </p>
+                              <p class="login-username">
+                                  <select required="" class="input required" name="country" id="country">
+                                    <option  selected value="">Seleccione el curso*</option>
+                                    <?php  foreach ($obj_courses as $key => $value) { ?>
+                                           <option style="border-style: solid !important" value="<?php echo $value->course_id;?>"><?php echo $value->name;?></option>
+                                    <?php } ?>
+                                </select>
+                              </p>
+                              <div class="vc_empty_space" style="height: 20px"><span class="vc_empty_space_inner"></span></div>
+                              <p class="submit login-submit">
+                                  <input type="submit" onclick="eviar_mensaje();" id="wp-submit" class="button button-primary button-large" value="Enviar Mensaje">
+                              </p>
+                            </form>
+                            <div id="mensaje"></div>
+                        </div>
+                    </div>
+                  </div>
+        </div>
+    </div>
+</div>
         <div class="md-overlay"></div>
         <div id="back-to-top"><i class="fa fa-angle-up" aria-hidden=true></i></div>
         <div class="gallery-slider-content"></div>
@@ -377,5 +419,6 @@
         <script src="<?php echo site_url().'static/page_front/js/modalEffects.js'; ?>"></script>
         <script src="<?php echo site_url().'static/page_front/js/classie.js'; ?>"></script>
         <script src="<?php echo site_url().'static/backoffice/js/sweetalert.min.js';?>"></script>     
+        <script src="<?php echo site_url().'static/page_front/js/script/home.js';?>"></script>     
     </body>
 </html>

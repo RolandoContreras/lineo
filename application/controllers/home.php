@@ -64,13 +64,20 @@ class Home extends CI_Controller {
                                     "join" => array( 'category, courses.category_id = category.category_id'),
                                     "where" => "courses.active = 1",
                                     "order" => "courses.course_id ASC",
-                                    "limit" => "10",
                                 );  
             $data['obj_courses'] = $this->obj_courses->search($params_course); 
             
             //set meta title
             $data['title'] = "Bienvenido";
             $this->load->view('home', $data);
+	}
+        
+        public function mensaje()
+	{
+            if ($this->input->is_ajax_request()) {
+                echo "hola";
+            }
+            
 	}
         
         public function term_condition()
