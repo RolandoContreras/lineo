@@ -59,7 +59,7 @@
                         <div class=wpb_wrapper>
                           <div class="wpb_text_column wpb_content_element ">
                             <div class=wpb_wrapper>
-                                <img src="<?php echo site_url().'static/page_front/images/logo/logo-h.png';?>" alt="logo"/>
+                                <img src="<?php echo site_url().'static/page_front/images/logo/logo-a.jpg';?>" alt="logo"/>
                             </div>
                           </div>
                         </div>
@@ -70,7 +70,7 @@
                         <div class=wpb_wrapper>
                           <div class=thim-login>
                             <h4 class="subtitle">Iniciar Sesión</h4>
-                            <h2 class="title">Iniciar con tu cuenta de U-linex</h2>
+                            <h2 class="title">U-linex</h2>
                             <form name="loginform" id="loginform" action="javascript:void(0);">
                               <p class="login-username">
                                   <input required type="text" placeholder="E-mail *" id="user_login" name="user_login" class="input required" value size="20">

@@ -59,7 +59,7 @@
                         <div class=wpb_wrapper>
                           <div class="wpb_text_column wpb_content_element ">
                             <div class=wpb_wrapper>
-                                <img src="<?php echo site_url().'static/page_front/images/logo/logo-h.png';?>" alt="logo"/>
+                                <img src="<?php echo site_url().'static/page_front/images/logo/logo-a.jpg';?>" alt="logo"/>
                             </div>
                           </div>
                         </div>

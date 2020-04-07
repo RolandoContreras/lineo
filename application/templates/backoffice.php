@@ -37,7 +37,7 @@
     <div class="navbar-wrapper">
       <div class="navbar-brand header-logo">
           <a href="<?php echo site_url().'course';?>" class="b-brand">
-              <img src="<?php echo site_url().'static/page_front/images/logo/logo-h-b.png';?>" alt="Logo" width="180"/>
+              <img src="<?php echo site_url().'static/page_front/images/logo/logo.png';?>" alt="Logo" width="140"/>
           </a>
           <a class="mobile-menu" id="mobile-collapse" href="#!"><span></span></a></div>
       <div class="navbar-content scroll-div">
@@ -145,7 +145,7 @@
   <header class="navbar pcoded-header navbar-expand-lg navbar-light">
     <div class="m-header"><a class="mobile-menu" id="mobile-collapse1" href="#!"><span></span></a>
         <a href="<?php echo site_url().'course';?>" class="b-brand">
-            <img src="<?php echo site_url().'static/page_front/images/logo/logo-h-b.png';?>" alt="Logo" width="180"/>
+            <img src="<?php echo site_url().'static/page_front/images/logo/logo.png';?>" alt="Logo" width="140"/>
         </a>
     </div>
       <a class="mobile-menu" id="mobile-header" href="#!">
