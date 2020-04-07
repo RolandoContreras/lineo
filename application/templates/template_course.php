@@ -121,7 +121,7 @@
                           </div>
                           <div class=thim-course-item-popup-logo>
                               <a class=lesson-logo href="<?php echo site_url().'plataforma';?>" title="logo">
-                                <img class=logo src="<?php echo site_url().'static/page_front/images/logo/logo-h-b.png';?>" alt="logo" width="200">
+                                <img class=logo src="<?php echo site_url().'static/page_front/images/logo/logo2.png';?>" alt="logo" width="180">
                             </a>
                           </div>
                           <a class=toggle-content-item></a>
