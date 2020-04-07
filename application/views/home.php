@@ -372,7 +372,7 @@
             <div class="thim-form-login wpb_column vc_column_container vc_col-sm-12">
                       <div class="vc_custom_1503993250187">
                           <div class="thim-login message-modal-border">
-                            <h4 class="subtitle">Regístrate para más información</h4>
+                            <h4 class="subtitle">Solicita más información</h4>
                             <br/>
                             <form name="loginform" id="loginform" action="javascript:void(0);">
                               <p class="login-username">
@@ -388,10 +388,10 @@
                                   <input type="text" name="phone" id="phone" class="input required" placeholder="Teléfono *">
                               </p>
                               <p class="login-username">
-                                  <select required="" class="input required" name="country" id="country">
+                                  <select required="" class="input required" name="course" id="course">
                                     <option  selected value="">Seleccione el curso*</option>
                                     <?php  foreach ($obj_courses as $key => $value) { ?>
-                                           <option style="border-style: solid !important" value="<?php echo $value->course_id;?>"><?php echo $value->name;?></option>
+                                           <option style="border-style: solid !important" value="<?php echo $value->name;?>"><?php echo $value->name;?></option>
                                     <?php } ?>
                                 </select>
                               </p>
@@ -400,7 +400,8 @@
                                   <input type="submit" onclick="eviar_mensaje();" id="wp-submit" class="button button-primary button-large" value="Enviar Mensaje">
                               </p>
                             </form>
-                            <div id="mensaje"></div>
+                            <br/>
+                            <div id="respose"></div>
                         </div>
                     </div>
                   </div>

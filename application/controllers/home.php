@@ -11,6 +11,7 @@ class Home extends CI_Controller {
             $this->load->model("paises_model","obj_paises");
             $this->load->model("invoices_model","obj_invoices");
             $this->load->model("customer_courses_model","obj_customer_courses");
+            $this->load->model("info_model","obj_info");
             $this->load->library('culqi');
     }   
         
@@ -75,9 +76,29 @@ class Home extends CI_Controller {
         public function mensaje()
 	{
             if ($this->input->is_ajax_request()) {
-                echo "hola";
+                //obtener datos por post
+              $name = $this->input->post("name");  
+              $last_name = $this->input->post("last_name");  
+              $email = $this->input->post("email");  
+              $phone = $this->input->post("phone");  
+              $course = $this->input->post("course");  
+              //insertar en tabla info
+              $param = array(
+                            'name' => $name,
+                            'last_name' => $last_name,
+                            'email' => $email,
+                            'phone' => $phone,
+                            'course' => $course,
+                            );                    
+              $info_id =  $this->obj_info->insert($param);
+              //enviar respuesta
+              if($info_id != null){
+                  $data['status'] = true;
+              }else{
+                  $data['status'] = false;
+              }
+              echo json_encode($data); 
             }
-            
 	}
         
         public function term_condition()
@@ -282,8 +303,6 @@ class Home extends CI_Controller {
                     $headers .= "From: U-LINEX <contacto@u-linex.com>\r\n";
                     $bool = mail("$email",$titulo,$mensaje,$headers);
     }
-    
-    
     
         public function nav_category(){
             $params_category = array(
