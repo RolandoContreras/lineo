@@ -16,12 +16,13 @@ BITSHARE S.A.C
 ****/
 
 class info_model_atributos{	
-    var $info_model_atributos='';
+    var $info_id='';
     var $name='';
     var $last_name='';
     var $email='';
     var $phone='';
     var $course='';
+    var $status_value='';
 }
 
 class Info_Model extends CI_Model{ 
@@ -29,13 +30,14 @@ class Info_Model extends CI_Model{
     public function __construct() {
         parent::__construct();  
         $this->table = 'info';
-	$this->table_id = 'info_model_atributos';
+	$this->table_id = 'info_id';
         $this->info_id='';
         $this->name='';
         $this->last_name='';
         $this->email='';
         $this->phone='';
         $this->course='';
+        $this->status_value='';
 	$this->fields = new info_model_atributos();
     }   
     

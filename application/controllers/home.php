@@ -89,6 +89,7 @@ class Home extends CI_Controller {
                             'email' => $email,
                             'phone' => $phone,
                             'course' => $course,
+                            'status_value' => 1,
                             );                    
               $info_id =  $this->obj_info->insert($param);
               //enviar respuesta

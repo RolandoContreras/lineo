@@ -19,6 +19,13 @@
         <div class="main-body">
           <div class="page-wrapper">
             <div class="row">
+               <div class="col-md-6 col-xl-4">
+                <div class="card user-card">
+                  <div class="card-block">
+                    <h5 class="f-w-400 m-b-15">Solicitud de Información</h5>
+                    <h4 class="f-w-300 mb-3"><?php echo $obj_total->total_info;?></h4><span class="text-muted"><label class="label theme-bg text-white f-12 f-w-400"><?php echo $obj_pending->pending_info;?></label><a href="<?php echo site_url().'dashboard/pendientes';?>"> Pendientes</a></span></div>
+                </div>
+              </div>
               <div class="col-md-6 col-xl-4">
                 <div class="card user-card">
                   <div class="card-block">
@@ -78,7 +85,7 @@
                     <span class="text-white"><?php echo $obj_pending->pending_comments;?> Pendientes</span></div>
                 </div>
               </div>
-              <div class="col-md-12 col-xl-4">
+<!--              <div class="col-md-12 col-xl-4">
                 <div class="card">
                   <div class="card-block">
                     <div class="row">
@@ -91,7 +98,7 @@
                     </div>
                   </div>
                 </div>
-              </div>
+              </div>-->
               <div class="col-xl-8 col-md-12">
                 <div class="card">
                   <div class="card-header">

@@ -13,7 +13,8 @@ class Panel extends CI_Controller{
         $this->get_session();
          //GET PENDING ROWS
         $params = array("select" =>"count(*) as pending_comments,
-                                    (select count(*) from invoices where active = 1) as pending_invoices",
+                                    (select count(*) from invoices where active = 1) as pending_invoices,
+                                    (select count(*) from info where status_value = 1) as pending_info",
                         "where" => "active = 1");
         $obj_pending = $this->obj_comments->get_search_row($params);
         
@@ -51,6 +52,7 @@ class Panel extends CI_Controller{
             
         //GET TOTAL ROWS
         $params = array("select" =>"count(comment_id) as total_comments,
+                                    (select count(*) from info) as total_info, 
                                     (select count(*) from customer) as total_customer, 
                                     (select count(*) from videos) as total_videos, 
                                     (select count(*) from category) as total_category,

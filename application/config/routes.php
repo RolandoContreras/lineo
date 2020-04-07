@@ -106,10 +106,12 @@ $route['dashboard'] = "dashboard";
 $route['dashboard/panel'] = "panel";
 
 $route['dashboard/categorias'] = "d_category";
-$route['dashboard/categorias/load'] = "d_category/load";
-$route['dashboard/categorias/load/([0-9]+)'] = "d_category/load/$1";
-$route['dashboard/categorias/validate'] = "d_category/validate";
 $route['dashboard/categorias/delete'] = "d_category/delete";
+
+$route['dashboard/pendientes'] = "d_info";
+$route['dashboard/pendientes/contestado'] = "d_info/contestado";
+$route['dashboard/pendientes/no_contestado'] = "d_info/no_contestado";
+$route['dashboard/pendientes/export'] = "d_info/export";
 
 $route['dashboard/cursos'] = "d_courses";
 $route['dashboard/cursos/load'] = "d_courses/load";
