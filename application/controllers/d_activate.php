@@ -19,6 +19,7 @@ class D_activate extends CI_Controller{
                                     customer_courses.duration_time,
                                     customer.email,
                                     customer.name,
+                                    customer.last_name,
                                     customer_courses.customer_course_id,
                                     customer_courses.complete,
                                     customer_courses.date_start",
@@ -45,6 +46,7 @@ class D_activate extends CI_Controller{
                                     customer.phone,
                                     customer.email,
                                     customer.name,
+                                    customer.last_name,
                                     customer_courses.complete,
                                     customer_courses.date_start",
                 "join" => array( 'courses, customer_courses.course_id = courses.course_id',
@@ -140,12 +142,12 @@ class D_activate extends CI_Controller{
             //SELECT ID FROM CUSTOMER
         $username = str_to_minuscula(trim($this->input->post('username')));
         $param_customer = array(
-            "select" => "customer_id,name,phone",
+            "select" => "customer_id,name,last_name,phone",
             "where" => "email = '$username'");
         $customer = $this->obj_customer->get_search_row($param_customer);
         if (isset($customer->customer_id) != "") {
             $data['message'] = "true";
-            $data['name'] = $customer->name;
+            $data['name'] = $customer->name.' '.$customer->last_name;
             $data['dni'] = $customer->phone;
             $data['customer_id'] = $customer->customer_id;
             $data['print'] = "Cliente Encontrado!";

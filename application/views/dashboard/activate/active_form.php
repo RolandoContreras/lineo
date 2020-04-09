@@ -53,7 +53,7 @@
                               </div>
                               <div class="form-group">
                                   <label>Cliente</label>
-                                  <input class="form-control" type="text" id="customer" name="customer" class="input-xlarge-fluid" placeholder="Cliente" disabled="" value="<?php echo isset($obj_customer_courses)?$obj_customer_courses->name:""?>">
+                                  <input class="form-control" type="text" id="customer" name="customer" class="input-xlarge-fluid" placeholder="Cliente" disabled="" value="<?php echo isset($obj_customer_courses)?$obj_customer_courses->name.' '.$obj_customer_courses->last_name:""?>">
                               </div>
                               <div class="form-group">
                                   <label>Teléfono</label>

@@ -57,7 +57,7 @@
                                   <?php foreach ($obj_invoices as $key => $value): ?>
                                 <td><?php echo $value->invoice_id;?></td>
                                 <td><?php echo formato_fecha_barras($value->date);?></td>
-                                <td><?php echo $value->name;?></td>
+                                <td><?php echo $value->name.' '.$value->last_name;?></td>
                                 <td><?php echo "@".$value->email;?></td>
                                 <td><span class="badge badge-pill badge-info" style="font-size: 100%;"><?php echo $value->course_name;?></span></td>
                                 <td><b>S/.<?php echo $value->total;?></b></td>

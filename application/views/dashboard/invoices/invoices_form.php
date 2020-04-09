@@ -45,7 +45,7 @@
                               </div>
                               <div class="form-group">
                                   <label>Cliente</label>
-                                  <input class="form-control" type="text" id="name" name="name" value="<?php echo isset($obj_invoices->name)?$obj_invoices->name:"";?>" class="input-xlarge-fluid" placeholder="Cliente" disabled="">
+                                  <input class="form-control" type="text" id="name" name="name" value="<?php echo isset($obj_invoices->name)?$obj_invoices->name.' '.$obj_invoices->last_name:"";?>" class="input-xlarge-fluid" placeholder="Cliente" disabled="">
                               </div>
                               <div class="form-group">
                                   <label>Fecha</label>
@@ -111,4 +111,4 @@
       </div>
     </div>
   </div>
-<script src="<?php echo site_url().'static/cms/js/invoices.js'?>"></script>
+<script src="<?php echo site_url().'static/cms/js/facturas.js'?>"></script>
