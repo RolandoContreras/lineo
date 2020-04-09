@@ -230,7 +230,7 @@
         <link rel="stylesheet" href="<?php echo site_url().'static/page_front/css/style.css';?>">
         <script src="<?php echo site_url().'static/page_front/js/script/pay_home.js';?>"></script>
         <script>
-  Culqi.publicKey = 'pk_test_afc652f5ee5883c7';
+  Culqi.publicKey = 'pk_live_92eae731f421b6f2';
   var  price = "";
   var  name = "";
   var  last_name = "";
