@@ -59,4 +59,5 @@
      <img height="1" width="1" src="https://www.facebook.com/tr?id=2617593355230205&ev=PageView &noscript=1"/>
     </noscript>
     <!-- End Facebook Pixel Code -->
+    <div id="fb-root"></div><script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v6.0&appId=2595327330756185&autoLogAppEvents=1"></script>
 </head>
