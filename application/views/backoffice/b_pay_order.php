@@ -113,7 +113,7 @@
       $("#spinner").show();
       $("#buyButton").hide();
     });
-  Culqi.publicKey = 'pk_test_afc652f5ee5883c7';
+  Culqi.publicKey = 'pk_live_92eae731f421b6f2';
   var  price = "";
   $('#buyButton').on('click', function(e) {
       price = $(this).attr('data-price');
