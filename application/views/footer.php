@@ -133,27 +133,39 @@
       </div>
 <div class="md-modal md-effect-1" id="modal-1">
     <div class="md-content">
-        <h3 class="theme-bg3 font-size-20 text-center">NÚMEROS DE CUENTA <button class="btn md-close float-right cursor-pointer"><i class="fa fa-times" aria-hidden="true"></i></button></h3>
+        <h3 class="theme-bg3 font-size-20 text-center">NÚMEROS DE CUENTA <span class="md-close float-right cursor-pointer"><i class="fa fa-times" aria-hidden="true"></i></span></h3>
         <div class="table-responsive">
             <table class="table table-hover">
                 <tbody>
                     <tr class="unread">
                         <td style="vertical-align: middle"><img style="width:100px;" src="<?php echo site_url() . 'static/page_front/images/bbva.png'; ?>" alt="banco bbva"></td>
                         <td>
-                            <p class="font-size-14"><b>Banco de Continental:</b><br/>Ahorro Soles: 0011-08140203563596</p>
+                            <p class="font-size-14"><b>Banco BBVA Soles</b><br/>0011-08140203563596</p>
                         </td>
                     </tr>
                     <tr class="unread">
                         <td style="vertical-align: middle"><img style="width:100px;" src="<?php echo site_url() . 'static/page_front/images/interbank_logo.png'; ?>" alt="bnaco interbank"></td>
                         <td>
-                            <p class="font-size-14"><b>Banco de Interbank:</b><br/>Ahorro Soles: 898-3164236422</p>
+                            <p class="font-size-14"><b>Banco Interbank Soles</b><br/>898-3164236422</p>
+                        </td>
+                    </tr>
+                    <tr class="unread">
+                        <td style="vertical-align: middle"><img style="width:100px;" src="<?php echo site_url() . 'static/page_front/images/bcp_logo.png'; ?>" alt="bnaco interbank"></td>
+                        <td>
+                            <p class="font-size-14"><b>Banco de Crédito Soles</b><br/>22094464852042</p>
+                        </td>
+                    </tr>
+                    <tr class="unread">
+                        <td style="vertical-align: middle"><img style="width:100px;" src="<?php echo site_url() . 'static/page_front/images/falabella.png'; ?>" alt="bnaco interbank"></td>
+                        <td>
+                            <p class="font-size-14"><b>Banco Falabella Soles</b><br/>8082800083937</p>
                         </td>
                     </tr>
                 </tbody>
             </table>
             <p class="font-size-14 text-center"><b>A nombre de: EFRAIN JONATAN MONTERO LAURA</b></p>
         </div>
-        <h3 class="theme-bg3 font-size-20">PROCESO DE INSCRIPCIÓN</h3>
+        <h3 class="theme-bg3 font-size-15">PROCESO DE INSCRIPCIÓN</h3>
         <div class="col-md-12 col-xl-12">
             <center>
                 <div class="row card-active ">

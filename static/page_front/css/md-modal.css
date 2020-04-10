@@ -61,14 +61,14 @@
 }
 .md-content h3 {
     margin: 0;
-    padding: .4em;
+    padding: .2em;
     text-align: center;
     opacity: .8;
     color: #fff;
     border-radius: 3px 3px 0 0
 }
 .md-content>div {
-    padding: 20px 40px 20px;
+    padding: 10px 35px 10px;
     margin: 0
 }
 .md-content>div p {
