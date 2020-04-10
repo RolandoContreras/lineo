@@ -94,6 +94,7 @@
                                         <div class="btn-group">
                                             <button class="btn btn-secondary" type="button" onclick="edit_video('<?php echo $course_id;?>','<?php echo $value->video_id;?>');"><span><span class="pcoded-micon"><i data-feather="edit"></i></span> Editar</span></button>
                                             <button class="btn btn-secondary" type="button" onclick="delete_video('<?php echo $value->video_id;?>');"><span><span class="pcoded-micon"><i data-feather="trash-2"></i></span> Eliminar</span></button>
+                                            <button class="btn btn-secondary" type="button" onclick="view_archivos('<?php echo $course_id;?>','<?php echo $value->video_id;?>');"><span><span class="pcoded-micon"><i data-feather="eye"></i></span> Archivos</span></button>
                                         </div>
                                 </div>
                             </td>

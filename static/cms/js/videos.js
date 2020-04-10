@@ -2,6 +2,10 @@ function back_cursos(){
 	var url= 'dashboard/cursos';
 	location.href = site+url;
 }
+function view_archivos(course_id, video_id){   
+     var url = 'dashboard/videos/'+course_id+'/archivos/'+video_id;
+     location.href = site+url;   
+}
 function new_video(course_id){
 	var url= 'dashboard/videos/'+course_id+'/load';
 	location.href = site+url;

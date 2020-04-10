@@ -99,9 +99,6 @@ $route['backoffice/history'] = "b_finance";
 $route['backoffice/invoice'] = "b_finance/invoice";
 $route['backoffice/invoice/upload'] = "b_finance/upload";
 
-
-
-
 $route['dashboard'] = "dashboard";
 $route['dashboard/panel'] = "panel";
 
@@ -131,6 +128,12 @@ $route['dashboard/videos/([0-9]+)/load/([0-9]+)'] = "d_videos/load/$1";
 $route['dashboard/videos/([0-9]+)/validate'] = "d_videos/validate";
 $route['dashboard/videos/delete'] = "d_videos/delete";
 $route['dashboard/videos/verificar_curso'] = "d_videos/verificar_curso";
+
+$route['dashboard/videos/([0-9]+)/archivos/([0-9]+)'] = "d_archivos";
+$route['dashboard/videos/([0-9]+)/archivos/([0-9]+)/load'] = "d_archivos/load";
+$route['dashboard/videos/([0-9]+)/archivos/([0-9]+)/load/([0-9]+)'] = "d_archivos/load/$1";
+$route['dashboard/videos/([0-9]+)/archivos/([0-9]+)/validate'] = "d_archivos/validate";
+$route['dashboard/archivos/delete'] = "d_archivos/delete";
 
 $route['dashboard/facturas'] = "d_invoices"; 
 $route['dashboard/facturas/load/([0-9]+)'] = "d_invoices/load/$1";
