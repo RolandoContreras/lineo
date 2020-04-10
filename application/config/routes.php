@@ -166,6 +166,7 @@ $route['dashboard/activaciones/validate_user'] = "d_activate/validate_user";
 $route['dashboard/activaciones/active'] = "d_activate/active";
 $route['dashboard/activaciones/update_confirmation'] = "d_activate/update_confirmation";
 $route['dashboard/activaciones/validate'] = "d_activate/validate";
+$route['dashboard/activaciones/delete'] = "d_activate/delete";
 
 $route['dashboard/reportes/asociados'] = "d_report_customer";
 $route['dashboard/reportes/cuentas'] = "d_report_membership";

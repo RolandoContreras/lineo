@@ -10,6 +10,39 @@ function cancel_activate_kit(){
     var url= 'dashboard/activaciones';
     location.href = site+url;
 }
+function delete_activate(customer_course_id, course_id, customer_id){
+    bootbox.confirm({
+    message: "¿Confirma que desea eliminar la activación?",
+    buttons: {
+        confirm: {
+            label: 'Confirmar',
+            className: 'btn-success'
+        },
+        cancel: {
+            label: 'Cerrar',
+            className: 'btn-danger'
+        }
+    },
+    callback: function (result) {
+        if(result == true){
+            $.ajax({
+                   type: "post",
+                   url: site+"dashboard/activaciones/delete",
+                   dataType: "json",
+                   data: {customer_course_id : customer_course_id,
+                          course_id : course_id,
+                          customer_id : customer_id},
+                   success:function(data){                             
+                   location.reload();
+                   }         
+           });
+        }
+    }
+    });
+}
+
+
+
 
 function active(){
     var customer_id = document.getElementById("customer_id").value;

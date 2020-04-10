@@ -16,7 +16,9 @@ class D_activate extends CI_Controller{
            $params = array(
                         "select" =>"courses.name as course_name,
                                     courses.duration,
+                                    courses.course_id,
                                     customer_courses.duration_time,
+                                    customer.customer_id,
                                     customer.email,
                                     customer.name,
                                     customer.last_name,
@@ -158,6 +160,32 @@ class D_activate extends CI_Controller{
         }
         echo json_encode($data);
         }
+    }
+    
+    public function delete(){
+         if ($this->input->is_ajax_request()) {
+             $this->get_session();
+             //OBETENER ID
+             $customer_course_id = $this->input->post("customer_course_id");
+             $course_id = $this->input->post("course_id");
+             $customer_id = $this->input->post("customer_id");
+            //VERIFY IF ISSET CUSTOMER_ID
+            if ($customer_course_id != null){
+                $this->obj_customer_courses->delete($customer_course_id);
+                //verificar si existe facturas y eliminar
+                $params = array(
+                        "select" =>"invoice_id",
+                "where" => "course_id = $course_id and customer_id = $customer_id");
+                //GET DATA FROM INVOICES
+                $obj_invoices = $this->obj_invoices->get_search_row($params);
+                    if($obj_invoices != null){
+                        //eliminar factura
+                        $this->obj_invoices->delete($obj_invoices->invoice_id);    
+                    }
+            }
+            $data['status'] = true;
+            echo json_encode($data);
+        }       
     }
         
     public function get_session(){          

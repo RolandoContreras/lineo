@@ -85,6 +85,7 @@
                                     <div class="operation">
                                             <div class="btn-group">
                                                <button class="btn btn-secondary" type="button" onclick="edit_activate('<?php echo $value->customer_course_id;?>');"><span><span class="pcoded-micon"><i data-feather="edit"></i></span> Editar</span></button>
+                                               <button class="btn btn-secondary" type="button" onclick="delete_activate('<?php echo $value->customer_course_id;?>','<?php echo $value->course_id;?>','<?php echo $value->customer_id;?>');"><span><span class="pcoded-micon"><i data-feather="trash-2"></i></span> Eliminar</span></button>
                                             </div>
                                     </div>
                                 </td>
