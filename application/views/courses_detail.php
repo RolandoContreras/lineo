@@ -123,7 +123,7 @@
                           <?php echo $obj_courses->description;?>
                         </div>
                       </div>
-                      <div class=course-curriculum id=learn-press-course-curriculum>
+<!--                      <div class=course-curriculum id=learn-press-course-curriculum>
                         <div class=curriculum-heading>
                           <div class=title>
                             <h2 class="course-curriculum-title">Contenido</h2>
@@ -187,7 +187,7 @@
                         <?php } ?>  
                       </div>
                     </div>
-                  </div>
+                  </div>-->
                 </div>
               </div>
         </div>
