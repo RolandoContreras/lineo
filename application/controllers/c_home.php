@@ -42,9 +42,6 @@ class C_home extends CI_Controller {
             $obj_courses = $this->obj_courses->get_search_row($params);
             $course_id = $obj_courses->course_id;
             $course_img = $obj_courses->img;
-            
-            
-            
             //obtener modulos por cursos
             $params = array(
                             "select" =>"module_id,
@@ -72,9 +69,9 @@ class C_home extends CI_Controller {
             $obj_videos = $this->obj_videos->search($params);
             //obtener video actual
             if($slug_3 != ""){
-                $where = "slug = '$slug_3'"; 
+                $where = "slug = '$slug_3' and videos.type = 2"; 
             }else{
-                    $where = "videos.type = 1";
+                    $where = "videos.type = 2";
             }
             //GET videos by course
             $params = array(
@@ -87,7 +84,6 @@ class C_home extends CI_Controller {
                                         date",
                             "where" => "videos.module_id in ($array_data) and $where");
                 $obj_courses_overview = $this->obj_videos->get_search_row($params);
-                
             //obtener video actual en reproduccion
             $video_actual = $this->select_video_actual($course_id, $obj_courses_overview->video_id); 
             //obtener porcentaje avanzado
@@ -106,17 +102,17 @@ class C_home extends CI_Controller {
             $explo_video = explode("/", $video);
             $video_link = $explo_video[3];
             //get all message
-            $params = array(
-                        "select" =>"video_message.video_message_id,
-                                    video_message.date,
-                                    video_message.message,
-                                    video_message.respose,
-                                    customer.name",
-                "join" => array('customer, video_message.customer_id = customer.customer_id'),
-                "where" => "video_message.video_id = $obj_courses_overview->video_id",
-                "order" => "video_message.video_message_id ASC",
-                );
-            $obj_video_message = $this->obj_video_message->search($params);
+//            $params = array(
+//                        "select" =>"video_message.video_message_id,
+//                                    video_message.date,
+//                                    video_message.message,
+//                                    video_message.respose,
+//                                    customer.name",
+//                "join" => array('customer, video_message.customer_id = customer.customer_id'),
+//                "where" => "video_message.video_id = $obj_courses_overview->video_id",
+//                "order" => "video_message.video_message_id ASC",
+//                );
+//            $obj_video_message = $this->obj_video_message->search($params);
             //obtener material del video actual
             $params_archive = array(
                         "select" =>"name,
@@ -128,7 +124,7 @@ class C_home extends CI_Controller {
             $this->tmp_course->set("slug",$slug);
             $this->tmp_course->set("course_img",$course_img);
             $this->tmp_course->set("obj_courses_overview",$obj_courses_overview);
-            $this->tmp_course->set("obj_video_message",$obj_video_message);
+//            $this->tmp_course->set("obj_video_message",$obj_video_message);
             $this->tmp_course->set("obj_videos",$obj_videos);
             $this->tmp_course->set("percent",$percent);
             $this->tmp_course->set("obj_modules",$obj_modules);
