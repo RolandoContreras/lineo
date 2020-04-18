@@ -46,7 +46,7 @@
                           <div class="form-group col-md-6">
                               <div class="form-group">
                                 <label>Nombre</label>
-                                <input class="form-control" type="text" id="name" name="name" value="<?php echo isset($obj_courses->name)?$obj_courses->name:"";?>" class="input-xlarge-fluid" placeholder="Nombre">
+                                <input class="form-control" type="text" id="name" name="name" value="<?php echo isset($obj_courses->name)?$obj_courses->name:"";?>" class="input-xlarge-fluid" placeholder="Nombre" required>
                               </div>
                               <div class="form-group">
                                <label>Descripción</label>
@@ -57,7 +57,7 @@
                               </div>
                               <div class="form-group">
                                 <label for="inputState">Categoría</label>
-                                <select name="category_id" id="category_id" class="form-control">
+                                <select name="category_id" id="category_id" class="form-control" required>
                                 <option value="">[ Seleccionar ]</option>
                                     <?php foreach ($obj_category as $value ): ?>
                                 <option value="<?php echo $value->category_id;?>"
@@ -77,7 +77,7 @@
                               </div>
                             <div class="form-group">
                                 <label for="inputState">Duración</label>
-                                <select name="duration" id="duration" class="form-control">
+                                <select name="duration" id="duration" class="form-control" required>
                                 <option value="">[ Seleccionar ]</option>
                                 <option value="1" <?php echo isset($obj_courses) && $obj_courses->duration == 1?"selected":"";?>>1 día</option>
                                 <option value="15" <?php echo isset($obj_courses) && $obj_courses->duration == 15?"selected":"";?>>15 días</option>
@@ -101,8 +101,9 @@
                               <div class="form-group">
                                     <label>Imagen 1 (Tamaño 480 x 360)</label>
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="validatedCustomFile" value="Upload Imagen de Envio" name="image_file" id="image_file">
-                                        <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                                        <input type="file" class="custom-file-input" onchange="upload_img();" name="image_file" id="image_file" <?php echo isset($obj_courses->img)?"":"required";?>>
+                                        <label id="label_img" class="custom-file-label invalid">Elegir archivos...</label>
+                                        <div id="respose_img"></div>
                                     </div>
                               </div>
                               <?php 
@@ -116,22 +117,23 @@
                               <div class="form-group">
                                     <label>Imagen 2 (Tamaño 1000 x 500)</label>
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="validatedCustomFile" value="Upload Imagen de Envio" name="image_file2" id="image_file2">
-                                        <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                                        <input type="file" class="custom-file-input" name="image_file2" id="image_file2" onchange="upload_img2();" <?php echo isset($obj_courses->img2)?"":"required";?>>
+                                        <label id="label_img2" class="custom-file-label invalid">Elegir archivos...</label>
+                                        <div id="respose_img2"></div>
                                     </div>
                               </div>
                               
                            <div class="form-group">
                                 <label>Precio Actual</label>
-                                <input class="form-control" type="text" id="price" name="price" value="<?php echo isset($obj_courses->price)?$obj_courses->price:"";?>" class="input-xlarge-fluid" placeholder="Precio Actual">
+                                <input class="form-control" type="text" id="price" name="price" value="<?php echo isset($obj_courses->price)?$obj_courses->price:"";?>" class="input-xlarge-fluid" placeholder="Precio Actual" required>
                           </div>
                           <div class="form-group">
                                 <label>Precio Eliminado</label>
-                                <input class="form-control" type="text" id="price_del" name="price_del" value="<?php echo isset($obj_courses->price_del)?$obj_courses->price_del:"";?>" class="input-xlarge-fluid" placeholder="Precio Eliminado">
+                                <input class="form-control" type="text" id="price_del" name="price_del" value="<?php echo isset($obj_courses->price_del)?$obj_courses->price_del:"";?>" class="input-xlarge-fluid" placeholder="Precio Eliminado" required>
                           </div>
                               <div class="form-group">
                                 <label for="inputState">Estado</label>
-                                    <select name="active" id="active" class="form-control">
+                                    <select name="active" id="active" class="form-control" required>
                                      <option value="">[ Seleccionar ]</option>
                                       <option value="1" <?php if(isset($obj_courses)){
                                           if($obj_courses->active == 1){ echo "selected";}

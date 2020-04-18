@@ -44,9 +44,9 @@
             }?>   
           <div class=width-navigation>
             <ul id=primary-menu class=main-menu>
-                <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor <?php echo $home_syle;?> menu-item-22 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default">
+<!--                <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor <?php echo $home_syle;?> menu-item-22 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default">
                     <a class="md-trigger " data-modal="modal-1" href="javascript:void(0);"><span class="button_cuentas">Números de cuenta</span></a>
-                </li>
+                </li>-->
                 <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor <?php echo $home_syle;?> menu-item-22 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default">
                     <a href="<?php echo site_url();?>" class=tc-menu-inner>Inicio</a> 
                 </li>

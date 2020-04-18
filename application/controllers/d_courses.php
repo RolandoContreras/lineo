@@ -101,7 +101,10 @@ class D_courses extends CI_Controller{
                 $img = $_FILES["image_file"]["name"];        
                  if($img == ""){
                      $img = $img2;
-                 }   
+                 }else{
+                     //eliminar imagenes guardadas
+                     unlink("./static/cms/img/cursos/$img2");  
+                 }    
             }
             
           if(isset($_FILES["image_file2"]["name"])){
@@ -118,6 +121,9 @@ class D_courses extends CI_Controller{
                 $img2 = $_FILES["image_file2"]["name"];        
                  if($img2 == ""){
                      $img2 = $img3;
+                 }else{
+                     //eliminar imagenes guardadas
+                     unlink("./static/cms/img/cursos/$img3");  
                  }   
             }
             
