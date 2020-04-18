@@ -43,15 +43,20 @@
                           <div class="form-group col-md-6">
                               <div class="form-group">
                                     <label>Usuario / E-mail</label>
-                                    <input class="form-control" type="text" id="email" name="email" value="<?php echo isset($obj_users->email)?$obj_users->email:"";?>" placeholder="E-mail">
+                                    <input class="form-control" type="text" id="email" name="email" value="<?php echo isset($obj_users->email)?$obj_users->email:"";?>" placeholder="E-mail" required>
                                 </div>
-                                <div class="form-group">
+                              <div class="form-group">
                                     <label>Contraseña</label>
-                                    <input class="form-control" type="password" id="password" name="password" value="<?php echo isset($obj_users->password)?$obj_users->password:"";?>" placeholder="Contraseña">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="validationTooltipUsernamePrepend" style="cursor: pointer;" onclick="show_pass();"><i class="fa fa-eye"></i></span>
+                                        </div>
+                                        <input class="form-control" type="password" id="password" name="password" value="<?php echo isset($obj_customer->password) ? $obj_customer->password : ""; ?>" class="input-xlarge-fluid" placeholder="Password" required>
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="inputState">Estado</label>
-                                    <select name="active" id="active" class="form-control">
+                                    <select name="active" id="active" class="form-control" required>
                                          <option value="">[ Seleccionar ]</option>
                                           <option value="1" <?php if(isset($obj_users)){
                                               if($obj_users->active == 1){ echo "selected";}
@@ -66,15 +71,15 @@
                           <div class="form-group col-md-6">
                                 <div class="form-group">
                                       <label>Nombres</label>
-                                      <input class="form-control" type="text" id="first_name" name="first_name" value="<?php echo isset($obj_users->first_name)?$obj_users->first_name:"";?>" placeholder="Nombres">
+                                      <input class="form-control" type="text" id="first_name" name="first_name" value="<?php echo isset($obj_users->first_name)?$obj_users->first_name:"";?>" placeholder="Nombres" required>
                                 </div>
                                 <div class="form-group">
                                       <label>Apellidos</label>
-                                      <input class="form-control" type="text" id="last_name" name="last_name" value="<?php echo isset($obj_users->last_name)?$obj_users->last_name:"";?>" placeholder="Apellidos">
+                                      <input class="form-control" type="text" id="last_name" name="last_name" value="<?php echo isset($obj_users->last_name)?$obj_users->last_name:"";?>" placeholder="Apellidos" required>
                                 </div>
                                 <div class="form-group">
                                       <label>Priveligios</label>
-                                      <select name="privilage" id="privilage" class="form-control">
+                                      <select name="privilage" id="privilage" class="form-control" required>
                                          <option value="">[ Seleccionar ]</option>
                                           <option value="1" <?php if(isset($obj_users)){
                                               if($obj_users->privilage == 1){ echo "selected";}
@@ -106,3 +111,13 @@
   </div>
 </div>
 <script src="<?php echo site_url().'static/cms/js/usuarios.js'?>"></script>
+<script>
+  function show_pass(){
+      var tipo = document.getElementById("password");
+      if(tipo.type == "password"){
+          tipo.type = "text";
+      }else{
+          tipo.type = "password";
+      }
+  }
+</script>

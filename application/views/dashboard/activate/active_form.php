@@ -43,7 +43,7 @@
                           <div class="form-group col-md-6">
                               <div class="form-group">
                                 <label>Usuario / E-mail</label>
-                                <input class="form-control" onblur="validate_user(this.value);" type="text" id="username" name="username" class="input-xlarge-fluid" placeholder="Ingrese Usuario" value="<?php echo isset($obj_customer_courses)?$obj_customer_courses->email:""?>">
+                                <input class="form-control" onblur="validate_user(this.value);" type="text" id="username" name="username" class="input-xlarge-fluid" placeholder="Ingrese Usuario" value="<?php echo isset($obj_customer_courses)?$obj_customer_courses->email:""?>" required>
                                 <input type="hidden" id="customer_id" name="customer_id" value="<?php echo isset($obj_customer_courses)?$obj_customer_courses->customer_id:"";?>">
                                 <span class="alert-0"></span>
                               </div>
@@ -64,7 +64,7 @@
                           <div class="form-group col-md-6">
                               <div class="form-group">
                               <label for="inputState">Curso</label>
-                                <select name="course_id" id="course_id" class="form-control">
+                                <select name="course_id" id="course_id" class="form-control" required>
                                 <option value="">[ Seleccionar ]</option>
                                     <?php foreach ($obj_courses as $value ): ?>
                                 <option value="<?php echo $value->course_id;?>" <?php echo isset($obj_customer_courses) && $value->course_id==$obj_customer_courses->course_id?"selected":""?>>

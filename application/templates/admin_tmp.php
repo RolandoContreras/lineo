@@ -105,7 +105,7 @@
                 <span class="pcoded-mtext">Activaciones</span>
             </a>
         </li>
-        <li class="nav-item pcoded-hasmenu">
+<!--        <li class="nav-item pcoded-hasmenu">
             <a href="#!" class="">
                 <span class="pcoded-micon">
                     <i data-feather="book-open"></i>
@@ -116,7 +116,7 @@
                 <li class="pcoded-hasmenu"><a href="#"><i class="icon-large icon-th"></i>Panel</a></li>
                 <li class="pcoded-hasmenu"><a href="#"><i class="icon-large icon-th"></i>Videos</a></li>
             </ul>
-        </li>
+        </li>-->
     </ul>
     </div>
     </div>
