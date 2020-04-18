@@ -78,10 +78,18 @@
                                     <div class="form-group">
                                           <label>Fecha Termino (mm-dd-YYY)</label>
                                           <div class="input-daterange input-group" id="datepicker_range">
-                                              <input type="text" class="form-control text-left" id="duration_time" name="duration_time" placeholder="Fecha de Termino" value="<?php echo isset($obj_customer_courses)? formato_fecha_bd_to_datapicker($obj_customer_courses->duration_time):""?>"/>
+                                              <input type="text" class="form-control text-left" id="duration_time" name="duration_time" placeholder="Fecha de Termino" value="<?php echo isset($obj_customer_courses)? formato_fecha_bd_to_datapicker($obj_customer_courses->duration_time):""?>" required/>
                                          </div>
                                     </div>
                               <?php } ?>
+                              <div class="form-group">
+                                  <label>Cursos Vistos</label>
+                                  <input class="form-control" type="text" id="total_video" name="total_video" class="input-xlarge-fluid" placeholder="Cursos Vistos" value="<?php echo isset($obj_customer_courses)?$obj_customer_courses->total_video:""?>" required>
+                              </div>
+                              <div class="form-group">
+                                  <label>Vídeo Actual</label>
+                                  <input class="form-control" type="text" id="video_actual" name="video_actual" class="input-xlarge-fluid" placeholder="Vídeo Actual" value="<?php echo isset($obj_customer_courses)?$obj_customer_courses->video_actual:""?>" required>
+                              </div>
                         </div>
                             <button type="submit" class="btn btn-primary">Guardar</button>
                         <button class="btn btn-danger" type="reset" onclick="cancel_activate_kit();">Cancelar</button>                    

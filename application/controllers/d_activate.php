@@ -40,6 +40,8 @@ class D_activate extends CI_Controller{
                $params = array(
                         "select" =>"customer_courses.customer_course_id,
                                     customer_courses.duration_time,
+                                    customer_courses.video_actual,
+                                    customer_courses.total_video,
                                     courses.course_id,
                                     courses.name as course_name,
                                     courses.duration,
@@ -97,6 +99,8 @@ class D_activate extends CI_Controller{
                         $duration_time = formato_fecha_datapicker_to_bd($duration_time);
                         $data = array(
                                 'duration_time' => $duration_time,
+                                'total_video' => $this->input->post("total_video"),
+                                'video_actual' => $this->input->post("video_actual"),
                             );
                             $this->obj_customer_courses->update($customer_course_id, $data);
                     }
