@@ -41,14 +41,14 @@
                               <?php } ?>
                               <div class="form-group">
                                 <label>Nombre</label>
-                                <input class="form-control" type="text" id="name" name="name" value="<?php echo isset($obj_category->name)?$obj_category->name:"";?>" class="input-xlarge-fluid" placeholder="Nombre">
+                                <input class="form-control" type="text" id="name" name="name" value="<?php echo isset($obj_category->name)?$obj_category->name:"";?>" class="input-xlarge-fluid" placeholder="Nombre" required>
                               </div>
                           </div>
                           <div class="form-group col-md-6">
                               <div class="form-row">
                                 <div class="form-group col-md-12">
                                     <label for="inputState">Estado</label>
-                                        <select name="active" id="active" class="form-control">
+                                    <select name="active" id="active" class="form-control" required>
                                          <option value="">[ Seleccionar ]</option>
                                           <option value="1" <?php if(isset($obj_category)){
                                               if($obj_category->active == 1){ echo "selected";}

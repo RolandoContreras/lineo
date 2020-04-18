@@ -41,22 +41,22 @@
                           <div class="form-group col-md-6">
                               <div class="form-group">
                                 <label>Usuario / E-mail</label>
-                                <input class="form-control" type="text" id="username" name="username" value="<?php echo isset($obj_invoices->email)?$obj_invoices->email:"";?>" class="input-xlarge-fluid" placeholder="Username" disabled="">
+                                <input class="form-control" type="text" id="username" name="username" value="<?php echo isset($obj_invoices->email)?$obj_invoices->email:"";?>" class="input-xlarge-fluid" placeholder="Username" disabled="" required>
                               </div>
                               <div class="form-group">
                                   <label>Cliente</label>
-                                  <input class="form-control" type="text" id="name" name="name" value="<?php echo isset($obj_invoices->name)?$obj_invoices->name.' '.$obj_invoices->last_name:"";?>" class="input-xlarge-fluid" placeholder="Cliente" disabled="">
+                                  <input class="form-control" type="text" id="name" name="name" value="<?php echo isset($obj_invoices->name)?$obj_invoices->name.' '.$obj_invoices->last_name:"";?>" class="input-xlarge-fluid" placeholder="Cliente" disabled="" required>
                               </div>
                               <div class="form-group">
                                   <label>Fecha</label>
-                                  <input class="form-control" type="text" id="date" name="date"  placeholder="YYYY/mm/dd" value="<?php echo isset($obj_invoices->date)?$obj_invoices->date:"";?>" class="input-xlarge-fluid" placeholder="Fecha" disabled="">
+                                  <input class="form-control" type="text" id="date" name="date"  placeholder="YYYY/mm/dd" value="<?php echo isset($obj_invoices->date)?$obj_invoices->date:"";?>" class="input-xlarge-fluid" placeholder="Fecha" disabled="" required>
                               </div>
                               
                           </div>
                           <div class="form-group col-md-6">
                               <div class="form-group">
                               <label for="inputState">Curso</label>
-                                <select name="course_id" id="course_id" class="form-control">
+                                <select name="course_id" id="course_id" class="form-control" required>
                                 <option value="">[ Seleccionar ]</option>
                                     <?php foreach ($obj_courses as $value ): ?>
                                 <option value="<?php echo $value->course_id;?>"
@@ -76,11 +76,11 @@
                               </div>
                               <div class="form-group">
                                   <label>Importe</label>
-                                    <input class="form-control" type="text" name="total" id="total" value="<?php echo isset($obj_invoices->total)?($obj_invoices->total):"";?>" class="input-xlarge-fluid" placeholder="Precio">
+                                    <input class="form-control" type="text" name="total" id="total" value="<?php echo isset($obj_invoices->total)?($obj_invoices->total):"";?>" class="input-xlarge-fluid" placeholder="Precio" required>
                               </div>
                               <div class="form-group">
                                   <label for="inputState">Estado</label>
-                                    <select name="active" id="active" class="form-control">
+                                    <select name="active" id="active" class="form-control" required>
                                         <option value="">[ Seleccionar ]</option>
                                         <option value="0" <?php if(isset($obj_invoices)){
                                             if($obj_invoices->active == 0){ echo "selected";}

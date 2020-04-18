@@ -103,6 +103,8 @@ $route['dashboard'] = "dashboard";
 $route['dashboard/panel'] = "panel";
 
 $route['dashboard/categorias'] = "d_category";
+$route['dashboard/categorias/load'] = "d_category/load";
+$route['dashboard/categorias/load/([0-9]+)'] = "d_category/load/$1";
 $route['dashboard/categorias/delete'] = "d_category/delete";
 
 $route['dashboard/pendientes'] = "d_info";
