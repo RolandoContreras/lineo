@@ -1,191 +1,125 @@
 <!DOCTYPE html>
-<html lang="en">
-<?php $this->load->view("head");?>
-<body class="home-page bp-legacy home page-template page-template-templates page-template-home-page page-template-templateshome-page-php page page-id-36 wp-embed-responsive theme-wordpress-lms pmpro-body-has-access woocommerce-no-js pagetitle-show bg-type-color thim-body-visual-composer responsive box-shadow auto-login ltr home1-section learnpress-v3 header-template-default wpb-js-composer js-comp-ver-6.0.5 vc_responsive no-js">
-  <div id=thim-preloading>
-    <div class=thim-loading-icon>
-      <div class=sk-chasing-dots>
-        <div class="sk-child sk-dot1"></div>
-        <div class="sk-child sk-dot2"></div>
-      </div>
-    </div>
-  </div>
-  <div id=wrapper-container class="content-pusher creative-left bg-type-color">
-    <div class=overlay-close-menu></div>
-   <?php $this->load->view("header");?> 
-   <?php $this->load->view("nav");?>
-    
-    <div id=main-content>
-      <section class=content-area>
-        <div class="page-title layout-1">
-            <div class="main-top parallax" style="background-image:url(<?php echo site_url().'static/page_front/images/bg_header.jpg';?>);">
-              <span class=overlay-top-header style="background-color: rgba(0,0,0,0.5);"></span>
-            <div class="content container">
-                <div class=vc_empty_space style="height: 75px"><span class=vc_empty_space_inner></span></div>
-              <div class=row>
-                <div class="text-title col-md-6">
-                  <h1>Cursos</h1>
-                </div>
-                <div class="text-description col-md-6">
-                  <div class=banner-description>
-                    <p><strong class="br">La mejor educación en un solo lugar </strong> U-LINEX creado especialmente para ti</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="breadcrumb-content ">
-            <div class="breadcrumbs-wrapper container">
-              <ul id="breadcrumbs" class="breadcrumbs">
-                <li>
-                    <a href="<?php echo site_url();?>" title="Inicio">
-                        <span>Inicio</span>
-                    </a>
-                    <span class=breadcrum-icon><i class="fa fa-angle-right" aria-hidden=true></i></span>
-                </li>
-                <li>
-                    <span title="Todos los Cursos">Todos los Cursos</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div id=top-sidebar-courses>
-          <div class=container>
-              <div data-vc-full-width=true data-vc-full-width-init=false data-vc-stretch-content=true class="vc_row wpb_row vc_row-fluid overflow top-courses-overflow vc_custom_1501224314823 vc_row-has-fill vc_row-no-padding" style="background-color: #18c1f0 !important;">
-              <div class="wpb_column vc_column_container vc_col-sm-12">
-                <div class=vc_column-inner>
-                  <div class=wpb_wrapper>
-                    <div class="thim-sc-heading text-center layout-2 ">
-                      <div class=heading-content>
-                        <h3 class="primary-heading">Nuestros Cursos</h3>
-                      </div>
-                      <p class=secondary-heading>Potencializa tus conocimientos y dentro de las seis semanas serás un maestro con experiencia en el mundo real. ¡Obtén un 75% de descuento en todos tus cursos!</p><span class="underline"></span></div>
-                    <div class="thim-sc-courses-carousel top-courses">
-            </div>
-          </div>
-        </div>
-    </div>
-  </div>
-  <div class="vc_row-full-width vc_clearfix"></div>
-  </div>
-  </div>
-  <div class="container site-content ">
-    <div class=row>
-      <div id=main class="site-main col-sm-12 col-md-9 flex-first">
-        <article id=post-0 class="post-0 post type-post status-publish format-standard hentry pmpro-has-access page type-page">
-          <div class=entry-content>
-            <div id=lp-archive-courses class=lp-archive-courses>
-            <div class=thim-course-top>
-              <div class="display grid-list-switch lpr_course-switch " data-cookie=lpr_course-switch data-layout=grid>
-                  <a href=javascript:; class="grid switchToGrid switcher-active"><i class="fa fa-th"></i></a>
-              </div>
-              <div class=course-index><span>Showing 1-9 of <?php echo $total;?> resultado</span></div>
-              <div class=courses-searching>
-                  <form method="get" action="<?php echo site_url()."cursos"?>">
-                    <input type="text" name="search" placeholder="Busca tu curso" class="form-control course-search-filter" autocomplete="off">
-                    <button type=submit><i class="fas fa-search"></i></button>
-                    <span class=widget-search-close></span>
-                </form>
-                  <ul class="courses-list-search list-unstyled"></ul>
-              </div>
-            </div>
-            <div class="archive-courses course-grid archive_switch">
-              <div class="learn-press-courses row">
-                  <?php
-                  foreach ($obj_courses as $value) { ?>
-                        <div class="col-md-4 col-12 col-sm-6 col-xs-6 lpr-course post-486 lp_course type-lp_course status-publish has-post-thumbnail hentry course_category-busines-course course_tag-business-tag course_tag-theme course_tag-wordpress course">
-                              <div class="content">
-                                <div class="thumbnail">
-                                    <a href="<?php echo site_url()."cursos/$value->category_slug/$value->slug";?>" class="img_thumbnail">
-                                      <img width=365 height=405 src="<?php echo site_url()."static/cms/img/cursos/$value->img";?>" alt="<?php echo $value->name;?>"> 
-                                  </a>
-                                    <span class="price">
-                                        <span class="course-origin-price">S/.<?php echo $value->price_del;?></span><span class="course-price red">S/.<?php echo $value->price;?></span>
-                                    </span>
-                                  <div class="button-when-logged has-wishlist"></div>
-                                </div>
-                                <div class=sub-content>
-                                  <h2 class="title">
-                                      <a href="<?php echo site_url()."cursos/$value->category_slug/$value->slug";?>"><?php echo $value->name;?></a>
-                                  </h2>
-                                  <div class="conocer_mas">
-                                    <a href="<?php echo site_url() . "cursos/$value->category_slug/$value->slug"; ?>"><span class="button_cuentas">Conoce Más <i class="fa fa-arrow-right" aria-hidden="true"></i></span></a>
-                                </div>
-                                </div>
-                              </div>
-                          </div>
-                  <?php } ?>
-            </div>
-  <nav class=learn-press-pagination>
-    <ul class="page-numbers">
-        <?php  echo $obj_pagination; ?>
-      </ul>
-  </nav>
-  <div class=thim-loading-icon>
-    <div class=sk-chasing-dots>
-      <div class="sk-child sk-dot1"></div>
-      <div class="sk-child sk-dot2"></div>
-    </div>
-  </div>
-  </div>
-  </div>
-  </div>
-  </article>
-  </div>
-  <aside id=secondary class="sidebar-courses widget-area col-md-3 sticky-sidebar flex-last">
-    <aside id=thim-courses-categories-2 class="widget widget_thim-courses-categories">
-      <h4 class="widget-title">Categorías</h4>
-      <ul class=courses-categories>
-          <?php foreach ($obj_category as $value) { ?>
-                <li class="cat-item">
-                    <a href="<?php echo site_url()."cursos/$value->slug";?>" class="tc-menu-inner tc-megamenu-title"><?php echo $value->name;?></a>
-                </li>
-        <?php } ?>
-      </ul>
-    </aside>
-    <aside id=thim-recent-courses-3 class="widget widget_thim-recent-courses">
-      <h4 class="widget-title">Vídeos Top</h4>
-      <div class=thim-recent-courses-widget>
-        <ul class=recent-courses-wrapper>
-           <?php 
-            foreach ($obj_courses_top as $value) { ?>
-                 <li class=course-item>
-                    <div class=feature-img>
-                        <img width="109" height="109" src="<?php echo site_url()."static/cms/img/cursos/$value->img";?>" alt="<?php echo $value->name;?>">
-                        <a href="<?php echo site_url()."cursos/$value->category_slug/$value->slug";?>" class="img-link"></a>
+<html lang="en-US" class="no-js">
+    <?php $this->load->view("head") ?>
+    <body class="page-template-default page page-id-2 stm_lms_button pmpro-body-has-access skin_custom_color online-light stm_preloader_1 wpb-js-composer js-comp-ver-5.6 vc_responsive" ontouchstart=""> 
+        <div id="wrapper">
+            <?php $this->load->view("header") ?>
+            <div id="main">
+                <div class="stm_lms_breadcrumbs stm_lms_breadcrumbs__header_2">
+                    <div class="stm_breadcrumbs_unit">
+                        <div class="container">
+                            <div class="navxtBreads"> 
+                                <span property="itemListElement">
+                                    <a property="item" title="Inicio" href="<?php echo site_url(); ?>" class="main-home">
+                                        <span property="name">Inicio</span>
+                                    </a>
+                                </span> &gt; <span property="itemListElement">
+                                    <span property="name" title="Cursos">Cursos</span>
+                                </span>
+                            </div>
+                        </div>
                     </div>
-                    <div class=content>
-                      <h4 class="title">
-                          <a href="<?php echo site_url()."cursos/$value->category_slug/$value->slug";?>"><?php echo $value->name;?></a>
-                      </h4>
-                      <div class="price">
-                          <span class="course-origin-price">S/.<?php echo $value->price_del;?></span><span class="course-price red">S/.<?php echo $value->price;?></span>
-                      </div>
+                </div>
+                <div class="container">
+                    <div class="post_type_exist clearfix">
+                        <div class="stm_lms_courses_wrapper">
+                            <div class="courses_filters">
+                                <div class="courses_filters__title">
+                                    <h1>Cursos</h1>
+                                </div>
+                                <div class="courses_filters__activities">
+                                    <div class="stm_lms_courses_grid__sort"> 
+                                        <span class="sort_label heading_font">Ordenar por:</span> 
+                                        <select class="no-search">
+                                            <option value="date_high">Fecha (Lo más nuevo)</option>
+                                            <option value="date_low">Fecha (Lo mas antiguo)</option>
+                                            <option value="price_high">Precio alto</option>
+                                            <option value="price_low">Precio bajo</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="stm_lms_courses stm_lms_courses__archive">
+                                <div class="stm_lms_courses__grid stm_lms_courses__grid_4 stm_lms_courses__grid_center">
+                                    <?php
+                                    if (count($obj_courses) > 0) {
+                                        foreach ($obj_courses as $value) {
+                                            ?>
+                                            <div class="stm_lms_courses__single stm_lms_courses__single_animation has-sale style_1 ">
+                                                <div class="stm_lms_courses__single__inner">
+                                                    <div class="stm_lms_courses__single--image">
+                                                        <div class="stm_lms_post_status heading_font new"> Nuevo</div>
+                                                        <a href="<?php echo site_url() . "cursos/$value->category_slug/$value->slug"; ?>" class="heading_font" data-preview="Vista Previa del Curso">
+                                                            <div>
+                                                                <div class="stm_lms_lazy_image stm_lms_lazyloaded stm_lms_lazy_image__lazyloaded">
+                                                                    <img data-srcset="<?php echo site_url() . "static/cms/img/cursos/$value->img"; ?> 2x" class="lazyload " data-src="<?php echo site_url() . "static/cms/img/cursos/$value->img"; ?>" width="272" height="161" alt="<?php echo $value->name; ?>" title="<?php echo $value->name; ?>"/>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="stm_lms_courses__single--inner">
+                                                        <div class="stm_lms_courses__single--terms">
+                                                            <div class="stm_lms_courses__single--term"> <?php echo $value->category_name; ?></div>
+                                                        </div>
+                                                        <div class="stm_lms_courses__single--title">
+                                                            <a href="<?php echo site_url() . "cursos/$value->category_slug/$value->slug"; ?>">
+                                                                <h5><?php echo $value->name; ?></h5>
+                                                            </a>
+                                                        </div>
+                                                        <div class="stm_lms_courses__single--meta">
+                                                            <div class="stm_lms_courses__hours"> <i class="stmlms-lms-clocks"></i> <span>6 hours</span></div>
+                                                            <div class="stm_lms_courses__single--price heading_font"> 
+                                                                <span><?php echo $value->price_del; ?></span><strong><?php echo $value->price; ?></strong>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="stm_lms_courses__single--info">
+                                                        <div class="stm_lms_courses__single--info_author">
+                                                            <div class="stm_lms_courses__single--info_author__avatar"> 
+                                                                <img alt="profesor" src="<?php echo site_url() . 'static/page_front/images/profesor.png'; ?>" class="avatar avatar-215 photo" width="215" height="215">
+                                                            </div>
+                                                            <div class="stm_lms_courses__single--info_author__login">Instructor: U-Linex</div>
+                                                        </div>
+                                                        <div class="stm_lms_courses__single--info_title">
+                                                            <a href="<?php echo site_url() . "cursos/$value->category_slug/$value->slug"; ?>">
+                                                                <h4><?php echo strtoupper($value->name); ?></h4>
+                                                            </a>
+                                                        </div>
+                                                        <div class="stm_lms_courses__single--info_excerpt"> 
+        <?php echo corta_texto($value->description, 300); ?>
+                                                        </div>
+                                                        <div class="stm_lms_courses__single--info_meta">
+                                                            <div class="stm_lms_course__meta"> <i class="stmlms-cats"></i> 3 Lecturas</div>
+                                                            <div class="stm_lms_course__meta"> <i class="stmlms-lms-clocks"></i> 12 Horas</div>
+                                                        </div>
+                                                        <div class="stm_lms_courses__single--info_preview"> 
+                                                            <a href="<?php echo site_url() . "cursos/$value->category_slug/$value->slug"; ?>" title="<?php echo $value->name; ?>" class="heading_font"> Vista previa de este curso</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <?php }
+                                    } else {
+                                        ?>
+                                        <div class="stm_lms_courses__single stm_lms_courses__single_animation has-sale style_1 ">
+                                            <h2>No hay Resultados</h2>
+                                        </div>
+<?php } ?>
+
+                                </div>
+                                <div class="text-center">
+                                    <a href="#" class="btn btn-default stm_lms_load_more_courses" data-offset="1" data-template="courses/grid" data-args='{"image_d":"img-480-380","per_row":"4","posts_per_page":"8","class":"archive_grid"}'>
+                                        <span>Cargar Más</span> 
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                  </li>
-            <?php  } ?> 
-        </ul>
-      </div>
-    </aside>
-  </aside>
-  </div>
-  </div>
-  </section>
-  </div>
-  <!--START FOOTER-->
-  <?php $this->load->view("footer");?>  
-  <!--END FOOTER-->
-  </div>
-  <div id="back-to-top"><i class="fa fa-angle-up" aria-hidden=true></i></div>
-    <div class="gallery-slider-content"></div>
-      <script src=https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js></script>
-      <script>
-        WebFont.load({google:{families:['Roboto:400,300']}});
-      </script>
-      <script defer src="<?php echo site_url().'static/page_front/js/autoptimize_282.js';?>"></script>
-      <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
-      <script src="<?php echo site_url().'static/page_front/js/modalEffects.js';?>"></script>
-        <script src="<?php echo site_url().'static/page_front/js/classie.js';?>"></script>
-</body>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+<?php $this->load->view("footer"); ?>
+        <script defer src="<?php echo site_url() . 'static/page_front/js/autoptimize_775c.js'; ?>"></script>
+    </body>
 </html>

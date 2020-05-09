@@ -38,7 +38,7 @@
 |
 */
 
-$route['default_controller'] = "home";
+$route['default_controller'] = "welcome";
 $route['404_override'] = 'errors/error_404';
 
 $route['home'] = 'home';
@@ -51,7 +51,7 @@ $route['delete_cart'] = 'home/delete_cart';
 
 $route['mensaje'] = 'home/mensaje';
 
-$route['login'] = 'login';
+$route['iniciar-sesion'] = 'login';
 $route['recuperar_contrasena'] = 'forget';
 
 $route['cursos'] = 'courses';

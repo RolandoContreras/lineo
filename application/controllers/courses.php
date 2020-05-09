@@ -258,7 +258,7 @@ class Courses extends CI_Controller {
                                         category.name as category_name,
                                         category.slug as category_slug",
                             "join" => array( 'category, courses.category_id = category.category_id'),
-                            "where" => "category.slug = '$slug' and courses.course_id <> $course_id",
+                            "where" => "category.slug = '$slug' and courses.course_id <> $course_id and courses.active = 1",
                             "order" => "RAND()",
                             "limit" => "3"
                 );

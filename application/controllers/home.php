@@ -9,9 +9,6 @@ class Home extends CI_Controller {
             $this->load->model("customer_model","obj_customer");
             $this->load->model("videos_model","obj_videos");
             $this->load->model("paises_model","obj_paises");
-            $this->load->model("invoices_model","obj_invoices");
-            $this->load->model("customer_courses_model","obj_customer_courses");
-            $this->load->model("info_model","obj_info");
             $this->load->library('culqi');
     }   
         
@@ -34,22 +31,6 @@ class Home extends CI_Controller {
 	{
             //get category
             $data['obj_category'] = $this->nav_category();
-            
-            $params_course_principal = array(
-                                    "select" =>"courses.course_id,
-                                                courses.category_id,
-                                                courses.name,
-                                                courses.slug,
-                                                courses.img2,
-                                                courses.description,
-                                                category.name as category_name,
-                                                category.slug as category_slug",
-                                    "join" => array( 'category, courses.category_id = category.category_id'),
-                                    "where" => "courses.active = 1",
-                                    "order" => "courses.course_id ASC",
-                                );  
-            $data['obj_courses_principal'] = $this->obj_courses->get_search_row($params_course_principal);
-            $course_id = $data['obj_courses_principal']->course_id;
             //set para home
             $params_course = array(
                                     "select" =>"courses.course_id,
@@ -59,6 +40,7 @@ class Home extends CI_Controller {
                                                 courses.img,
                                                 courses.price,
                                                 courses.price_del,
+                                                courses.description,
                                                 category.name as category_name,
                                                 category.slug as category_slug",
                                     "join" => array( 'category, courses.category_id = category.category_id'),
@@ -121,107 +103,25 @@ class Home extends CI_Controller {
 	{
             //get category
             $data['obj_category'] = $this->nav_category();
+            //Select params
             $data['obj_paises'] = $this->list_pais();
             $data['title'] = "Finalizar Compra";
-            
             if($this->cart->contents() != null){
-                $this->load->view('pay_home', $data);
+                $this->load->view('login_pay', $data);
             }else{
-                redirect(site_url()."cursos");
+                redirect(site_url());
             }
 	}
         
-        public function active_course(){
-        //ACTIVE CUSTOMER NORMALY
-         try {
-           //UPDATED SET TIME ZONE
-           date_default_timezone_set('America/Lima');
-           //obtener datos del cliente
-           $name =  $this->input->post('name');
-           $last_name =  $this->input->post('last_name');
-           $email2 =  $this->input->post('email2');
-           $phone =  $this->input->post('phone');
-           $password =  $this->input->post('password');
-           $pais =  $this->input->post('pais');
-           $price_cart =  $this->cart->format_number($this->cart->total());
-           $price =  $this->input->post('price');
-           $token = $this->input->post('token');
-           $email = $this->input->post('email');
-           
-           $nombre_completo = $name." ".$last_name;  
-            //HACER LA CARGA A CULQI
-            $charge = $this->culqi->charge($token,$price,$email,$nombre_completo);
-               //crear usuario
-               $data = array(
-                        'name' => $name,
-                        'last_name' => $last_name,
-                        'email' => $email2,
-                        'password' => $password,
-                        'phone' => $phone,
-                        'country' => $pais,
-                        'date' => date("Y-m-d H:i:s"),
-                        'active' => 1,
-                    );
-                    $customer_id = $this->obj_customer->insert($data);
-                    //enviar mensaje de bievenida
-                    $this->message($name, $email2, $password);
-               $price_cart = explode(".", $price_cart);
-               $price = $price_cart[0];
-               $price= quitar_coma_number($price); 
-               //INSERT INVOICE
-                $option = "";
-                foreach ($this->cart->contents() as $items) {
-                    //CREATE INVOICE
-                    $data_invoice = array(
-                        'customer_id' => $customer_id,
-                        'course_id' => $items['id'],
-                        'sub_total' => $items['price'],
-                        'igv' => 0,
-                        'total' => $items['price'],
-                        'date' => date("Y-m-d H:i:s"),
-                        'active' => 2,
-                    );
-                    $invoice_id = $this->obj_invoices->insert($data_invoice);
-                    $course_id = $items['id'];
-                    $params = array(
-                        "select" =>"duration",
-                        "where" => "course_id = $course_id",
-                        );
-                    //GET DATA COMMENTS
-                     $obj_courses = $this->obj_courses->get_search_row($params);
-                    //CREATE CUSTOMER COURSE
-                    $duration = $obj_courses->duration==null?0:$obj_courses->duration;
-                    //obtener día de hoy
-                    $today = date("Y-m-d");
-                    //sumar el tiempo de duración
-                    $today_curso =  date("Y-m-d",strtotime($today."+ $duration days"));
-                    $data = array(
-                        'customer_id' => $customer_id,
-                        'course_id' => $items['id'],
-                        'date_start' => date("Y-m-d H:i:s"),
-                        'duration_time' => $today_curso,
-                    );
-                    $this->obj_customer_courses->insert($data);
-                }   
-                 //create session
-                    $data_customer_session['customer_id'] = $customer_id;
-                    $data_customer_session['name'] = $name;
-                    $data_customer_session['email'] = $email;
-                    $data_customer_session['img'] = "";
-                    $data_customer_session['active'] = 1;
-                    $data_customer_session['logged_customer'] = "TRUE";
-                    $_SESSION['customer'] = $data_customer_session; 
-               //DESTROY CART
-               $this->cart->destroy();
-               // Respuesta
-               $data['status'] = "true";
-               echo json_encode($charge);
-        } catch (Exception $e) {
-            $data['status'] = "false";
-            echo json_encode($e->getMessage());
+        public function list_pais() {
+            //Select params
+            $params = array(
+                "select" => "id, nombre",
+                "where" => "id_idioma = 7");
+            $obj_paises = $this->obj_paises->search($params);
+            return $obj_paises;
         }
-    }
-    
+        
         public function delete_cart() {
             if($this->input->is_ajax_request()){   
                 //obtener id de cart
@@ -313,14 +213,5 @@ class Home extends CI_Controller {
             );
             //GET DATA COMMENTS
             return $obj_category = $this->obj_category->search($params_category);
-        }
-        
-        public function list_pais() {
-            //Select params
-            $params = array(
-                "select" => "id, nombre",
-                "where" => "id_idioma = 7");
-            $obj_paises = $this->obj_paises->search($params);
-            return $obj_paises;
         }
 }

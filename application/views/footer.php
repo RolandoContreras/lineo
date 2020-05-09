@@ -1,196 +1,77 @@
-<footer id=colophon class="site-footer dark style_old">
-    <div class="footer no-footer-sticky ">
-        <div class=container>
-            <div class="row footer-columns footer-sidebars">
-                <div class="footer-col footer-col5 col-xs-12 col-md-3">
-                    <aside id=text-3 class="widget widget_text">
-                        <div class=textwidget>
-                            <p>
-                                <img class="wp-image-4261 size-full alignnone" src="<?php echo site_url() . 'static/page_front/images/logo/logo.png'; ?>" alt width="131" height="45">
-                            </p>
-                            <p>Únete a cientos de personas que están haciendo sus vidas diferentes. Aprovecha de todos los beneficios que tenemos para ti.</p>
+    <footer id="footer">
+            <div class="footer_wrapper">
+                <div id="footer_bottom">
+                    <div class="footer_widgets_wrapper kek text-normal">
+                        <div class="container">
+                            <div class="widgets cols_4 clearfix">
+                                <aside id="stm_text-2" class="widget stm_wp_widget_text">
+                                    <div class="widget_title">
+                                        <h3>Nosotros</h3>
+                                    </div>
+                                    <div class="textwidget">
+                                        <p><a href="<?php echo site_url();?>"> U-linex.</a> Únete a cientos de personas que están haciendo sus vidas diferentes. Aprovecha de todos los beneficios que tenemos para ti..<br /><br /> desarrollado por <a href="https://evolucionweb.tech">Evolucion Web</a>.</p>
+                                    </div>
+                                    <div class="socials_widget_wrapper socials_widget_wrapper__text"> 
+                                        <a href='https://www.facebook.com/U-linex-103662281176014/' target='_blank'><i class='fab fa-facebook'></i></a>
+                                        <a href='javascript:void(0);'><i class='fab fa-twitter'></i></a> 
+                                        <a href='javascript:void(0);'><i class='fab fa-instagram'></i></a>
+                                        <a href='javascript:void(0);'><i class='fab fa-youtube'></i></a>
+                                    </div>
+                                        
+                                </aside>
+                                
+                                <aside id="stm_pages-2" class="widget widget_pages">
+                                    <div class="widget_title">
+                                        <h3>Páginas</h3>
+                                    </div>
+                                    <ul class="style_2">
+                                        <li class="page_item page-item-664">
+                                            <a href="<?php echo site_url();?>"><span class="h6">Inicio</span></a>
+                                        </li>
+                                        <li class="page_item page-item-2 current_page_item">
+                                            <a href="<?php echo site_url().'cursos';?>" aria-current="page"><span class="h6">Cursos</span></a>
+                                        </li>
+                                        <li class="page_item page-item-667">
+                                            <a href="<?php echo site_url().'registro';?>"><span class="h6">Registro</span></a>
+                                        </li>
+                                        <li class="page_item page-item-667">
+                                            <a href="<?php echo site_url().'iniciar-sesion';?>"><span class="h6">Iniciar Sesión</span></a>
+                                        </li>
+                                        <li class="page_item page-item-669">
+                                            <a href="<?php echo site_url();?>"><span class="h6">Contacto</span></a>
+                                        </li>
+                                    </ul>
+                                </aside>
+                                <aside id="stm_pages-2" class="widget widget_pages">
+                                    <div class="widget_title">
+                                        <h3>Categórias</h3>
+                                    </div>
+                                    <ul class="style_2">
+                                        <?php 
+                                        foreach ($obj_category as $value) { ?>
+                                            <li class="page_item page-item-664">
+                                                <a href="<?php echo site_url()."cursos/$value->slug";?>"><span class="h6"><?php echo $value->name;?></span></a>
+                                            </li>
+                                        <?php } ?>
+                                        
+                                    </ul>
+                                </aside>
+                                <aside id="contacts-2" class="widget widget_contacts">
+                                    <div class="widget_title">
+                                        <h3>Contrato</h3>
+                                    </div>
+                                    <ul class="style_2">
+                                        <li class="page_item page-item-664">
+                                                <a href="<?php echo site_url().'terminos-condiciones';?>"><span class="h6">Términos y condiciones</span></a>
+                                        </li>
+                                        <li class="page_item page-item-2 current_page_item">
+                                            <a href="<?php echo site_url().'politica-privacidad';?>"><span class="h6">Política De Privacidad Y Cookies</span></a>
+                                        </li>
+                                    </ul>
+                                </aside>
+                            </div>
                         </div>
-                    </aside>
-                </div>
-                <div class="footer-col footer-col5 col-xs-12 col-md-2">
-                    <aside id=nav_menu-2 class="widget widget_nav_menu">
-                        <h3 class="widget-title">Contacto</h3>
-                        <div class=menu-company-container>
-                            <ul id=menu-company class=menu>
-                                <li>
-                                    <i class="fa fa-envelope"></i>
-                                    ulinex.corp@gmail.com
-                                </li>
-                                <li>
-                                    <i class="fa fa-phone"></i>+ (51) 969511373
-                                </li>
-                                <li>
-                                    <i class="fa fa-map-marker"></i> No #200 Joseob, Lima.
-                                </li>
-                            </ul>
-                        </div>
-                    </aside>
-                </div>
-                <div class="footer-col footer-col5 col-xs-12 col-md-2">
-                    <aside id=nav_menu-3 class="widget widget_nav_menu">
-                        <h3 class="widget-title">Links</h3>
-                        <div class=menu-links-container>
-                            <ul id=menu-links class=menu>
-                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default">
-                                    <a href="<?php echo site_url(); ?>" class=tc-menu-inner>Inicio</a>
-                                </li>
-                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-19 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default">
-                                    <a href="<?php echo site_url() . 'cursos'; ?>" class=tc-menu-inner>Cursos</a></li>
-                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-21 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default">
-                                    <a href="<?php echo site_url() . 'contacto'; ?>" class=tc-menu-inner>Contacto</a>
-                                </li>
-                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4235 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default">
-                                    <a href="<?php echo site_url() . 'login'; ?>" class=tc-menu-inner>Iniciar Sesión</a>
-                                </li>
-                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4235 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default">
-                                    <a href="<?php echo site_url() . 'registro'; ?>" class=tc-menu-inner>Registro</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </aside>
-                </div>
-                <div class="footer-col footer-col5 col-xs-12 col-md-2">
-                    <aside class="widget widget_nav_menu">
-                        <h3 class="widget-title">Cursos</h3>
-                        <div class=menu-support-container>
-                            <ul class=menu>
-                                <?php foreach ($obj_category as $value) { ?>
-                                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-30 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default">
-                                        <a href="<?php echo site_url() . "cursos/$value->slug"; ?>" class=tc-menu-inner><?php echo $value->name; ?></a>
-                                    </li>
-                                <?php } ?>
-                            </ul>
-                        </div>
-                    </aside>
-                </div>
-                <div class="footer-col footer-col5 col-xs-12 col-md-2">
-                    <aside class="widget widget_nav_menu">
-                        <h3 class="widget-title">Terminos</h3>
-                        <div class=menu-support-container>
-                            <ul class=menu>
-                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-30 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default">
-                                    <a href="<?php echo site_url() . 'terminos-condiciones'; ?>" class=tc-menu-inner>Términos y condiciones</a>
-                                </li>
-                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default">
-                                    <a href="<?php echo site_url() . 'politica-privacidad'; ?>" class=tc-menu-inner>Política De Privacidad Y Cookies</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </aside>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="copyright-area no-footer-sticky ">
-        <div class=container>
-            <div class=copyright-content>
-                <div class=row>
-                    <div class=col-sm-6>
-                        <div class=copyright-text>Construido por <a href="http://evolucionweb.tech/" target="_blank">Evolución</a><img src="<?php echo site_url() . 'static/page_front/images/logo/evolucion_logo.png'; ?>" alt="evolucion logo" width="80"/></div>
-                    </div>
-                    <div class="col-sm-6 text-right">
-                        <ul id=copyright-menu class=list-inline>
-                            <li id=menu-item-16 class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default">
-                                <a href="https://www.facebook.com/U-linex-103662281176014/" target="_blank" class=tc-menu-inner>Facebook</a></li>
-                            <li id=menu-item-4232 class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4232 tc-menu-item tc-menu-depth-0 tc-menu-align-left tc-menu-layout-default">
-                                <a href="https://www.youtube.com" class=tc-menu-inner>Youtube</a></li>
-                        </ul>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</footer>
-<!-- Load Facebook SDK for JavaScript -->
-<!--      <div id="fb-root"></div>
-      <script>
-        window.fbAsyncInit = function() {
-          FB.init({
-            xfbml            : true,
-            version          : 'v6.0'
-          });
-        };
-
-        (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
-        fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));</script>-->
-
-      <!-- Your customer chat code -->
-      <div class="fb-customerchat"
-        attribution=setup_tool
-        page_id="103662281176014"
-  logged_in_greeting="Gracias por comunicarte con nosotros, ¿en qué podemos ayudarte?"
-  logged_out_greeting="Gracias por comunicarte con nosotros, ¿en qué podemos ayudarte?">
-      </div>
-<div class="md-modal md-effect-1" id="modal-1">
-    <div class="md-content">
-        <h3 class="theme-bg3 font-size-20 text-center">NÚMEROS DE CUENTA <span class="md-close float-right cursor-pointer"><i class="fa fa-times" aria-hidden="true"></i></span></h3>
-        <div class="table-responsive">
-            <table class="table table-hover">
-                <tbody>
-                    <tr class="unread">
-                        <td style="vertical-align: middle"><img style="width:100px;" src="<?php echo site_url() . 'static/page_front/images/bbva.png'; ?>" alt="banco bbva"></td>
-                        <td>
-                            <p class="font-size-14"><b>Banco BBVA Soles</b><br/>0011-08140203563596</p>
-                        </td>
-                    </tr>
-                    <tr class="unread">
-                        <td style="vertical-align: middle"><img style="width:100px;" src="<?php echo site_url() . 'static/page_front/images/interbank_logo.png'; ?>" alt="bnaco interbank"></td>
-                        <td>
-                            <p class="font-size-14"><b>Banco Interbank Soles</b><br/>898-3164236422</p>
-                        </td>
-                    </tr>
-                    <tr class="unread">
-                        <td style="vertical-align: middle"><img style="width:100px;" src="<?php echo site_url() . 'static/page_front/images/bcp_logo.png'; ?>" alt="bnaco interbank"></td>
-                        <td>
-                            <p class="font-size-14"><b>Banco de Crédito Soles</b><br/>22094464852042</p>
-                        </td>
-                    </tr>
-                    <tr class="unread">
-                        <td style="vertical-align: middle"><img style="width:100px;" src="<?php echo site_url() . 'static/page_front/images/falabella.png'; ?>" alt="bnaco interbank"></td>
-                        <td>
-                            <p class="font-size-14"><b>Banco Falabella Soles</b><br/>8082800083937</p>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <p class="font-size-14 text-center"><b>A nombre de: EFRAIN JONATAN MONTERO LAURA</b></p>
-        </div>
-        <h3 class="theme-bg3 font-size-15">PROCESO DE INSCRIPCIÓN</h3>
-        <div class="col-md-12 col-xl-12">
-            <center>
-                <div class="row card-active ">
-                    <div class="col-md-6 col-6">
-                        <div class="boton-1 ">PASO 1</div>
-                        <span class="font-size-14">Enviar voucher de pago <br/>al número de cuenta.</span>
-                    </div>
-                    <div class="col-md-6 col-6">
-                        <div class="boton-2">PASO 2</div>
-                        <span class="font-size-14">Ingresa tus datos en el <br/>formulario de registro</span>
-                    </div>
-                </div>
-                <br/>
-                <div class="row card-active">
-                    <div class="col-md-6 col-6">
-                        <div class="boton-3">PASO 3</div>
-                        <span class="font-size-14">Luego de 30 minutos tendrás <br/>tu ingreso</span>
-                    </div>
-                    <div class="col-md-6 col-6">
-                        <div class="boton-4">PASO 4</div>
-                        <span class="font-size-14">Inicia sesión en <br/><a href="https://u-linex.com/login">https://u-linex.com/login</a></span>
-                    </div>
-                </div>
-            </center>
-        </div>
-    </div>
-</div>
-</div>
+        </footer>

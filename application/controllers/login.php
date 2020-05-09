@@ -93,7 +93,6 @@ class Login extends CI_Controller {
             }else{
                    $data['status'] = "false";
             }
-            
             echo json_encode($data); 
             exit(); 
     }

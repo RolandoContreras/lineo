@@ -41,7 +41,6 @@ class Register extends CI_Controller {
             if ($this->input->is_ajax_request()) {
             //SET TIMEZONE AMERICA
             date_default_timezone_set('America/Lima');
-            //get data
             //VALIDATE USERNAME
             $email = $this->input->post("email");
             $result = $this->validate_username_register($email);
@@ -82,7 +81,7 @@ class Register extends CI_Controller {
                     }else{
                         $data['status'] = "success";
                     }
-                    $this->message($name, $email, $pass);
+//                    $this->message($name, $email, $pass);
             }
             //CREAR NUEVA SECION 
             echo json_encode($data);

@@ -1,22 +1,22 @@
 function register(){
     var email = document.getElementById("email").value;
-    var pass = document.getElementById("user_pass").value;
+    var pass = document.getElementById("password").value;
     var name = document.getElementById("name").value;
     var last_name = document.getElementById("last_name").value;
     var phone = document.getElementById("phone").value;
     var country = document.getElementById("country").value;
     //GET DATA RECAPTCHA
-    var response = grecaptcha.getResponse();
-        if(response.length == 0){
-            $("#mensaje").html();
-             var texto = "";
-             texto = texto+'<center>';
-             texto = texto+'<div class="alert alert-danger">';
-             texto = texto+'<p>Captcha no validado</p>';
-             texto = texto+'</div>';                 
-             texto = texto+'</center>';
-             $("#mensaje").html(texto);
-    }else{
+//    var response = grecaptcha.getResponse();
+//        if(response.length == 0){
+//            $("#mensaje").html();
+//             var texto = "";
+//             texto = texto+'<center>';
+//             texto = texto+'<div class="alert alert-danger">';
+//             texto = texto+'<p>Captcha no validado</p>';
+//             texto = texto+'</div>';                 
+//             texto = texto+'</center>';
+//             $("#mensaje").html(texto);
+//    }else{
         //validate
         if(name == ""){
             $("#mensaje").html();
@@ -94,15 +94,34 @@ function register(){
                                 country : country},
                         success:function(data){
                             if(data.status == "email"){
-                                swal("E-mail ya fue registrado", "", "error");
+                                Swal.fire({
+                                  icon: 'error',
+                                  title: 'El Email ya fue registrado',
+                                  footer: 'Ingrese otro Email'
+                                });
                                  $("#email").focus();
                             }else if(data.status == "success2"){
-                                 swal("Registro Creado", "", "success");
-                                 location.href = site + "backoffice/pay_order";
+                                 Swal.fire({
+                                      position: 'top-end',
+                                      icon: 'success',
+                                      title: 'Registro Creado',
+                                      showConfirmButton: false,
+                                      timer: 1500
+                                    });
+                                window.setTimeout( function(){
+                                     window.location = site+"backoffice";
+                                 }, 1500 ); 
                              }else{
-                                 swal("Registro Creado", "", "success");
-                                 $("#mensaje").html(texto);
-                                 location.href = site + "backoffice";
+                                 Swal.fire({
+                                      position: 'top-end',
+                                      icon: 'success',
+                                      title: 'Registro Creado',
+                                      showConfirmButton: false,
+                                      timer: 1500
+                                    });
+                                window.setTimeout( function(){
+                                     window.location = site+"backoffice";
+                                 }, 1500 ); 
                             }
                         }         
                       }); 
@@ -111,7 +130,7 @@ function register(){
                 $("#email").focus();
             }
         }
-    }
+//    }
 }
 
 function validar_email( email ){

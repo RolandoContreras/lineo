@@ -1,111 +1,86 @@
 <!DOCTYPE html>
-<html lang="es">
-    <?php $this->load->view("head"); ?>
-    <body class="home-page bp-legacy home page-template page-template-templates page-template-home-page page-template-templateshome-page-php page page-id-36 wp-embed-responsive theme-wordpress-lms pmpro-body-has-access woocommerce-no-js pagetitle-show bg-type-color thim-body-visual-composer responsive box-shadow auto-login ltr home1-section learnpress-v3 header-template-default wpb-js-composer js-comp-ver-6.0.5 vc_responsive no-js">
-        <div id=thim-preloading>
-            <div class=thim-loading-icon>
-                <div class=sk-chasing-dots>
-                    <div class="sk-child sk-dot1"></div>
-                    <div class="sk-child sk-dot2"></div>
+<html lang="en-US" class="no-js">
+    <?php $this->load->view("head") ?>
+    <body class="page-template-default page page-id-2 stm_lms_button pmpro-body-has-access skin_custom_color online-light stm_preloader_1 wpb-js-composer js-comp-ver-5.6 vc_responsive" ontouchstart="">
+        <div id="wrapper">
+            <?php $this->load->view("header") ?>
+            <div id="main">
+                <div class="stm_lms_breadcrumbs stm_lms_breadcrumbs__header_2">
+                    <div class="breadcrumbs_holder"></div>
                 </div>
-            </div>
-        </div>
-        <div id=wrapper-container class="content-pusher creative-left bg-type-color">
-            <div class=overlay-close-menu></div>
-            <?php $this->load->view("header"); ?> 
-            <?php $this->load->view("nav"); ?>
-            <div id="main-content">
-                <div id=home-main-content class="home-content home-page container" role=main>
-                    <div data-vc-full-width=true data-vc-full-width-init=false class="vc_row wpb_row vc_row-fluid home1-skills vc_custom_1528682589403 thim-background-overlay thim-bg-advance-overlay overlay-position-br vc_row-has-fill">
-                        <div class=overlay style="background-color: rgba(12,12,12,0.6)"></div>
-                        <div class="advance-overlay thim_svg_5df6fd15bdaf6 br">
-                            <svg class=svg-overlay viewBox="0 0 1903 633" preserveAspectRatio=xMinYMin>
-                            <rect clip-path=url(#thim_svg_5df6fd15bdaf6) class=svg-background width=1903 height=633 fill=#ffffff />
-                            <image clip-path=url(#thim_svg_5df6fd15bdaf6) class=svg-image x=1301 y width=602 height=406 xlink:href="<?php echo site_url() . 'static/page_front/images/overlay-1.jpg'; ?>"/>
-                            </svg>
-                            <svg class=svg-clip-path>
-                            <defs>
-                            <clipPath id="thim_svg_5df6fd15bdaf6">
-                                <polygon points="1903 1903, 0 1903, 0 379, 1903 0" />
-                            </clipPath>
-                            </defs>
-                            </svg>
-                        </div>
-                        <div class=vc_empty_space style="height: 155px"><span class=vc_empty_space_inner></span></div>
-                        <div class="wpb_column vc_column_container vc_col-sm-12">
-                            <div class=vc_column-inner>
-                                <div class=wpb_wrapper>
-                                    <div class="wpb_text_column wpb_content_element thim-textbox-header">
-                                        <div class=wpb_wrapper>
-                                            <h3 style="text-align: center;">La mejor plataforma de aprendizaje</h3>
-                                            <p style="text-align: center;">Nos enorgullecemos de proporcionar el contenido más actualizado para que nuestros estudiantes aprendan cada curso.</p>
+                <div class="container">
+                    <div class="post_type_exist clearfix">
+                        <div data-vc-full-width="true" data-vc-full-width-init="true" class="vc_row wpb_row vc_row-fluid vc_custom_1534238310373 aed6bbdbcfb88221d9cb9b85256190b1e vc_row-has-fill row-has-animation" style="background-position: 95% 90% !important; position: relative; left: -351.5px; box-sizing: border-box; width: 1903px; padding-left: 351.5px; padding-right: 351.5px;">
+                            <div class="stm_lms_row_animation"> 
+                                <img src="<?php echo site_url().'static/page_front/images/animation/base.png';?>">              
+                                <img class="book1" src="<?php echo site_url().'static/page_front/images/animation/book1.png';?>">              
+                                <img class="book2" src="<?php echo site_url().'static/page_front/images/animation/book2.png';?>">              
+                                <img class="bubblespeech" src="<?php echo site_url().'static/page_front/images/animation/bubblespeech.png';?>">              
+                                <img class="magnifier" src="<?php echo site_url().'static/page_front/images/animation/magnifier.png';?>">              
+                                <img class="moon" src="<?php echo site_url().'static/page_front/images/animation/moon.png';?>">
+                            </div>
+                            <div
+                                class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-7 vc_col-md-5">
+                                <div class="vc_column-inner">
+                                    <div class="wpb_wrapper">
+                                        <div class="aadf880d5c8986bd0deb6423c92c9d948 vc_empty_space" style="height: 140px"><span class="vc_empty_space_inner"></span></div>
+                                        <div class="vc_custom_heading">
+                                            <h1 style="font-size: 64px;line-height: 70px;text-align: left">Tu plataforma de Educación Online.</h1>
+                                        </div>
+                                        <div class="vc_custom_heading vc_custom_1535366613275">
+                                            <h3 style="text-align: left">Un sistema probado y utilizando en los países más desarrollados.</h3>
+                                        </div>
+                                        <div class="vc_btn3-container vc_btn3-inline"> 
+                                            <a class="btn btn-default lg" href="<?php echo site_url().'iniciar-sesion';?>" title="">Ver Plataforma</a>
+                                        </div>
+                                        <div class="aa3e9b2585d5e7d5f6c929d0beab1846e vc_empty_space" style="height: 75px"> 
+                                            <span class="vc_empty_space_inner"></span>
                                         </div>
                                     </div>
-                                    <div class="thim-sc-skills-bar text-center">
-                                        <div class="circle" data-value="100" data-color=#aaa data-emptyfill=#ffffff>
-                                            <p class="number" style=color:#ffffff> 20</p>
-                                            <p class="title" style=color:#ffffff>Diplomado BIM</p>
-                                            <p class="sub-title" style=color:#ffffff>Curso</p>
-                                        </div>
-                                        <div class=circle data-value="100" data-color=#ecd06f data-emptyfill=#857f6d>
-                                            <p class="number" style=color:#ffffff> 30</p>
-                                            <p class="title" style=color:#ecd06f>Autocad 2D</p>
-                                            <p class="sub-title" style=color:#ffffff>Curso</p>
-                                        </div>
-                                        <div class="circle" data-value="100" data-color=#3c948b data-emptyfill=#36372f>
-                                            <p class="number" style=color:#ffffff></p>
-                                            <p class="title" style=color:#3c948b>Archicad</p>
-                                            <p class="sub-title" style=color:#ffffff>Curso</p>
-                                        </div>
-                                        <div class="circle" data-value="100" data-color=#18c1f0 data-emptyfill=#515a4a>
-                                            <p class="number" style=color:#ffffff> 20</p>
-                                            <p class="title" style=color:#18c1f0>Lumion</p>
-                                            <p class="sub-title" style=color:#ffffff>Curso</p>
-                                        </div>
-                                        <div class="circle" data-value="100" data-color=#df6c4f data-emptyfill=#664533>
-                                            <p class="number" style=color:#ffffff> 20</p>
-                                            <p class="title" style=color:#df6c4f>Revit Arquitectura</p>
-                                            <p class="sub-title" style=color:#ffffff>Curso</p>
-                                        </div>  
-                                        <div>
-                                        </div>
-                                    </div>
-                                    <div class="thim-sc-button hide-separator center">
-                                        <a href="javascript:void(0);" class="md-trigger btn btn-secondary btn-md shadow" data-modal="modal-2">
-                                            <span>SOLICITA MÁS INFORMACIÓN</span>
-                                        </a>
-                                    </div>
-                                    <div
-                                        class=vc_empty_space style="height: 55px"><span class=vc_empty_space_inner></span></div>
-                                    <div class="thim-sc-heading text-center default custom-medium">
-                                        <div class=heading-content>
-                                            <div class="border border-top"></div>
-                                            <img  width="150" src="<?php echo site_url() . 'static/page_front/images/logo/separate.png'; ?>" alt="separator">
-                                            <div
-                                                class="border border-bottom"></div>
-                                            <h3 class="primary-heading">El mejor lugar para prepararte para el futuro</h3>
-                                        </div>
-                                    </div>
-                                    <div class=vc_empty_space style="height: 50px"><span class=vc_empty_space_inner></span></div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="vc_row-full-width vc_clearfix"></div>
-                    <div class="vc_row wpb_row vc_row-fluid vc_column-gap-10">
-                        <div class="wpb_column vc_column_container vc_col-sm-4">
-                            <div class=vc_column-inner>
-                                <div class=wpb_wrapper>
-                                    <div class="thim-sc-icon-box layout-1 default">
-                                        <div class=icon-box-wrapper style>
-                                            <div class=box-icon>
-                                                <i class="fa fa-trophy fa-4x color_template" aria-hidden="true"></i>
+                        <div class="vc_row-full-width vc_clearfix"></div>
+                        <div class="vc_row wpb_row vc_row-fluid">
+                            <div class="wpb_column vc_column_container vc_col-sm-4">
+                                <div class="vc_column-inner">
+                                    <div class="wpb_wrapper">
+                                        <div class="icon_box vc_custom_1535366761423 stm_icon_box_hover_top standart module__f3eac30ffcdce927d15c39838e8e910f clearfix">
+                                            <div class="icon_alignment_center">
+                                                <div class="icon"> <i class="stmlms-world"></i></div>
+                                                <div class="icon_text">
+                                                    <h4 style="color:#273044">Reconocido a nivel mundial</h4>
+                                                    <p>Las plataformas de educación virtual hoy en día son usadas por institutos y universidades de prestigios.</p>
+                                                </div>
                                             </div>
-                                            <div
-                                                class=box-content>
-                                                <h3 class="title">APRENDIZAJE INNOVADOR</h3>
-                                                <div class=description>
-                                                    <p>Plataforma dedicada a la mejor experiencia en el aprendizaje.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="wpb_column vc_column_container vc_col-sm-4">
+                                <div class="vc_column-inner">
+                                    <div class="wpb_wrapper">
+                                        <div class="icon_box vc_custom_1535366769840 stm_icon_box_hover_top standart module__df9ceca0e8527971a2077ab928c0fe8f clearfix">
+                                            <div class="icon_alignment_center">
+                                                <div class="icon"> <i class="stmlms-screen"></i></div>
+                                                <div class="icon_text">
+                                                    <h4 style="color:#273044"> Aprendizaje desde tu casa</h4>
+                                                    <p>No necesitas salir de tu comodidad, tendrás acceso a todos tus cursos desde tu hogar todos los días del año.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="wpb_column vc_column_container vc_col-sm-4">
+                                <div class="vc_column-inner">
+                                    <div class="wpb_wrapper">
+                                        <div class="icon_box vc_custom_1535366786219 stm_icon_box_hover_top standart module__8c3033ebf56b4b964392037df86f8ff0 clearfix">
+                                            <div class="icon_alignment_center">
+                                                <div class="icon"> <i class="stmlms-calendar"></i></div>
+                                                <div class="icon_text">
+                                                    <h4 style="color:#273044"> Sé un experto en pocos meses</h4>
+                                                    <p>La metodología usada garantiza un aprendizaje rápido. Los cursos se quedan grabados para seguir estudiándolos.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -113,313 +88,242 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="wpb_column vc_column_container vc_col-sm-4">
-                            <div class=vc_column-inner>
-                                <div class=wpb_wrapper>
-                                    <div class="thim-sc-icon-box layout-1 default">
-                                        <div class=icon-box-wrapper style>
-                                            <div class=box-icon>
-                                                <i class="fa fa-star fa-4x color_template" aria-hidden="true" ></i>
-                                            </div>
-                                            <div
-                                                class=box-content>
-                                                <h3 class="title">CURSOS MÁS COTIZADOS</h3>
-                                                <div class=description>
-                                                    <p>Tenemos los cursos más demandados del mercado.</p>
+<!--                        <div class="vc_row wpb_row vc_row-fluid">
+                            <div class="wpb_column vc_column_container vc_col-sm-12">
+                                <div class="vc_column-inner">
+                                    <div class="wpb_wrapper">
+                                        <div class="a2c5ceba221e03c7fc582a1bda68d77b4 vc_empty_space" style="height: 77px"> <span class="vc_empty_space_inner"></span></div>
+                                        <div class="stm_lms_courses_categories style_1">
+                                            <?php foreach ($obj_category as $value) { ?>
+                                                <div class="stm_lms_courses_category stm_lms_courses_category__1 stm_lms_courses_category_default">
+                                                    <a href="<?php echo site_url() . "cursos/$value->slug" ?>" title="<?php echo $value->name; ?>" class="no_deco default">
+                                                        <div class="stm_lms_courses_category__image">
+                                                            <div class="stm_lms_lazy_image stm_lms_lazyloaded stm_lms_lazy_image__lazyloaded">
+                                                                <img data-srcset="<?php echo site_url() . "assets/cms/img/categorias/$value->img"; ?> 2x" class=" lazyloaded" data-src="<?php echo site_url() . "assets/cms/img/categorias/$value->img"; ?>" alt="cat_2" title="cat_2" srcset="<?php echo site_url() . "assets/cms/img/categorias/$value->img"; ?> 2x" src="<?php echo site_url() . "assets/cms/img/categorias/$value->img"; ?>" width="370" height="155">
+                                                            </div>
+                                                        </div>
+                                                        <div class="stm_lms_courses_category__info">
+                                                            <h4><?php echo $value->name; ?></h4> <span>8 Courses</span></div>
+                                                    </a>
                                                 </div>
-                                            </div>
+                                            <?php } ?>
                                         </div>
+                                        <div class="a77ebfd36b5a39b7e350e246ec22bf799 vc_empty_space" style="height: 50px"> <span class="vc_empty_space_inner"></span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>-->
+                        <div data-vc-full-width="true" data-vc-full-width-init="true" class="vc_row wpb_row vc_row-fluid vc_custom_1536053689227 aa5c78e661a071cc8ef558ce0a5313b4c vc_row-has-fill"
+                             style="background-position: 10% 20% !important; position: relative; left: -351.5px; box-sizing: border-box; width: 1903px; padding-left: 351.5px; padding-right: 351.5px;">
+                            <div class="wpb_column vc_column_container vc_col-sm-8 vc_col-lg-6 vc_col-md-6 vc_col-xs-12">
+                                <div class="vc_column-inner">
+                                    <div class="wpb_wrapper">
+                                        <div class="a11cba70e4710584340f5e5e7c0bb7f30 vc_empty_space" style="height: 98px"> <span class="vc_empty_space_inner"></span></div>
+                                        <div class="vc_custom_heading">
+                                            <h2 style="font-size: 50px;line-height: 60px;text-align: left">Aprendizaje ilimitado, más posibilidades.</h2>
+                                        </div>
+                                        <div class="vc_custom_heading vc_custom_1535368101130">
+                                            <h3 style="text-align: left">Los cursos en línea abren la oportunidad de aprender a cualquier persona, independientemente del horario muy ocupado que atender.</h3>
+                                        </div>
+                                        <div class="vc_btn3-container vc_btn3-inline"> 
+                                            <a class="btn btn-default lg" href="<?php echo site_url() . 'contacto'; ?>" title="Contacto">Contactar</a>
+                                        </div>
+                                        <div class="a7bb2857e4f42561a3ef743780f2aaab6 vc_empty_space" style="height: 89px"><span class="vc_empty_space_inner"></span></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="wpb_column vc_column_container vc_col-sm-4">
-                            <div class=vc_column-inner>
-                                <div class=wpb_wrapper>
-                                    <div class="thim-sc-icon-box layout-1 default">
-                                        <div class=icon-box-wrapper style>
-                                            <div class=box-icon>
-                                                <i class="fa fa-headphones fa-4x color_template" aria-hidden="true"></i>
-                                            </div>
-                                            <div
-                                                class=box-content>
-                                                <h3 class="title">ACCESO 24/7</h3>
-                                                <div class=description>
-                                                    <p>Accede a tus cursos desde cualquier lugar y en cualquier momento.</p>
-                                                </div>
-                                            </div>
+                        <div class="vc_row-full-width vc_clearfix"></div>
+                        <div data-vc-full-width="true" data-vc-full-width-init="true" data-vc-stretch-content="true" class="vc_row wpb_row vc_row-fluid" style="position: relative; left: -351.5px; box-sizing: border-box; width: 1903px;">
+                            <div class="wpb_column vc_column_container vc_col-sm-12">
+                                <div class="vc_column-inner">
+                                    <div class="wpb_wrapper">
+                                        <div class="vc_custom_heading vc_custom_1531998219169">
+                                            <h2 style="font-size: 50px;line-height: 50px;text-align: center">Nuestros Cursos</h2>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="wpb_column vc_column_container vc_col-sm-12">
-                            <div class=vc_column-inner>
-                                <div class=wpb_wrapper>
-                                    <div class=vc_empty_space style="height: 98px"><span class=vc_empty_space_inner></span></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div data-vc-full-width=true data-vc-full-width-init=false class="vc_row wpb_row vc_row-fluid home1-collection vc_custom_1503631674893 thim-background-overlay thim-bg-advance-overlay overlay-position-bl vc_row-has-fill">
-                        <div class=overlay style="background-color: rgba(12,12,12,0.6)"></div>
-                        <div class="advance-overlay thim_svg_5df6fd15cf8bc bl ">
-                            <svg class=svg-overlay viewBox="0 0 1903 633" preserveAspectRatio=xMinYMin>
-                            <rect clip-path=url(#thim_svg_5df6fd15cf8bc) class=svg-background width=1903 height=633 fill=#ffffff />
-                            <image clip-path=url(#thim_svg_5df6fd15cf8bc) class=svg-image x y width=305 height=401 xlink:href="<?php echo site_url() . 'static/page_front/images/layer-148.png'; ?>"/>
-                            </svg>
-                            <svg
-                                class=svg-clip-path>
-                            <defs>
-                            <clipPath id="thim_svg_5df6fd15cf8bc">
-                                <polygon points="0 0, 1903 379, 1903 1903, 0 1903" />
-                            </clipPath>
-                            </defs>
-                            </svg>
-                        </div>
-                        <div class="wpb_column vc_column_container vc_col-sm-12">
-                            <div class=vc_column-inner>
-                                <div class=wpb_wrapper>
-                                    <div class=thim-courses-collection-wrapper>
-                                        <div class=thim-collection-info>
-                                            <h3 class="title">Nuestros Cursos</h3><span class=line></span>
-                                            <div class=description>Tenemos una gran colección de cursos</div>
-                                            <a href="<?php echo site_url() . 'cursos'; ?>" class=view-all-button>Ver todos los cursos</a>
-                                        </div>
-                                        <div class=thim-courses-collection>
-                                            <div class=scrollbar>
-                                                <div class=handle></div>
-                                            </div>
-                                            <div class="collection-frame items-5">
-                                                <ul class=slidee>
-                                                    <?php foreach ($obj_courses as $value) { ?>
-                                                        <li class=collection-item>
-                                                            <img width=271 height=177 src="<?php echo site_url() . "static/cms/img/cursos/$value->img"; ?>" alt="<?php echo $value->name; ?>"> 
-                                                            <a class=collection-wrapper href="<?php echo site_url() . "cursos/$value->category_slug/$value->slug"; ?>">
-                                                                <h4 class="name"><?php echo $value->name; ?></h4>
-                                                            </a>
-                                                        </li>
-                                                    <?php } ?>  
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class=vc_empty_space style="height: 27px"><span class=vc_empty_space_inner></span></div>
-                                    <div class="thim-sc-heading text-center default custom-small">
-                                        <div class=heading-content>
-                                            <div class="border border-top"></div>
-                                            <img  width="150" src="<?php echo site_url() . 'static/page_front/images/logo/separate.png'; ?>" alt="separator">
-                                            <div class="border border-bottom"></div>
-                                            <h3 class="primary-heading">CURSOS DISPONIBLES</h3>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="vc_row-full-width vc_clearfix"></div>
-                    <div class="vc_row wpb_row vc_row-fluid">
-                        <div class="wpb_column vc_column_container vc_col-sm-12">
-                            <div class=vc_column-inner>
-                                <div class=wpb_wrapper>
-
-                                    <div class="container site-content ">
-                                        <div class="row">
-                                            <main id="main" class="site-main col-sm-12 col-md-12">
-                                                <article id="post-0" class="post-0 post type-post status-publish format-standard hentry pmpro-has-access page type-page">
-                                                    <div class="entry-content">
-                                                        <div id="lp-archive-courses" class="lp-archive-courses">
-                                                            <div class="archive-courses course-grid archive_switch">
-                                                                <div class="learn-press-courses row">
-                                                                    <?php foreach ($obj_courses as $value) { ?>
-                                                                        <article id="post-486" class="col-md-3 col-12 col-sm-6 col-xs-6 lpr-course post-486 lp_course type-lp_course status-publish has-post-thumbnail hentry course_category-busines-course course_tag-business-tag course_tag-theme course_tag-wordpress pmpro-has-access course">
-                                                                            <div class="content">
-                                                                                <div class="thumbnail">
-                                                                                    <a href="<?php echo site_url() . "cursos/$value->category_slug/$value->slug"; ?>" class="img_thumbnail">
-                                                                                        <img src="<?php echo site_url() . "static/cms/img/cursos/$value->img"; ?>" alt="<?php echo $value->name; ?>" width="400" height="400">
-                                                                                    </a>
-                                                                                    <div class="price">
-                                                                                        <span class="course-origin-price line-price">S/.<?php echo $value->price_del; ?></span><span class="course-price red">S/.<?php echo $value->price; ?></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="sub-content">
-                                                                                    <h3 class="title">
-                                                                                        <a href="<?php echo site_url() . "cursos/$value->category_slug/$value->slug"; ?>"><?php echo $value->name; ?></a>
-                                                                                    </h3>
-                                                                                    <div class="conocer_mas">
-                                                                                        <a href="<?php echo site_url() . "cursos/$value->category_slug/$value->slug"; ?>"><span class="button_cuentas">Conoce Más <i class="fa fa-arrow-right" aria-hidden="true"></i></span></a>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </article>
-                                                                    <?php } ?>
+                                        <div class="stm_lms_recent_courses" data-offset="1" data-template="courses/grid" data-args="{&quot;per_row&quot;:&quot;6&quot;,&quot;include_link&quot;:true,&quot;posts_per_page&quot;:&quot;12&quot;}">
+                                            <div class="stm_lms_courses__grid stm_lms_courses__grid_6 stm_lms_courses__grid_center">
+                                                <?php foreach ($obj_courses as $value) { ?>
+                                                    <div class="stm_lms_courses__single stm_lms_courses__single_animation has-sale style_1 ">
+                                                        <div class="stm_lms_courses__single__inner">
+                                                            <div class="stm_lms_courses__single--image">
+                                                                <div class="stm_lms_post_status heading_font new"> Nuevo</div>
+                                                                <a href="<?php echo site_url() . "cursos/$value->category_slug/$value->slug";?>" class="heading_font" data-preview="Preview this course">
+                                                                    <div>
+                                                                        <div class="stm_lms_lazy_image stm_lms_lazyloaded stm_lms_lazy_image__lazyloaded">
+                                                                            <img data-srcset="<?php echo site_url()."static/cms/img/cursos/$value->img";?> 2x" class="lazyload " data-src="<?php echo site_url()."static/cms/img/cursos/$value->img";?>" width="272" height="161" alt="<?php echo $value->name;?>" title="<?php echo $value->name; ?>"/>
+                                                                        </div>
+                                                                    </div>
+                                                                </a>
+                                                            </div>
+                                                            <div class="stm_lms_courses__single--inner">
+                                                                <div class="stm_lms_courses__single--terms">
+                                                                    <div class="stm_lms_courses__single--term"> <?php echo $value->category_name;?></div>
+                                                                </div>
+                                                                <div class="stm_lms_courses__single--title">
+                                                                    <a href="<?php echo site_url() . "cursos/$value->category_slug/$value->slug";?>">
+                                                                        <h5><?php echo str_to_mayusculas($value->name);?></h5>
+                                                                    </a>
+                                                                </div>
+                                                                <div class="stm_lms_courses__single--meta">
+                                                                    <div class="stm_lms_courses__hours"> <i class="stmlms-lms-clocks"></i> <span>6 hours</span></div>
+                                                                    <div class="stm_lms_courses__single--price heading_font"> 
+                                                                        <span><?php echo $value->price_del;?></span><strong><?php echo $value->price;?></strong>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="stm_lms_courses__single--info">
+                                                                <div class="stm_lms_courses__single--info_author">
+                                                                    <div class="stm_lms_courses__single--info_author__avatar"> 
+                                                                        <img alt="profesor" src="<?php echo site_url() . 'static/page_front/images/profesor.png'; ?>" class="avatar avatar-215 photo" width="215" height="215">
+                                                                    </div>
+                                                                    <div class="stm_lms_courses__single--info_author__login">Pr. Marco Aurelio</div>
+                                                                </div>
+                                                                <div class="stm_lms_courses__single--info_title">
+                                                                    <a href="<?php echo site_url() . "cursos/$value->category_slug/$value->slug";?>">
+                                                                        <h4><?php echo strtoupper($value->name);?></h4>
+                                                                    </a>
+                                                                </div>
+                                                                <div class="stm_lms_courses__single--info_excerpt"> 
+                                                                    <?php echo corta_texto($value->description, 300);?>
+                                                                </div>
+                                                                <div class="stm_lms_courses__single--info_meta">
+                                                                    <div class="stm_lms_course__meta"> <i class="stmlms-cats"></i> 10 Materiales</div>
+                                                                    <div class="stm_lms_course__meta"> <i class="stmlms-lms-clocks"></i> 50 Horas</div>
+                                                                </div>
+                                                                <div class="stm_lms_courses__single--info_preview"> 
+                                                                    <a href="<?php echo site_url() . "cursos/$value->category_slug/$value->slug";?>" title="How to be a DJ? Make Electronic Music" class="heading_font"> Vista previa de este curso</a>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </article>
-                                            </main>
+                                                <?php } ?>
+                                            </div>
+                                            <div class="stm_lms_recent_courses__all text-center"> 
+                                                <a href="<?php echo site_url() . 'cursos'; ?>" class="btn btn-default"> Ver todo los cursos </a>
+                                            </div>
                                         </div>
+                                        <div class="aa3e9b2585d5e7d5f6c929d0beab1846e vc_empty_space" style="height: 75px"> <span class="vc_empty_space_inner"></span></div>
                                     </div>
-                                    <div class=vc_empty_space style="height: 100px"><span class=vc_empty_space_inner></span></div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div data-vc-full-width=true data-vc-full-width-init=false class="vc_row wpb_row vc_row-fluid overlay-y overflow-visible z-index-99 repeat-x vc_custom_1503636486698 thim-bg-advance-overlay overlay-position-tl vc_row-has-fill">
-                        <div class="advance-overlay thim_svg_5df6fd1630e5b tl">
-                            <svg class=svg-overlay viewBox="0 0 1903 633" preserveAspectRatio=xMinYMin>
-                            <rect clip-path=url(#thim_svg_5df6fd1630e5b) class=svg-background width=1903 height=633 fill=#ffffff />
-                            <image clip-path=url(#thim_svg_5df6fd1630e5b) class=svg-image x y=318 width=467 height=315 xlink:href="<?php echo site_url() . 'static/page_front/images/group-6.png'; ?>"/>
-                            </svg>
-                            <svg
-                                class=svg-clip-path>
-                            <defs>
-                            <clipPath id="thim_svg_5df6fd1630e5b">
-                                <polygon points="0 0, 1903 0, 1903 253, 0 633" />
-                            </clipPath>
-                            </defs>
-                            </svg>
-                        </div>
-                        <div class="wpb_column vc_column_container vc_col-sm-12">
-                            <div class=vc_column-inner>
-                                <div class=wpb_wrapper>
-                                    <div class="thim-sc-heading text-center default custom-small margin-top">
-                                        <div class=heading-content>
-                                            <div class="border border-top"></div>
-                                            <img width="150" src="<?php echo site_url() . 'static/page_front/images/logo/separate.png'; ?>" alt="separator"/>
-                                            <div class="border border-bottom"></div>
+                        <div class="vc_row-full-width vc_clearfix"></div>
+                        <div data-vc-full-width="true" data-vc-full-width-init="true" class="vc_row wpb_row vc_row-fluid vc_custom_1531998548740 vc_row-has-fill" style="background-position: 50% 100% !important; position: relative; left: -351.5px; box-sizing: border-box; width: 1903px; padding-left: 351.5px; padding-right: 351.5px;">
+                            <div class="wpb_column vc_column_container vc_col-sm-2">
+                                <div class="vc_column-inner vc_custom_1534239815041">
+                                    <div class="wpb_wrapper"></div>
+                                </div>
+                            </div>
+                            <div class="wpb_column vc_column_container vc_col-sm-8">
+                                <div class="vc_column-inner">
+                                    <div class="wpb_wrapper">
+                                        <div class="a3b8602d12208927a4a9a27379b1014ff vc_empty_space" style="height: 62px"> <span class="vc_empty_space_inner"></span></div>
+                                        <div class="vc_custom_heading">
+                                            <h2 style="font-size: 50px;line-height: 50px;text-align: center">Estamos orgulloso</h2>
+                                        </div>
+                                        <div class="vc_custom_heading fwl">
+                                            <h4 style="font-size: 18px;line-height: 28px;text-align: center">Los cursos son impartidos por instructores altamente educados y calificados que poseen títulos profesionales y maestrías.</h4>
                                         </div>
                                     </div>
-                                    <div class="thim-sc-steps layout-2 has-bg">
-                                        <div class=row>
-                                            <div class="col-md-6 content-box">
-                                                <div class=steps-wrapper>
-                                                    <h3 class="sc-title">Sé un profesional experto<br>Con U-linex</h3>
-                                                    <div class=steps>
-                                                        <ul class=nav role="tablist">
-                                                            <li class=nav-item><a class="nav-link active" data-toggle=tab href=#thim_5df6fd163383e-step-0 role=tab>1<span>Paso</span></a></li>
-                                                            <li class=nav-item><a class="nav-link " data-toggle=tab href=#thim_5df6fd163383e-step-1 role=tab>2<span>Paso</span></a></li>
-                                                            <li class=nav-item><a class="nav-link " data-toggle=tab href=#thim_5df6fd163383e-step-2 role=tab>3<span>Paso</span></a></li>
-                                                        </ul>
-                                                        <div class=tab-content>
-                                                            <div class="tab-pane active" id=thim_5df6fd163383e-step-0 role=tabpanel>
-                                                                <h4 class="tab-title">Elije el curso de tu preferencia</h4>
-                                                                <p class=description>En U-linex podrás encontrar cientos de cursos que te interesarán. No solamente de tu especialidad sino también materias a fines.</p>
-                                                                <a href="<?php echo site_url() . 'cursos'; ?>" class=readmore>Saber Más</a>
-                                                            </div>
-                                                            <div class="tab-pane " id=thim_5df6fd163383e-step-1 role=tabpanel>
-                                                                <h4 class="tab-title">¡Registrate!</h4>
-                                                                <p class=description>El registro con nosotros es gratuito, en tu oficina virtual podrás ver todo los beneficios que tenemos para ti.</p>
-                                                                <a href="<?php echo site_url() . 'cursos'; ?>" class=readmore>Saber Más</a>
-                                                            </div>
-                                                            <div class="tab-pane " id=thim_5df6fd163383e-step-2 role=tabpanel>
-                                                                <h4 class="tab-title">Empieza a aprender</h4>
-                                                                <p class=description>Al adquirir tu curso, tendrás un abanico de posibilidades, nuevas herramientas que te ayudaran a ser un mejor profesional y llevar la vida que deseas.</p>
-                                                                <a href="<?php echo site_url() . 'cursos'; ?>" class=readmore>Saber Más</a>
-                                                            </div>
+                                </div>
+                            </div>
+                            <div class="wpb_column vc_column_container vc_col-sm-2">
+                                <div class="vc_column-inner vc_custom_1534239801946">
+                                    <div class="wpb_wrapper"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vc_row-full-width vc_clearfix"></div>
+                        <div data-vc-full-width="true" data-vc-full-width-init="true" class="vc_row wpb_row vc_row-fluid vc_custom_1534239338510 a9ff1d1a9908abebc8fc1ee6b5f2d9096 vc_row-has-fill"
+                             style="background-position: 50% 100% !important; position: relative; left: -351.5px; box-sizing: border-box; width: 1903px; padding-left: 351.5px; padding-right: 351.5px;">
+                            <div class="wpb_column vc_column_container vc_col-sm-12">
+                                <div class="vc_column-inner">
+                                    <div class="wpb_wrapper">
+                                        <div class="vc_row wpb_row vc_inner vc_row-fluid">
+                                            <div class="wpb_column vc_column_container vc_col-sm-6 vc_col-lg-4 vc_col-md-4 vc_col-xs-12">
+                                                <div class="vc_column-inner">
+                                                    <div class="wpb_wrapper">
+                                                        <div class="stats_counter with_border_right text-center" style="color:#273044" data-id="counter_module__5e9779c42e2f984b61a845f0de5702c3" data-value="200" data-duration="2.5">
+                                                            <div class="h1" id="counter_module__5e9779c42e2f984b61a845f0de5702c3" style="color:#273044;font-size: 70px; line-height: 70px; margin-bottom: 20px;">200</div>
+                                                            <div class="stats_counter_title h5" style="color:#273044;font-size: 20px; line-height: 20px"> Estudiantes</div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-6 media-box">
-                                                <div class=media-wrapper>
-                                                    <img width="605" height="665" src="<?php echo site_url() . 'static/page_front/images/group-7.png'; ?>" alt="un profesional"></div>
+                                            <div class="wpb_column vc_column_container vc_col-sm-6 vc_col-lg-4 vc_col-md-4 vc_col-xs-12">
+                                                <div class="vc_column-inner">
+                                                    <div class="wpb_wrapper">
+                                                        <div class="stats_counter with_border_right text-center" style="color:#273044" data-id="counter_module__0f3e8d0ecdf201ac2e8336727581db72" data-value="10" data-duration="2.5"> 
+                                                            <div class="h1" id="counter_module__0f3e8d0ecdf201ac2e8336727581db72" style="color:#273044;font-size: 70px; line-height: 70px; margin-bottom: 20px;">10</div>
+                                                            <div class="stats_counter_title h5" style="color:#273044;font-size: 20px; line-height: 20px">Cursos</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="wpb_column vc_column_container vc_col-sm-6 vc_col-lg-4 vc_col-md-4 vc_col-xs-12">
+                                                <div class="vc_column-inner">
+                                                    <div class="wpb_wrapper">
+                                                        <div class="stats_counter with_border_right text-center" style="color:#273044" data-id="counter_module__f9e0d4866502e66e96fc1543bd71128d" data-value="1000" data-duration="2.5">
+                                                            <div class="h1" id="counter_module__f9e0d4866502e66e96fc1543bd71128d" style="color:#273044;font-size: 70px; line-height: 70px; margin-bottom: 20px;">1000</div>
+                                                            <div class="stats_counter_title h5" style="color:#273044;font-size: 20px; line-height: 20px">Horas de Vídeo</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="a9ff892a4b93a9ccd2fe95c188511a8eb vc_empty_space" style="height: 100px"> <span class="vc_empty_space_inner"></span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vc_row-full-width vc_clearfix"></div>
+                        <div data-vc-full-width="true" data-vc-full-width-init="true" class="vc_row wpb_row vc_row-fluid primary_bg_color vc_custom_1532328330193" style="position: relative; left: -351.5px; box-sizing: border-box; width: 1903px; padding-left: 351.5px; padding-right: 351.5px;">
+                            <div class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-7 vc_col-md-7">
+                                <div class="vc_column-inner">
+                                    <div class="wpb_wrapper">
+                                        <div class="af4bcee4c7548ab3e42ac0d89c720578a vc_empty_space" style="height: 27px"> <span class="vc_empty_space_inner"></span></div>
+                                        <div class="vc_custom_heading vc_custom_1535368966565">
+                                            <h4 style="font-size: 19px;color: #ffffff;line-height: 22px;text-align: left">Suscríbase a nuestro boletín</h4>
+                                        </div>
+                                        <div class="vc_custom_heading fwl">
+                                            <h5 style="font-size: 15px;color: #ffffff;line-height: 22px;text-align: left">Mantente informado de los beneficios que tenemos en Edukate Pro, para que seas el próximo emprendedor y tengas tu colegio virtual</h5>
+                                        </div>
+                                        <div class="a0904c47a8fdb55bdbffdfe58e40ff2d1 vc_empty_space" style="height: 45px"> <span class="vc_empty_space_inner"></span></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-5 vc_col-md-5">
+                                <div class="vc_column-inner">
+                                    <div class="wpb_wrapper">
+                                        <div class="ad69f92af9df44a962a8cc4e75b2af998 vc_empty_space" style="height: 18px"> <span class="vc_empty_space_inner"></span></div>
+                                        <div class="stm_subscribe aed8f1be467e74ab7798b72bc1c0ec271">
+                                            <div class="widget widget_mailchimp">
+                                                <h5 class="stm_subscribe_title" style="color: #ffffff;">Ingrese su E-mail</h5>
+                                                <form action="#" class="stm_subscribe_1587856685">
+                                                    <div class="stm_mailchimp_unit">
+                                                        <div class="form-group">
+                                                            <input type="email" name="email" class="form-control stm_subscribe_email" placeholder="Ingrese su E-mail" required="">
+                                                        </div>
+                                                        <button
+                                                            class="button"><span class="h5">Suscribirse</span></button>
+                                                        <div class="stm_subscribe_preloader">Please wait...</div>
+                                                    </div>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <div class="vc_row-full-width vc_clearfix"></div>
+                        <div class="vc_row-full-width vc_clearfix"></div>
                     </div>
-                    <div class="vc_row-full-width vc_clearfix"></div>
-                    <div data-vc-full-width=true data-vc-full-width-init=false class="vc_row wpb_row vc_row-fluid bg-postion-bottom vc_custom_1503635158678 thim-background-overlay thim-bg-advance-overlay overlay-position-tr vc_row-has-fill">
-                        <div class=overlay style="background-color: rgba(0,0,0,0.4)"></div>
-                        <div class="advance-overlay thim_svg_5df6fd163d0f6 tr ">
-                            <svg class=svg-overlay viewBox="0 0 1903 405" preserveAspectRatio=xMinYMin><rect clip-path=url(#thim_svg_5df6fd163d0f6) class=svg-background width=1903 height=405 fill=#18c1f0 /></svg>
-                            <svg class=svg-clip-path>
-                            <defs>
-                            <clipPath id="thim_svg_5df6fd163d0f6">
-                                <polygon points="0 0, 1903 0, 1903 405, 0 0" />
-                            </clipPath>
-                            </defs>
-                            </svg>
-                        </div>
-                        <div class="wpb_column vc_column_container vc_col-sm-12">
-                            <div class=vc_column-inner>
-                                <div class=wpb_wrapper>
-                                    <div class="wpb_text_column wpb_content_element thim-textbox width-small">
-                                        <div class=wpb_wrapper>
-                                            <h3 class="title" style="text-align: center;">Accede a tus cursos a cualquier hora y en cualquier parte del mundo.</h3>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="vc_row-full-width vc_clearfix"></div>
                 </div>
             </div>
-            <!--START FOOTER-->
-            <?php $this->load->view("footer"); ?>  
-            <!--END FOOTER-->
         </div>
-        <!--//modal-->
-    <div class="md-modal md-effect-1" id="modal-2">
-    <div class="md-content">
-        <button class="btn btn-success md-close float-right cursor-pointer"><i class="fa fa-times" aria-hidden="true"></i></button>
-        <div class="table-responsive" style="background-color:#FFF;">
-            <div class="thim-form-login wpb_column vc_column_container vc_col-sm-12">
-                      <div class="vc_custom_1503993250187">
-                          <div class="thim-login message-modal-border">
-                            <h4 class="subtitle">Solicita más información</h4>
-                            <br/>
-                            <form name="loginform" id="loginform" action="javascript:void(0);">
-                              <p class="login-username">
-                                  <input required type="text" name="name" placeholder="Nombres *" id="name" class="input required" size="20">
-                              </p>
-                              <p class="login-username">
-                                  <input required type="text" name="last_name" placeholder="Apellidos *" id="last_name" class="input required" size="20">
-                              </p>
-                              <p class="login-username">
-                                  <input required type="text" name="email" placeholder="E-mail *" id="email" class="input required" size="20">
-                              </p>
-                              <p class="login-username">
-                                  <input type="text" name="phone" id="phone" class="input required" placeholder="Teléfono *">
-                              </p>
-                              <p class="login-username">
-                                  <select required="" class="input required" name="course" id="course">
-                                    <option  selected value="">Seleccione el curso*</option>
-                                    <?php  foreach ($obj_courses as $key => $value) { ?>
-                                           <option style="border-style: solid !important" value="<?php echo $value->name;?>"><?php echo $value->name;?></option>
-                                    <?php } ?>
-                                </select>
-                              </p>
-                              <div class="vc_empty_space" style="height: 20px"><span class="vc_empty_space_inner"></span></div>
-                              <p class="submit login-submit">
-                                  <input type="submit" onclick="eviar_mensaje();" id="wp-submit" class="button button-primary button-large" value="Enviar Mensaje">
-                              </p>
-                            </form>
-                            <br/>
-                            <div id="respose"></div>
-                        </div>
-                    </div>
-                  </div>
-        </div>
+        <?php $this->load->view("footer"); ?>
     </div>
-</div>
-        <div class="md-overlay"></div>
-        <div id="back-to-top"><i class="fa fa-angle-up" aria-hidden=true></i></div>
-        <div class="gallery-slider-content"></div>
-        <script src=https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js></script>
-        <script>
-            WebFont.load({google: {families: ['Roboto:400,300']}});
-        </script>
-        <script defer src="<?php echo site_url() . 'static/page_front/js/autoptimize_282.js'; ?>"></script>
-        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
-        <script src="<?php echo site_url().'static/page_front/js/modalEffects.js'; ?>"></script>
-        <script src="<?php echo site_url().'static/page_front/js/classie.js'; ?>"></script>
-        <script src="<?php echo site_url().'static/backoffice/js/sweetalert.min.js';?>"></script>     
-        <script src="<?php echo site_url().'static/page_front/js/script/home.js';?>"></script>     
-    </body>
+    <script defer src="<?php echo site_url() . 'static/page_front/js/autoptimize_278f.js'; ?>"></script>
+</body>
 </html>

@@ -1,39 +1,22 @@
 function login(){
-    var code = document.getElementById("user_login").value;
-    var pass = document.getElementById("user_pass").value;
-    //GET DATA RECAPTCHA
-    var response = grecaptcha.getResponse();
+    var code = document.getElementById("username").value;
+    var pass = document.getElementById("password").value;
     //VERIFY DATA RECAPTCHA
-    if(response.length == 0){
-        $("#mensaje").html();
-         var texto = "";
-         texto = texto+'<center>';
-         texto = texto+'<div class="alert alert-danger">';
-         texto = texto+'<p>Captcha no verificado</p>';
-         texto = texto+'</div>';                 
-         texto = texto+'</center>';
-         $("#mensaje").html(texto);
-    } else {
         if(code == ""){
-            $("#mensaje").html();
-             var texto = "";
-             texto = texto+'<center>';
-             texto = texto+'<div class="alert alert-danger">';
-             texto = texto+'<p>Ingrese E-mail</p>';
-             texto = texto+'</div>';                 
-             texto = texto+'</center>';
-             $("#mensaje").html(texto);
-            $("#user_login").focus();
+            $("#respose").html();
+            var texto = "";
+            texto = texto+'<div class="alert alert-danger alert-dismissible fade show" role="alert">';
+            texto = texto+'<p style="text-align: center;">Ingrese su usuario</p>';
+            texto = texto+'</div>';                 
+            $("#respose").html(texto);
+            $("#username").focus();
         }else if(pass == ""){
-            $("#mensaje").html();
-             var texto = "";
-             texto = texto+'<center>';
-             texto = texto+'<div class="alert alert-danger">';
-             texto = texto+'<p>Ingrese Contraseña</p>';
-             texto = texto+'</div>';                 
-             texto = texto+'</center>';
-             $("#mensaje").html(texto);
-            $("#user_pass").focus();
+            var texto = "";
+            texto = texto+'<div class="alert alert-danger alert-dismissible fade show" role="alert">';
+            texto = texto+'<p style="text-align: center;">Ingrese su contraseña</p>';
+            texto = texto+'</div>';                 
+            $("#respose").html(texto);
+            $("#password").focus();
         }else{
             $.ajax({
                type: "post",
@@ -43,39 +26,36 @@ function login(){
                       pass : pass},
                success:function(data){          
                    if(data.status == "true"){
-                       $("#mensaje").html();
-                         var texto = "";
-                         texto = texto+'<center>';
-                         texto = texto+'<div class="alert alert-success">';
-                         texto = texto+'<p>Bienvenido</p>';
-                         texto = texto+'</div>';                 
-                         texto = texto+'</center>';
-                         $("#mensaje").html(texto);
-                         location.href = site + "backoffice";
+                       Swal.fire({
+                              position: 'top-end',
+                              icon: 'success',
+                              title: 'Bienvenido',
+                              showConfirmButton: false,
+                              timer: 1500
+                            });
+                        window.setTimeout( function(){
+                             window.location = site+"backoffice";
+                         }, 1500 );    
                    }else if(data.status == "true2"){
-                       $("#mensaje").html();
-                         var texto = "";
-                         texto = texto+'<center>';
-                         texto = texto+'<div class="alert alert-success">';
-                         texto = texto+'<p>Bienvenido</p>';
-                         texto = texto+'</div>';                 
-                         texto = texto+'</center>';
-                         $("#mensaje").html(texto);
-                         location.href = site + "backoffice/pay_order";
+                       Swal.fire({
+                              position: 'top-end',
+                              icon: 'success',
+                              title: 'Bienvenido',
+                              showConfirmButton: false,
+                              timer: 1500
+                            });
+                        window.setTimeout( function(){
+                             window.location = site+"backoffice/pay_order";
+                         }, 1500 );
                    }else{
-                       $("#mensaje").html();
-                         var texto = "";
-                         texto = texto+'<center>';
-                         texto = texto+'<div class="alert alert-danger">';
-                         texto = texto+'<p>Datos Invalidos</p>';
-                         texto = texto+'</div>';                 
-                         texto = texto+'</center>';
-                         $("#mensaje").html(texto);
+                       Swal.fire({
+                              icon: 'error',
+                              title: 'Usuario Invalido',
+                            });
                    }
                }         
              });
             }
-    }
 }
 
 function validar_email( email ){
