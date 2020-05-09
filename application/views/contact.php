@@ -38,7 +38,7 @@
                                                                 <div class="icon vc_custom_1435665617761"> <i class="fa-icon-stm_icon_phone-o"></i></div>
                                                                 <div class="icon_text">
                                                                     <h5 style="color:#555555"> Teléfonos:</h5>
-                                                                    <p><a href="tel:+51 998878636">+51 998878636</a></p>
+                                                                    <p><a href="tel:+51 943677648">+51 943 677 648</a></p>
                                                                 </div>
                                                             </div>
                                                         </div>

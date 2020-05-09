@@ -64,7 +64,7 @@
                 <div class="header_top">
                     <div class="logo-unit">
                         <a href="<?php echo site_url(); ?>"> 
-                            <img class="img-responsive logo_transparent_static visible logo" src="<?php echo site_url().'static/page_front/images/logo/logo-a.jpg';?>" alt="Edukate Pro"/> 
+                            <img class="img-responsive logo_transparent_static visible logo" src="<?php echo site_url().'static/page_front/images/logo/logo-a.jpg';?>" alt="U-linex Logo"/> 
                         </a>
                     </div>
                     <div class="center-unit">

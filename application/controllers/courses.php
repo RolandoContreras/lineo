@@ -273,6 +273,63 @@ class Courses extends CI_Controller {
             $this->load->view('courses_detail',$data);
 	}
         
+        public function resumen(){
+            //get category
+            $data['obj_category'] = $this->nav_category();
+            //GET COURSE
+            $url = explode("/",uri_string());
+            $slug_2 = $url[2];
+            //get course
+            $params = array(
+                            "select" =>"courses.course_id,
+                                        courses.category_id,
+                                        courses.name,
+                                        courses.slug,
+                                        courses.description,
+                                        courses.img,
+                                        courses.img2,
+                                        category.name as category_name,
+                                        category.slug as category_slug",
+                            "join" => array( 'category, courses.category_id = category.category_id'),
+                            "where" => "courses.slug = '$slug_2'");
+            $data['obj_courses'] = $this->obj_courses->get_search_row($params);
+            $obj_courses_meta = $data['obj_courses'];
+            $course_id = $data['obj_courses']->course_id;
+            //obtener modulos por cursos
+            $params = array(
+                            "select" =>"module_id,
+                                        name",
+                            "where" => "course_id = $course_id");
+            $data['obj_modules'] = $this->obj_modules->search($params);
+            $data['total_modules'] = count($data['obj_modules']);
+            //establecer modulos id para busqqueda
+            $array_data = "";
+            foreach ($data['obj_modules'] as $value) {
+                $array_data .= $value->module_id.",";
+            }
+            $array_data = eliminar_ultimo_caracter($array_data);
+            //GET videos by course
+            $params = array(
+                            "select" =>"videos.video_id,
+                                        videos.name,
+                                        videos.module_id,
+                                        videos.video,
+                                        videos.type,
+                                        videos.slug,
+                                        videos.time",
+                            "where" => "videos.type = 1 and videos.module_id in ($array_data) and videos.active = 1",
+                            "order" => "videos.video_id ASC");
+            $data['obj_videos'] = $this->obj_videos->get_search_row($params);
+            //convertir vídeo
+            $video = $data['obj_videos']->video;
+            $explo_video = explode("/", $video);
+            $data['video_link'] = $explo_video[3];
+            //SEND DATA META OG: FACEBOOK
+            $data['title'] = "U-Linex | Cursos | $obj_courses_meta->category_name | $obj_courses_meta->name | Resumen";      
+            $this->load->view('courses_resumen',$data);
+	}
+        
+        
         public function nav_category(){
             $params_category = array(
                         "select" =>"category_id,

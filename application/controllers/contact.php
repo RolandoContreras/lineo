@@ -28,7 +28,7 @@ class Contact extends CI_Controller {
             //get category
             $data['obj_category'] = $this->nav_category();
             //view
-            $data['title'] = "Contacto";
+            $data['title'] = "U - Linex | Contacto";
             $this->load->view('contact',$data);
 	}
         public function send_messages(){

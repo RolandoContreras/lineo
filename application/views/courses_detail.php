@@ -89,8 +89,15 @@
                                                                     <div class="stm-curriculum-item__title">
                                                                         <div class="heading_font"> <?php echo $value_video->name;?></div>
                                                                     </div>
-                                                                    <div class="stm-curriculum-item__preview"></div>
-                                                                    <div class="stm-curriculum-item__meta"> <?php echo $value_video->time." minutos"?> <i class="far fa-clock"></i></div>
+                                                                    <?php 
+                                                                    if($value_video->type == 1){ ?>
+                                                                        <div class="stm-curriculum-item__preview"> 
+                                                                            <a href="<?php echo site_url() . "cursos/$obj_courses->category_slug/$obj_courses->slug/resumen"; ?>"> Ver Resumen </a>
+                                                                        </div>
+                                                                        <div class="stm-curriculum-item__meta"> 
+                                                                            <?php echo $value_video->time." minutos"?> <i class="far fa-clock"></i>
+                                                                        </div>
+                                                                    <?php } ?>
                                                                 </div>
                                                         <?php } ?>
                                                 <?php } ?>
