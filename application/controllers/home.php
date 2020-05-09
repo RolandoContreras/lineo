@@ -35,7 +35,6 @@ class Home extends CI_Controller {
             //get category
             $data['obj_category'] = $this->nav_category();
             
-            
             $params_course_principal = array(
                                     "select" =>"courses.course_id,
                                                 courses.category_id,

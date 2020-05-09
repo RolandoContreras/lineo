@@ -31,7 +31,22 @@ function delete_category(category_id){
                    dataType: "json",
                    data: {category_id : category_id},
                    success:function(data){                             
-                   location.reload();
+                        if(data.message == true){
+                           Swal.fire({
+                              position: 'top-end',
+                              icon: 'success',
+                              title: 'Categoría eliminad.',
+                              showConfirmButton: false,
+                              timer: 1500
+                            })
+                       }else{
+                           Swal.fire({
+                              icon: 'error',
+                              title: 'Ups...',
+                              text: 'Sucedió un error',
+                              footer: '<a href>Vuelve a intentarlo!</a>'
+                            })
+                       }
                    }         
            });
         }

@@ -121,7 +121,7 @@
                                     </div>
                                   </div>
                                 </div>  
-                              <div class="col-sm-12">
+<!--                              <div class="col-sm-12">
                                   <div class="card-header">
                                       <h5>Cursos Relacionados</h5>
                                     </div>
@@ -139,7 +139,7 @@
                                             <?php } ?>
                                         </div>
                                     </div>
-                                </div>
+                                </div>-->
                           </div>
                         </div>
                       </div>
