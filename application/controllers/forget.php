@@ -47,7 +47,7 @@ class Forget extends CI_Controller {
             
             if($obj_customer != null){
                 //enviar mensaje con contraseña
-//                $this->message($obj_customer->name, $email, $obj_customer->password);
+                $this->message($obj_customer->name, $email, $obj_customer->password);
                 $data['status'] = true;
             }else{
                 $data['status'] = false;

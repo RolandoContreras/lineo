@@ -28,10 +28,10 @@
                                             <h1 style="font-size: 64px;line-height: 70px;text-align: left">Tu plataforma de Educación Online.</h1>
                                         </div>
                                         <div class="vc_custom_heading vc_custom_1535366613275">
-                                            <h3 style="text-align: left">Un sistema probado y utilizando en los países más desarrollados.</h3>
+                                            <h3 style="text-align: left">Un sistema probado y utilizado a nivel global.</h3>
                                         </div>
                                         <div class="vc_btn3-container vc_btn3-inline"> 
-                                            <a class="btn btn-default lg" href="<?php echo site_url().'iniciar-sesion';?>" title="">Ver Plataforma</a>
+                                            <a class="btn btn-default lg" href="<?php echo site_url().'iniciar-sesion';?>" title="">Comienza a estudiar</a>
                                         </div>
                                         <div class="aa3e9b2585d5e7d5f6c929d0beab1846e vc_empty_space" style="height: 75px"> 
                                             <span class="vc_empty_space_inner"></span>
