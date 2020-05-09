@@ -30,7 +30,7 @@ class Register extends CI_Controller {
             $data['obj_category'] = $this->nav_category();
             //Select params
             $data['obj_paises'] = $this->list_pais();
-            $data['title'] = "Nuevo Registro";
+            $data['title'] = "U-Linex | Nuevo Registro";
             /// VIEW
             $this->load->view("register", $data);
 		

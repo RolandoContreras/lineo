@@ -13,7 +13,7 @@ class Login extends CI_Controller {
         //get category
         $data['obj_category'] = $this->nav_category();
         //send meta title
-        $data['title'] = "Inicio de Sesión";
+        $data['title'] = "U-Linex | Inicio de Sesión";
         
         //sesion facebook
         $userData = array(); 

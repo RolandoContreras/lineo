@@ -50,7 +50,7 @@ class Home extends CI_Controller {
             $data['obj_courses'] = $this->obj_courses->search($params_course); 
             
             //set meta title
-            $data['title'] = "Bienvenido";
+            $data['title'] = "U-Linex | Bienvenido";
             $this->load->view('home', $data);
 	}
         
@@ -87,7 +87,7 @@ class Home extends CI_Controller {
 	{
             //get category
             $data['obj_category'] = $this->nav_category();
-            $data['title'] = "Terminos y Condiciones";
+            $data['title'] = "U-Linex | Terminos y Condiciones";
             $this->load->view('terminos', $data);
 	}
         
@@ -95,7 +95,7 @@ class Home extends CI_Controller {
 	{
             //get category
             $data['obj_category'] = $this->nav_category();
-            $data['title'] = "Política de privacidad y cookies";
+            $data['title'] = "U-Linex | Política de privacidad y cookies";
             $this->load->view('policy', $data);
 	}
         

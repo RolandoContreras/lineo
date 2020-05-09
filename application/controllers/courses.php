@@ -104,7 +104,7 @@ class Courses extends CI_Controller {
             $data['total'] = $config["total_rows"];
             
             //SEND DATA
-            $data['title'] = "Cursos";
+            $data['title'] = "U-Linex | Cursos";
             //view
             $this->load->view('courses',$data);
 	}
@@ -189,7 +189,7 @@ class Courses extends CI_Controller {
             $data['total'] = $config["total_rows"];
             
             //SEND DATA
-            $data['title'] = "Cursos | $obj_category->name";
+            $data['title'] = "U-Linex |  Cursos | $obj_category->name";
             $this->load->view('courses',$data);
 	}
         public function detail($slug)
@@ -266,7 +266,7 @@ class Courses extends CI_Controller {
             //get data   
             $obj_courses_meta = $data['obj_courses'];
             //SEND DATA META OG: FACEBOOK
-            $data['title'] = "Cursos | $obj_courses_meta->category_name | $obj_courses_meta->name";      
+            $data['title'] = "U-Linex | Cursos | $obj_courses_meta->category_name | $obj_courses_meta->name";      
             $data['meta_description_og'] = "$obj_courses_meta->description";
             $data['meta_img_og'] = site_url()."static/cms/img/cursos/$obj_courses_meta->img";
             //view
