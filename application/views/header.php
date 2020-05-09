@@ -15,9 +15,9 @@
                                         <div class="pull-right">
                                             <div class="header_top_bar_socs">
                                                 <ul class="clearfix">
-                                                    <li><a href='#'><i class='fab fa-twitter'></i></a></li>
                                                     <li><a href='#'><i class='fab fa-instagram'></i></a></li>
-                                                    <li><a href='#'><i class='fab fa-facebook'></i></a></li>
+                                                    <li><a href='https://www.facebook.com/U-linex-103662281176014/'><i class='fab fa-facebook'></i></a></li>
+                                                    <li><a href='#'><i class='fab fa-youtube'></i></a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -46,9 +46,8 @@
                             <div class="pull-right">
                                 <div class="header_top_bar_socs">
                                     <ul class="clearfix">
-                                        <li><a href='#'><i class='fab fa-twitter'></i></a></li>
                                         <li><a href='#'><i class='fab fa-instagram'></i></a></li>
-                                        <li><a href='#'><i class='fab fa-facebook'></i></a></li>
+                                        <li><a href='https://www.facebook.com/U-linex-103662281176014/'><i class='fab fa-facebook'></i></a></li>
                                         <li><a href='#'><i class='fab fa-youtube'></i></a></li>
                                     </ul>
                                 </div>
@@ -116,9 +115,8 @@
                     <div class="pull-right">
                         <div class="header_top_bar_socs">
                             <ul class="clearfix">
-                                <li><a href='#'><i class='fab fa-twitter'></i></a></li>
                                 <li><a href='#'><i class='fab fa-instagram'></i></a></li>
-                                <li><a href='#'><i class='fab fa-facebook'></i></a></li>
+                                <li><a href='https://www.facebook.com/U-linex-103662281176014/'><i class='fab fa-facebook'></i></a></li>
                                 <li><a href='#'><i class='fab fa-youtube'></i></a></li>
                             </ul>
                         </div>
@@ -127,19 +125,19 @@
                 <div class="collapse navbar-collapse pull-right">
                     <ul class="header-menu clearfix">
                         <li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item menu-item-5">
-                            <a href="<?php echo site_url().'cursos';?>" aria-current="page">Cursos</a>
+                            <a href="<?php echo site_url();?>" aria-current="page">Inicio</a>
+                        </li>
+                        <li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item menu-item-5">
+                            <a href="<?php echo site_url().'cursos';?>">Cursos</a>
                         </li>
                         <li class="stm_lms_badge_menu menu-item menu-item-type-custom menu-item-object-custom menu-item-3363">
-                            <a title="Zoom" href="<?php echo site_url().'zoom';?>">Zoom</a>
+                            <a href="<?php echo site_url().'iniciar-sesion';?>">Iniciar Sesión</a>
                         </li>
                         <li class="stm_lms_badge_menu menu-item menu-item-type-custom menu-item-object-custom menu-item-3363">
-                            <a href="<?php echo site_url().'nosotros';?>">Nosotros</a>
+                            <a href="<?php echo site_url().'registro';?>">Registro</a>
                         </li>
                         <li class="stm_lms_badge_menu menu-item menu-item-type-custom menu-item-object-custom menu-item-3363">
                             <a href="<?php echo site_url().'contacto';?>">Contacto</a>
-                        </li>
-                        <li class="stm_lms_badge_menu menu-item menu-item-type-custom menu-item-object-custom menu-item-3363">
-                            <a href="<?php echo site_url().'iniciar-sesion';?>">Iniciar Sesión / Registro</a>
                         </li>
                     </ul>
                 </div>

@@ -148,7 +148,7 @@
                                                         <div class="stm_lms_courses__single__inner">
                                                             <div class="stm_lms_courses__single--image">
                                                                 <div class="stm_lms_post_status heading_font new"> Nuevo</div>
-                                                                <a href="<?php echo site_url() . "cursos/$value->category_slug/$value->slug";?>" class="heading_font" data-preview="Preview this course">
+                                                                <a href="<?php echo site_url() . "cursos/$value->category_slug/$value->slug";?>" class="heading_font" data-preview="Vista Previa del Curso">
                                                                     <div>
                                                                         <div class="stm_lms_lazy_image stm_lms_lazyloaded stm_lms_lazy_image__lazyloaded">
                                                                             <img data-srcset="<?php echo site_url()."static/cms/img/cursos/$value->img";?> 2x" class="lazyload " data-src="<?php echo site_url()."static/cms/img/cursos/$value->img";?>" width="272" height="161" alt="<?php echo $value->name;?>" title="<?php echo $value->name; ?>"/>
@@ -177,7 +177,7 @@
                                                                     <div class="stm_lms_courses__single--info_author__avatar"> 
                                                                         <img alt="profesor" src="<?php echo site_url() . 'static/page_front/images/profesor.png'; ?>" class="avatar avatar-215 photo" width="215" height="215">
                                                                     </div>
-                                                                    <div class="stm_lms_courses__single--info_author__login">Pr. Marco Aurelio</div>
+                                                                    <div class="stm_lms_courses__single--info_author__login">Instructor: U-linex</div>
                                                                 </div>
                                                                 <div class="stm_lms_courses__single--info_title">
                                                                     <a href="<?php echo site_url() . "cursos/$value->category_slug/$value->slug";?>">
@@ -189,10 +189,10 @@
                                                                 </div>
                                                                 <div class="stm_lms_courses__single--info_meta">
                                                                     <div class="stm_lms_course__meta"> <i class="stmlms-cats"></i> 10 Materiales</div>
-                                                                    <div class="stm_lms_course__meta"> <i class="stmlms-lms-clocks"></i> 50 Horas</div>
+                                                                    <div class="stm_lms_course__meta"> <i class="stmlms-lms-clocks"></i> 13 Horas</div>
                                                                 </div>
                                                                 <div class="stm_lms_courses__single--info_preview"> 
-                                                                    <a href="<?php echo site_url() . "cursos/$value->category_slug/$value->slug";?>" title="How to be a DJ? Make Electronic Music" class="heading_font"> Vista previa de este curso</a>
+                                                                    <a href="<?php echo site_url() . "cursos/$value->category_slug/$value->slug";?>" title="<?php echo $value->name;?>" class="heading_font"> Vista previa de este curso</a>
                                                                 </div>
                                                             </div>
                                                         </div>

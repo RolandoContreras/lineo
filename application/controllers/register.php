@@ -81,7 +81,7 @@ class Register extends CI_Controller {
                     }else{
                         $data['status'] = "success";
                     }
-//                    $this->message($name, $email, $pass);
+                    $this->message($name, $email, $pass);
             }
             //CREAR NUEVA SECION 
             echo json_encode($data);

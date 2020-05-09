@@ -108,15 +108,15 @@
                                     </div>
                                     <div class="stm-lms-course-info heading_font">
                                         <div class="stm-lms-course-info__single">
-                                            <div class="stm-lms-course-info__single_label"> <span>Enrolados</span>: <strong>24 students</strong></div>
+                                            <div class="stm-lms-course-info__single_label"> <span>Enrolados</span>: <strong>35 students</strong></div>
                                             <div class="stm-lms-course-info__single_icon"> <i class="fa-icon-stm_icon_users"></i></div>
                                         </div>
                                         <div class="stm-lms-course-info__single">
-                                            <div class="stm-lms-course-info__single_label"> <span>Duración</span>: <strong>6 hours</strong></div>
+                                            <div class="stm-lms-course-info__single_label"> <span>Duración</span>: <strong>13 hours</strong></div>
                                             <div class="stm-lms-course-info__single_icon"> <i class="fa-icon-stm_icon_clock"></i></div>
                                         </div>
                                         <div class="stm-lms-course-info__single">
-                                            <div class="stm-lms-course-info__single_label"> <span>Materiales</span>: <strong>3</strong></div>
+                                            <div class="stm-lms-course-info__single_label"> <span>Materiales</span>: <strong>10</strong></div>
                                             <div class="stm-lms-course-info__single_icon"> <i class="fa-icon-stm_icon_bullhorn"></i></div>
                                         </div>
                                     </div>
