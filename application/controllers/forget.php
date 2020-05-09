@@ -47,18 +47,18 @@ class Forget extends CI_Controller {
             
             if($obj_customer != null){
                 //enviar mensaje con contraseña
-                $this->message($obj_customer->name, $email, $obj_customer->password);
-                $data['message'] = true;
+//                $this->message($obj_customer->name, $email, $obj_customer->password);
+                $data['status'] = true;
             }else{
-                $data['message'] = false;
+                $data['status'] = false;
             }
+            
             echo json_encode($data);            
             exit();
             }
         } 
         
-    
-    public function message($name, $email, $password){    
+        public function message($name, $email, $password){    
                 $mensaje = wordwrap("<html>
                     
  <div bgcolor='#E9E9E9' style='background:#fff;margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Roboto','Oxygen','Ubuntu','Cantarell','Fira Sans','Droid Sans','Helvetica Neue',sans-serif;font-size:14px'>

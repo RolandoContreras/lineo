@@ -52,7 +52,8 @@ $route['delete_cart'] = 'home/delete_cart';
 $route['mensaje'] = 'home/mensaje';
 
 $route['iniciar-sesion'] = 'login';
-$route['recuperar_contrasena'] = 'forget';
+$route['recuperar-contrasena'] = 'forget';
+$route['recuperar-contrasena'] = 'forget';
 
 $route['cursos'] = 'courses';
 $route['cursos/([0-9]+)'] = 'courses/index/$1';

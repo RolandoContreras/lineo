@@ -37,7 +37,9 @@
                                                     </span> 
                                                     <span>Recuérdame</span> 
                                                 </label>                  
-                                                <span class="lostpassword" title="¿Olvidaste tu contraseña?"> ¿Olvidaste tu contraseña? </span>
+                                                <a href="<?php echo site_url().'recuperar-contrasena';?>">
+                                                    <span class="lostpassword" title="¿Olvidaste tu contraseña?"> ¿Olvidaste tu contraseña? </span>
+                                                </a>
                                                 <button class="btn btn-default"> 
                                                     Iniciar Sesión
                                                 </button>
