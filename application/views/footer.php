@@ -38,7 +38,7 @@
                                             <a href="<?php echo site_url().'iniciar-sesion';?>"><span class="h6">Iniciar Sesión</span></a>
                                         </li>
                                         <li class="page_item page-item-669">
-                                            <a href="<?php echo site_url();?>"><span class="h6">Contacto</span></a>
+                                            <a href="<?php echo site_url().'contacto';?>"><span class="h6">Contacto</span></a>
                                         </li>
                                     </ul>
                                 </aside>

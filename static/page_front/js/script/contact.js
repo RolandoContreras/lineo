@@ -3,27 +3,34 @@ function send_message(){
     var email = document.getElementById("email").value;
     var subject = document.getElementById("subject").value;
     var message = document.getElementById("message").value;
-    //GET DATA RECAPTCHA
-    var response = grecaptcha.getResponse();
-    if(response.length == 0){
-        document.getElementById("captcha_messages").style.display = "block";
-    }
-    else{
         if(name == ""){
-        document.getElementById("captcha_messages").style.display = "none";
-        document.getElementById("error_messages").style.display = "block";
+            var texto = "";
+            texto = texto+'<div class="alert alert-danger alert-dismissible fade show" role="alert">';
+            texto = texto+'<p style="text-align: center;">Ingrese su nombre</p>';
+            texto = texto+'</div>';                 
+            $("#respose").html(texto);
+            $("#name").focus();
         $("#name").focus();
         }else if(email == ""){
-            document.getElementById("error_messages").style.display = "block";
-            document.getElementById("captcha_messages").style.display = "none";
+            var texto = "";
+            texto = texto+'<div class="alert alert-danger alert-dismissible fade show" role="alert">';
+            texto = texto+'<p style="text-align: center;">Ingrese su e-mail</p>';
+            texto = texto+'</div>';                 
+            $("#respose").html(texto);
             $("#email").focus();
-        }else if(message == ""){
-            document.getElementById("captcha_messages").style.display = "none";
-            document.getElementById("error_messages").style.display = "block";
+        }else if(subject == ""){
+            var texto = "";
+            texto = texto+'<div class="alert alert-danger alert-dismissible fade show" role="alert">';
+            texto = texto+'<p style="text-align: center;">Ingrese el asunto</p>';
+            texto = texto+'</div>';                 
+            $("#respose").html(texto);
             $("#subject").focus();
         }else if(message == ""){
-            document.getElementById("captcha_messages").style.display = "none";
-            document.getElementById("error_messages").style.display = "block";
+            var texto = "";
+            texto = texto+'<div class="alert alert-danger alert-dismissible fade show" role="alert">';
+            texto = texto+'<p style="text-align: center;">Ingrese el mensaje</p>';
+            texto = texto+'</div>';                 
+            $("#respose").html(texto);
             $("#message").focus();
         }else{
             var email_2 = validar_email(email);
@@ -39,19 +46,31 @@ function send_message(){
                           },
                    success:function(data){
                        if(data.message == true){
-                           document.getElementById("captcha_messages").style.display = "none";
-                           document.getElementById("error_messages").style.display = "none";
-                           document.getElementById("messages_respose").style.display = "block";
+                           Swal.fire({
+                              position: 'top-end',
+                              icon: 'success',
+                              title: 'Mensaje enviado',
+                              showConfirmButton: false,
+                              footer: 'En breve nos comunicaremos con usted',
+                              timer: 1500
+                            });
+                            window.setTimeout( function(){
+                                 window.location = site+"contacto";
+                             }, 1500 );  
+                       }else{
+                           Swal.fire({
+                              icon: 'error',
+                              title: 'Ups! Ocurrio un error',
+                              footer: 'Inténtelo nuevamente'
+                            });
                        }
                    }         
                  });
             }else{
-                document.getElementById("message_email").style.display = "block";
+                document.getElementById("message").style.display = "block";
                 $("#email").focus();
             }
         }
-    }
-    
     
 }
 function validar_email( email ){

@@ -37,7 +37,7 @@
                                                 <a href="<?php echo site_url() . 'registro'; ?>">Registro</a>
                                             </li>
                                             <li class="stm_lms_badge_menu menu-item menu-item-type-custom menu-item-object-custom menu-item-3363">
-                                                <a href="<?php echo site_url();?>">Contacto</a>
+                                                <a href="<?php echo site_url() . 'contacto';?>">Contacto</a>
                                             </li>
                                         </li>
                                     </ul>
