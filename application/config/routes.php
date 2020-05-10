@@ -149,6 +149,10 @@ $route['dashboard/clientes/load/([0-9]+)'] = "d_customer/load/$1";
 $route['dashboard/clientes/validate'] = "d_customer/validate";
 $route['dashboard/clientes/delete'] = "d_customer/delete";
 
+$route['dashboard/crear_clientes'] = "d_crear_clientes";
+$route['dashboard/crear_clientes/validate'] = "d_crear_clientes/validate";
+
+
 $route['dashboard/preguntas'] = "d_preguntas";
 $route['dashboard/preguntas/save'] = "d_preguntas/save";
 $route['dashboard/preguntas/delete'] = "d_preguntas/delete";
