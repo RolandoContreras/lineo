@@ -41,7 +41,7 @@
                                                     <div class="meta_values">
                                                         <div class="label h6">Antes: <span style="text-decoration:line-through">s/.<?php echo $obj_courses->price_del;?></span></div>
                                                         <div class="stm_lms_courses__single--price"> 
-                                                                <strong>Ahora: s/.60.00</strong>
+                                                                <strong>Ahora: s/.<?php echo $obj_courses->price;?></strong>
                                                             </div>
                                                     </div>
                                                 </div>
