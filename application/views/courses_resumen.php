@@ -8,6 +8,11 @@
         <link rel='stylesheet' href='<?php echo site_url().'static/page_front/css/bootstrap.min.css?ver=3.2';?>' type='text/css' media='all' />
         <link rel='stylesheet' href='<?php echo site_url().'static/page_front/css/styles.css?ver=3.2';?>' type='text/css' media='all' />
         <script type='text/javascript' src='<?php echo site_url().'static/page_front/js/jquery/jquery.js?ver=1.12.4-wp';?>'></script>
+        <!-- favicon-->
+        <link rel="apple-touch-icon" sizes="180x180" href="<?php echo site_url().'static/page_front/images/logo/favico/apple-touch-icon.png';?>">
+        <link rel="icon" type="image/png" sizes="32x32" href="<?php echo site_url().'static/page_front/images/logo/favico/favicon-32x32.png';?>">
+        <link rel="icon" type="image/png" sizes="16x16" href="<?php echo site_url().'static/page_front/images/logo/favico/favicon-16x16.png';?>">
+        <link rel="manifest" href="<?php echo site_url().'static/page_front/images/logo/favico/site.webmanifest';?>">
     </head>
     <body class="logged-in stm_lms_button skin_custom_color classic_lms stm_preloader_1 wpb-js-composer js-comp-ver-5.6 vc_responsive">
         <div class="stm_lms_lesson_header">
@@ -102,6 +107,7 @@
                 </div>
             </div>
         </div>
+        <link rel='stylesheet' id='stm-lms-lesson-css' href='<?php echo site_url().'static/page_front/css/lesson.css?ver=29';?>' type='text/css' media='all' />
         <script type='text/javascript' src='<?php echo site_url().'static/page_front/js/custom.js?ver=3.2';?>'></script>
     </body>
 </html>

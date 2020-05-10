@@ -241,7 +241,7 @@ class Courses extends CI_Controller {
                                         videos.slug,
                                         videos.time",
                             "where" => "videos.module_id in ($array_data) and videos.active = 1",
-                            "order" => "videos.video_id ASC");
+                            "order" => "videos.type ASC");
             $data['obj_videos'] = $this->obj_videos->search($params);
             //obtener el total de los vídeos
             $data['total_videos'] = count($data['obj_videos']);
