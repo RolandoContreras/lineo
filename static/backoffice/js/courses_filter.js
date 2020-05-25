@@ -92,68 +92,6 @@
         }
     }
 
-    function courses_filter() {
-
-        var $form = $('.stm_lms_courses__archive_filter form');
-
-        $form.on('change', function () {
-            var $this = $(this);
-            var suburl = '?' + $this.serialize();
-            var $container = $this.closest('.stm_lms_courses_wrapper').find('.stm_lms_courses__archive');
-            var $btn = $container.find('.stm_lms_load_more_courses');
-
-            history.pushState({}, null, location.origin + location.pathname + suburl);
-        });
-
-        $form.on('submit', function (e) {
-            e.preventDefault();
-
-            var $this = $(this);
-
-            var $sort = $('.courses_filters .stm_lms_courses_grid__sort select');
-            var $container = $this.closest('.stm_lms_courses_wrapper').find('.stm_lms_courses__archive');
-            var $btn = $container.find('.stm_lms_load_more_courses');
-            var $grid = $(this).closest('.stm_lms_courses_wrapper').find('[data-pages]');
-
-            var template = $btn.attr('data-template');
-            var args = $btn.attr('data-args');
-            var suburl = '?' + $this.serialize();
-            var sort_value = $sort.val();
-
-            $btn.attr('data-url', suburl);
-
-            $.ajax({
-                url: stm_lms_ajaxurl + suburl,
-                dataType: 'json',
-                context: this,
-                data: {
-                    offset: 0,
-                    template: template,
-                    args: args,
-                    sort: sort_value,
-                    action: 'stm_lms_load_content',
-                },
-                beforeSend: function () {
-                    $grid.closest('.stm_lms_courses__archive').addClass('loading');
-
-                    $([document.documentElement, document.body]).animate({
-                        scrollTop: $('.stm_lms_courses__archive').offset().top - 130
-                    }, 1000);
-                },
-                complete: function (data) {
-                    data = data['responseJSON'];
-                    $grid.closest('.stm_lms_courses__archive').removeClass('loading');
-
-                    $grid.html(data['content']).attr('data-pages', data.pages);
-                    $btn.attr('data-offset', data['page']);
-                    hide_button($btn, data['page']);
-
-                }
-            });
-
-        })
-    }
-
     function limits() {
         $('.limited_list').each(function () {
             $(this).find('input').each(function(){

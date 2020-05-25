@@ -36,8 +36,8 @@
                                 </div>
                             </div>
                             <div class="stm_lms_courses__archive_wrapper">
-                                <div class="stm_lms_courses__archive_filter"> <a href="#" class="btn btn-default stm_lms_courses__archive_filter_toggle"> Filters </a>
-                                    <form action="#" method="get">
+                                <div class="stm_lms_courses__archive_filter"> 
+                                    <form action="<?php echo site_url().'backoffice/cursos/categorias';?>" method="get">
                                         <div class="stm_lms_courses__archive_filters">
                                             <div class="stm_lms_courses__filter stm_lms_courses__category">
                                                 <div class="stm_lms_courses__filter_heading">
@@ -49,7 +49,7 @@
                                                         <div class="stm_lms_courses__filter_category"> 
                                                             <label class="stm_lms_styled_checkbox"> 
                                                                 <span class="stm_lms_styled_checkbox__inner"> 
-                                                                    <input type="checkbox" value="41" name="category[]"/> 
+                                                                    <input type="checkbox" value="<?php echo $value->category_id;?>" name="category[]"/> 
                                                                     <span><i class="fa fa-check"></i> </span> 
                                                                 </span> 
                                                                 <span><?php echo $value->name; ?> </span> 
@@ -101,7 +101,7 @@
                                                             </a>
                                                         </div>
                                                         <div class="stm_lms_courses__single--meta">
-                                                            <div class="stm_lms_courses__hours"> <i class="stmlms-lms-clocks"></i> <span>6 hours</span></div>
+                                                            <div class="stm_lms_courses__hours"> <i class="stmlms-lms-clocks"></i> <span><?php echo $value->time;?> horas</span></div>
                                                             <div class="stm_lms_courses__single--price heading_font"> 
                                                                 <span><?php echo $value->price_del; ?></span><strong><?php echo $value->price; ?></strong>
                                                             </div>
@@ -123,8 +123,8 @@
                                                             <?php echo corta_texto($value->description, 300); ?>
                                                         </div>
                                                         <div class="stm_lms_courses__single--info_meta">
-                                                            <div class="stm_lms_course__meta"> <i class="stmlms-cats"></i> 10 Materiales</div>
-                                                            <div class="stm_lms_course__meta"> <i class="stmlms-lms-clocks"></i> 13 Horas</div>
+                                                            <!--<div class="stm_lms_course__meta"> <i class="stmlms-cats"></i> 10 Materiales</div>-->
+                                                            <div class="stm_lms_course__meta"> <i class="stmlms-lms-clocks"></i> <span><?php echo $value->time;?> horas</div>
                                                         </div>
                                                         <div class="stm_lms_courses__single--info_preview"> 
                                                             <a href="<?php echo site_url() . "cursos/$value->category_slug/$value->slug"; ?>" title="<?php echo $value->name; ?>" class="heading_font"> Vista previa de este curso</a>
@@ -152,7 +152,7 @@
         <link rel='stylesheet' id='stm-header_mobile-account-css' href='<?php echo site_url() . 'static/backoffice/css/footer/account.css?ver=3.2'; ?>' type='text/css' media='all' />
         <link rel='stylesheet' id='stm-lms_categories_megamenu-style_1-css' href='<?php echo site_url() . 'static/backoffice/css/footer/lms_categories_megamenu.css?ver=3.2'; ?>' type='text/css' media='all' />
         <script src='<?php echo site_url() . 'static/backoffice/js/bootstrap.min.js?ver=3.2'; ?>'></script>
-        <script src='<?php echo site_url() . 'static/backoffice/js/courses_filters.js?ver=81'; ?>'></script>
+
         <script src='<?php echo site_url() . 'static/backoffice/js/courses_filter.js?ver=81'; ?>'></script>
         <script src='<?php echo site_url() . 'static/backoffice/js/custom.js?ver=3.2'; ?>'></script>
         <script src='<?php echo site_url() . 'static/backoffice/js/select2.full.min.js?ver=3.2'; ?>'></script>

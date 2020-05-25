@@ -86,9 +86,9 @@ $route['backoffice/cursos'] = "b_home/cursos";
 $route['backoffice/perfil/upload'] = "b_home/upload";
 
 $route['backoffice/([0-9]+)'] = 'b_home/index/$1';
-$route['backoffice/([0-9a-z_-]+)'] = 'b_home/category/$1';
-$route['backoffice/([0-9a-z_-]+)/([0-9]+)'] = 'b_home/category/$1';
-$route['backoffice/([0-9a-z_-]+)/([0-9a-z|&_-]+)'] = 'b_home/detail/$1';
+$route['backoffice/cursos/categorias'] = 'b_home/category';
+//$route['backoffice/([0-9a-z_-]+)/([0-9]+)'] = 'b_home/category/$1';
+//$route['backoffice/([0-9a-z_-]+)/([0-9a-z|&_-]+)'] = 'b_home/detail/$1';
 
 $route['plataforma'] = "c_home";
 $route['plataforma/send_message'] = "c_home/send_message";

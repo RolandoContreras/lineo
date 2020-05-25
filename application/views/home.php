@@ -141,7 +141,7 @@
                                                                     </a>
                                                                 </div>
                                                                 <div class="stm_lms_courses__single--meta">
-                                                                    <div class="stm_lms_courses__hours"> <i class="stmlms-lms-clocks"></i> <span>6 hours</span></div>
+                                                                    <div class="stm_lms_courses__hours"> <i class="stmlms-lms-clocks"></i> <span><?php echo $value->time;?> horas</span></div>
                                                                     <div class="stm_lms_courses__single--price heading_font"> 
                                                                         <span><?php echo $value->price_del;?></span><strong><?php echo $value->price;?></strong>
                                                                     </div>
@@ -163,8 +163,8 @@
                                                                     <?php echo corta_texto($value->description, 300);?>
                                                                 </div>
                                                                 <div class="stm_lms_courses__single--info_meta">
-                                                                    <div class="stm_lms_course__meta"> <i class="stmlms-cats"></i> 10 Materiales</div>
-                                                                    <div class="stm_lms_course__meta"> <i class="stmlms-lms-clocks"></i> 13 Horas</div>
+                                                                    <!--<div class="stm_lms_course__meta"> <i class="stmlms-cats"></i> 10 Materiales</div>-->
+                                                                    <div class="stm_lms_course__meta"> <i class="stmlms-lms-clocks"></i> <?php echo $value->time;?> horas</div>
                                                                 </div>
                                                                 <div class="stm_lms_courses__single--info_preview"> 
                                                                     <a href="<?php echo site_url() . "cursos/$value->category_slug/$value->slug";?>" title="<?php echo $value->name;?>" class="heading_font"> Vista previa de este curso</a>

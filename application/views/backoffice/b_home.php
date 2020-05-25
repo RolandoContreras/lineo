@@ -21,8 +21,8 @@
         </div>
         <ul class="nav nav-tabs" role="tablist">
             <li role="presentation" class="active"> <a href="#my-courses" data-toggle="tab">Mis Cursos </a> </li>
-            <li role="presentation"><a href="#my-quizzes" data-toggle="tab" aria-expanded="true">Mis Examenes</a></li>
-            <li role="presentation" class=""> <a href="#my-memberships" data-toggle="tab">Mis Pedidos </a> </li>
+            <li role="presentation" class=""><a href="#my-quizzes" data-toggle="tab" aria-expanded="true">Mis Examenes</a></li>
+            <li role="presentation" class=""> <a href="#my-memberships" data-toggle="tab">Mis Compras </a> </li>
         </ul>
         <div class="tab-content">
             <!--Mis Cursos-->
@@ -94,7 +94,7 @@
                 </div>
             </div>
             <!--Mis Examenes-->
-            <div role="tabpanel" id="my-quizzes" v-bind:class="{'is_vue_loaded' : vue_loaded}" class="tab-pane vue_is_disabled is_vue_loaded active">
+            <div role="tabpanel" id="my-quizzes" v-bind:class="{'is_vue_loaded' : vue_loaded}" class="tab-pane vue_is_disabled is_vue_loaded">
                 <div class="stm-lms-user-quizzes">
                     <h3>Mis Examenes</h3>
 <!--                    <table width="100%" cellpadding="0" cellspacing="0" border="0">
