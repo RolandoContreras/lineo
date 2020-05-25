@@ -38,7 +38,7 @@
 |
 */
 
-$route['default_controller'] = "home";
+$route['default_controller'] = "welcome";
 $route['404_override'] = 'errors/error_404';
 
 $route['home'] = 'home';
@@ -79,7 +79,11 @@ $route['backoffice/miscursos'] = 'b_home/mis_cursos';
 $route['backoffice/certificados'] = "b_home/certificados";
 $route['backoffice/certificados/imprimir'] = "b_home/imprimir";
 
-$route['backoffice/profile/upload'] = "b_profile/upload";
+$route['backoffice/perfil/update_data'] = "b_home/update_data";
+$route['backoffice/perfil/change_pass'] = "b_home/change_pass";
+
+$route['backoffice/cursos'] = "b_home/cursos";
+$route['backoffice/perfil/upload'] = "b_home/upload";
 
 $route['backoffice/([0-9]+)'] = 'b_home/index/$1';
 $route['backoffice/([0-9a-z_-]+)'] = 'b_home/category/$1';

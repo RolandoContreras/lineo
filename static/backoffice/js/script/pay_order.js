@@ -66,7 +66,7 @@ function add_cart(course_id,price,name){
             }            
         });
 }
-function add_cart_home(course_id,price,name){
+function add_cart_home(course_id,price,name,img){
         $.ajax({
             type: "post",
             url: site + "backoffice/order/add_cart",
@@ -85,4 +85,28 @@ function add_cart_home(course_id,price,name){
             }            
         });
 }
+function show_stripe(){
+    var stripe = document.getElementById("stripe");
+    var bank = document.getElementById("bank");
+      if (stripe.style.display === "none") {
+        stripe.style.display = "block";
+        bank.style.display = "none";
+        //agregar clase
+        $("#stripe_style").addClass("active");
+        $("#bank_style").removeClass("active");
+      } 
+}
+function show_bank(){
+    var bank = document.getElementById("bank");
+    var stripe = document.getElementById("stripe");
+      if (bank.style.display === "none") {
+        bank.style.display = "block";
+        stripe.style.display = "none";
+        //agregar clase
+        $("#bank_style").addClass("active");
+        $("#stripe_style").removeClass("active");
+      }
+}
+
+
 

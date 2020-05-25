@@ -1,229 +1,73 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-  <title>U-linex - Oficina Virtual</title>
-  <!--[if lt IE 10]><script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script><script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script><![endif]-->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="description" content="Somos una comunidad de desarrollo personal y emprendimiento. Estudia">
-  <meta name="author" content="U-linex">
-  <meta name="keyword" content="U-linex, plataforma de cursos, cursos de arquitectura, aprende arquitectura">
-  <meta name="robots" content="Index, Follow">
-   <!--//STAR FAVICON-->
-    <link rel="apple-touch-icon" sizes="180x180" href="<?php echo site_url().'static/page_front/images/logo/favico/apple-touch-icon.png';?>">
-    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo site_url().'static/page_front/images/logo/favico/favicon-32x32.png';?>">
-    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo site_url().'static/page_front/images/logo/favico/favicon-16x16.png';?>">
-    <link rel="manifest" href="<?php echo site_url().'static/page_front/images/logo/favico/site.webmanifest';?>">
-    <!--//END FAVICON-->
-  <link rel="stylesheet" href="<?php echo site_url().'static/course/css/style.css';?>">
-  <link rel="stylesheet" href="<?php echo site_url().'static/course/css/gallery.css';?>">
-  <link rel="stylesheet" href="<?php echo site_url().'static/backoffice/css/mystyle.css';?>">
-  <link rel="stylesheet" href="<?php echo site_url().'static/backoffice/css/fileupload.css';?>">
-  
-  <script src="https://unpkg.com/feather-icons"></script>
-  <script type="text/javascript">
-    var site = '<?php echo site_url();?>';
-  </script>
-  <script src="<?php echo site_url().'static/cms/js/core/jquery-1.11.1.min.js';?>"></script>
-  <script src="<?php echo site_url().'static/cms/js/core/bootstrap.min.js';?>"></script>
-  <!--culqi-->
-  <script src="https://checkout.culqi.com/js/v3"></script>
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-</head>
-
-<body class="layout-6" style="background-image: url('<?php echo site_url().'static/page_front/images/bg_header.jpg';?>'); background-size: cover;">
-  <nav class="pcoded-navbar menu-light brand-lightblue menupos-static">
-    <div class="navbar-wrapper">
-      <div class="navbar-brand header-logo">
-          <a href="<?php echo site_url().'course';?>" class="b-brand">
-              <img src="<?php echo site_url().'static/page_front/images/logo/logo.png';?>" alt="Logo" width="140"/>
-          </a>
-          <a class="mobile-menu" id="mobile-collapse" href="#!"><span></span></a></div>
-      <div class="navbar-content scroll-div">
-        <div class="card-block text-center">
-            <a href="<?php echo site_url().'backoffice/profile';?>">
-                <br/>
-                <?php 
-                if($_SESSION['customer']['img'] != null){ ?>
-                <img  data-toggle="tooltip" data-placement="right" data-original-title="Cambiar imagen" src="<?php echo site_url()."static/backoffice/images/profile/".$_SESSION['customer']['img'];?>" class="img-radius" alt="Perfil" width="100" height="100">
-                <?php }else{ ?> 
-                        <img src="<?php echo site_url()."static/backoffice/images/avatar.jpg";?>" class="img-radius" alt="Perfil">
-                <?php  } ?>
-            </a>
-            <div class="nav-item pcoded-menu-caption"><b>¡Hola!, </b><?php echo $_SESSION['customer']['name']?></div>
+<html lang="es" class="no-js">
+    <?php $this->load->view("backoffice/head"); ?>
+    <body class="logged-in stm_lms_button skin_custom_color online-light stm_preloader_1 wpb-js-composer js-comp-ver-5.6 vc_responsive" ontouchstart="">
+        <div id="wrapper">
+            <?php $this->load->view("header"); ?>
+            <!-- id header -->
+            <div id="main">
+                <div class="stm-lms-wrapper">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-3 col-sm-12">
+                                <div class="stm_lms_user_side">
+                                    <div class="stm-lms-user-avatar-edit "> 
+                                        <div class=""> 
+                                            <?php if (!empty($_SESSION['customer']['img'])) { ?>
+                                                <img class="img-radius" alt='avatar' src='<?php echo site_url() . 'static/backoffice/images/profile/' . $_SESSION['customer']['img']; ?>' class='avatar avatar-215 photo' height='215' width='215'/> 
+                                            <?php } else { ?>
+                                                <img alt='avatar' src='<?php echo site_url() . 'static/backoffice/images/avatar.png'; ?>' class='avatar avatar-215 photo' height='215' width='215'/> 
+                                            <?php } ?>
+                                        </div>
+                                    </div>
+                                    <h3 class="stm_lms_update_field__first_name"><?php echo $_SESSION['customer']['name']; ?></h3>
+                                    <div class="stm_lms_profile_buttons_set 22">
+                                        <div class="stm_lms_profile_buttons_set__inner">
+                                            <div class="stm-lms-user_message_btn"> <i class="stm-lms-user_message_btn__counter">1</i> 
+                                                <a href="#" class="btn btn-default">Mis Mensajes</a>
+                                            </div>
+                                            <div class="stm-lms-user_create_announcement_btn">
+                                                <a href="<?php echo site_url() . 'backoffice'; ?>"><i class="fa fa-home"></i><span>Inicio</span></a>
+                                            </div>
+                                            <div class="stm-lms-user_create_announcement_btn">
+                                                <a href="<?php echo site_url() . 'backoffice/certificados'; ?>">
+                                                    <i class="fa fa-medal"></i>
+                                                    <span>Mis Certificados</span>
+                                                </a>
+                                            </div>
+                                            <div class="stm-lms-user_create_announcement_btn">
+                                                <a href="<?php echo site_url() . 'backoffice/cursos'; ?>"><i class="fa fa-shopping-cart"></i><span>Comprar Curso</span></a>
+                                            </div>
+                                            <div class="stm-lms-user_edit_profile_btn" data-container=".stm_lms_edit_account">
+                                                <a href="<?php echo site_url() . 'backoffice#settings'; ?>"> <i class="fa fa-cog"></i> <span>Editar Perfil</span> </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <?php echo $body; ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--#main-->
         </div>
-        <hr/>
-        <ul class="nav pcoded-inner-navbar">
-          <li class="nav-item pcoded-menu-caption"><label>Navegación</label></li>
-          <?php
-          $url = explode("/",uri_string());
-            if(isset($url[1])){
-                $nav = "$url[1]";
-            }else{
-                $nav = "home";
-            }
-            
-            $course_syle = "";
-            $home_syle = "";
-            $profile_syle = "";
-            $shopping_syle = "";
-            $mis_cursos_syle = "";
-            
-            switch ($nav) {
-                case "profile":
-                    $profile_syle = "active";
-                    break;
-                case "miscursos":
-                    $mis_cursos_syle = "active";
-                    break;
-                case "home":
-                    $home_syle = "active";
-                    break;
-                case "shopping":
-                    $shopping_syle = "active";
-                    break;
-                default:
-                    $course_syle = "active";
-                    break;
-            }
-          ?>
-          
-          
-          <li class="nav-item">
-              <a href="<?php echo site_url().'backoffice';?>" class="nav-link <?php echo $home_syle;?>">
-                  <span class="pcoded-micon">
-                       <i data-feather="home"></i>
-                  </span>
-                  <span class="pcoded-mtext">Inicio</span>
-              </a>
-        </li>
-        <li class="nav-item">
-              <a href="<?php echo site_url().'backoffice/profile';?>" class="nav-link <?php echo $profile_syle;?>">
-                  <span class="pcoded-micon">
-                       <i data-feather="users"></i>
-                  </span>
-                  <span class="pcoded-mtext">Perfil</span>
-              </a>
-        </li>
-                <li class="nav-item pcoded-hasmenu">
-                    <a href="<?php echo site_url().'backoffice/miscursos';?>" class="nav-link <?php echo $mis_cursos_syle;?>">
-                        <span class="pcoded-micon text-c-green">
-                            <b><i data-feather="star"></i></b>
-                        </span>
-                        <span class="pcoded-mtext text-c-green"><b>Mis Cursos</b></span>
-                    </a>
-                                    </li>
-        <li class="nav-item">
-              <a href="<?php echo site_url().'backoffice/shopping';?>" class="nav-link <?php echo $shopping_syle;?>">
-                  <span class="pcoded-micon">
-                       <i data-feather="shopping-cart"></i>
-                  </span>
-                  <span class="pcoded-mtext">Mis Compras</span>
-              </a>
-        </li>
-        <li class="nav-item">
-              <a href="<?php echo site_url().'backoffice/certificados';?>" class="nav-link <?php echo $profile_syle;?>">
-                  <span class="pcoded-micon">
-                       <i data-feather="layers"></i>
-                  </span>
-                  <span class="pcoded-mtext">Certificados</span>
-              </a>
-        </li>
-        <li class="nav-item">
-              <a href="<?php echo site_url().'salir';?>" class="nav-link">
-                  <span class="pcoded-micon">
-                       <i data-feather="log-out"></i>
-                  </span>
-                  <span class="pcoded-mtext">Salir</span>
-              </a>
-        </li>
-    </ul>
-    </div>
-    </div>
-  </nav>
-  <header class="navbar pcoded-header navbar-expand-lg navbar-light">
-    <div class="m-header"><a class="mobile-menu" id="mobile-collapse1" href="#!"><span></span></a>
-        <a href="<?php echo site_url().'course';?>" class="b-brand">
-            <img src="<?php echo site_url().'static/page_front/images/logo/logo.png';?>" alt="Logo" width="140"/>
-        </a>
-    </div>
-      <a class="mobile-menu" id="mobile-header" href="#!">
-          <i class="feather icon-more-horizontal"></i>
-      </a>
-    <div class="collapse navbar-collapse">
-      <ul class="navbar-nav mr-auto">
-        <li>
-            <a href="#!" class="full-screen" onclick="javascript:toggleFullScreen()">
-                <i data-feather="maximize"></i>
-            </a>
-        </li>
-      </ul>
-    </div>
-    <div class="collapse navbar-collapse">
-       <?php 
-        //count data cart
-        $cart = count($this->cart->contents());
-       if($cart > 0){ ?>
-            <ul class="navbar-nav ml-auto">
-                <li>
-                  <div class="dropdown drp-user">
-                      <a href="<?php echo site_url().'backoffice/pay_order';?>">
-                          <span title="Pagar Compra" data-toggle="tooltip" data-placement="bottom" data-original-title="Pagar Compra" style="padding: 10px;border-radius: 10px;">
-                              <i data-feather="shopping-cart" style="color: #00a78e;"></i>  
-                              <span class="wrapper-items-number">
-                                        <span class="items-number"></span>
-                                        <button type="button" class="btn btn-icon btn-rounded btn-danger"> <?php echo $cart;?> </button>
-                              </span>
-                          </span>
-                      </a>
-                  </div>
-                </li>
-              </ul>
-       <?php } ?>   
-    </div>
-  </header>
-  <?php echo $body;?>
-    <!-- Load Facebook SDK for JavaScript -->
-      <div id="fb-root"></div>
-      <script>
-        window.fbAsyncInit = function() {
-          FB.init({
-            xfbml            : true,
-            version          : 'v6.0'
-          });
-        };
-
-        (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = 'https://connect.facebook.net/es_ES/sdk/xfbml.customerchat.js';
-        fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));</script>
-
-      <!-- Your customer chat code -->
-      <div class="fb-customerchat"
-        attribution=setup_tool
-        page_id="102549621289340"
-  theme_color="#182939"
-  logged_in_greeting="Hola soy tu tutor, ¿Cómo puedo ayudarte?"
-  logged_out_greeting="Hola soy tu tutor, ¿Cómo puedo ayudarte?">
-      </div>
-  <script src="<?php echo site_url().'static/course/js/vendor-all.min.js';?>"></script>
-  <script src="<?php echo site_url().'static/cms/js/core/datatables.min.js';?>"></script>
-  <script src="<?php echo site_url().'static/cms/js/core/tbl-datatable-custom.js';?>"></script>
-  <script src="<?php echo site_url().'static/course/js/bootstrap.min.js';?>"></script>
-  <script src="<?php echo site_url().'static/course/js/pcoded.min.js';?>"></script>
-  <script src="<?php echo site_url().'static/course/js/ekko-lightbox.min.js';?>"></script>
-  <script src="<?php echo site_url().'static/course/js/ac-lightbox.js';?>"></script>
-      <script src=https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js></script>
-      <script>
-        WebFont.load({google:{families:['Roboto:400,300']}});
-      </script>
-      <script defer src="<?php echo site_url().'static/page_front/js/autoptimize_282.js';?>"></script>
-  <script>
-      feather.replace()
-  </script>
-</body>
+        <!--#wrapper-->
+        <?php $this->load->view("footer"); ?>
+        <link rel='stylesheet' id='stm-lms-lesson-css' href='<?php echo site_url() . 'static/backoffice/css/footer/lesson.css?ver=75'; ?>' type='text/css' media='all' />
+        <link rel='stylesheet' id='stm-lms-user-css' href='<?php echo site_url() . 'static/backoffice/css/footer/user.css?ver=75'; ?>' type='text/css' media='all' />
+        <link rel='stylesheet' id='stm-lms_categories_megamenu-style_1-css' href='<?php echo site_url() . 'static/backoffice/css/footer/lms_categories_megamenu.css?ver=3.2'; ?>' type='text/css' media='all' />
+        <link rel='stylesheet' id='stm-header_mobile-account-css' href='<?php echo site_url() . 'static/backoffice/css/footer/account.css?ver=3.2'; ?>' type='text/css' media='all' />
+        <link rel='stylesheet' id='stm-lms-user-courses-css' href='<?php echo site_url() . 'static/backoffice/css/footer/user-courses.css?ver=75'; ?>' type='text/css' media='all' />
+        <link rel='stylesheet' id='stm-lms-edit_account-css' href='<?php echo site_url() . 'static/backoffice/css/footer/edit_account.css?ver=75'; ?>' type='text/css' media='all' />
+        <script src='<?php echo site_url() . 'static/backoffice/js/bootstrap.min.js?ver=3.2'; ?>'></script>
+        <script src='<?php echo site_url() . 'static/backoffice/js/jquery.fancybox.js?ver=3.2'; ?>'></script>
+        <script src='<?php echo site_url() . 'static/backoffice/js/select2.full.min.js?ver=3.2'; ?>'></script>
+        <script src='<?php echo site_url() . 'static/backoffice/js/custom.js?ver=3.2'; ?>'></script>
+        <script src='<?php echo site_url() . 'static/backoffice/js/edit_account.js?ver=75'; ?>'></script>
+        <script src='<?php echo site_url() . 'static/backoffice/js/header_2.js?ver=3.2'; ?>'></script>
+        <script type='text/javascript'>
+            var stm_lms_edit_account_info = {"id": "", "avatar": "", "avatar_url": "", "email": "", "url": "", "meta": {}}
+        </script>
+    </body>
 </html>

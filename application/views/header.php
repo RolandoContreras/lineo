@@ -37,112 +37,131 @@
                                                 <a href="<?php echo site_url() . 'registro'; ?>">Registro</a>
                                             </li>
                                             <li class="stm_lms_badge_menu menu-item menu-item-type-custom menu-item-object-custom menu-item-3363">
-                                                <a href="<?php echo site_url() . 'contacto';?>">Contacto</a>
+                                                <a href="<?php echo site_url() . 'contacto'; ?>">Contacto</a>
                                             </li>
-                                        </li>
-                                    </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="pull-right">
-                                <div class="header_top_bar_socs">
-                                    <ul class="clearfix">
-                                        <li><a href='#'><i class='fab fa-instagram'></i></a></li>
-                                        <li><a href='https://www.facebook.com/U-linex-103662281176014/'><i class='fab fa-facebook'></i></a></li>
-                                        <li><a href='#'><i class='fab fa-youtube'></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="header_top">
-                    <div class="logo-unit">
-                        <a href="<?php echo site_url(); ?>"> 
-                            <img class="img-responsive logo_transparent_static visible logo" src="<?php echo site_url().'static/page_front/images/logo/logo-a.jpg';?>" alt="U-linex Logo"/> 
-                        </a>
-                    </div>
-                    <div class="center-unit">
-                        <div class="stm_courses_search">
-                            <div class="stm_lms_categories"> <i class="stmlms-hamburger"></i> <span class="heading_font">Categorías</span>
-                                <div class="stm_lms_categories_dropdown">
-                                    <div class="stm_lms_categories_dropdown__parents">
-                                        <?php 
-                                        foreach ($obj_category as $value) { ?>
-                                            <div class="stm_lms_categories_dropdown__parent"> 
-                                                <a href="<?php echo site_url()."cursos/$value->slug";?>" class="sbc_h"><?php echo $value->name;?></a>
-                                            </div>
-                                        <?php } ?>
+                                <div class="pull-right">
+                                    <div class="header_top_bar_socs">
+                                        <ul class="clearfix">
+                                            <li><a href='#'><i class='fab fa-instagram'></i></a></li>
+                                            <li><a href='https://www.facebook.com/U-linex-103662281176014/'><i class='fab fa-facebook'></i></a></li>
+                                            <li><a href='#'><i class='fab fa-youtube'></i></a></li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
-                            <div class="stm_lms_courses_search" id="stm_lms_courses_search" v-bind:class="{'is_vue_loaded' : vue_loaded}">
-                                <form method="get" action="<?php echo site_url().'cursos'?>">
-                                    <input type="text"  name="search" placeholder="Buscar Curso">
-                                    <button type="submit" class="stm_lms_courses_search__button sbc style_search">
-                                        <i class="lnr lnr-magnifier"></i> 
-                                    </button>
-                                </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="header_top">
+                        <div class="logo-unit">
+                            <a href="<?php echo site_url(); ?>"> 
+                                <img class="img-responsive logo_transparent_static visible logo" src="<?php echo site_url() . 'static/page_front/images/logo/logo-a.jpg'; ?>" alt="U-linex Logo"/> 
+                            </a>
+                        </div>
+                        <div class="center-unit">
+                            <div class="stm_courses_search">
+                                <div class="stm_lms_categories"> <i class="stmlms-hamburger"></i> <span class="heading_font">Categorías</span>
+                                    <div class="stm_lms_categories_dropdown">
+                                        <div class="stm_lms_categories_dropdown__parents">
+                                            <?php foreach ($obj_category as $value) { ?>
+                                                <div class="stm_lms_categories_dropdown__parent"> 
+                                                    <a href="<?php echo site_url() . "cursos/$value->slug"; ?>" class="sbc_h"><?php echo $value->name; ?></a>
+                                                </div>
+                                            <?php } ?>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="stm_lms_courses_search" id="stm_lms_courses_search" v-bind:class="{'is_vue_loaded' : vue_loaded}">
+                                    <form method="get" action="<?php echo site_url() . 'cursos' ?>">
+                                        <input type="text"  name="search" placeholder="Buscar Curso">
+                                        <button type="submit" class="stm_lms_courses_search__button sbc style_search">
+                                            <i class="lnr lnr-magnifier"></i> 
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="right-unit">
+                            <?php if (isset($_SESSION['customer'])) { ?>
+                                <div class="stm_lms_account_dropdown">
+                                    <div class="dropdown">
+                                        <div class="stm-lms-user_message_btn__counter"> 1 </div> 
+                                        <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+                                            <i class="lnr lnr-user"></i> <span class="login_name">Hola, <?php echo corta_texto($_SESSION['customer']['name'], 4); ?></span> <span class="caret"></span> 
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li> 
+                                                <a href="<?php echo site_url() . 'backoffice';?>">Mi Cuenta</a>                      
+                                                <a href="<?php echo site_url() . 'salir';?>">Salir</a>                      
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="stm_lms_settings_button">
+                                    <a href="<?php echo site_url() . 'backoffice/' ?>#settings"><i class="lnr lnr-cog"></i></a>
+                                </div>
+                            <?php } else { ?>
+                                <a href="<?php echo site_url() . 'iniciar-sesion' ?>" class="btn btn-default" data-text="Iniciar Sesión"> <span>Iniciar Sesión</span> </a>
+                                <div class="stm_lms_wishlist_button">
+                                    <a href="#" data-text="Favorites"> <i class="lnr lnr-bookmark "></i> </a>
+                                </div>
+                            <?php } ?>
+                        </div>
+                        <a href="<?php echo site_url() . 'iniciar-sesion'; ?>"><div class="stm_header_top_toggler mbc"><i class="lnr lnr-user"></i></div></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="stm_lms_menu_popup">
+            <div class="stm_lms_menu_popup__close"> <i class="lnr lnr-cross"></i></div>
+            <div class="inner">
+                <h2>Menu</h2>
+                <div class="stm_menu_toggler" data-text="Menu"></div>
+                <div class="header_main_menu_wrapper clearfix" style="margin-top:5px;">
+                    <div class="pull-right hidden-xs right_buttons">
+                        <div class="stm_lms_wishlist_button">
+                            <a href="#" data-text="Favorites"> <i class="far fa-bookmark mtc_h"></i> </a>
+                        </div>
+                        <div class="pull-right">
+                            <div class="header_top_bar_socs">
+                                <ul class="clearfix">
+                                    <li><a href='#'><i class='fab fa-instagram'></i></a></li>
+                                    <li><a href='https://www.facebook.com/U-linex-103662281176014/'><i class='fab fa-facebook'></i></a></li>
+                                    <li><a href='#'><i class='fab fa-youtube'></i></a></li>
+                                </ul>
                             </div>
                         </div>
                     </div>
-                    <div class="right-unit">
-                        <a href="<?php echo site_url().'iniciar-sesion'?>" class="btn btn-default" data-text="Iniciar Sesión"> <span>Iniciar Sesión</span> </a>
-                        <div class="stm_lms_wishlist_button">
-                            <a href="#" data-text="Favorites"> <i class="lnr lnr-bookmark "></i> </a>
-                        </div>
+                    <div class="collapse navbar-collapse pull-right">
+                        <ul class="header-menu clearfix">
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item menu-item-5">
+                                <a href="<?php echo site_url(); ?>" aria-current="page">Inicio</a>
+                            </li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item menu-item-5">
+                                <a href="<?php echo site_url() . 'cursos'; ?>">Cursos</a>
+                            </li>
+                            <li class="stm_lms_badge_menu menu-item menu-item-type-custom menu-item-object-custom menu-item-3363">
+                                <a href="<?php echo site_url() . 'iniciar-sesion'; ?>">Iniciar Sesión</a>
+                            </li>
+                            <li class="stm_lms_badge_menu menu-item menu-item-type-custom menu-item-object-custom menu-item-3363">
+                                <a href="<?php echo site_url() . 'registro'; ?>">Registro</a>
+                            </li>
+                            <li class="stm_lms_badge_menu menu-item menu-item-type-custom menu-item-object-custom menu-item-3363">
+                                <a href="<?php echo site_url() . 'contacto'; ?>">Contacto</a>
+                            </li>
+                        </ul>
                     </div>
-                    <a href="<?php echo site_url().'iniciar-sesion';?>"><div class="stm_header_top_toggler mbc"><i class="lnr lnr-user"></i></div></a>
                 </div>
             </div>
         </div>
     </div>
-    <div class="stm_lms_menu_popup">
-        <div class="stm_lms_menu_popup__close"> <i class="lnr lnr-cross"></i></div>
-        <div class="inner">
-            <h2>Menu</h2>
-            <div class="stm_menu_toggler" data-text="Menu"></div>
-            <div class="header_main_menu_wrapper clearfix" style="margin-top:5px;">
-                <div class="pull-right hidden-xs right_buttons">
-                    <div class="stm_lms_wishlist_button">
-                        <a href="#" data-text="Favorites"> <i class="far fa-bookmark mtc_h"></i> </a>
-                    </div>
-                    <div class="pull-right">
-                        <div class="header_top_bar_socs">
-                            <ul class="clearfix">
-                                <li><a href='#'><i class='fab fa-instagram'></i></a></li>
-                                <li><a href='https://www.facebook.com/U-linex-103662281176014/'><i class='fab fa-facebook'></i></a></li>
-                                <li><a href='#'><i class='fab fa-youtube'></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="collapse navbar-collapse pull-right">
-                    <ul class="header-menu clearfix">
-                        <li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item menu-item-5">
-                            <a href="<?php echo site_url();?>" aria-current="page">Inicio</a>
-                        </li>
-                        <li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item menu-item-5">
-                            <a href="<?php echo site_url().'cursos';?>">Cursos</a>
-                        </li>
-                        <li class="stm_lms_badge_menu menu-item menu-item-type-custom menu-item-object-custom menu-item-3363">
-                            <a href="<?php echo site_url().'iniciar-sesion';?>">Iniciar Sesión</a>
-                        </li>
-                        <li class="stm_lms_badge_menu menu-item menu-item-type-custom menu-item-object-custom menu-item-3363">
-                            <a href="<?php echo site_url().'registro';?>">Registro</a>
-                        </li>
-                        <li class="stm_lms_badge_menu menu-item menu-item-type-custom menu-item-object-custom menu-item-3363">
-                            <a href="<?php echo site_url().'contacto';?>">Contacto</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 </div>
