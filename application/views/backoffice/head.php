@@ -33,4 +33,5 @@
     <script>
         var site = "<?php echo site_url(); ?>"
     </script>
+    <script src="https://checkout.culqi.com/js/v3"></script>
 </head>

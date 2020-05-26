@@ -109,23 +109,23 @@
                             <div class="col-md-3">
                                 <div class="stm-lms-course__sidebar">
                                     <div class="stm-lms-buy-buttons stm-lms-buy-buttons-mixed stm-lms-buy-buttons-mixed-pro sssss dssssssssss">
-                                        <a onclick="add_cart_home('<?php echo $obj_courses->course_id; ?>', '<?php echo $obj_courses->price; ?>', '<?php echo $obj_courses->name; ?>');" class="btn btn-default start-course">
-                                            <span>Comprar el curso</span> 
+                                        <a onclick="add_cart_home('<?php echo $obj_courses->course_id; ?>', '<?php echo $obj_courses->price; ?>', '<?php echo $obj_courses->name; ?>', '<?php echo $obj_courses->img; ?>');" class="btn btn-default start-course">
+                                            <span><i class="fas fa-shopping-bag"></i> Agregar a Cesta</span> 
                                         </a>
                                     </div>
                                     <div class="stm-lms-course-info heading_font">
                                         <div class="stm-lms-course-info__single">
-                                            <div class="stm-lms-course-info__single_label"> <span>Enrolados</span>: <strong>35 students</strong></div>
+                                            <div class="stm-lms-course-info__single_label"> <span>Enrolados</span>: <strong><?php echo $obj_courses->total_enrolados;?> estudiantes</strong></div>
                                             <div class="stm-lms-course-info__single_icon"> <i class="fa-icon-stm_icon_users"></i></div>
                                         </div>
                                         <div class="stm-lms-course-info__single">
-                                            <div class="stm-lms-course-info__single_label"> <span>Duración</span>: <strong>13 hours</strong></div>
+                                            <div class="stm-lms-course-info__single_label"> <span>Duración</span>: <strong><?php echo $obj_courses->time;?> horas</strong></div>
                                             <div class="stm-lms-course-info__single_icon"> <i class="fa-icon-stm_icon_clock"></i></div>
                                         </div>
-                                        <div class="stm-lms-course-info__single">
+<!--                                        <div class="stm-lms-course-info__single">
                                             <div class="stm-lms-course-info__single_label"> <span>Materiales</span>: <strong>10</strong></div>
                                             <div class="stm-lms-course-info__single_icon"> <i class="fa-icon-stm_icon_bullhorn"></i></div>
-                                        </div>
+                                        </div>-->
                                     </div>
                                     <div class="stm-lms-dynamic_sidebar">
                                         <div id="stm_lms_popular_courses-3" class="widget widget_stm_lms_popular_courses">

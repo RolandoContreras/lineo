@@ -459,10 +459,10 @@ class B_home extends CI_Controller {
             if ($_SESSION['customer']['logged_customer'] == "TRUE") {
                 return true;
             } else {
-                redirect(site_url() . 'login');
+                redirect(site_url() . 'compra');
             }
         } else {
-            redirect(site_url() . 'login');
+            redirect(site_url() . 'compra');
         }
     }
 

@@ -66,35 +66,35 @@ function add_cart(course_id,price,name){
             }            
         });
 }
-function add_cart_home(course_id,price,name){
-        $.ajax({
-            type: "post",
-            url: site + "backoffice/order/add_cart",
-            dataType: "json",
-            data: {course_id: course_id,
-                   price: price,
-                   name: name},
-
-            success:function(data){            
-                if(data.status == "true"){
-                   Swal.fire({
-                              position: 'top-end',
-                              icon: 'success',
-                              title: 'Prodcuto Agregado',
-                              showConfirmButton: false,
-                              timer: 1500
-                            });
-                        window.setTimeout( function(){
-                             window.location = site+"compra";
-                         }, 1500 ); 
-                }else{
-                    Swal.fire({
-                              icon: 'error',
-                              title: 'Ups! Hubo un error',
-                              footer: 'Comuniquese con soporte',
-                            });
-                }
-            }            
-        });
+function add_cart_home(course_id, price, name, img) {
+    var url = site + "backoffice/pay_order";
+    $.ajax({
+        type: "post",
+        url: site + "backoffice/order/add_cart",
+        dataType: "json",
+        data: {course_id: course_id,
+            price: price,
+            name: name,
+            img: img},
+        success: function (data) {
+            if (data.status == "true") {
+                Swal.fire({
+                    position: 'top-end',
+                    title: 'Producto Agregado a la Cesta',
+                    icon: 'success',
+                    showCloseButton: true,
+                    focusConfirm: false,
+                    confirmButtonText:
+                            '<i class="fa fa-shopping-cart" aria-hidden="true"></i> <a style="color:white !important;" href="'+url+'">Ir al Carrito!</a>'
+                });
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Ups! Hubo un error',
+                    footer: 'Comuniquese con soporte',
+                });
+            }
+        }
+    });
 }
 
