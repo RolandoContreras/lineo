@@ -122,10 +122,6 @@
                                             <div class="stm-lms-course-info__single_label"> <span>Duración</span>: <strong><?php echo $obj_courses->time;?> horas</strong></div>
                                             <div class="stm-lms-course-info__single_icon"> <i class="fa-icon-stm_icon_clock"></i></div>
                                         </div>
-<!--                                        <div class="stm-lms-course-info__single">
-                                            <div class="stm-lms-course-info__single_label"> <span>Materiales</span>: <strong>10</strong></div>
-                                            <div class="stm-lms-course-info__single_icon"> <i class="fa-icon-stm_icon_bullhorn"></i></div>
-                                        </div>-->
                                     </div>
                                     <div class="stm-lms-dynamic_sidebar">
                                         <div id="stm_lms_popular_courses-3" class="widget widget_stm_lms_popular_courses">
@@ -138,9 +134,9 @@
                                                             <div class="meta">
                                                                 <div class="title h5"><?php echo $value->name;?></div>
                                                                 <div class="stm_featured_product_price">
-                                                                    <div class="price price-free">S/.<?php echo $value->price;?></div>
+                                                                    <div class="price price-free">s/.<?php echo $value->price;?></div>
                                                                 </div>
-                                                                <div class="expert">Por: Marco Aurelio</div>
+                                                                <div class="expert">Instructor: U-linex</div>
                                                             </div>
                                                         </a>
                                                     </li>

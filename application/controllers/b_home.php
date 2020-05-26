@@ -14,6 +14,7 @@ class B_home extends CI_Controller {
         $this->load->model("invoices_model", "obj_invoices");
         $this->load->model("modules_model", "obj_modules");
         $this->load->model("customer_courses_model", "obj_customer_courses");
+        $this->load->library('culqi');
     }
 
     public function index() {
@@ -203,6 +204,80 @@ class B_home extends CI_Controller {
         );
         $data['obj_courses'] = $this->obj_courses->search($params_course);
         $this->load->view("backoffice/b_cursos", $data);
+    }
+    
+    public function active_course() {
+        //ACTIVE CUSTOMER NORMALY
+        try {
+            //GET SESION ACTUALY
+            $this->get_session();
+            //UPDATED SET TIME ZONE
+            date_default_timezone_set('America/Lima');
+            //get customer
+            $customer_id = $_SESSION['customer']['customer_id'];
+            //SELECT DATA CUSTOMER
+            $params_customer = array(
+                "select" => "name",
+                "where" => "customer_id = $customer_id",
+            );
+            //GET DATA COMMENTS
+            $obj_customer = $this->obj_customer->get_search_row($params_customer);
+
+            $price_cart = $this->cart->format_number($this->cart->total());
+            $price = $this->input->post('price');
+            $token = $this->input->post('token');
+            $email = $this->input->post('email');
+            //obtener día de hoy
+            $today = date("Y-m-d");
+            //make charged
+            $charge = $this->culqi->charge($token, $price, $email, $obj_customer->name);
+
+            $price_cart = explode(".", $price_cart);
+            $price = $price_cart[0];
+            $price = quitar_coma_number($price);
+            //INSERT INVOICE
+
+            $option = "";
+            foreach ($this->cart->contents() as $items) {
+                //CREATE INVOICE
+                $data_invoice = array(
+                    'customer_id' => $customer_id,
+                    'course_id' => $items['id'],
+                    'sub_total' => $items['price'],
+                    'igv' => 0,
+                    'total' => $items['price'],
+                    'date' => date("Y-m-d H:i:s"),
+                    'active' => 2,
+                );
+                $invoice_id = $this->obj_invoices->insert($data_invoice);
+                $course_id = $items['id'];
+                $params = array(
+                    "select" => "duration",
+                    "where" => "course_id = $course_id",
+                );
+                //GET DATA COMMENTS
+                $obj_courses = $this->obj_courses->get_search_row($params);
+                //CREATE CUSTOMER COURSE
+                $duration = $obj_courses->duration == null ? 0 : $obj_courses->duration;
+                //sumar el tiempo de duración
+                $today_curso = date("Y-m-d", strtotime($today . "+ $duration days"));
+                $data = array(
+                    'customer_id' => $customer_id,
+                    'course_id' => $items['id'],
+                    'date_start' => date("Y-m-d H:i:s"),
+                    'duration_time' => $today_curso,
+                );
+                $this->obj_customer_courses->insert($data);
+            }
+            //DESTROY CART
+            $this->cart->destroy();
+            // Respuesta
+            $data['status'] = "true";
+            echo json_encode($charge);
+        } catch (Exception $e) {
+            $data['status'] = "false";
+            echo json_encode($e->getMessage());
+        }
     }
 
     public function upload() {

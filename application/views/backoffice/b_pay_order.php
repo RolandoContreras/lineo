@@ -28,7 +28,7 @@
                                 </h4>
                             </div>
                             <div class="stm_lms_cart__item_price" data-label="Total">
-                                &euro;<?php echo $this->cart->format_number($items['price']); ?>                
+                                s/.<?php echo $this->cart->format_number($items['price']); ?>                
                             </div>
                         </div>
                     <?php endforeach; ?>
@@ -36,7 +36,7 @@
                 <div class="stm_lms_checkout">
                     <div id="stm_lms_checkout">
                         <div class="stm_lms_checkout__payment clearfix">
-                            <h3>Total: &euro;<?php echo $this->cart->format_number($this->cart->total()); ?></h3>
+                            <h3>Total: s/.<?php echo $this->cart->format_number($this->cart->total()); ?></h3>
                             <div class="stm-lms-payment-methods">
                                 <div id="bank_style" class="stm-lms-payment-method active">
                                     <div class="stm-lms-payment-method__name">
@@ -57,7 +57,6 @@
                                                     <th>Nombre del Banco</th>
                                                     <th>Número de Cuenta</th>
                                                     <th>Titular</th>
-                                                    <th>Descripción</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -65,25 +64,21 @@
                                                     <td>BBVA Soles</td>
                                                     <td>0011-08140203563596</td>
                                                     <td>Efrain Jonatan Montero Laura</td>
-                                                    <td>Pago via transferencia </td>
                                                 </tr>
                                                 <tr id="pmpro_account-invoice-3B9914E266">
                                                     <td>Interbank Soles</td>
                                                     <td>8983164236422</td>
                                                     <td>Efrain Jonatan Montero Laura</td>
-                                                    <td>Pago via transferencia </td>
                                                 </tr>
                                                 <tr id="pmpro_account-invoice-3B9914E266">
                                                     <td>Banco de Crédito (BCP) Soles </td>
                                                     <td>22094464852042</td>
                                                     <td>Efrain Jonatan Montero Laura</td>
-                                                    <td>Pago via transferencia </td>
                                                 </tr>
                                                 <tr id="pmpro_account-invoice-3B9914E266">
                                                     <td>Banco Falabella Soles</td>
                                                     <td>8082800083937</td>
                                                     <td>Efrain Jonatan Montero Laura</td>
-                                                    <td>Pago via transferencia </td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -117,7 +112,7 @@
                         </div>
                     </div>
                 </div>
-                <?php } else {
+            <?php } else {
                 ?>
                 <h3>El carrito esta vacio, <a href="<?php echo site_url() . 'cursos'; ?>">Agregar Cursos</a></h3>
             <?php } ?>
@@ -171,26 +166,40 @@
                                                             dataType: 'JSON',
                                                             success: function (data) {
                                                                 if (data.object == "charge") {
-                                                                    swal("Pago realizado", "Gracias por confiar en U-linex, ingresar a MIS CURSOS y disfruta de tu nuevo curso.", "success");
-                                                                    location.href = site + "backoffice/shopping";
+                                                                    Swal.fire({
+                                                                        position: 'top-end',
+                                                                        icon: 'success',
+                                                                        title: 'Pago realizado',
+                                                                        showConfirmButton: false,
+                                                                        timer: 1500
+                                                                    });
+                                                                    window.setTimeout(function () {
+                                                                        window.location = site + "backoffice";
+                                                                    }, 1500);
                                                                 } else {
-                                                                    $("#pay_info").html();
-                                                                    swal("Pago no realizado", "Hubo un error, verifique los datos de la tarjeta", "error");
+                                                                    Swal.fire({
+                                                                        position: 'top-end',
+                                                                        icon: 'error',
+                                                                        title: 'Pago no realizado',
+                                                                        footer: 'Hubo un error, verifique los datos de la tarjeta'
+                                                                    });
                                                                     $("#spinner").hide();
                                                                     $("#buyButton").show();
                                                                 }
                                                             },
                                                             error: function (data) {
                                                                 alert(data.user_message);
+                                                                $("#spinner").hide();
+                                                                $("#buyButton").show();
                                                             }
                                                         });
                                                     } else {
                                                         console.log(Culqi.error);
                                                         alert(Culqi.error.user_message);
+                                                        $("#spinner").hide();
+                                                        $("#buyButton").show();
                                                     }
                                                 }
                                                 ;
 
 </script>
-<!--<script src="<?php echo site_url() . 'static/backoffice/js/sweetalert.min.js'; ?>"></script>-->      
-

@@ -87,6 +87,11 @@ $route['backoffice/perfil/upload'] = "b_home/upload";
 
 $route['backoffice/([0-9]+)'] = 'b_home/index/$1';
 $route['backoffice/cursos/categorias'] = 'b_home/category';
+
+$route['backoffice/active_course'] = 'b_home/active_course';
+
+
+
 //$route['backoffice/([0-9a-z_-]+)/([0-9]+)'] = 'b_home/category/$1';
 //$route['backoffice/([0-9a-z_-]+)/([0-9a-z|&_-]+)'] = 'b_home/detail/$1';
 
