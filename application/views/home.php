@@ -143,7 +143,7 @@
                                                                 <div class="stm_lms_courses__single--meta">
                                                                     <div class="stm_lms_courses__hours"> <i class="stmlms-lms-clocks"></i> <span><?php echo $value->time;?> horas</span></div>
                                                                     <div class="stm_lms_courses__single--price heading_font"> 
-                                                                        <span><?php echo $value->price_del;?></span><strong><?php echo $value->price;?></strong>
+                                                                        <span>s/.<?php echo $value->price_del;?></span><strong>s/.<?php echo $value->price;?></strong>
                                                                     </div>
                                                                 </div>
                                                             </div>

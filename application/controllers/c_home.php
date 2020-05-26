@@ -67,6 +67,7 @@ class C_home extends CI_Controller {
                             "where" => "videos.module_id in ($array_data) and videos.active = 1",
                             "order" => "videos.video_id ASC");
             $obj_videos = $this->obj_videos->search($params);
+            $total_videos = count($obj_videos);
             //obtener video actual
             if($slug_3 != ""){
                 $where = "slug = '$slug_3' and videos.type = 2"; 
@@ -85,9 +86,8 @@ class C_home extends CI_Controller {
                             "where" => "videos.module_id in ($array_data) and $where");
                 $obj_courses_overview = $this->obj_videos->get_search_row($params);
             //obtener video actual en reproduccion
-            $video_actual = $this->select_video_actual($course_id, $obj_courses_overview->video_id); 
+            $video_actual = $this->select_video_actual($course_id, $obj_courses_overview->video_id, $total_videos); 
             //obtener porcentaje avanzado
-            $total_videos = count($obj_videos);
             $total_visto = $video_actual->total_video;
             $percent = ($total_visto / $total_videos) * 100;
             //redondear arriba
@@ -146,7 +146,7 @@ class C_home extends CI_Controller {
                return 1;
     }   
     
-    public function select_video_actual($course_id,$video_id) {
+    public function select_video_actual($course_id,$video_id,$total_videos) {
                 //GET CUSTOMER_ID por session
                 $customer_id = $_SESSION['customer']['customer_id'];
                 //GET VIDEO ACTUAL
@@ -154,6 +154,7 @@ class C_home extends CI_Controller {
                             "select" =>"customer_course_id,
                                         video_actual,
                                         total_video,
+                                        total,
                                         complete",
                     "where" => "customer_id = $customer_id and course_id = $course_id",
                     );
@@ -164,6 +165,7 @@ class C_home extends CI_Controller {
                             $data = array(
                                 'video_actual' => $video_id,
                                 'total_video' => 1,
+                                'total' => $total_videos,
                             );
                            $video_actual = $this->obj_customer_courses->update_total_video($video_actual->customer_course_id,  $data); 
                     }else{
@@ -173,6 +175,7 @@ class C_home extends CI_Controller {
                             $data = array(
                                 'video_actual' => $video_id,
                                 'total_video' => $total_video,
+                                'total' => $total_videos,
                             );
                            $video_actual = $this->obj_customer_courses->update_total_video($video_actual->customer_course_id,  $data);
                         } 

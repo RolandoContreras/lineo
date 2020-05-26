@@ -154,6 +154,20 @@ class B_home extends CI_Controller {
         $this->tmp_backoffice->set("obj_category", $obj_category);
         $this->tmp_backoffice->render("backoffice/b_certificados");
     }
+    
+    public function zoom() {
+        //GET SESION ACTUALY
+        $this->get_session();
+        //get customer id
+        $customer_id = $_SESSION['customer']['customer_id'];
+        //GET NAV CURSOS
+        $obj_category = $this->nav_category();
+        //get profile
+        $obj_profile = $this->get_profile($customer_id);
+        $this->tmp_backoffice->set("obj_profile", $obj_profile);
+        $this->tmp_backoffice->set("obj_category", $obj_category);
+        $this->tmp_backoffice->render("backoffice/b_zoom");
+    }
 
     public function category() {
         $this->get_session();

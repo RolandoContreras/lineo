@@ -56,7 +56,7 @@
                                                     <div class="stm_lms_instructor_courses__single--duration"><i class="far fa-clock"></i> <?php echo $value->time; ?> horas </div>
                                                     <div class="stm_lms_instructor_courses__single--completed"> 
                                                         <?php
-                                                        if ($value->total == null) {
+                                                        if ($value->total == null || $value->total == 0) {
                                                             echo "0% Completado";
                                                             $percent = 0;
                                                         } else {
