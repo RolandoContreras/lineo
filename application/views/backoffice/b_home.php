@@ -17,7 +17,7 @@
             </div>
         </div>
         <div class="stm_lms_instructor_courses__top">
-            <a href="<?php echo site_url() . 'backoffice/cursos' ?>" class="btn btn-default"> <i class="fa fa-plus"></i>Adquirir Nuevo Curso </a>
+            <a href="<?php echo site_url() . 'cursos' ?>" class="btn btn-default"> <i class="fa fa-plus"></i>Adquirir Nuevo Curso </a>
         </div>
         <ul class="nav nav-tabs" role="tablist">
             <li role="presentation" class="active"> <a href="#my-courses" data-toggle="tab">Mis Cursos </a> </li>

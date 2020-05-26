@@ -36,7 +36,7 @@
                                                 </a>
                                             </div>
                                             <div class="stm-lms-user_create_announcement_btn">
-                                                <a href="<?php echo site_url() . 'backoffice/cursos'; ?>"><i class="fa fa-shopping-cart"></i><span>Comprar Curso</span></a>
+                                                <a href="<?php echo site_url() . 'cursos'; ?>"><i class="fa fa-shopping-cart"></i><span>Comprar Curso</span></a>
                                             </div>
                                             <div class="stm-lms-user_edit_profile_btn" data-container=".stm_lms_edit_account">
                                                 <a href="<?php echo site_url() . 'backoffice#settings'; ?>"> <i class="fa fa-cog"></i> <span>Editar Perfil</span> </a>
