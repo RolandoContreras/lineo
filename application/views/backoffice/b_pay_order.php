@@ -38,18 +38,18 @@
                         <div class="stm_lms_checkout__payment clearfix">
                             <h3>Total: s/.<?php echo $this->cart->format_number($this->cart->total()); ?></h3>
                             <div class="stm-lms-payment-methods">
-                                <div id="bank_style" class="stm-lms-payment-method active">
+                                <div id="bank_style" class="stm-lms-payment-method">
                                     <div class="stm-lms-payment-method__name">
                                         <label>
                                             <span class="stm_lms_radio">
-                                                <input onclick="show_bank();" type="radio" name="payment_method" checked=""> 
+                                                <input onclick="show_bank();" type="radio" name="payment_method"> 
                                                 <span class="stm_lms_radio__fake"></span>
 
                                             </span> 
-                                            <h4>Transferencia Bancaria</h4>
+                                            <h4>Transferencia Bancaria <i class="fa fa-university" aria-hidden="true"></i></h4>
                                         </label>
                                     </div>
-                                    <div id="bank" style="overflow: auto;">
+                                    <div id="bank" style="overflow: auto; display: none;">
                                         <div class="stm-lms-payment-method__name"></div>    
                                         <table cellpadding="0" cellspacing="0" border="0">
                                             <thead>
@@ -97,16 +97,34 @@
                                                 <input onclick="show_stripe();" type="radio" name="payment_method" value="stripe"> 
                                                 <span class="stm_lms_radio__fake"></span>
                                             </span> 
-                                            <h4>Tarjeta Crédito / Debito</h4>
+                                            <h4>Tarjeta Crédito / Debito <i class="fa fa-credit-card" aria-hidden="true"></i></h4>
                                         </label>
                                     </div>
                                     <div id="stripe" style="display: none;">
-                                        <button type="button" class="btn shadow-2 btn-success btn-lg" id="buyButton" data-price="<?php echo quitar_punto_number($this->cart->format_number($this->cart->total())); ?>"><i data-feather="credit-card"></i>&nbsp; Pagar</button>
+                                        <button type="button" class="btn shadow-2 btn-success btn-lg" id="buyButton" data-price="<?php echo quitar_punto_number($this->cart->format_number($this->cart->total())); ?>"><i class="fa fa-credit-card" aria-hidden="true"></i>&nbsp; Pagar</button>
                                         <button class="btn btn shadow-2 btn-success btn-lg" type="button" style="display: none;" id="spinner">
                                             <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                                             Verificando ...
                                         </button>
                                     </div>
+                                </div>
+                                <div id="bitcoin_style" class="stm-lms-payment-method">
+                                    <div class="stm-lms-payment-method__name">
+                                        <label>
+                                            <span class="stm_lms_radio">
+                                                <input type="radio" name="payment_method" value="stripe" disabled=""> 
+                                                <span class="stm_lms_radio__fake"></span>
+                                            </span> 
+                                            <h4>Bitcoin</h4>
+                                        </label>
+                                    </div>
+<!--                                    <div id="stripe" style="display: none;">
+                                        <button type="button" class="btn shadow-2 btn-success btn-lg" id="buyButton" data-price="<?php echo quitar_punto_number($this->cart->format_number($this->cart->total())); ?>"><i data-feather="credit-card"></i>&nbsp; Pagar</button>
+                                        <button class="btn btn shadow-2 btn-success btn-lg" type="button" style="display: none;" id="spinner">
+                                            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                            Verificando ...
+                                        </button>
+                                    </div>-->
                                 </div>
                             </div> 
                         </div>

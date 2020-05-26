@@ -32,10 +32,9 @@
                                             </div>
                                             <div class="stm_lms_login_wrapper__actions">
                                                 <label class="stm_lms_styled_checkbox"> 
-                                                    <span class="stm_lms_styled_checkbox__inner"> 
-                                                        <input type="checkbox" name="Recuérdame"/> <span><i class="fa fa-check"></i> </span> 
-                                                    </span> 
-                                                    <span>Recuérdame</span> 
+                                                    <a href="<?php echo site_url().'registro';?>">
+                                                        <span class="lostpassword" title="¿Olvidaste tu contraseña?"> ¿Aún no tienes cuenta? </span>
+                                                    </a>
                                                 </label>                  
                                                 <a href="<?php echo site_url().'recuperar-contrasena';?>">
                                                     <span class="lostpassword" title="¿Olvidaste tu contraseña?"> ¿Olvidaste tu contraseña? </span>

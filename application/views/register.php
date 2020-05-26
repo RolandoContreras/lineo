@@ -59,6 +59,11 @@
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <div class="stm_lms_register_wrapper__actions">
+                                                        <label class="stm_lms_styled_checkbox"> 
+                                                        <a href="<?php echo site_url().'iniciar-sesion';?>">
+                                                            <span class="lostpassword" title="iniciar-sesion"> ¿Tienes una cuenta? </span>
+                                                        </a>
+                                                </label>   
                                                         <button class="btn btn-default"> 
                                                             Registrar
                                                         </button>
