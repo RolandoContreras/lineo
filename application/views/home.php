@@ -2,6 +2,10 @@
 <html lang="en-US" class="no-js">
     <?php $this->load->view("head") ?>
     <body class="page-template-default page page-id-2 stm_lms_button pmpro-body-has-access skin_custom_color online-light stm_preloader_1 wpb-js-composer js-comp-ver-5.6 vc_responsive" ontouchstart="">
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NTCN84F"
+                          height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
         <div id="wrapper">
             <?php $this->load->view("header") ?>
             <div id="main">
@@ -12,12 +16,12 @@
                     <div class="post_type_exist clearfix">
                         <div data-vc-full-width="true" data-vc-full-width-init="true" class="vc_row wpb_row vc_row-fluid vc_custom_1534238310373 aed6bbdbcfb88221d9cb9b85256190b1e vc_row-has-fill row-has-animation" style="background-position: 95% 90% !important; position: relative; left: -351.5px; box-sizing: border-box; width: 1903px; padding-left: 351.5px; padding-right: 351.5px;">
                             <div class="stm_lms_row_animation"> 
-                                <img src="<?php echo site_url().'static/page_front/images/animation/base.png';?>">              
-                                <img class="book1" src="<?php echo site_url().'static/page_front/images/animation/book1.png';?>">              
-                                <img class="book2" src="<?php echo site_url().'static/page_front/images/animation/book2.png';?>">              
-                                <img class="bubblespeech" src="<?php echo site_url().'static/page_front/images/animation/bubblespeech.png';?>">              
-                                <img class="magnifier" src="<?php echo site_url().'static/page_front/images/animation/magnifier.png';?>">              
-                                <img class="moon" src="<?php echo site_url().'static/page_front/images/animation/moon.png';?>">
+                                <img src="<?php echo site_url() . 'static/page_front/images/animation/base.png'; ?>">              
+                                <img class="book1" src="<?php echo site_url() . 'static/page_front/images/animation/book1.png'; ?>">              
+                                <img class="book2" src="<?php echo site_url() . 'static/page_front/images/animation/book2.png'; ?>">              
+                                <img class="bubblespeech" src="<?php echo site_url() . 'static/page_front/images/animation/bubblespeech.png'; ?>">              
+                                <img class="magnifier" src="<?php echo site_url() . 'static/page_front/images/animation/magnifier.png'; ?>">              
+                                <img class="moon" src="<?php echo site_url() . 'static/page_front/images/animation/moon.png'; ?>">
                             </div>
                             <div
                                 class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-7 vc_col-md-5">
@@ -31,7 +35,7 @@
                                             <h3 style="text-align: left">Un sistema probado y utilizado a nivel global.</h3>
                                         </div>
                                         <div class="vc_btn3-container vc_btn3-inline"> 
-                                            <a class="btn btn-default lg" href="<?php echo site_url().'iniciar-sesion';?>" title="">Comienza a estudiar</a>
+                                            <a class="btn btn-default lg" href="<?php echo site_url() . 'iniciar-sesion'; ?>" title="">Comienza a estudiar</a>
                                         </div>
                                         <div class="aa3e9b2585d5e7d5f6c929d0beab1846e vc_empty_space" style="height: 75px"> 
                                             <span class="vc_empty_space_inner"></span>
@@ -123,27 +127,27 @@
                                                         <div class="stm_lms_courses__single__inner">
                                                             <div class="stm_lms_courses__single--image">
                                                                 <div class="stm_lms_post_status heading_font new"> Nuevo</div>
-                                                                <a href="<?php echo site_url() . "cursos/$value->category_slug/$value->slug";?>" class="heading_font" data-preview="Vista Previa del Curso">
+                                                                <a href="<?php echo site_url() . "cursos/$value->category_slug/$value->slug"; ?>" class="heading_font" data-preview="Vista Previa del Curso">
                                                                     <div>
                                                                         <div class="stm_lms_lazy_image stm_lms_lazyloaded stm_lms_lazy_image__lazyloaded">
-                                                                            <img data-srcset="<?php echo site_url()."static/cms/img/cursos/$value->img";?> 2x" class="lazyload " data-src="<?php echo site_url()."static/cms/img/cursos/$value->img";?>" width="272" height="161" alt="<?php echo $value->name;?>" title="<?php echo $value->name; ?>"/>
+                                                                            <img data-srcset="<?php echo site_url() . "static/cms/img/cursos/$value->img"; ?> 2x" class="lazyload " data-src="<?php echo site_url() . "static/cms/img/cursos/$value->img"; ?>" width="272" height="161" alt="<?php echo $value->name; ?>" title="<?php echo $value->name; ?>"/>
                                                                         </div>
                                                                     </div>
                                                                 </a>
                                                             </div>
                                                             <div class="stm_lms_courses__single--inner">
                                                                 <div class="stm_lms_courses__single--terms">
-                                                                    <div class="stm_lms_courses__single--term"> <?php echo $value->category_name;?></div>
+                                                                    <div class="stm_lms_courses__single--term"> <?php echo $value->category_name; ?></div>
                                                                 </div>
                                                                 <div class="stm_lms_courses__single--title">
-                                                                    <a href="<?php echo site_url() . "cursos/$value->category_slug/$value->slug";?>">
-                                                                        <h5><?php echo str_to_mayusculas($value->name);?></h5>
+                                                                    <a href="<?php echo site_url() . "cursos/$value->category_slug/$value->slug"; ?>">
+                                                                        <h5><?php echo str_to_mayusculas($value->name); ?></h5>
                                                                     </a>
                                                                 </div>
                                                                 <div class="stm_lms_courses__single--meta">
-                                                                    <div class="stm_lms_courses__hours"> <i class="stmlms-lms-clocks"></i> <span><?php echo $value->time;?> horas</span></div>
+                                                                    <div class="stm_lms_courses__hours"> <i class="stmlms-lms-clocks"></i> <span><?php echo $value->time; ?> horas</span></div>
                                                                     <div class="stm_lms_courses__single--price heading_font"> 
-                                                                        <span>s/.<?php echo $value->price_del;?></span><strong>s/.<?php echo $value->price;?></strong>
+                                                                        <span>s/.<?php echo $value->price_del; ?></span><strong>s/.<?php echo $value->price; ?></strong>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -155,19 +159,19 @@
                                                                     <div class="stm_lms_courses__single--info_author__login">Instructor: U-linex</div>
                                                                 </div>
                                                                 <div class="stm_lms_courses__single--info_title">
-                                                                    <a href="<?php echo site_url() . "cursos/$value->category_slug/$value->slug";?>">
-                                                                        <h4><?php echo strtoupper($value->name);?></h4>
+                                                                    <a href="<?php echo site_url() . "cursos/$value->category_slug/$value->slug"; ?>">
+                                                                        <h4><?php echo strtoupper($value->name); ?></h4>
                                                                     </a>
                                                                 </div>
                                                                 <div class="stm_lms_courses__single--info_excerpt"> 
-                                                                    <?php echo corta_texto($value->description, 300);?>
+                                                                    <?php echo corta_texto($value->description, 300); ?>
                                                                 </div>
                                                                 <div class="stm_lms_courses__single--info_meta">
                                                                     <!--<div class="stm_lms_course__meta"> <i class="stmlms-cats"></i> 10 Materiales</div>-->
-                                                                    <div class="stm_lms_course__meta"> <i class="stmlms-lms-clocks"></i> <?php echo $value->time;?> horas</div>
+                                                                    <div class="stm_lms_course__meta"> <i class="stmlms-lms-clocks"></i> <?php echo $value->time; ?> horas</div>
                                                                 </div>
                                                                 <div class="stm_lms_courses__single--info_preview"> 
-                                                                    <a href="<?php echo site_url() . "cursos/$value->category_slug/$value->slug";?>" title="<?php echo $value->name;?>" class="heading_font"> Vista previa de este curso</a>
+                                                                    <a href="<?php echo site_url() . "cursos/$value->category_slug/$value->slug"; ?>" title="<?php echo $value->name; ?>" class="heading_font"> Vista previa de este curso</a>
                                                                 </div>
                                                             </div>
                                                         </div>

@@ -2,6 +2,10 @@
 <html lang="en-US" class="no-js">
     <?php $this->load->view("head"); ?>
     <body class="stm_lms_button skin_custom_color online-light stm_preloader_1 wpb-js-composer js-comp-ver-5.6 vc_responsive" ontouchstart="">
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NTCN84F"
+                          height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
         <div id="wrapper">
             <?php $this->load->view("header"); ?>
             <!-- id header -->
@@ -12,7 +16,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="stm_lms_row_animation"> 
-                                    <img src="<?php echo site_url() . 'static/page_front/images/animation/base.png';?>">              
+                                    <img src="<?php echo site_url() . 'static/page_front/images/animation/base.png'; ?>">              
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -27,15 +31,15 @@
                                                 <input class="form-control" type="text" name="email" id="email" placeholder="Ingrese tu e-mail registrado" required/> 
                                             </div>
                                             <div class="stm_lms_login_wrapper__actions">
-                                                
+
                                                 <label class="stm_lms_styled_checkbox"> 
                                                     <span> 
-                                                        <a href="<?php echo site_url().'iniciar-sesion';?>">
+                                                        <a href="<?php echo site_url() . 'iniciar-sesion'; ?>">
                                                             <span class="lostpassword" title="Iniciar Sesión"> Iniciar Sesión </span>
                                                         </a>
                                                     </span> 
                                                 </label>                  
-                                                
+
                                                 <button class="btn btn-default"> 
                                                     Recuperar
                                                 </button>
@@ -43,7 +47,7 @@
                                                 <div id="mensaje"></div>
                                             </div>
                                         </div>
-                                   </form>
+                                    </form>
                                 </div>
                             </div>
                         </div>

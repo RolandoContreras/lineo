@@ -2,6 +2,10 @@
 <html lang="en-US" class="no-js">
     <?php $this->load->view("head") ?>
     <body class="page-template-default page page-id-2 stm_lms_button pmpro-body-has-access skin_custom_color online-light stm_preloader_1 wpb-js-composer js-comp-ver-5.6 vc_responsive" ontouchstart=""> 
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NTCN84F"
+                          height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
         <div id="wrapper">
             <?php $this->load->view("header") ?>
             <div id="main">
@@ -67,7 +71,7 @@
                                                             </a>
                                                         </div>
                                                         <div class="stm_lms_courses__single--meta">
-                                                            <div class="stm_lms_courses__hours"> <i class="stmlms-lms-clocks"></i> <span><?php echo $value->time;?> horas</span></div>
+                                                            <div class="stm_lms_courses__hours"> <i class="stmlms-lms-clocks"></i> <span><?php echo $value->time; ?> horas</span></div>
                                                             <div class="stm_lms_courses__single--price heading_font"> 
                                                                 <span><?php echo $value->price_del; ?></span><strong><?php echo $value->price; ?></strong>
                                                             </div>
@@ -86,11 +90,11 @@
                                                             </a>
                                                         </div>
                                                         <div class="stm_lms_courses__single--info_excerpt"> 
-        <?php echo corta_texto($value->description, 300); ?>
+                                                            <?php echo corta_texto($value->description, 300); ?>
                                                         </div>
                                                         <div class="stm_lms_courses__single--info_meta">
                                                             <!--<div class="stm_lms_course__meta"> <i class="stmlms-cats"></i> 3 Lecturas</div>-->
-                                                            <div class="stm_lms_course__meta"> <i class="stmlms-lms-clocks"></i> <?php echo $value->time;?> horas</div>
+                                                            <div class="stm_lms_course__meta"> <i class="stmlms-lms-clocks"></i> <?php echo $value->time; ?> horas</div>
                                                         </div>
                                                         <div class="stm_lms_courses__single--info_preview"> 
                                                             <a href="<?php echo site_url() . "cursos/$value->category_slug/$value->slug"; ?>" title="<?php echo $value->name; ?>" class="heading_font"> Vista previa de este curso</a>
@@ -98,7 +102,8 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        <?php }
+                                        <?php
+                                        }
                                     } else {
                                         ?>
                                         <div class="stm_lms_courses__single stm_lms_courses__single_animation has-sale style_1 ">

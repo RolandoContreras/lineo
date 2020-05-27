@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html lang="en-US" class="no-js">
-    <?php $this->load->view("head")?>
+    <?php $this->load->view("head") ?>
     <body class="page-template-default page page-id-413 stm_lms_button pmpro-body-has-access skin_custom_color online-light stm_preloader_1 wpb-js-composer js-comp-ver-5.6 vc_responsive" ontouchstart=""> 
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NTCN84F"
+                          height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
         <div id="wrapper">
-            <?php $this->load->view("header");?>
+            <?php $this->load->view("header"); ?>
             <div id="main">
                 <div class="stm_lms_breadcrumbs stm_lms_breadcrumbs__header_2">
                     <div class="stm_breadcrumbs_unit">
@@ -153,7 +157,7 @@
                 </div>
             </div>
         </div>
-        <?php $this->load->view("footer");?>
+        <?php $this->load->view("footer"); ?>
         <script defer src="<?php echo site_url() . 'static/page_front/js/autoptimize_775c.js'; ?>"></script>
         <script defer src="<?php echo site_url() . 'static/page_front/js/script/contact.js'; ?>"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
