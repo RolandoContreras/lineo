@@ -30,6 +30,7 @@
     <!--//swetaler2-->
     <link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@3/dark.css" rel="stylesheet">
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@9/dist/sweetalert2.min.js"></script>
+    <link rel="canonical" href="<?php echo site_url();?>"/>
     <script>
         var site = "<?php echo site_url(); ?>"
     </script>

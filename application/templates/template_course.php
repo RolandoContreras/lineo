@@ -29,6 +29,29 @@
         <script type="text/javascript">
             var site = '<?php echo site_url(); ?>';
         </script>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-167750470-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+            gtag('config', 'UA-167750470-1');
+        </script>
+        <!-- Google Tag Manager -->
+        <script>(function (w, d, s, l, i) {
+                w[l] = w[l] || [];
+                w[l].push({'gtm.start':
+                            new Date().getTime(), event: 'gtm.js'});
+                var f = d.getElementsByTagName(s)[0],
+                        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+                j.async = true;
+                j.src =
+                        'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+                f.parentNode.insertBefore(j, f);
+            })(window, document, 'script', 'dataLayer', 'GTM-NTCN84F');</script>
+        <!-- End Google Tag Manager -->
     </head>
     <body class="lp_course-template-default single single-lp_course postid-486 wp-embed-responsive theme-wordpress-lms wordpress-lms learnpress learnpress-page pmpro-body-has-access woocommerce-no-js pagetitle-show bg-type-color thim-body-visual-composer responsive lp_login_popup box-shadow auto-login ltr learnpress-v3 course-free header-template-overlay thim-lp-layout-2 lp-landing wpb-js-composer js-comp-ver-6.0.5 vc_responsive course-item-popup viewing-course-item viewing-course-item-489 course-item-lp_lesson">
         <!-- Google Tag Manager (noscript) -->
@@ -82,33 +105,34 @@
                                                                                                     </span>
                                                                                                     <a href="<?php echo site_url() . "plataforma/$slug/$obj_courses->slug/$videos->slug"; ?>">
                                                                                                         <span class="leter-normal">
-                                                                                                            <?php echo "$key" . ".0 " . $videos->name;
+                                                                                                            <?php
+                                                                                                            echo "$key" . ".0 " . $videos->name;
                                                                                                             if ($obj_courses_overview->video_id == $videos->video_id) {
                                                                                                                 ?>
                                                                                                                 <div class="float-right">
                                                                                                                     <i class="cr-icon fa fa-play" style="opacity: 1 !important;margin-top: 5px;"></i>
                                                                                                                 </div>
-                                                                                                            <?php } ?>
+                <?php } ?>
                                                                                                         </span>
                                                                                                     </a>
-                                                                                                <?php } else { ?>
+            <?php } else { ?>
                                                                                                     <input type="checkbox">
                                                                                                     <span class="cr mr-3">
                                                                                                         <i class="cr-icon fa fa-check "></i>
                                                                                                     </span>  
                                                                                                     <a href="<?php echo site_url() . "plataforma/$slug/$obj_courses->slug/$videos->slug"; ?>">
                                                                                                         <div class="leter-normal">
-                                                                                                            <?php echo "$key" . ".0 " . $videos->name; ?> 
+                <?php echo "$key" . ".0 " . $videos->name; ?> 
                                                                                                         </div>
                                                                                                     </a>
-                                                                                                <?php } ?>
+            <?php } ?>
                                                                                             </label>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
                                                                         </ul>
-                                                                    <?php
+                                                                        <?php
                                                                     }
                                                                 }
                                                             }

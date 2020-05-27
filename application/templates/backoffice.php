@@ -2,6 +2,10 @@
 <html lang="es" class="no-js">
     <?php $this->load->view("backoffice/head"); ?>
     <body class="logged-in stm_lms_button skin_custom_color online-light stm_preloader_1 wpb-js-composer js-comp-ver-5.6 vc_responsive" ontouchstart="">
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NTCN84F"
+                          height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
         <div id="wrapper">
             <?php $this->load->view("header"); ?>
             <!-- id header -->
