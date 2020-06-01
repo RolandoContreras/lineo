@@ -144,25 +144,42 @@ class B_home extends CI_Controller {
     public function certificados() {
         //GET SESION ACTUALY
         $this->get_session();
-        //get customer id
-        $customer_id = $_SESSION['customer']['customer_id'];
-        //GET NAV CURSOS
-        $obj_category = $this->nav_category();
-        //get profile
-        $obj_profile = $this->get_profile($customer_id);
-        $this->tmp_backoffice->set("obj_profile", $obj_profile);
-        $this->tmp_backoffice->set("obj_category", $obj_category);
+        header('Content-Type: image/jpeg');
+        $fuente = site_url() . 'static/cms/fonts/arial.ttf';
+
+        $imagen = site_url() . 'static/cms/img/certificados/certificado.jpg';
+        $im = imagecreate(500, 500);
+        $black = imagecolorallocate($im, 0, 0, 0);
+        header("Content-type: image/jpeg");
+        $img2 = imagecreatefromjpeg($imagen);
+        
+        imagestring($img2, 5, 250, 100, "Prueba de Certificado", $black);
+        imagestring($img2, 5, 500, 100, "Prueba de Certificado", $black);
+        imagestring($img2, 5, 700, 100, "Prueba de Certificado", $black);
+        imagettftext($img2, 20, 0, 11, 21, $black, $fuente, "Fuunetetete");
+        imagejpeg($img2);
+        imagedestroy($img2);
+
+
+    
+
+     
+//$obj_category = $this->nav_category();
+////get profile
+//$obj_profile = $this->get_profile($customer_id);
+//$this->tmp_backoffice->set("obj_profile", $obj_profile);
+//$this->tmp_backoffice->set("obj_category", $obj_category);
         $this->tmp_backoffice->render("backoffice/b_certificados");
     }
-    
+
     public function zoom() {
-        //GET SESION ACTUALY
+//GET SESION ACTUALY
         $this->get_session();
-        //get customer id
+//get customer id
         $customer_id = $_SESSION['customer']['customer_id'];
-        //GET NAV CURSOS
+//GET NAV CURSOS
         $obj_category = $this->nav_category();
-        //get profile
+//get profile
         $obj_profile = $this->get_profile($customer_id);
         $this->tmp_backoffice->set("obj_profile", $obj_profile);
         $this->tmp_backoffice->set("obj_category", $obj_category);
@@ -171,47 +188,47 @@ class B_home extends CI_Controller {
 
     public function category() {
         $this->get_session();
-        //GET NAV CURSOS
+//GET NAV CURSOS
         $data['obj_category'] = $this->nav_category();
-        //verificar si existe busqueda
+//verificar si existe busqueda
         $where_category = null;
         $where_search = null;
         if (isset($_GET['category']) && !empty($_GET['category'])) {
             $categorias = $_GET['category'];
             $array_data = "";
             foreach ($categorias as $value) {
-                $array_data .= $value.",";
+                $array_data .= $value . ",";
             }
             $array_data = eliminar_ultimo_caracter($array_data);
             $where_category = "category.category_id in ($array_data)";
-        } 
-        if(isset($_GET['search']) && !empty($_GET['search'])){
+        }
+        if (isset($_GET['search']) && !empty($_GET['search'])) {
             $search = $_GET['search'];
             $where_search = "courses.name like '%$search%'";
         }
-        //make where
-        if($where_category != null && $where_search != null ){
+//make where
+        if ($where_category != null && $where_search != null) {
             $where = "$where_category and $where_search and courses.active = 1";
-        }elseif($where_category != null){
+        } elseif ($where_category != null) {
             $where = "$where_category and courses.active = 1";
-        }elseif($where_search != null){
-            $where = "$where_search and courses.active = 1"; 
-        }else{
+        } elseif ($where_search != null) {
+            $where = "$where_search and courses.active = 1";
+        } else {
             $where = "courses.active = 1";
         }
         $params_course = array(
             "select" => "courses.course_id,
-                        courses.category_id,
-                        courses.name,
-                        courses.slug,
-                        courses.description,
-                        courses.img,
-                        courses.time,
-                        courses.price,
-                        courses.price_del,
-                        courses.date,
-                        category.name as category_name,
-                        category.slug as category_slug",
+courses.category_id,
+courses.name,
+courses.slug,
+courses.description,
+courses.img,
+courses.time,
+courses.price,
+courses.price_del,
+courses.date,
+category.name as category_name,
+category.slug as category_slug",
             "join" => array('category, courses.category_id = category.category_id'),
             "where" => $where,
             "order" => "courses.course_id DESC",
@@ -219,41 +236,41 @@ class B_home extends CI_Controller {
         $data['obj_courses'] = $this->obj_courses->search($params_course);
         $this->load->view("backoffice/b_cursos", $data);
     }
-    
+
     public function active_course() {
-        //ACTIVE CUSTOMER NORMALY
+//ACTIVE CUSTOMER NORMALY
         try {
-            //GET SESION ACTUALY
+//GET SESION ACTUALY
             $this->get_session();
-            //UPDATED SET TIME ZONE
+//UPDATED SET TIME ZONE
             date_default_timezone_set('America/Lima');
-            //get customer
+//get customer
             $customer_id = $_SESSION['customer']['customer_id'];
-            //SELECT DATA CUSTOMER
+//SELECT DATA CUSTOMER
             $params_customer = array(
                 "select" => "name",
                 "where" => "customer_id = $customer_id",
             );
-            //GET DATA COMMENTS
+//GET DATA COMMENTS
             $obj_customer = $this->obj_customer->get_search_row($params_customer);
 
             $price_cart = $this->cart->format_number($this->cart->total());
             $price = $this->input->post('price');
             $token = $this->input->post('token');
             $email = $this->input->post('email');
-            //obtener día de hoy
+//obtener día de hoy
             $today = date("Y-m-d");
-            //make charged
+//make charged
             $charge = $this->culqi->charge($token, $price, $email, $obj_customer->name);
 
             $price_cart = explode(".", $price_cart);
             $price = $price_cart[0];
             $price = quitar_coma_number($price);
-            //INSERT INVOICE
+//INSERT INVOICE
 
             $option = "";
             foreach ($this->cart->contents() as $items) {
-                //CREATE INVOICE
+//CREATE INVOICE
                 $data_invoice = array(
                     'customer_id' => $customer_id,
                     'course_id' => $items['id'],
@@ -269,11 +286,11 @@ class B_home extends CI_Controller {
                     "select" => "duration",
                     "where" => "course_id = $course_id",
                 );
-                //GET DATA COMMENTS
+//GET DATA COMMENTS
                 $obj_courses = $this->obj_courses->get_search_row($params);
-                //CREATE CUSTOMER COURSE
+//CREATE CUSTOMER COURSE
                 $duration = $obj_courses->duration == null ? 0 : $obj_courses->duration;
-                //sumar el tiempo de duración
+//sumar el tiempo de duración
                 $today_curso = date("Y-m-d", strtotime($today . "+ $duration days"));
                 $data = array(
                     'customer_id' => $customer_id,
@@ -283,9 +300,9 @@ class B_home extends CI_Controller {
                 );
                 $this->obj_customer_courses->insert($data);
             }
-            //DESTROY CART
+//DESTROY CART
             $this->cart->destroy();
-            // Respuesta
+// Respuesta
             $data['status'] = "true";
             echo json_encode($charge);
         } catch (Exception $e) {
@@ -296,7 +313,7 @@ class B_home extends CI_Controller {
 
     public function upload() {
 
-        //SELECT ID FROM CUSTOMER
+//SELECT ID FROM CUSTOMER
         if (isset($_FILES["file"]["name"])) {
             $config['upload_path'] = './static/backoffice/images/profile/';
             $config['allowed_types'] = 'gif|jpg|png|jpeg';
@@ -314,9 +331,9 @@ class B_home extends CI_Controller {
                 $data = array(
                     'img' => $img,
                 );
-                //GRABAR EN CLIENTES
+//GRABAR EN CLIENTES
                 $this->obj_customer->update($customer_id, $data);
-                //elimina imagen anterior
+//elimina imagen anterior
                 if ($_SESSION['customer']['img'] != null) {
                     unlink("./static/backoffice/images/profile/" . $_SESSION['customer']['img']);
                 }
@@ -338,14 +355,14 @@ class B_home extends CI_Controller {
 
     public function add_cart() {
         if ($this->input->is_ajax_request()) {
-            //GET CUSTOMER_ID
+//GET CUSTOMER_ID
             $price = $this->input->post('price');
             $course_id = $this->input->post('course_id');
             $quantity = 1;
             $name = $this->input->post('name');
             $name_cart = convert_slug_cart($name);
             $img = $this->input->post('img');
-            //ADD CART
+//ADD CART
             if ($quantity > 0) {
                 $data = array(
                     'id' => $course_id,
@@ -368,15 +385,15 @@ class B_home extends CI_Controller {
     }
 
     public function pay_order() {
-        //GET SESION ACTUALY
+//GET SESION ACTUALY
         $this->get_session_pay_order();
-        //get customer id
+//get customer id
         $customer_id = $_SESSION['customer']['customer_id'];
-        //get nav ctalogo
+//get nav ctalogo
         $obj_category = $this->nav_category();
-        //get cursos comprados
+//get cursos comprados
         $obj_courses_by_customer = $this->courses_by_customer($customer_id);
-        //SEND DATA
+//SEND DATA
         $this->tmp_backoffice->set("obj_courses_by_customer", $obj_courses_by_customer);
         $this->tmp_backoffice->set("obj_category", $obj_category);
         $this->tmp_backoffice->render("backoffice/b_pay_order");
@@ -385,12 +402,12 @@ class B_home extends CI_Controller {
     public function delete_cart() {
 
         if ($this->input->is_ajax_request()) {
-            //GET SESION ACTUALY
+//GET SESION ACTUALY
             $this->get_session();
-            //GET CUSTOMER_ID
+//GET CUSTOMER_ID
 
             $id = $this->input->post('id');
-            //UPDATE CART
+//UPDATE CART
             $data = array(
                 'rowid' => "$id",
                 'qty' => 0
@@ -406,22 +423,22 @@ class B_home extends CI_Controller {
     public function nav_category() {
         $params_category = array(
             "select" => "category_id,
-                                    slug,
-                                    name",
+slug,
+name",
             "where" => "active = 1",
         );
-        //GET DATA COMMENTS
+//GET DATA COMMENTS
         return $obj_category = $this->obj_category->search($params_category);
     }
 
     public function mis_pedidos($customer_id) {
-        //GET DATA INVOICES BY CUSTOMER
+//GET DATA INVOICES BY CUSTOMER
         $params = array(
             "select" => "invoices.invoice_id,
-                                        invoices.date,
-                                        invoices.total,
-                                        invoices.active,
-                                        courses.name as course_name",
+invoices.date,
+invoices.total,
+invoices.active,
+courses.name as course_name",
             "where" => "invoices.customer_id = $customer_id",
             "join" => array('courses, courses.course_id = invoices.course_id'),
             "order" => "invoices.invoice_id DESC",
@@ -433,36 +450,36 @@ class B_home extends CI_Controller {
     public function get_profile($customer_id) {
         $params_category = array(
             "select" => "name,
-                                    last_name,
-                                    bio,
-                                    facebook,
-                                    twitter,
-                                    instagram,
-                                    google,
-                                    img",
+last_name,
+bio,
+facebook,
+twitter,
+instagram,
+google,
+img",
             "where" => "customer_id = $customer_id and active = 1",
         );
-        //GET DATA COMMENTS
+//GET DATA COMMENTS
         return $obj_customer = $this->obj_customer->get_search_row($params_category);
     }
 
     public function courses_by_customer($customer_id) {
         $params_customer_courses = array(
             "select" => "customer_courses.date_start,
-                        courses.course_id,
-                        courses.category_id,
-                        courses.name,
-                        courses.slug,
-                        courses.time,
-                        customer_courses.total_video,
-                        customer_courses.total,
-                        courses.description,
-                        courses.img,
-                        courses.price,
-                        courses.date,
-                        customer.customer_id,
-                        category.slug as category_slug,
-                        category.name as category_name",
+courses.course_id,
+courses.category_id,
+courses.name,
+courses.slug,
+courses.time,
+customer_courses.total_video,
+customer_courses.total,
+courses.description,
+courses.img,
+courses.price,
+courses.date,
+customer.customer_id,
+category.slug as category_slug,
+category.name as category_name",
             "join" => array('customer, customer_courses.customer_id = customer.customer_id',
                 'courses, customer_courses.course_id = courses.course_id',
                 'category, courses.category_id = category.category_id'),
@@ -474,9 +491,9 @@ class B_home extends CI_Controller {
 
     public function update_data() {
         if ($this->input->is_ajax_request()) {
-            //GET SESION ACTUALY
+//GET SESION ACTUALY
             $this->get_session();
-            //get customer id
+//get customer id
             $customer_id = $_SESSION['customer']['customer_id'];
             $bio = $this->input->post("bio");
             $facebook = trim($this->input->post("facebook"));
@@ -492,7 +509,7 @@ class B_home extends CI_Controller {
                     'twitter' => $twitter,
                     'instagram' => $instagram,
                 );
-                //SAVE DATA IN TABLE    
+//SAVE DATA IN TABLE    
                 $result = $this->obj_customer->update($customer_id, $data);
                 if ($result != null) {
                     $data['status'] = true;
@@ -508,16 +525,16 @@ class B_home extends CI_Controller {
 
     public function change_pass() {
         if ($this->input->is_ajax_request()) {
-            //GET SESION ACTUALY
+//GET SESION ACTUALY
             $this->get_session();
-            //get customer id
+//get customer id
             $customer_id = $_SESSION['customer']['customer_id'];
             $pass = trim($this->input->post("pass"));
             if ($customer_id != null) {
                 $data = array(
                     'password' => $pass,
                 );
-                //SAVE DATA IN TABLE    
+//SAVE DATA IN TABLE    
                 $result = $this->obj_customer->update($customer_id, $data);
                 if ($result != null) {
                     $data['status'] = true;
