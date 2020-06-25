@@ -1,11 +1,7 @@
 <!DOCTYPE html>
-<html lang="en-US" class="no-js">
+<html lang="es-PE" class="no-js">
     <?php $this->load->view("head") ?>
-    <body class="page-template-default page page-id-2 stm_lms_button pmpro-body-has-access skin_custom_color online-light stm_preloader_1 wpb-js-composer js-comp-ver-5.6 vc_responsive" ontouchstart=""> 
-        <!-- Google Tag Manager (noscript) -->
-        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NTCN84F"
-                          height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-        <!-- End Google Tag Manager (noscript) -->
+    <body class="stm_lms_button skin_custom_color online-light vc_responsive"> 
         <div id="wrapper">
             <?php $this->load->view("header") ?>
             <div id="main">
@@ -31,17 +27,6 @@
                                 <div class="courses_filters__title">
                                     <h1>Cursos</h1>
                                 </div>
-                                <div class="courses_filters__activities">
-                                    <div class="stm_lms_courses_grid__sort"> 
-                                        <span class="sort_label heading_font">Ordenar por:</span> 
-                                        <select class="no-search">
-                                            <option value="date_high">Fecha (Lo más nuevo)</option>
-                                            <option value="date_low">Fecha (Lo mas antiguo)</option>
-                                            <option value="price_high">Precio alto</option>
-                                            <option value="price_low">Precio bajo</option>
-                                        </select>
-                                    </div>
-                                </div>
                             </div>
                             <div class="stm_lms_courses stm_lms_courses__archive">
                                 <div class="stm_lms_courses__grid stm_lms_courses__grid_4 stm_lms_courses__grid_center">
@@ -56,7 +41,7 @@
                                                         <a href="<?php echo site_url() . "cursos/$value->category_slug/$value->slug"; ?>" class="heading_font" data-preview="Vista Previa del Curso">
                                                             <div>
                                                                 <div class="stm_lms_lazy_image stm_lms_lazyloaded stm_lms_lazy_image__lazyloaded">
-                                                                    <img data-srcset="<?php echo site_url() . "static/cms/img/cursos/$value->img"; ?> 2x" class="lazyload " data-src="<?php echo site_url() . "static/cms/img/cursos/$value->img"; ?>" width="272" height="161" alt="<?php echo $value->name; ?>" title="<?php echo $value->name; ?>"/>
+                                                                    <img src="<?php echo site_url() . "static/cms/img/cursos/$value->img"; ?>" class="lazyload" width="272" height="161" alt="<?php echo $value->name; ?>" title="<?php echo $value->name; ?>"/>
                                                                 </div>
                                                             </div>
                                                         </a>
@@ -86,7 +71,7 @@
                                                         </div>
                                                         <div class="stm_lms_courses__single--info_title">
                                                             <a href="<?php echo site_url() . "cursos/$value->category_slug/$value->slug"; ?>">
-                                                                <h4><?php echo strtoupper($value->name); ?></h4>
+                                                                <h4><?php echo $value->name;?></h4>
                                                             </a>
                                                         </div>
                                                         <div class="stm_lms_courses__single--info_excerpt"> 
@@ -102,20 +87,14 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        <?php
+                                            <?php
                                         }
                                     } else {
                                         ?>
                                         <div class="stm_lms_courses__single stm_lms_courses__single_animation has-sale style_1 ">
                                             <h2>No hay Resultados</h2>
                                         </div>
-<?php } ?>
-
-                                </div>
-                                <div class="text-center">
-                                    <a href="#" class="btn btn-default stm_lms_load_more_courses" data-offset="1" data-template="courses/grid" data-args='{"image_d":"img-480-380","per_row":"4","posts_per_page":"8","class":"archive_grid"}'>
-                                        <span>Cargar Más</span> 
-                                    </a>
+                                    <?php } ?>
                                 </div>
                             </div>
                         </div>
@@ -124,7 +103,12 @@
                 </div>
             </div>
         </div>
-<?php $this->load->view("footer"); ?>
-        <script defer src="<?php echo site_url() . 'static/page_front/js/autoptimize_775c.js'; ?>"></script>
+        <?php $this->load->view("footer_2"); ?>
+        <script src="<?php echo site_url() . 'static/page_front/js/autoptimize_54ab.js'; ?>"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src='<?php echo site_url() . 'static/backoffice/js/header_2.js?ver=3.2'; ?>'></script>
+        <link rel='stylesheet' id='stm-lms-lesson-css' href='<?php echo site_url() . 'static/backoffice/css/footer/lesson.css?ver=75'; ?>' type='text/css' media="none" onload="if (media != 'all') media = 'all'"/>
+        <script src='<?php echo site_url() . 'static/backoffice/js/jquery.fancybox.js?ver=3.2'; ?>'></script>
+        <script src='<?php echo site_url() . 'static/backoffice/js/custom.js?ver=3.2'; ?>'></script>
     </body>
 </html>

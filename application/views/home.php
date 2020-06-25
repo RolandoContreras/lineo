@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-US" class="no-js">
+<html lang="es-PE" class="no-js">
     <?php $this->load->view("head") ?>
     <body class="page-template-default page page-id-2 stm_lms_button pmpro-body-has-access skin_custom_color online-light wpb-js-composer js-comp-ver-5.6 vc_responsive" ontouchstart="">
         <div id="wrapper">
