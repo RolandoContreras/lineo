@@ -1,45 +1,47 @@
 <div class="col-md-9 col-sm-12">
     <div class="stm_lms_private_information" data-container-open=".stm_lms_private_information">
         <h2>Mis Certificados</h2>
-        <?php 
-        
-        if(!empty($obj_courses_by_customer)){ ?>
+        <?php if (!empty($obj_courses_by_customer)) { ?>
             <div class="stm-lms-user-quizzes stm-lms-user-certificates">
-            <div class="stm-lms-user-quiz__head heading_font">
-                <div class="stm-lms-user-quiz__head_title">Curso</div>
-                <div class="stm-lms-user-quiz__head_status">Certificado</div>
-            </div>
-            <?php foreach ($obj_courses_by_customer as $value) { ?>
-                <div class="stm-lms-user-quiz">
-                    <div class="stm-lms-user-quiz__title">
-                        <a href="https://stylemixthemes.com/masterstudy/white-lms/courses/design-instruments-for-communication/">Design Instruments for Communication</a>
-                    </div>
-                    <a href="https://stylemixthemes.com/masterstudy/white-lms/lms-certificates/1001" target="_blank" class="stm-lms-user-quiz__name">Descargar</a>
-                    <div class="affiliate_points heading_font" data-copy="lmsx30x1001">
-                        <span class="hidden" id="lmsx30x1001">lmsx30x1001</span>
-                        <span class="affiliate_points__btn">
-                            <i class="fa fa-link"></i>
-                            <span class="text">Copiar Código</span>
-                        </span>
-                    </div>
+                <div class="stm-lms-user-quiz__head heading_font">
+                    <div class="stm-lms-user-quiz__head_title">Curso</div>
+                    <div class="stm-lms-user-quiz__head_status">Certificado</div>
                 </div>
+                <?php foreach ($obj_courses_by_customer as $value) { ?>
+                    <div class="stm-lms-user-quiz">
+                        <div class="stm-lms-user-quiz__title">
+                        <?php echo $value->name; ?>
+                        </div>
+                            <?php if ($value->complete == 1) { ?>
+                            <a onclick="" class="stm-lms-user-quiz__name">Descargar</a>
+                            <div class="affiliate_points heading_font" data-copy="lmsx30x1001">
+                                <span class="hidden" id="lmsx30x1001">lmsx30x1001</span>
+                                <span class="affiliate_points__btn">
+                                    <i class="fa fa-link"></i>
+                                    <span class="text">Copiar Código</span>
+                                </span>
+                            </div>
+                            <?php } else { ?>
+                            <a onclick="" class="stm-lms-user-quiz__name"></a>
+                            <div class="affiliate_points heading_font" data-copy="lmsx30x1001">
+                                <span class="hidden" id="lmsx30x1001">lmsx30x1001</span>
+                                <span class="affiliate_points__btn">
+                                    <i class="fa fa-clock"></i>
+                                    <span class="text">En Proceso</span>
+                                </span>
+                            </div>
+                            
+                        <?php } ?>
 
-            <?php } ?>
-        </div>
-            
-       <?php }else{ ?>
+
+                    </div>
+                <?php } ?>
+            </div>
+            <?php } else { ?>
             <h4 class="no-certificates-notice">Usted no tiene certificados aún.</h4>
             <h4 class="no-certificates-notice">Comience fácilmente, seleccione un curso aquí, páselo y obtenga su primer certificado</h4>
         <?php } ?>
     </div>
-    <!--    
-        
-        
-        <div class="stm_lms_private_information" data-container-open=".stm_lms_private_information">
-            <h2>Mis Certificados</h2>
-            <h4 class="no-certificates-notice">Usted no tiene certificados aún.</h4>
-            <h4 class="no-certificates-notice">Comience fácilmente, seleccione un curso aquí, páselo y obtenga su primer certificado</h4>
-        </div>-->
     <div data-container-open=".stm_lms_edit_account">
         <div class="stm_lms_edit_account" id="stm_lms_edit_account">
             <div class="stm_lms_user_info_top">
@@ -146,6 +148,27 @@
                     </div>
                 </div>
             </form>
+            <div class="stm_lms_edit_socials">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3>Cambiar Imagen de Perfil</h3>
+                        <p>Tamaño de la imagen recomendada (215 x 215)</p>
+                    </div>
+                </div>
+                <div class="stm_lms_edit_socials_list">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group"> 
+                                <form id="dropzone" action="<?php echo site_url() . 'backoffice/upload_perfil'; ?>" class="dropzone">
+                                    <div class="fallback">
+                                        <input name="file" type="file" id="archivos"/>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

@@ -1,7 +1,4 @@
-<?php
-
-if (!defined('BASEPATH'))
-    exit('No direct script access allowed');
+<?php if (!defined('BASEPATH'))exit('No direct script access allowed');
 
 class B_home extends CI_Controller {
 
@@ -187,7 +184,7 @@ class B_home extends CI_Controller {
         $this->tmp_backoffice->render("backoffice/b_certificados");
     }
 
-    public function zoom() {
+    public function soporte() {
 //GET SESION ACTUALY
         $this->get_session();
 //get customer id
