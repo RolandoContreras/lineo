@@ -143,6 +143,7 @@ class B_home extends CI_Controller {
 
     public function certificados() {
         //GET SESION ACTUALY
+        
         $this->get_session();
         header('Content-Type: image/jpeg');
         $fuente = site_url() . 'static/cms/fonts/arial.ttf';
@@ -156,12 +157,9 @@ class B_home extends CI_Controller {
         imagestring($img2, 5, 250, 100, "Prueba de Certificado", $black);
         imagestring($img2, 5, 500, 100, "Prueba de Certificado", $black);
         imagestring($img2, 5, 700, 100, "Prueba de Certificado", $black);
-        imagettftext($img2, 20, 0, 11, 21, $black, $fuente, "Fuunetetete");
+//        imagettftext($img2, 20, 0, 11, 21, $black, $fuente, "Fuunetetete");
         imagejpeg($img2);
         imagedestroy($img2);
-
-
-    
 
      
 //$obj_category = $this->nav_category();

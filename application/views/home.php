@@ -1,11 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-US" class="no-js">
     <?php $this->load->view("head") ?>
-    <body class="page-template-default page page-id-2 stm_lms_button pmpro-body-has-access skin_custom_color online-light stm_preloader_1 wpb-js-composer js-comp-ver-5.6 vc_responsive" ontouchstart="">
-        <!-- Google Tag Manager (noscript) -->
-        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NTCN84F"
-                          height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-        <!-- End Google Tag Manager (noscript) -->
+    <body class="page-template-default page page-id-2 stm_lms_button pmpro-body-has-access skin_custom_color online-light wpb-js-composer js-comp-ver-5.6 vc_responsive" ontouchstart="">
         <div id="wrapper">
             <?php $this->load->view("header") ?>
             <div id="main">
@@ -14,32 +10,27 @@
                 </div>
                 <div class="container">
                     <div class="post_type_exist clearfix">
-                        <div data-vc-full-width="true" data-vc-full-width-init="true" class="vc_row wpb_row vc_row-fluid vc_custom_1534238310373 aed6bbdbcfb88221d9cb9b85256190b1e vc_row-has-fill row-has-animation" style="background-position: 95% 90% !important; position: relative; left: -351.5px; box-sizing: border-box; width: 1903px; padding-left: 351.5px; padding-right: 351.5px;">
+                        <div data-vc-full-width="true" data-vc-full-width-init="true" class="vc_row wpb_row vc_row-fluid vc_custom_1534238310373 aed6bbdbcfb88221d9cb9b85256190b1e vc_row-has-fill row-has-animation" style="background-position: 95% 90% !important; position: relative; left: -351.5px; box-sizing: border-box; width: 1903px; padding-left: 351.5px; padding-right: 351.5px;background-color: rgb(78, 215, 168);">
                             <div class="stm_lms_row_animation"> 
                                 <img src="<?php echo site_url() . 'static/page_front/images/animation/base.png'; ?>">              
                                 <img class="book1" src="<?php echo site_url() . 'static/page_front/images/animation/book1.png'; ?>">              
-                                <img class="book2" src="<?php echo site_url() . 'static/page_front/images/animation/book2.png'; ?>">              
                                 <img class="bubblespeech" src="<?php echo site_url() . 'static/page_front/images/animation/bubblespeech.png'; ?>">              
-                                <img class="magnifier" src="<?php echo site_url() . 'static/page_front/images/animation/magnifier.png'; ?>">              
-                                <img class="moon" src="<?php echo site_url() . 'static/page_front/images/animation/moon.png'; ?>">
                             </div>
                             <div
                                 class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-7 vc_col-md-5">
                                 <div class="vc_column-inner">
                                     <div class="wpb_wrapper">
-                                        <div class="aadf880d5c8986bd0deb6423c92c9d948 vc_empty_space" style="height: 140px"><span class="vc_empty_space_inner"></span></div>
+                                        <div class="space-70"></div>
                                         <div class="vc_custom_heading">
-                                            <h1 style="font-size: 64px;line-height: 70px;text-align: left">Tu plataforma de Educación Online.</h1>
+                                            <h1 class="text-title-banner">Tu plataforma de Educación Online.</h1>
                                         </div>
                                         <div class="vc_custom_heading vc_custom_1535366613275">
-                                            <h3 style="text-align: left">Un sistema probado y utilizado a nivel global.</h3>
+                                            <h3 style="text-align: left" class="color-white">Un sistema probado y utilizado a nivel global.</h3>
                                         </div>
                                         <div class="vc_btn3-container vc_btn3-inline"> 
                                             <a class="btn btn-default lg" href="<?php echo site_url() . 'iniciar-sesion'; ?>" title="">Comienza a estudiar</a>
                                         </div>
-                                        <div class="aa3e9b2585d5e7d5f6c929d0beab1846e vc_empty_space" style="height: 75px"> 
-                                            <span class="vc_empty_space_inner"></span>
-                                        </div>
+                                        <div class="space-70"></div>
                                     </div>
                                 </div>
                             </div>
@@ -92,27 +83,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div data-vc-full-width="true" data-vc-full-width-init="true" class="vc_row wpb_row vc_row-fluid vc_custom_1536053689227 aa5c78e661a071cc8ef558ce0a5313b4c vc_row-has-fill"
-                             style="background-position: 10% 20% !important; position: relative; left: -351.5px; box-sizing: border-box; width: 1903px; padding-left: 351.5px; padding-right: 351.5px;">
-                            <div class="wpb_column vc_column_container vc_col-sm-8 vc_col-lg-6 vc_col-md-6 vc_col-xs-12">
-                                <div class="vc_column-inner">
-                                    <div class="wpb_wrapper">
-                                        <div class="a11cba70e4710584340f5e5e7c0bb7f30 vc_empty_space" style="height: 98px"> <span class="vc_empty_space_inner"></span></div>
-                                        <div class="vc_custom_heading">
-                                            <h2 style="font-size: 50px;line-height: 60px;text-align: left">Aprendizaje ilimitado, más posibilidades.</h2>
-                                        </div>
-                                        <div class="vc_custom_heading vc_custom_1535368101130">
-                                            <h3 style="text-align: left">Los cursos en línea abren la oportunidad de aprender a cualquier persona, independientemente del horario muy ocupado que atender.</h3>
-                                        </div>
-                                        <div class="vc_btn3-container vc_btn3-inline"> 
-                                            <a class="btn btn-default lg" href="<?php echo site_url() . 'contacto'; ?>" title="Contacto">Contactar</a>
-                                        </div>
-                                        <div class="a7bb2857e4f42561a3ef743780f2aaab6 vc_empty_space" style="height: 89px"><span class="vc_empty_space_inner"></span></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                         <div class="vc_row-full-width vc_clearfix"></div>
+                        <div class="aa3e9b2585d5e7d5f6c929d0beab1846e vc_empty_space" style="height: 75px"><span class="vc_empty_space_inner"></span></div>
                         <div data-vc-full-width="true" data-vc-full-width-init="true" data-vc-stretch-content="true" class="vc_row wpb_row vc_row-fluid" style="position: relative; left: -351.5px; box-sizing: border-box; width: 1903px;">
                             <div class="wpb_column vc_column_container vc_col-sm-12">
                                 <div class="vc_column-inner">
@@ -129,8 +101,8 @@
                                                                 <div class="stm_lms_post_status heading_font new"> Nuevo</div>
                                                                 <a href="<?php echo site_url() . "cursos/$value->category_slug/$value->slug"; ?>" class="heading_font" data-preview="Vista Previa del Curso">
                                                                     <div>
-                                                                        <div class="stm_lms_lazy_image stm_lms_lazyloaded stm_lms_lazy_image__lazyloaded">
-                                                                            <img data-srcset="<?php echo site_url() . "static/cms/img/cursos/$value->img"; ?> 2x" class="lazyload " data-src="<?php echo site_url() . "static/cms/img/cursos/$value->img"; ?>" width="272" height="161" alt="<?php echo $value->name; ?>" title="<?php echo $value->name; ?>"/>
+                                                                        <div class="stm_lms_lazy_image stm_lms_lazy_image__lazyloaded">
+                                                                            <img class="lazyload" src="<?php echo site_url() . "static/cms/img/cursos/$value->img"; ?>" width="272" height="161" alt="<?php echo $value->name; ?>" title="<?php echo $value->name; ?>"/>
                                                                         </div>
                                                                     </div>
                                                                 </a>
@@ -160,7 +132,7 @@
                                                                 </div>
                                                                 <div class="stm_lms_courses__single--info_title">
                                                                     <a href="<?php echo site_url() . "cursos/$value->category_slug/$value->slug"; ?>">
-                                                                        <h4><?php echo strtoupper($value->name); ?></h4>
+                                                                        <h4><?php echo $value->name; ?></h4>
                                                                     </a>
                                                                 </div>
                                                                 <div class="stm_lms_courses__single--info_excerpt"> 
@@ -182,7 +154,7 @@
                                                 <a href="<?php echo site_url() . 'cursos'; ?>" class="btn btn-default"> Ver todo los cursos </a>
                                             </div>
                                         </div>
-                                        <div class="aa3e9b2585d5e7d5f6c929d0beab1846e vc_empty_space" style="height: 75px"> <span class="vc_empty_space_inner"></span></div>
+                                        <div class="space-70"></div>
                                     </div>
                                 </div>
                             </div>
@@ -251,7 +223,45 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="a9ff892a4b93a9ccd2fe95c188511a8eb vc_empty_space" style="height: 100px"> <span class="vc_empty_space_inner"></span></div>
+                                        <div class="space-100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vc_row-full-width vc_clearfix"></div>
+                        <div data-vc-full-width="true" data-vc-full-width-init="true" class="vc_row wpb_row vc_row-fluid primary_bg_color vc_custom_1532328330193" style="position: relative; left: -351.5px; box-sizing: border-box; width: 1903px; padding-left: 351.5px; padding-right: 351.5px;">
+                            <div class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-7 vc_col-md-7">
+                                <div class="vc_column-inner">
+                                    <div class="wpb_wrapper">
+                                        <div class="af4bcee4c7548ab3e42ac0d89c720578a vc_empty_space" style="height: 27px"> <span class="vc_empty_space_inner"></span></div>
+                                        <div class="vc_custom_heading vc_custom_1535368966565">
+                                            <h4 style="font-size: 19px;color: #ffffff;line-height: 22px;text-align: left">Suscríbase a nuestro boletín</h4>
+                                        </div>
+                                        <div class="vc_custom_heading fwl">
+                                            <h5 style="font-size: 15px;color: #ffffff;line-height: 22px;text-align: left">Mantente informado de los beneficios que tenemos en Edukate Pro, para que seas el próximo emprendedor y tengas tu colegio virtual</h5>
+                                        </div>
+                                        <div class="a0904c47a8fdb55bdbffdfe58e40ff2d1 vc_empty_space" style="height: 45px"> <span class="vc_empty_space_inner"></span></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-5 vc_col-md-5">
+                                <div class="vc_column-inner">
+                                    <div class="wpb_wrapper">
+                                        <div class="ad69f92af9df44a962a8cc4e75b2af998 vc_empty_space" style="height: 18px"> <span class="vc_empty_space_inner"></span></div>
+                                        <div class="stm_subscribe aed8f1be467e74ab7798b72bc1c0ec271">
+                                            <div class="widget widget_mailchimp">
+                                                <h5 class="stm_subscribe_title" style="color: #ffffff;">Ingrese su E-mail</h5>
+                                                <form action="javascript:void(0);" onsubmit="boletin();">
+                                                    <div class="stm_mailchimp_unit">
+                                                        <div class="form-group">
+                                                            <input type="email" name="email" id="email" class="form-control stm_subscribe_email" placeholder="Ingrese su E-mail" required="">
+                                                        </div>
+                                                        <button type="submit" class="button"><span class="h5">Suscribirse</span></button>
+                                                        <div class="stm_subscribe_preloader">Por favor espera...</div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -261,8 +271,13 @@
                 </div>
             </div>
         </div>
-        <?php $this->load->view("footer"); ?>
-    </div>
-    <script defer src="<?php echo site_url() . 'static/page_front/js/autoptimize_278f.js'; ?>"></script>
+        <?php $this->load->view("footer_2"); ?>
+    <script src="<?php echo site_url() . 'static/page_front/js/autoptimize_54ab.js'; ?>"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="<?php echo site_url() . 'static/page_front/js/script/home.js'; ?>"></script>
+    <script src='<?php echo site_url() . 'static/backoffice/js/header_2.js?ver=3.2'; ?>'></script>
+    <link rel='stylesheet' id='stm-lms-lesson-css' href='<?php echo site_url() . 'static/backoffice/css/footer/lesson.css?ver=75'; ?>' type='text/css' media="none" onload="if(media!='all')media='all'"/>
+    <script src='<?php echo site_url() . 'static/backoffice/js/jquery.fancybox.js?ver=3.2'; ?>'></script>
+    <script src='<?php echo site_url() . 'static/backoffice/js/custom.js?ver=3.2'; ?>'></script>
 </body>
 </html>
