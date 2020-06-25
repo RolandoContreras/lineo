@@ -1,9 +1,45 @@
 <div class="col-md-9 col-sm-12">
     <div class="stm_lms_private_information" data-container-open=".stm_lms_private_information">
         <h2>Mis Certificados</h2>
-        <h4 class="no-certificates-notice">Usted no tiene certificados aún.</h4>
-        <h4 class="no-certificates-notice">Comience fácilmente, seleccione un curso aquí, páselo y obtenga su primer certificado</h4>
+        <?php 
+        
+        if(!empty($obj_courses_by_customer)){ ?>
+            <div class="stm-lms-user-quizzes stm-lms-user-certificates">
+            <div class="stm-lms-user-quiz__head heading_font">
+                <div class="stm-lms-user-quiz__head_title">Curso</div>
+                <div class="stm-lms-user-quiz__head_status">Certificado</div>
+            </div>
+            <?php foreach ($obj_courses_by_customer as $value) { ?>
+                <div class="stm-lms-user-quiz">
+                    <div class="stm-lms-user-quiz__title">
+                        <a href="https://stylemixthemes.com/masterstudy/white-lms/courses/design-instruments-for-communication/">Design Instruments for Communication</a>
+                    </div>
+                    <a href="https://stylemixthemes.com/masterstudy/white-lms/lms-certificates/1001" target="_blank" class="stm-lms-user-quiz__name">Descargar</a>
+                    <div class="affiliate_points heading_font" data-copy="lmsx30x1001">
+                        <span class="hidden" id="lmsx30x1001">lmsx30x1001</span>
+                        <span class="affiliate_points__btn">
+                            <i class="fa fa-link"></i>
+                            <span class="text">Copiar Código</span>
+                        </span>
+                    </div>
+                </div>
+
+            <?php } ?>
+        </div>
+            
+       <?php }else{ ?>
+            <h4 class="no-certificates-notice">Usted no tiene certificados aún.</h4>
+            <h4 class="no-certificates-notice">Comience fácilmente, seleccione un curso aquí, páselo y obtenga su primer certificado</h4>
+        <?php } ?>
     </div>
+    <!--    
+        
+        
+        <div class="stm_lms_private_information" data-container-open=".stm_lms_private_information">
+            <h2>Mis Certificados</h2>
+            <h4 class="no-certificates-notice">Usted no tiene certificados aún.</h4>
+            <h4 class="no-certificates-notice">Comience fácilmente, seleccione un curso aquí, páselo y obtenga su primer certificado</h4>
+        </div>-->
     <div data-container-open=".stm_lms_edit_account">
         <div class="stm_lms_edit_account" id="stm_lms_edit_account">
             <div class="stm_lms_user_info_top">
@@ -113,4 +149,17 @@
         </div>
     </div>
 </div>
-<script src="<?php echo site_url() . 'assets/backoffice/js/script/profile.js'; ?>"></script>
+<script src="<?php echo site_url() . 'static/backoffice/js/script/profile.js'; ?>"></script>
+<script>
+                Dropzone.options.dropzone = {
+                    paramName: "file", // The name that will be used to transfer the file
+                    maxFiles: 1,
+                    maxFilesize: 2,
+                    acceptedFiles: "image/*"// MB
+                };
+                var myDropzone = new Dropzone("#archivos", {url: site + "backoffice/backoffice/upload_perfil"});
+</script>
+<link rel='stylesheet' id='stm-lms-manage_course-css'  href='<?php echo site_url() . 'static/page_front/css/manage_course.css?ver=88'; ?>' type='text/css' media='all' />
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="<?php echo site_url() . 'static/page_front/dropzone/css/dropzone.css'; ?>" media="all">
+<script defer src="<?php echo site_url() . 'static/page_front/dropzone/js/dropzone.js'; ?>"></script>

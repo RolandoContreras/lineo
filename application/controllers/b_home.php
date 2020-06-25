@@ -143,6 +143,23 @@ class B_home extends CI_Controller {
 
     public function certificados() {
         //GET SESION ACTUALY
+        //get customer id
+        $this->get_session();
+        $customer_id = $_SESSION['customer']['customer_id'];
+        $obj_category = $this->nav_category();
+        //get cursos comprados
+        $obj_courses_by_customer = $this->courses_by_customer($customer_id);
+        //get profile
+        $obj_profile = $this->get_profile($customer_id);
+        $this->tmp_backoffice->set("obj_profile", $obj_profile);
+        $this->tmp_backoffice->set("obj_courses_by_customer", $obj_courses_by_customer);
+        $this->tmp_backoffice->set("obj_category", $obj_category);
+        $this->tmp_backoffice->render("backoffice/b_certificados");
+    }
+    
+    
+    public function certificados_download() {
+        //GET SESION ACTUALY
 
         $this->get_session();
         header('Content-Type: image/jpeg');
@@ -421,8 +438,8 @@ category.slug as category_slug",
     public function nav_category() {
         $params_category = array(
             "select" => "category_id,
-slug,
-name",
+                        slug,
+                        name",
             "where" => "active = 1",
         );
 //GET DATA COMMENTS
@@ -465,20 +482,21 @@ courses.name as course_name",
     public function courses_by_customer($customer_id) {
         $params_customer_courses = array(
             "select" => "customer_courses.date_start,
-courses.course_id,
-courses.category_id,
-courses.name,
-courses.slug,
-courses.time,
-customer_courses.total_video,
-customer_courses.total,
-courses.description,
-courses.img,
-courses.price,
-courses.date,
-customer.customer_id,
-category.slug as category_slug,
-category.name as category_name",
+                        courses.course_id,
+                        courses.category_id,
+                        courses.name,
+                        courses.slug,
+                        courses.time,
+                        customer_courses.total_video,
+                        customer_courses.total,
+                        customer_courses.complete,
+                        courses.description,
+                        courses.img,
+                        courses.price,
+                        courses.date,
+                        customer.customer_id,
+                        category.slug as category_slug,
+                        category.name as category_name",
             "join" => array('customer, customer_courses.customer_id = customer.customer_id',
                 'courses, customer_courses.course_id = courses.course_id',
                 'category, courses.category_id = category.category_id'),

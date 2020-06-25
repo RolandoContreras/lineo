@@ -63,6 +63,7 @@
         <link rel='stylesheet' id='stm-lms-lesson-css' href='<?php echo site_url() . 'static/backoffice/css/footer/lesson.css?ver=75'; ?>' type='text/css' media='all' />
         <link rel='stylesheet' id='stm-lms-user-css' href='<?php echo site_url() . 'static/backoffice/css/footer/user.css?ver=75'; ?>' type='text/css' media='all' />
         <link rel='stylesheet' id='stm-lms_categories_megamenu-style_1-css' href='<?php echo site_url() . 'static/backoffice/css/footer/lms_categories_megamenu.css?ver=3.2'; ?>' type='text/css' media='all' />
+        <link rel='stylesheet' id='stm-lms-user-quizzes-css'  href='<?php echo site_url() . 'static/backoffice/css/footer/user-quizzes.css?ver=88'; ?>' type='text/css' media='all' />
         <link rel='stylesheet' id='stm-header_mobile-account-css' href='<?php echo site_url() . 'static/backoffice/css/footer/account.css?ver=3.2'; ?>' type='text/css' media='all' />
         <link rel='stylesheet' id='stm-lms-user-courses-css' href='<?php echo site_url() . 'static/backoffice/css/footer/user-courses.css?ver=75'; ?>' type='text/css' media='all' />
         <link rel='stylesheet' id='stm-lms-edit_account-css' href='<?php echo site_url() . 'static/backoffice/css/footer/edit_account.css?ver=75'; ?>' type='text/css' media='all' />
