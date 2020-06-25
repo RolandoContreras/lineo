@@ -9,6 +9,7 @@ class Home extends CI_Controller {
             $this->load->model("customer_model","obj_customer");
             $this->load->model("videos_model","obj_videos");
             $this->load->model("paises_model","obj_paises");
+            $this->load->model("boletin_model","obj_boletin");
             $this->load->library('culqi');
     }   
         
@@ -99,6 +100,27 @@ class Home extends CI_Controller {
             $data['title'] = "U-Linex | Política de privacidad y cookies";
             $this->load->view('policy', $data);
 	}
+        
+        public function boletin() {
+        //ENVIAR MENSAJE DE CORREO
+        if ($this->input->is_ajax_request()) {
+            $email = $this->input->post("email");
+            $param = array(
+                'email' => $email,
+                'active' => 1,
+                'date' => date("Y-m-d H:i:s")
+            );
+            //SAVE DATA IN TABLE    
+            $result = $this->obj_boletin->insert($param);
+            if ($result != null) {
+                $data['status'] = true;
+            } else {
+                $data['status'] = false;
+            }
+            echo json_encode($data);
+            exit();
+        }
+    }
         
         public function pagar()
 	{

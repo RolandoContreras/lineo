@@ -42,6 +42,7 @@ $route['default_controller'] = "home";
 $route['404_override'] = 'errors/error_404';
 
 $route['home'] = 'home';
+$route['home/boletin'] = 'home/boletin';
 $route['contacto'] = 'contact';
 $route['terminos-condiciones'] = 'home/term_condition';
 $route['politica-privacidad'] = 'home/policy';

@@ -14,8 +14,7 @@
                             <div class="textwidget">
                                 <div class="space-18"></div>
                                 <a class="color-white" href="<?php echo site_url().'terminos-condiciones';?>"><i class="fa fa-check"></i> Términos y Condiciones</a><br/>
-                                    <a class="color-white" href="<?php echo site_url().'politica-privacidad';?>"><i class="fa fa-check"></i> Política de Privacidad</a><br/>
-                                    <a class="color-white" href="<?php echo site_url().'politica-cookies';?>"><i class="fa fa-check"></i> Política de Cookies</a>
+                                    <a class="color-white" href="<?php echo site_url().'politica-privacidad';?>"><i class="fa fa-check"></i> Política de Privacidad & Cookies</a><br/>
                             </div>
                         </aside>
                         <aside id="contacts-2" class="widget widget_contacts">
@@ -23,17 +22,11 @@
                                 <h3 class="color-white">Contacto</h3>
                             </div>
                             <ul class="widget_contacts_style_2">
-                                <li class="widget_contacts_address">
-                                    <div class="text color-white">Av. Benavides 2191 - Mirafloes</div>
-                                </li>
                                 <li class="widget_contacts_phone">
-                                    <div class="text color-white">Tel.: +1 212 458 300 32</div>
-                                </li>
-                                <li class="widget_contacts_fax">
-                                    <div class="text color-white">Fax: +1 212 375 24 14</div>
+                                    <div class="text color-white">Tel.: +51 998 878 636</div>
                                 </li>
                                 <li class="widget_contacts_email">
-                                    <div class="text color-white">contacto@edukatepro.com</div>
+                                    <div class="text color-white">ulinex.corp@gmail.com</div>
                                 </li>
                                 
                             </ul>
@@ -119,30 +112,29 @@
         </div>
     </div>
 </footer>
- <!--Load Facebook SDK for JavaScript--> 
-<div id="fb-root"></div>
-<script>
-    window.fbAsyncInit = function () {
-        FB.init({
-            xfbml: true,
-            version: 'v6.0'
-        });
-    };
+<!-- Load Facebook SDK for JavaScript -->
+      <div id="fb-root"></div>
+      <script>
+        window.fbAsyncInit = function() {
+          FB.init({
+            xfbml            : true,
+            version          : 'v7.0'
+          });
+        };
 
-    (function (d, s, id) {
+        (function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id))
-            return;
-        js = d.createElement(s);
-        js.id = id;
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
         js.src = 'https://connect.facebook.net/es_ES/sdk/xfbml.customerchat.js';
         fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
+      }(document, 'script', 'facebook-jssdk'));</script>
 
- <!--Your customer chat code--> 
-<div class="fb-customerchat"
-     attribution=setup_tool
-     page_id="103388658025119"
-     logged_in_greeting="Hola, ¿en qué podemos ayudarte?"
-     logged_out_greeting="Hola, ¿en qué podemos ayudarte?">
-</div>
+      <!-- Your customer chat code -->
+      <div class="fb-customerchat"
+        attribution=setup_tool
+        page_id="103662281176014"
+  theme_color="#0084ff"
+  logged_in_greeting="Gracias por comunicarte con nosotros, ¿en qué podemos ayudarte?"
+  logged_out_greeting="Gracias por comunicarte con nosotros, ¿en qué podemos ayudarte?">
+      </div>
