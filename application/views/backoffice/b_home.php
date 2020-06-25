@@ -154,7 +154,7 @@
                                             <tr id="pmpro_account-invoice-3B9914E266">
                                                 <td><?php echo formato_fecha_dia_de_mes_de_ano($value->date); ?></td>
                                                 <td><?php echo $value->course_name; ?></td>
-                                                <td><sup>&#8364;</sup><?php echo $value->total; ?></td>
+                                                <td><sup>s/.</sup><?php echo $value->total; ?></td>
                                                 <td><?php echo $value->active == 2 ? "Pagado" : "Pendiente"; ?></td>
                                             </tr>
                                             <?php
@@ -279,6 +279,27 @@
                     </div>
                 </div>
             </form>
+            <div class="stm_lms_edit_socials">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3>Cambiar Imagen de Perfil</h3>
+                            <p>Tamaño de la imagen recomendada (215 x 215)</p>
+                        </div>
+                    </div>
+                    <div class="stm_lms_edit_socials_list">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group"> 
+                                    <form id="dropzone" action="<?php echo site_url() . 'backoffice/upload_perfil'; ?>" class="dropzone">
+                                        <div class="fallback">
+                                            <input name="file" type="file" id="archivos"/>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
         </div>
     </div>
 </div>
@@ -288,5 +309,21 @@
                     swal("Recibe hasta un 75% de descuento", "Mira todos los cursos que tenemos para ti. Apúrate que el momento de aprender es ahora.", "success");
                 });
 </script>
+<script>
+                    Dropzone.options.dropzone = {
+                        paramName: "file", // The name that will be used to transfer the file
+                        maxFiles: 1,
+                        maxFilesize: 2,
+                        acceptedFiles: "image/*"// MB
+                    };
+                    var myDropzone = new Dropzone("#archivos", {url: site + "backoffice/backoffice/upload_perfil"});
+    </script>
 <script src="<?php echo site_url() . 'static/backoffice/js/sweetalert.min.js'; ?>"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+
+
+
+
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>-->
+    <link rel="stylesheet" href="<?php echo site_url() . 'static/page_front/dropzone/css/dropzone.css'; ?>" media="all">
+    <script defer src="<?php echo site_url() . 'static/page_front/dropzone/js/dropzone.js'; ?>"></script>

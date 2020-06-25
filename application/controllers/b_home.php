@@ -143,7 +143,7 @@ class B_home extends CI_Controller {
 
     public function certificados() {
         //GET SESION ACTUALY
-        
+
         $this->get_session();
         header('Content-Type: image/jpeg');
         $fuente = site_url() . 'static/cms/fonts/arial.ttf';
@@ -153,7 +153,7 @@ class B_home extends CI_Controller {
         $black = imagecolorallocate($im, 0, 0, 0);
         header("Content-type: image/jpeg");
         $img2 = imagecreatefromjpeg($imagen);
-        
+
         imagestring($img2, 5, 250, 100, "Prueba de Certificado", $black);
         imagestring($img2, 5, 500, 100, "Prueba de Certificado", $black);
         imagestring($img2, 5, 700, 100, "Prueba de Certificado", $black);
@@ -161,7 +161,7 @@ class B_home extends CI_Controller {
         imagejpeg($img2);
         imagedestroy($img2);
 
-     
+
 //$obj_category = $this->nav_category();
 ////get profile
 //$obj_profile = $this->get_profile($customer_id);
@@ -447,14 +447,15 @@ courses.name as course_name",
 
     public function get_profile($customer_id) {
         $params_category = array(
-            "select" => "name,
-last_name,
-bio,
-facebook,
-twitter,
-instagram,
-google,
-img",
+            "select" => "customer_id,
+                        name,
+                        last_name,
+                        bio,
+                        facebook,
+                        twitter,
+                        instagram,
+                        google,
+                        img",
             "where" => "customer_id = $customer_id and active = 1",
         );
 //GET DATA COMMENTS

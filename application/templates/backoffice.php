@@ -2,10 +2,6 @@
 <html lang="es" class="no-js">
     <?php $this->load->view("backoffice/head"); ?>
     <body class="logged-in stm_lms_button skin_custom_color online-light stm_preloader_1 wpb-js-composer js-comp-ver-5.6 vc_responsive" ontouchstart="">
-        <!-- Google Tag Manager (noscript) -->
-        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NTCN84F"
-                          height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-        <!-- End Google Tag Manager (noscript) -->
         <div id="wrapper">
             <?php $this->load->view("header"); ?>
             <!-- id header -->
@@ -16,13 +12,15 @@
                             <div class="col-md-3 col-sm-12">
                                 <div class="stm_lms_user_side">
                                     <div class="stm-lms-user-avatar-edit "> 
-                                        <div class=""> 
-                                            <?php if (!empty($_SESSION['customer']['img'])) { ?>
-                                                <img class="img-radius" alt='avatar' src='<?php echo site_url() . 'static/backoffice/images/profile/' . $_SESSION['customer']['img']; ?>' class='avatar avatar-215 photo' height='215' width='215'/> 
+                                        <div class="stm-lms-user_edit_profile_btn" data-container=".stm_lms_edit_account">
+                                            <?php if (!empty($obj_profile->img)) { ?>
+                                                <a href="<?php echo site_url() . 'backoffice#settings'; ?>">
+                                                    <img class="img-radius" src='<?php echo site_url() . "static/backoffice/images/profile/$obj_profile->customer_id/$obj_profile->img"; ?>' class='avatar avatar-215 photo' height='215' width='215' alt='<?php echo $_SESSION['customer']['name']; ?>'/> 
+                                                </a>
                                             <?php } else { ?>
-                                                <img alt='avatar' src='<?php echo site_url() . 'static/backoffice/images/avatar.png'; ?>' class='avatar avatar-215 photo' height='215' width='215'/> 
+                                            <img alt='avatar' src='<?php echo site_url() . 'static/backoffice/images/avatar.png'; ?>' class='avatar avatar-215 photo' height='215' width='215' style="cursor: pointer;"/> 
                                             <?php } ?>
-                                        </div>
+                                        </div>    
                                     </div>
                                     <h3 class="stm_lms_update_field__first_name"><?php echo $_SESSION['customer']['name']; ?></h3>
                                     <div class="stm_lms_profile_buttons_set 22">
@@ -60,7 +58,7 @@
             <!--#main-->
         </div>
         <!--#wrapper-->
-        <?php $this->load->view("footer"); ?>
+        <?php $this->load->view("footer_bo"); ?>
         <link rel='stylesheet' id='stm-lms-cart-css' href='https://stylemixthemes.com/masterstudy/white-lms/wp-content/plugins/masterstudy-lms-learning-management-system/assets/css/parts/cart.css?ver=75' type='text/css' media='all' />
         <link rel='stylesheet' id='stm-lms-lesson-css' href='<?php echo site_url() . 'static/backoffice/css/footer/lesson.css?ver=75'; ?>' type='text/css' media='all' />
         <link rel='stylesheet' id='stm-lms-user-css' href='<?php echo site_url() . 'static/backoffice/css/footer/user.css?ver=75'; ?>' type='text/css' media='all' />

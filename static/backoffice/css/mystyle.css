@@ -14,3 +14,13 @@
     width: 215px;
     height: 215px;
 }
+#footer_bottom{
+    background-color: #273044 !important;        
+    color:white;
+}
+.color-white{
+    color: white !important;
+}
+.bg-footer{
+    background-color: #273044 !important;        
+}

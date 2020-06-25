@@ -63,41 +63,46 @@ class B_profile extends CI_Controller {
             }
     }
     
-    public function upload(){
-                
-                //SELECT ID FROM CUSTOMER
-                
-            if(isset($_FILES["file"]["name"])){
-                $config['upload_path']          = './static/backoffice/images/profile/';
-                $config['allowed_types']        = 'gif|jpg|png|jpeg';
-                $config['max_size']             = 10000;
-                $this->load->library('upload', $config);
-                    if ( ! $this->upload->do_upload('file')){
-                         $error = array('error' => $this->upload->display_errors());
-                          echo '<div class="alert alert-danger">'.$error['error'].'</div>';
-                    }else{
-                        $data = array('upload_data' => $this->upload->data());
-                    }
-                $img = $_FILES["file"]["name"]; 
-                 if($img != null){
-                     $customer_id = $_SESSION['customer']['customer_id'];
-                     $data = array(
-                            'img' => $img,
-                            );          
-                        //GRABAR EN CLIENTES
-                    $this->obj_customer->update($customer_id, $data);
-                    //elimina imagen anterior
-                    if($_SESSION['customer']['img'] != null){
-                        unlink("./static/backoffice/images/profile/".$_SESSION['customer']['img']);
-                    }
-                    //actulizar sesion;
-                    $this->update_session($img);
-                    //actualizar sesion
-                    redirect(site_url().'backoffice');
-                 }else{
-                        redirect(site_url().'backoffice/profile');
-                 }   
+    public function upload() {
+
+        //SELECT ID FROM CUSTOMER
+        $img = $_FILES['file'];
+        $templocation = $img["tmp_name"];
+        $name = $img["name"];
+        //get customer_id
+        $customer_id = $_SESSION['customer']['customer_id'];
+        //create file
+
+
+        if (!is_dir("./static/backoffice/images/profile/$customer_id")) {
+            mkdir("./static/backoffice/images/profile/$customer_id", 0777);
+        }
+        if (!$templocation) {
+            die("No se ha seleccionado ningun archivos");
+        }
+
+        $files = glob("./static/backoffice/images/profile/$customer_id/*"); //obtenemos todos los nombres de los ficheros
+        foreach ($files as $file) {
+            if (is_file($file))
+                unlink($file); //elimino el fichero
+        }
+        
+        if (move_uploaded_file($templocation, "./static/backoffice/images/profile/$customer_id/$name")) {
+            echo "archivos guardos";
+            //save on table
+            $data = array(
+                'img' => $name
+            );
+            //SAVE DATA IN TABLE    
+            $result = $this->obj_customer->update($customer_id, $data);
+            if (!empty($result)) {
+                echo "guardado";
+            } else {
+                echo "error";
             }
+        } else {
+            echo "Error";
+        }
     }
     
     public function update_session($img){
@@ -110,6 +115,7 @@ class B_profile extends CI_Controller {
         $this->session->unset_userdata('customer'); 
         $_SESSION['customer'] = $data_customer_session; 
     }
+    
     
     
     public function nav_category(){
