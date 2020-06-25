@@ -2,15 +2,25 @@
 <html lang="en-US" class="no-js">
     <?php $this->load->view("head"); ?>
     <body class="stm_lms_button skin_custom_color online-light stm_preloader_1 wpb-js-composer js-comp-ver-5.6 vc_responsive" ontouchstart="">
-        <!-- Google Tag Manager (noscript) -->
-        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NTCN84F"
-                          height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-        <!-- End Google Tag Manager (noscript) -->
         <div id="wrapper">
             <?php $this->load->view("header"); ?>
             <!-- id header -->
             <div id="main">
-
+                <div class="stm_lms_breadcrumbs stm_lms_breadcrumbs__header_2">
+                    <div class="stm_breadcrumbs_unit">
+                        <div class="container">
+                            <div class="navxtBreads"> 
+                                <span property="itemListElement">
+                                    <a property="item" title="Inicio" href="<?php echo site_url(); ?>" class="main-home">
+                                        <span property="name">Inicio</span>
+                                    </a>
+                                </span> &gt; <span property="itemListElement">
+                                    <span property="name" title="Iniciar Sesión & Registro">Iniciar Sesión & Registro</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="stm-lms-wrapper stm-lms-wrapper__login">
                     <div class="container">
                         <div class="row">
@@ -115,8 +125,11 @@
         </div>
         <!--#wrapper-->
         <?php $this->load->view("footer"); ?>
-        <script src="<?php echo site_url() . 'static/page_front/js/autoptimize_667d.js'; ?>"></script>
         <script src="<?php echo site_url() . 'static/page_front/js/script/login_register.js'; ?>"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src='<?php echo site_url() . 'static/backoffice/js/header_2.js?ver=3.2'; ?>'></script>
+        <link rel='stylesheet' id='stm-lms-lesson-css' href='<?php echo site_url() . 'static/backoffice/css/footer/lesson.css?ver=75'; ?>' type='text/css' media="none" onload="if (media != 'all') media = 'all'"/>
+        <script src='<?php echo site_url() . 'static/backoffice/js/jquery.fancybox.js?ver=3.2'; ?>'></script>
+        <script src='<?php echo site_url() . 'static/backoffice/js/custom.js?ver=3.2'; ?>'></script>
     </body>
 </html>
