@@ -18,7 +18,7 @@
                                                     <img class="img-radius" src='<?php echo site_url() . "static/backoffice/images/profile/$obj_profile->customer_id/$obj_profile->img"; ?>' class='avatar avatar-215 photo' height='215' width='215' alt='<?php echo $_SESSION['customer']['name']; ?>'/> 
                                                 </a>
                                             <?php } else { ?>
-                                            <img alt='avatar' src='<?php echo site_url() . 'static/backoffice/images/avatar.png'; ?>' class='avatar avatar-215 photo' height='215' width='215' style="cursor: pointer;"/> 
+                                                <img alt='avatar' src='<?php echo site_url() . 'static/backoffice/images/avatar.png'; ?>' class='avatar avatar-215 photo' height='215' width='215' style="cursor: pointer;"/> 
                                             <?php } ?>
                                         </div>    
                                     </div>
@@ -58,8 +58,43 @@
             <!--#main-->
         </div>
         <!--#wrapper-->
-        <?php $this->load->view("footer_bo"); ?>
-        <link rel='stylesheet' id='stm-lms-cart-css' href='https://stylemixthemes.com/masterstudy/white-lms/wp-content/plugins/masterstudy-lms-learning-management-system/assets/css/parts/cart.css?ver=75' type='text/css' media='all' />
+        <?php
+        $this->load->view("footer_bo");
+        $url = explode("/", uri_string());
+        if (isset($url[1])) {
+            $nav = $url[1];
+        } else {
+            $nav = "";
+        }
+        if ($nav == "soporte") { ?>
+            <!-- Load Facebook SDK for JavaScript -->
+      <div id="fb-root"></div>
+      <script>
+        window.fbAsyncInit = function() {
+          FB.init({
+            xfbml            : true,
+            version          : 'v7.0'
+          });
+        };
+
+        (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/es_ES/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));</script>
+
+      <!-- Your Chat Plugin code -->
+      <div class="fb-customerchat"
+        attribution=setup_tool
+        page_id="102549621289340"
+  theme_color="#67b868"
+  logged_in_greeting="Hola, estas en soporte ¿Cómo puedo ayudarte?"
+  logged_out_greeting="Hola, estas en soporte ¿Cómo puedo ayudarte?">
+      </div>
+        <?php } ?>
+        <link rel='stylesheet' id='stm-lms-cart-css' href='<?php echo site_url() . 'static/backoffice/css/footer/cart.css?ver=75'; ?>' type='text/css' media='all' />
         <link rel='stylesheet' id='stm-lms-lesson-css' href='<?php echo site_url() . 'static/backoffice/css/footer/lesson.css?ver=75'; ?>' type='text/css' media='all' />
         <link rel='stylesheet' id='stm-lms-user-css' href='<?php echo site_url() . 'static/backoffice/css/footer/user.css?ver=75'; ?>' type='text/css' media='all' />
         <link rel='stylesheet' id='stm-lms_categories_megamenu-style_1-css' href='<?php echo site_url() . 'static/backoffice/css/footer/lms_categories_megamenu.css?ver=3.2'; ?>' type='text/css' media='all' />

@@ -1,7 +1,48 @@
 <div class="col-md-9 col-sm-12">
     <div class="stm_lms_private_information" data-container-open=".stm_lms_private_information">
-        <h2>Zoom</h2>
-        <h4 class="no-certificates-notice">Sin Registros.</h4>
+        <h2>Soporte</h2>
+        <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">            
+            <div class="blog_layout_grid sidebar_position_right">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-xs-12 blog-cols-sidebar sticky plugin_style">
+                        <div class="post_list_content_unit">
+                            <div>
+                                <div class="post_list_featured_image">
+                                    <img src="<?php echo site_url().'static/backoffice/images/zoom.jpg';?>" class="img-responsive wp-post-image" width="370" height="193">
+                                </div>
+                            </div>
+                                <div class="h3">Comunícate con nosotros a través de ZOOM</div>
+                                <p>Líder en comunicaciones de video empresariales modernas, con una plataforma en la nube fácil y confiable para video y audio ... Zoom Rooms es la solución de sala de conferencias original basada en software utilizada en todo el mundo</p>
+                                <p>Clic al siguiente enlace para unirte a nuestra sala <a href="https://zoom.us/j/7609009840" target="_blank">¡Clic Aquí!</a></p>
+                                
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-12 blog-cols-sidebar plugin_style">
+                        <div class="post_list_content_unit">
+                            <div>
+                                <div class="post_list_featured_image">
+                                        <img src="<?php echo site_url().'static/backoffice/images/teamweaver.jpg';?>" class="img-responsive wp-post-image" width="370" height="193">
+                                </div>
+                            </div>
+                                <div class="h3">Programa una cita en TeamViewer</div>
+                                <p>TeamViewer es una solución integral de acceso, control y soporte remoto que trabaja con casi todos los escritorios y plataformas móviles, incluyendo Windows, macOS, Android, y con iOS. TeamViewer te permite entrar en ordenadores y dispositivos móviles en remoto.</p>
+                                <p>Clic al siguiente enlace para unirte a nuestra sala <a href="https://zoom.us/j/7609009840" target="_blank">¡Clic Aquí!</a></p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-12 blog-cols-sidebar plugin_style">
+                        <div class="post_list_content_unit">
+                            <div>
+                                <div class="post_list_featured_image">
+                                        <img src="<?php echo site_url().'static/backoffice/images/chat.jpg';?>" class="img-responsive wp-post-image" width="370" height="193">
+                                </div>
+                            </div>
+                                <div class="h3">Chat de soporte</div>
+                                <p>Estamos atento a todas tus necesidades, no dudes en escribirnos para solucionar los inconvenientes que logren surgir, si necesitas programar una reunión con zoom o TeamViewer realízalo por el chat</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <div data-container-open=".stm_lms_edit_account">
         <div class="stm_lms_edit_account" id="stm_lms_edit_account">
@@ -109,7 +150,40 @@
                     </div>
                 </div>
             </form>
+            <div class="stm_lms_edit_socials">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3>Cambiar Imagen de Perfil</h3>
+                            <p>Tamaño de la imagen recomendada (215 x 215)</p>
+                        </div>
+                    </div>
+                    <div class="stm_lms_edit_socials_list">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group"> 
+                                    <form id="dropzone" action="<?php echo site_url() . 'backoffice/upload_perfil'; ?>" class="dropzone">
+                                        <div class="fallback">
+                                            <input name="file" type="file" id="archivos"/>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
         </div>
     </div>
 </div>
 <script src="<?php echo site_url() . 'assets/backoffice/js/script/profile.js'; ?>"></script>
+<script>
+                    Dropzone.options.dropzone = {
+                        paramName: "file", // The name that will be used to transfer the file
+                        maxFiles: 1,
+                        maxFilesize: 2,
+                        acceptedFiles: "image/*"// MB
+                    };
+                    var myDropzone = new Dropzone("#archivos", {url: site + "backoffice/backoffice/upload_perfil"});
+    </script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="<?php echo site_url() . 'static/page_front/dropzone/css/dropzone.css'; ?>" media="all">
+<script defer src="<?php echo site_url() . 'static/page_front/dropzone/js/dropzone.js'; ?>"></script>
