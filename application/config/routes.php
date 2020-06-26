@@ -83,7 +83,7 @@ $route['backoffice/certificados'] = "b_home/certificados";
 
 $route['backoffice/soporte'] = "b_home/soporte";
 
-$route['backoffice/certificados/imprimir'] = "b_home/imprimir";
+$route['backoffice/certificados/download'] = "b_home/certificados_download";
 
 $route['backoffice/perfil/update_data'] = "b_home/update_data";
 $route['backoffice/perfil/change_pass'] = "b_home/change_pass";

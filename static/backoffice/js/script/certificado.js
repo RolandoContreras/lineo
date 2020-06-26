@@ -1,7 +1,7 @@
-function imprimir(id){
+function download_certificado(id){
         $.ajax({
             type: "post",
-            url: site + "backoffice/certificados/imprimir",
+            url: site + "backoffice/certificados/download",
             dataType: "json",
             data: {id: id},
             success:function(data){            

@@ -154,34 +154,69 @@ class B_home extends CI_Controller {
         $this->tmp_backoffice->render("backoffice/b_certificados");
     }
     
-    
     public function certificados_download() {
-        //GET SESION ACTUALY
-
-        $this->get_session();
+        
+            $this->get_session();
+//            $customer_course_id = $this->input->post('id');
+            //GET SESION ACTUALY
+            
+        //Report any errors
+        ini_set("display_errors", "1");
+        error_reporting(E_ALL);    
+            
         header('Content-Type: image/jpeg');
-        $fuente = site_url() . 'static/cms/fonts/arial.ttf';
-
-        $imagen = site_url() . 'static/cms/img/certificados/certificado.jpg';
+        $fuente = site_url().'static/backoffice/fonts/arial.ttf';
+        $imagen = 'static/backoffice/images/certificados/certificado.jpg';
+        
+        $font_path = dirname(__FILE__) . '\arial.ttf';
+        
         $im = imagecreate(500, 500);
+        $dark_grey = imagecolorallocate($im, 102, 102, 102);
         $black = imagecolorallocate($im, 0, 0, 0);
-        header("Content-type: image/jpeg");
         $img2 = imagecreatefromjpeg($imagen);
+//        imagestring($img2, 5, 250, 100, "Prueba de Certificado", $black);
+//        imagestring($img2, 5, 500, 100, "Prueba de Certificado", $black);
+//        imagestring($img2, 5, 700, 100, "Prueba de Certificado", $black);
+        imagettftext($img2, 20, 0, 11, 21, $black, $fuente, "Fuunetetete");
+        
+//        imagettftext($image, 50, 0, 10, 160, $white, $font_path, $string);
+        
+        
+        
+        
+        header('content-type: image/png');
 
-        imagestring($img2, 5, 250, 100, "Prueba de Certificado", $black);
-        imagestring($img2, 5, 500, 100, "Prueba de Certificado", $black);
-        imagestring($img2, 5, 700, 100, "Prueba de Certificado", $black);
-//        imagettftext($img2, 20, 0, 11, 21, $black, $fuente, "Fuunetetete");
+//Create our basic image stream 300x300 pixels
+$image = imagecreate(300, 300);
+
+//Set up some colors, use a dark gray as the background color
+$dark_grey = imagecolorallocate($image, 102, 102, 102);
+$white = imagecolorallocate($image, 255, 255, 255);
+
+//Set the path to our true type font
+// $font_path = 'advent_light';
+// $font_path = 'arial';
+// $font_path = '/arial.tff';
+// $font_path = dirname(__FILE__) . '/arial.ttf';
+        $font_path = dirname(__FILE__) . '/fonts/arial.ttf';
+        
+        var_dump($dark_grey);
+        die();
+        
+
+        //Set our text string
+        $string = 'Hello World!';
+
+        //Write our text to the existing image.
+        imagettftext($image, 50, 0, 10, 160, $white, $font_path, $string);
+        
+        
+        var_dump($result);
+        die();
+        
+        
         imagejpeg($img2);
         imagedestroy($img2);
-
-
-//$obj_category = $this->nav_category();
-////get profile
-//$obj_profile = $this->get_profile($customer_id);
-//$this->tmp_backoffice->set("obj_profile", $obj_profile);
-//$this->tmp_backoffice->set("obj_category", $obj_category);
-        $this->tmp_backoffice->render("backoffice/b_certificados");
     }
 
     public function soporte() {
@@ -250,7 +285,7 @@ category.slug as category_slug",
     }
 
     public function active_course() {
-//ACTIVE CUSTOMER NORMALY
+    //ACTIVE CUSTOMER NORMALY
         try {
 //GET SESION ACTUALY
             $this->get_session();
@@ -323,6 +358,7 @@ category.slug as category_slug",
         }
     }
 
+    
     public function upload() {
 
 //SELECT ID FROM CUSTOMER
@@ -484,6 +520,7 @@ courses.name as course_name",
                         courses.name,
                         courses.slug,
                         courses.time,
+                        customer_courses.customer_course_id,
                         customer_courses.total_video,
                         customer_courses.total,
                         customer_courses.complete,

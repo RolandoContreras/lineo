@@ -28,12 +28,11 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/lineo/static/page_front/css/autoptimize_da4b.css</file>
-            <file>file:/C:/xampp/htdocs/lineo/application/views/head.php</file>
-            <file>file:/C:/xampp/htdocs/lineo/application/views/footer.php</file>
-            <file>file:/C:/xampp/htdocs/lineo/static/page_front/css/my_style.css</file>
-            <file>file:/C:/xampp/htdocs/lineo/application/views/home.php</file>
-            <file>file:/C:/xampp/htdocs/lineo/application/views/footer_2.php</file>
+            <file>file:/C:/xampp/htdocs/lineo/application/views/backoffice/b_certificados.php</file>
+            <file>file:/C:/xampp/htdocs/lineo/application/templates/backoffice.php</file>
+            <file>file:/C:/xampp/htdocs/lineo/application/config/routes.php</file>
+            <file>file:/C:/xampp/htdocs/lineo/static/backoffice/js/script/certificado.js</file>
+            <file>file:/C:/xampp/htdocs/lineo/application/controllers/b_home.php</file>
         </group>
     </open-files>
 </project-private>

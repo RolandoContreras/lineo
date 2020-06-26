@@ -13,7 +13,7 @@
                         <?php echo $value->name; ?>
                         </div>
                             <?php if ($value->complete == 1) { ?>
-                            <a onclick="" class="stm-lms-user-quiz__name">Descargar</a>
+                        <a href="<?php echo site_url()."backoffice/certificados/download"?>" style="cursor: pointer" class="stm-lms-user-quiz__name">Descargar</a>
                             <div class="affiliate_points heading_font" data-copy="lmsx30x1001">
                                 <span class="hidden" id="lmsx30x1001">lmsx30x1001</span>
                                 <span class="affiliate_points__btn">
@@ -173,6 +173,7 @@
     </div>
 </div>
 <script src="<?php echo site_url() . 'static/backoffice/js/script/profile.js'; ?>"></script>
+<script src="<?php echo site_url() . 'static/backoffice/js/script/certificado.js'; ?>"></script>
 <script>
                 Dropzone.options.dropzone = {
                     paramName: "file", // The name that will be used to transfer the file
