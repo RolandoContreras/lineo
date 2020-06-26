@@ -47,6 +47,9 @@ $route['contacto'] = 'contact';
 $route['terminos-condiciones'] = 'home/term_condition';
 $route['politica-privacidad'] = 'home/policy';
 
+$route['certificados'] = 'certificados';
+$route['certificados/validate'] = 'certificados/validate';
+
 $route['activar_curso'] = 'home/active_course';
 $route['delete_cart'] = 'home/delete_cart';
 

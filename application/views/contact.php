@@ -153,7 +153,7 @@
                 </div>
             </div>
         </div>
-        <?php $this->load->view("footer"); ?>
+        <?php $this->load->view("footer_2"); ?>
         <script defer src="<?php echo site_url() . 'static/page_front/js/script/contact.js'; ?>"></script>
         <script src="<?php echo site_url() . 'static/page_front/js/autoptimize_54ab.js'; ?>"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

@@ -1,4 +1,7 @@
-<?php if (!defined('BASEPATH'))exit('No direct script access allowed');
+<?php
+
+if (!defined('BASEPATH'))
+    exit('No direct script access allowed');
 
 class B_home extends CI_Controller {
 
@@ -141,11 +144,13 @@ class B_home extends CI_Controller {
     public function certificados() {
         //GET SESION ACTUALY
         //get customer id
+
         $this->get_session();
         $customer_id = $_SESSION['customer']['customer_id'];
         $obj_category = $this->nav_category();
         //get cursos comprados
         $obj_courses_by_customer = $this->courses_by_customer($customer_id);
+        $this->validate_certificate($obj_courses_by_customer);
         //get profile
         $obj_profile = $this->get_profile($customer_id);
         $this->tmp_backoffice->set("obj_profile", $obj_profile);
@@ -153,23 +158,38 @@ class B_home extends CI_Controller {
         $this->tmp_backoffice->set("obj_category", $obj_category);
         $this->tmp_backoffice->render("backoffice/b_certificados");
     }
-    
+
+    public function validate_certificate($obj_courses_by_customer) {
+
+        if (!empty($obj_courses_by_customer)) {
+            foreach ($obj_courses_by_customer as $value) {
+                if ($value->certificate == null && $value->complete == 1) {
+                    //make certificate
+                    $text = "0000" . $value->customer_course_id . $value->customer_id;
+                    $data = array(
+                        'certificate' => $text,
+                    );
+                    $this->obj_customer_courses->update($value->customer_course_id, $data);
+                }
+            }
+        }
+    }
+
     public function certificados_download() {
-        
-            $this->get_session();
+
+        $this->get_session();
 //            $customer_course_id = $this->input->post('id');
-            //GET SESION ACTUALY
-            
+        //GET SESION ACTUALY
         //Report any errors
         ini_set("display_errors", "1");
-        error_reporting(E_ALL);    
-            
+        error_reporting(E_ALL);
+
         header('Content-Type: image/jpeg');
-        $fuente = site_url().'static/backoffice/fonts/arial.ttf';
+        $fuente = site_url() . 'static/backoffice/fonts/arial.ttf';
         $imagen = 'static/backoffice/images/certificados/certificado.jpg';
-        
+
         $font_path = dirname(__FILE__) . '\arial.ttf';
-        
+
         $im = imagecreate(500, 500);
         $dark_grey = imagecolorallocate($im, 102, 102, 102);
         $black = imagecolorallocate($im, 0, 0, 0);
@@ -178,20 +198,20 @@ class B_home extends CI_Controller {
 //        imagestring($img2, 5, 500, 100, "Prueba de Certificado", $black);
 //        imagestring($img2, 5, 700, 100, "Prueba de Certificado", $black);
         imagettftext($img2, 20, 0, 11, 21, $black, $fuente, "Fuunetetete");
-        
+
 //        imagettftext($image, 50, 0, 10, 160, $white, $font_path, $string);
-        
-        
-        
-        
+
+
+
+
         header('content-type: image/png');
 
 //Create our basic image stream 300x300 pixels
-$image = imagecreate(300, 300);
+        $image = imagecreate(300, 300);
 
 //Set up some colors, use a dark gray as the background color
-$dark_grey = imagecolorallocate($image, 102, 102, 102);
-$white = imagecolorallocate($image, 255, 255, 255);
+        $dark_grey = imagecolorallocate($image, 102, 102, 102);
+        $white = imagecolorallocate($image, 255, 255, 255);
 
 //Set the path to our true type font
 // $font_path = 'advent_light';
@@ -199,22 +219,22 @@ $white = imagecolorallocate($image, 255, 255, 255);
 // $font_path = '/arial.tff';
 // $font_path = dirname(__FILE__) . '/arial.ttf';
         $font_path = dirname(__FILE__) . '/fonts/arial.ttf';
-        
+
         var_dump($dark_grey);
         die();
-        
+
 
         //Set our text string
         $string = 'Hello World!';
 
         //Write our text to the existing image.
         imagettftext($image, 50, 0, 10, 160, $white, $font_path, $string);
-        
-        
+
+
         var_dump($result);
         die();
-        
-        
+
+
         imagejpeg($img2);
         imagedestroy($img2);
     }
@@ -285,7 +305,7 @@ category.slug as category_slug",
     }
 
     public function active_course() {
-    //ACTIVE CUSTOMER NORMALY
+        //ACTIVE CUSTOMER NORMALY
         try {
 //GET SESION ACTUALY
             $this->get_session();
@@ -358,7 +378,6 @@ category.slug as category_slug",
         }
     }
 
-    
     public function upload() {
 
 //SELECT ID FROM CUSTOMER
@@ -522,6 +541,7 @@ courses.name as course_name",
                         courses.time,
                         customer_courses.customer_course_id,
                         customer_courses.total_video,
+                        customer_courses.certificate,
                         customer_courses.total,
                         customer_courses.complete,
                         courses.description,
