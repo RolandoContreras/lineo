@@ -10,18 +10,22 @@
                 <?php foreach ($obj_courses_by_customer as $value) { ?>
                     <div class="stm-lms-user-quiz">
                         <div class="stm-lms-user-quiz__title">
-                        <?php echo $value->name; ?>
+                            <?php echo $value->name; ?>
                         </div>
-                            <?php if ($value->complete == 1) { ?>
-                        <a href="<?php echo site_url()."backoffice/certificados/download"?>" style="cursor: pointer" class="stm-lms-user-quiz__name">Descargar</a>
+                        <?php if ($value->complete == 1) { ?>
+                            <?php if (!empty($value->certificado)) { ?>
+                                <a href="<?php echo site_url() . "static/cms/img/certificados/$value->certificado" ?>" style="cursor: pointer" target="_blank" download="" class="stm-lms-user-quiz__name">Descargar</a>
+                            <?php }else{ ?>
+                                <a href="javascript:void(0);" target="_blank" download="" class="stm-lms-user-quiz__name">No Disponible</a>
+                            <?php } ?>
                             <div class="affiliate_points heading_font">
                                 <span class="affiliate_points__btn">
-                                    <input type="text" id="<?php echo $value->certificate;?>" value="<?php echo $value->certificate;?>"/>
-                                    <span class="text" onclick="copy('<?php echo $value->certificate;?>')" style="cursor: pointer;">Copiar Código</span>
-                                    <i id="fa_<?php echo $value->certificate;?>" class="fa fa-link"></i>
+                                    <input type="text" id="<?php echo $value->certificate; ?>" value="<?php echo $value->certificate; ?>"/>
+                                    <span class="text" onclick="copy('<?php echo $value->certificate; ?>')" style="cursor: pointer;">Copiar Código</span>
+                                    <i id="fa_<?php echo $value->certificate; ?>" class="fa fa-link"></i>
                                 </span>
                             </div>
-                            <?php } else { ?>
+                        <?php } else { ?>
                             <a onclick="" class="stm-lms-user-quiz__name"></a>
                             <div class="affiliate_points heading_font" data-copy="lmsx30x1001">
                                 <span class="affiliate_points__btn">
@@ -34,8 +38,8 @@
                 <?php } ?>
             </div>
             <div class="space-15"></div>
-            <h5 class="stm_lms_update_field__first_name">Copia el código de tu certificado y verifícalo <a href="<?php echo site_url().'certificados';?>">¡Clic aquí!</a></h5>
-            <?php } else { ?>
+            <h5 class="stm_lms_update_field__first_name">Copia el código de tu certificado y verifícalo <a href="<?php echo site_url() . 'certificados'; ?>">¡Clic aquí!</a></h5>
+        <?php } else { ?>
             <h4 class="no-certificates-notice">Usted no tiene certificados aún.</h4>
             <h4 class="no-certificates-notice">Comience fácilmente, seleccione un curso aquí, páselo y obtenga su primer certificado</h4>
         <?php } ?>

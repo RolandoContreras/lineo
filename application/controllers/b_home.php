@@ -1,7 +1,4 @@
-<?php
-
-if (!defined('BASEPATH'))
-    exit('No direct script access allowed');
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
 class B_home extends CI_Controller {
 
@@ -544,6 +541,7 @@ courses.name as course_name",
                         customer_courses.certificate,
                         customer_courses.total,
                         customer_courses.complete,
+                        customer_courses.img as certificado,
                         courses.description,
                         courses.img,
                         courses.price,
