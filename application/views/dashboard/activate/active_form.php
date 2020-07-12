@@ -68,7 +68,7 @@
                                                     <div class="form-group">
                                                         <label>Imagen 1 (Tamaño 1280 x 720)</label>
                                                         <div class="custom-file">
-                                                            <input type="file" class="custom-file-input" onchange="upload_img();" name="image_file" id="image_file" <?php echo isset($obj_customer_courses->img) ? "" : "required"; ?>>
+                                                            <input type="file" class="custom-file-input" onchange="upload_img();" name="image_file" id="image_file">
                                                             <label id="label_img" class="custom-file-label invalid">Elegir archivos...</label>
                                                             <div id="respose_img"></div>
                                                         </div>
@@ -89,7 +89,7 @@
                                                     </div>
                                                     <?php if (isset($obj_customer_courses)) { ?>
                                                         <div class="form-group">
-                                                            <label>Fecha Termino (mm-dd-YYY)</label>
+                                                            <label>Fecha Termino de Prueba (mm-dd-YYY)</label>
                                                             <div class="input-daterange input-group" id="datepicker_range">
                                                                 <input type="text" class="form-control text-left" id="duration_time" name="duration_time" placeholder="Fecha de Termino" value="<?php echo isset($obj_customer_courses) ? formato_fecha_bd_to_datapicker($obj_customer_courses->duration_time) : "" ?>" required/>
                                                             </div>
@@ -128,6 +128,14 @@
                                                             ?>>No</option>
                                                         </select>
                                                     </div>
+                                                    <?php if (isset($obj_customer_courses)) { ?>
+                                                        <div class="form-group">
+                                                            <label>Fecha Termino del (mm-dd-YYY)</label>
+                                                            <div class="input-daterange input-group">
+                                                                <input type="text" class="form-control" id="d_week" name="date_end" <?php echo isset($obj_customer_courses) ? formato_fecha_bd_to_datapicker($obj_customer_courses->date_end) : "" ?>>
+                                                            </div>
+                                                        </div>
+                                                    <?php } ?>
                                                 </div>
                                                 <button type="submit" class="btn btn-primary">Guardar</button>
                                                 <button class="btn btn-danger" type="reset" onclick="cancel_activate_kit();">Cancelar</button>                    
