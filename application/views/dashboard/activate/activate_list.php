@@ -73,7 +73,14 @@
                                 <td>
                                     <span class="badge badge-pill badge-success" style="font-size: 100%;"><?php echo formato_fecha_barras($value->duration_time);?></span>                               
                                 </td>
-                                <td><img src="<?php echo site_url()."static/cms/img/certificados/$value->img";?>" width="50"></td>
+                                <td>
+                                    <?php
+                                    if(!empty($value->img)){ ?>
+                                        <img src="<?php echo site_url()."static/cms/img/certificados/$value->img";?>" width="50"></td>
+                                    <?php }else{
+                                        echo "---";
+                                    }
+                                    ?>
                                 <td>
                                     <?php if ($value->complete == 1) {
                                         $valor = "Completo";
