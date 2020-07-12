@@ -125,6 +125,7 @@ class D_activate extends CI_Controller {
                     'duration_time' => $duration_time,
                     'total_video' => $this->input->post("total_video"),
                     'video_actual' => $this->input->post("video_actual"),
+                    'complete' => $this->input->post("complete"),
                     'img' => $img,
                 );
                 $this->obj_customer_courses->update($customer_course_id, $data);

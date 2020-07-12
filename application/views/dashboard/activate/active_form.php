@@ -94,7 +94,7 @@
                                                                 <input type="text" class="form-control text-left" id="duration_time" name="duration_time" placeholder="Fecha de Termino" value="<?php echo isset($obj_customer_courses) ? formato_fecha_bd_to_datapicker($obj_customer_courses->duration_time) : "" ?>" required/>
                                                             </div>
                                                         </div>
-<?php } ?>
+                                                    <?php } ?>
                                                     <div class="form-group">
                                                         <label>Cursos Vistos</label>
                                                         <input class="form-control" type="text" id="total_video" name="total_video" class="input-xlarge-fluid" placeholder="Cursos Vistos" value="<?php echo isset($obj_customer_courses) ? $obj_customer_courses->total_video : "" ?>" required>
@@ -102,6 +102,31 @@
                                                     <div class="form-group">
                                                         <label>Vídeo Actual</label>
                                                         <input class="form-control" type="text" id="video_actual" name="video_actual" class="input-xlarge-fluid" placeholder="Vídeo Actual" value="<?php echo isset($obj_customer_courses) ? $obj_customer_courses->video_actual : "" ?>" required>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="inputState">Completado</label>
+                                                        <select name="complete" id="complete" class="form-control" required>
+                                                            <option value="">[ Seleccionar ]</option>
+                                                            <option value="1" <?php
+                                                            if (isset($obj_customer_courses)) {
+                                                                if ($obj_customer_courses->complete == 1) {
+                                                                    echo "selected";
+                                                                }
+                                                            } else {
+                                                                echo "";
+                                                            }
+                                                            ?>>Si</option>
+                                                            <option value="0" <?php
+                                                            if (isset($obj_customer_courses)) {
+                                                                if ($obj_customer_courses->complete == 0) {
+                                                                    echo "selected";
+                                                                }
+                                                            } else {
+                                                                echo "";
+                                                            }
+                                                            ?>>No</option>
+                                                        </select>
                                                     </div>
                                                 </div>
                                                 <button type="submit" class="btn btn-primary">Guardar</button>
