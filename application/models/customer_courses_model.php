@@ -21,6 +21,7 @@ class customer_courses_model_atributos{
     var $course_id='';
     var $video_actual='';
     var $total_video='';
+    var $img='';
     var $updated_at='';
     var $updated_by='';
 }
@@ -36,6 +37,7 @@ class Customer_courses_Model extends CI_Model{
         $this->course_id='';
         $this->video_actual='';
         $this->total_video='';
+        $this->img='';
         $this->updated_at='';
         $this->updated_by='';
 	$this->fields = new customer_courses_model_atributos();

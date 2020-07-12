@@ -41,9 +41,6 @@ function delete_activate(customer_course_id, course_id, customer_id){
     });
 }
 
-
-
-
 function active(){
     var customer_id = document.getElementById("customer_id").value;
     var course_id = document.getElementById("course_id").value;
@@ -131,6 +128,20 @@ function validate_user(username){
             }
         }            
         });
+    }
+}
+
+function upload_img(){
+  var input = document.getElementById('image_file').value;
+    if(input != null){
+        $("#respose_img").html();
+            var texto = "";
+            texto = texto+'Seleccionado: ';
+            texto = texto+ input;
+            $("#respose_img").html(texto);
+            $("#label_img").removeClass("invalid").addClass("valid");
+    }else{
+        $("#label_img").removeClass("valid").addClass("invalid");
     }
 }
     

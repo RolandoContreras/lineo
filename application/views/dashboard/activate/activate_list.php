@@ -51,6 +51,8 @@
                                   <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 100px;"
                                     aria-label="Age: activate to sort column ascending">Fecha Termino</th>
                                   <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 100px;"
+                                    aria-label="Age: activate to sort column ascending">Imagen</th>
+                                  <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 100px;"
                                     aria-label="Age: activate to sort column ascending">Estado</th>
                                   <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 100px;"
                                     aria-label="Age: activate to sort column ascending">Acciones</th>
@@ -71,6 +73,7 @@
                                 <td>
                                     <span class="badge badge-pill badge-success" style="font-size: 100%;"><?php echo formato_fecha_barras($value->duration_time);?></span>                               
                                 </td>
+                                <td><img src="<?php echo site_url()."static/cms/img/certificados/$value->img";?>" width="50"></td>
                                 <td>
                                     <?php if ($value->complete == 1) {
                                         $valor = "Completo";
@@ -100,7 +103,8 @@
                                   <th rowspan="1" colspan="1">Cliente</th>
                                   <th rowspan="1" colspan="1">Curso</th>
                                   <th rowspan="1" colspan="1">Duración</th>                                  
-                                  <th rowspan="1" colspan="1">Fecha Termino</th>                                  
+                                  <th rowspan="1" colspan="1">Fecha Termino</th>      
+                                  <th rowspan="1" colspan="1">Imagen</th>      
                                   <th rowspan="1" colspan="1">Estado</th>
                                   <th rowspan="1" colspan="1">Acciones</th>
                                 </tr>
