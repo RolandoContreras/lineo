@@ -132,7 +132,7 @@
                                                         <div class="form-group">
                                                             <label>Fecha Termino del (mm-dd-YYY)</label>
                                                             <div class="input-daterange input-group">
-                                                                <input type="text" class="form-control" id="d_week" name="date_end" <?php echo isset($obj_customer_courses) ? formato_fecha_bd_to_datapicker($obj_customer_courses->date_end) : "" ?>>
+                                                                <input type="text" class="form-control" id="d_week" name="date_end" value="<?php echo isset($obj_customer_courses) ? formato_fecha_bd_to_datapicker($obj_customer_courses->date_end) : "" ?>">
                                                             </div>
                                                         </div>
                                                     <?php } ?>
