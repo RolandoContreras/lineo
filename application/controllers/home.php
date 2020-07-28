@@ -10,6 +10,7 @@ class Home extends CI_Controller {
             $this->load->model("videos_model","obj_videos");
             $this->load->model("paises_model","obj_paises");
             $this->load->model("boletin_model","obj_boletin");
+            $this->load->model("reclamacion_model","obj_reclamacion");
             $this->load->library('culqi');
     }   
         
@@ -99,6 +100,41 @@ class Home extends CI_Controller {
             $data['obj_category'] = $this->nav_category();
             $data['title'] = "U-Linex | Política de privacidad y cookies";
             $this->load->view('policy', $data);
+	}
+        
+        public function reclamaciones()
+	{
+            //get category
+            $data['obj_category'] = $this->nav_category();
+            $data['title'] = "U-Linex | Libro de Reclamaciones";
+            $this->load->view('reclamaciones', $data);
+	}
+        
+        public function send_reclamacion()
+	{
+            if ($this->input->is_ajax_request()) {
+                //obtener datos por post
+              $name = $this->input->post("name");  
+              $last_name = $this->input->post("last_name");  
+              $dni = $this->input->post("dni");  
+              $message = $this->input->post("message");  
+              //insertar en tabla info
+              $param = array(
+                            'name' => $name,
+                            'last_name' => $last_name,
+                            'dni' => $dni,
+                            'message' => $message,
+                            'date' => date("Y-m-d H:i:s"),
+                            );                    
+              $reclamacion_id =  $this->obj_reclamacion->insert($param);
+              //enviar respuesta
+              if($reclamacion_id != null){
+                  $data['status'] = true;
+              }else{
+                  $data['status'] = false;
+              }
+              echo json_encode($data); 
+            }
 	}
         
         public function boletin() {

@@ -44,8 +44,10 @@ $route['404_override'] = 'errors/error_404';
 $route['home'] = 'home';
 $route['home/boletin'] = 'home/boletin';
 $route['contacto'] = 'contact';
+$route['home/send_reclamacion'] = 'home/send_reclamacion';
 $route['terminos-condiciones'] = 'home/term_condition';
 $route['politica-privacidad'] = 'home/policy';
+$route['libro-de-reclamaciones'] = 'home/reclamaciones';
 
 $route['certificados'] = 'certificados';
 $route['certificados/validate'] = 'certificados/validate';

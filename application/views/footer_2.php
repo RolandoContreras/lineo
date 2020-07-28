@@ -14,7 +14,8 @@
                             <div class="textwidget">
                                 <div class="space-18"></div>
                                 <a class="color-white" href="<?php echo site_url().'terminos-condiciones';?>"><i class="fa fa-check"></i> Términos y Condiciones</a><br/>
-                                    <a class="color-white" href="<?php echo site_url().'politica-privacidad';?>"><i class="fa fa-check"></i> Política de Privacidad & Cookies</a><br/>
+                                <a class="color-white" href="<?php echo site_url().'politica-privacidad';?>"><i class="fa fa-check"></i> Política de Privacidad & Cookies</a><br/>
+                                <a class="color-white" href="<?php echo site_url().'libro-de-reclamaciones';?>"><i class="fa fa-check"></i> Libro de Reclamaciones</a><br/>
                             </div>
                         </aside>
                         <aside id="contacts-2" class="widget widget_contacts">
