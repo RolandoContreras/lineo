@@ -23,7 +23,7 @@
                             </div>
                             <ul class="widget_contacts_style_2">
                                 <li class="widget_contacts_phone">
-                                    <div class="text color-white">Tel.: +51 998 878 636</div>
+                                    <div class="text color-white">Tel.: +51 912 309 973</div>
                                 </li>
                                 <li class="widget_contacts_email">
                                     <div class="text color-white">ulinex.corp@gmail.com</div>
@@ -67,7 +67,16 @@
                                             </div>
                                         </div>
                                     </li>
-                                    
+                                    <li class="simple_flip_container">
+                                        <div class="simple_flipper">
+                                            <div class="front"> 
+                                                <a href=https://api.whatsapp.com/send?phone=51980995253" target="_blank" class="whatsapp color-white" style="background-color: green;"><i class="fab fa-whatsapp"></i></a>
+                                            </div>
+                                            <div class="back"> 
+                                                <a href="https://api.whatsapp.com/send?phone=51980995253" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                                            </div>
+                                        </div>
+                                    </li>
                                 </ul>
                                 
                             </div>
