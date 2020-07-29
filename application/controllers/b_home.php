@@ -22,6 +22,8 @@ class B_home extends CI_Controller {
         $customer_id = $_SESSION['customer']['customer_id'];
         //GET NAV CURSOS
         $obj_category = $this->nav_category();
+        //get courses
+        $obj_courses_nav = $this->nav_courses();
         //get profile
         $obj_profile = $this->get_profile($customer_id);
         //get foro
@@ -82,6 +84,7 @@ class B_home extends CI_Controller {
         $obj_courses = $this->obj_courses->search_data($params_course, $config["per_page"], $this->uri->segment(2));
         //GET DATA CURSOS COMPRADOS
         $title = "Oficina Virtual | U-linex";
+        $this->tmp_backoffice->set("obj_courses_nav", $obj_courses_nav);
         $this->tmp_backoffice->set("title", $title);
         $this->tmp_backoffice->set("obj_foro", $obj_foro);
         $this->tmp_backoffice->set("obj_orders", $obj_orders);
@@ -137,6 +140,8 @@ class B_home extends CI_Controller {
         $this->get_session();
         $customer_id = $_SESSION['customer']['customer_id'];
         $obj_category = $this->nav_category();
+        //get courses
+        $obj_courses_nav = $this->nav_courses();
         //get cursos comprados
         $obj_courses_by_customer = $this->courses_by_customer($customer_id);
         $this->validate_certificate($obj_courses_by_customer);
@@ -145,6 +150,7 @@ class B_home extends CI_Controller {
         $this->tmp_backoffice->set("obj_profile", $obj_profile);
         $this->tmp_backoffice->set("obj_courses_by_customer", $obj_courses_by_customer);
         $this->tmp_backoffice->set("obj_category", $obj_category);
+        $this->tmp_backoffice->set("obj_courses_nav", $obj_courses_nav);
         $this->tmp_backoffice->render("backoffice/b_certificados");
     }
 
@@ -229,16 +235,19 @@ class B_home extends CI_Controller {
     }
 
     public function soporte() {
-//GET SESION ACTUALY
+        //GET SESION ACTUALY
         $this->get_session();
-//get customer id
+        //get customer id
         $customer_id = $_SESSION['customer']['customer_id'];
-//GET NAV CURSOS
+        //GET NAV CURSOS
         $obj_category = $this->nav_category();
-//get profile
+        //get courses
+        $obj_courses_nav = $this->nav_courses();
+        //get profile
         $obj_profile = $this->get_profile($customer_id);
         $this->tmp_backoffice->set("obj_profile", $obj_profile);
         $this->tmp_backoffice->set("obj_category", $obj_category);
+        $this->tmp_backoffice->set("obj_courses_nav", $obj_courses_nav);
         $this->tmp_backoffice->render("backoffice/b_zoom");
     }
 
@@ -651,6 +660,17 @@ courses.name as course_name",
         } else {
             redirect(site_url() . 'compra');
         }
+    }
+    
+    public function nav_courses() {
+        $params_courses = array(
+            "select" => "course_id,
+                        slug,
+                        name",
+            "where" => "active = 1",
+        );
+        //GET DATA COMMENTS
+        return $obj_courses = $this->obj_courses->search($params_courses);
     }
 
 }

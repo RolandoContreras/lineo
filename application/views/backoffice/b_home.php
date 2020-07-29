@@ -24,7 +24,6 @@
         </div>
         <ul class="nav nav-tabs" role="tablist">
             <li role="presentation" class="active"> <a href="#my-courses" data-toggle="tab">Mis Cursos </a> </li>
-            <li role="presentation" class=""><a href="#my-quizzes" data-toggle="tab" aria-expanded="true">Mi Foro</a></li>
             <li role="presentation" class=""> <a href="#my-memberships" data-toggle="tab">Mis Compras </a> </li>
         </ul>
         <div class="tab-content">
@@ -95,10 +94,9 @@
                         <?php } ?>
                     </div>
                 </div>
-            </div>
-            <!--Mis Foro-->
-            <div role="tabpanel" id="my-quizzes" v-bind:class="{'is_vue_loaded' : vue_loaded}" class="tab-pane vue_is_disabled is_vue_loaded">
+                <div class="multiseparator vc_custom_1435906305578"></div>
                 <div class="stm-lms-user-courses">
+                    <h3>Foro</h3>
                     <div class="stm_lms_instructor_courses__grid">
                         <?php
                         if (count($obj_foro) != null) {

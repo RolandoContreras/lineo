@@ -17,6 +17,8 @@ class B_foro extends CI_Controller {
         $customer_id = $_SESSION['customer']['customer_id'];
         //GET NAV CURSOS
         $obj_category = $this->nav_category();
+        //get courses
+        $obj_courses_nav = $this->nav_courses();
         //GET course
         $obj_courses = $this->get_course();
         //get profile
@@ -24,6 +26,7 @@ class B_foro extends CI_Controller {
         //SEND DATA
         $this->tmp_backoffice->set("obj_courses", $obj_courses);
         $this->tmp_backoffice->set("obj_category", $obj_category);
+        $this->tmp_backoffice->set("obj_courses_nav", $obj_courses_nav);
         $this->tmp_backoffice->set("obj_profile", $obj_profile);
         $this->tmp_backoffice->set("customer_id", $customer_id);
         $this->tmp_backoffice->render("backoffice/b_foro");
@@ -177,6 +180,17 @@ class B_foro extends CI_Controller {
         );
 //GET DATA COMMENTS
         return $obj_category = $this->obj_category->search($params_category);
+    }
+    
+    public function nav_courses() {
+        $params_courses = array(
+            "select" => "course_id,
+                        slug,
+                        name",
+            "where" => "active = 1",
+        );
+        //GET DATA COMMENTS
+        return $obj_courses = $this->obj_courses->search($params_courses);
     }
     
     public function get_session() {
