@@ -189,8 +189,16 @@ class Foro extends CI_Controller {
                         foro.date,
                         courses.name as course_name,
                         courses.slug as course_slug,
+                        customer.customer_id,
+                        customer.facebook,
+                        customer.instagram,
+                        customer.twitter,
+                        customer.google,
+                        customer.bio,
+                        customer.customer_id,
                         customer.name,
-                        customer.last_name",
+                        customer.last_name,
+                        customer.img as customer_img",
             "join" => array('customer, foro.customer_id = customer.customer_id',
                 'courses, foro.course_id = courses.course_id'),
             "where" => "courses.slug = '$course_slug' and foro.slug = '$slug'",
@@ -199,6 +207,9 @@ class Foro extends CI_Controller {
         $data['obj_foro'] = $this->obj_foro->get_search_row($params_foro);
         //send data meta
         $obj_foro_meta = $data['obj_foro'];
+        $obj_foro_id = $data['obj_foro']->foro_id;
+        //send data course_slug
+        $data['obj_foro_related'] = $this->get_foro_related($course_slug, $obj_foro_id);
         //get data   
         //SEND DATA META OG: FACEBOOK
         $data['title'] = "U-Linex | Foro | $obj_foro_meta->course_name | $obj_foro_meta->title";
@@ -207,62 +218,26 @@ class Foro extends CI_Controller {
         $this->load->view('foro_detail', $data);
     }
 
-    public function resumen() {
-        //get category
-        $data['obj_category'] = $this->nav_category();
-        //GET COURSE
-        $url = explode("/", uri_string());
-        $slug_2 = $url[2];
-        //get course
-        $params = array(
-            "select" => "courses.course_id,
-                                        courses.category_id,
-                                        courses.name,
-                                        courses.slug,
-                                        courses.description,
-                                        courses.img,
-                                        courses.img2,
-                                        category.name as category_name,
-                                        category.slug as category_slug",
-            "join" => array('category, courses.category_id = category.category_id'),
-            "where" => "courses.slug = '$slug_2'");
-        $data['obj_courses'] = $this->obj_courses->get_search_row($params);
-        $obj_courses_meta = $data['obj_courses'];
-        $course_id = $data['obj_courses']->course_id;
-        //obtener modulos por cursos
-        $params = array(
-            "select" => "module_id,
-                                        name",
-            "where" => "course_id = $course_id");
-        $data['obj_modules'] = $this->obj_modules->search($params);
-        $data['total_modules'] = count($data['obj_modules']);
-        //establecer modulos id para busqqueda
-        $array_data = "";
-        foreach ($data['obj_modules'] as $value) {
-            $array_data .= $value->module_id . ",";
-        }
-        $array_data = eliminar_ultimo_caracter($array_data);
-        //GET videos by course
-        $params = array(
-            "select" => "videos.video_id,
-                                        videos.name,
-                                        videos.module_id,
-                                        videos.video,
-                                        videos.type,
-                                        videos.slug,
-                                        videos.time",
-            "where" => "videos.type = 1 and videos.module_id in ($array_data) and videos.active = 1",
-            "order" => "videos.video_id ASC");
-        $data['obj_videos'] = $this->obj_videos->get_search_row($params);
-        //convertir vídeo
-        $video = $data['obj_videos']->video;
-        $explo_video = explode("/", $video);
-        $data['video_link'] = $explo_video[3];
-        //SEND DATA META OG: FACEBOOK
-        $data['title'] = "U-Linex | Cursos | $obj_courses_meta->category_name | $obj_courses_meta->name | Resumen";
-        $this->load->view('courses_resumen', $data);
+    public function get_foro_related($course_slug, $obj_foro_id) {
+        $params_foro = array(
+            "select" => "foro.foro_id,
+                        foro.customer_id,
+                        foro.course_id,
+                        foro.title,
+                        foro.slug,
+                        foro.description,
+                        foro.img,
+                        foro.date,
+                        courses.name as course_name,
+                        courses.slug as course_slug",
+            "join" => array('courses, foro.course_id = courses.course_id'),
+            "where" => "courses.slug = '$course_slug' and foro.foro_id <> '$obj_foro_id'",
+            "order" => "foro.foro_id DESC",
+            "limit" => "10",
+        );
+        return $obj_foro_related = $this->obj_foro->search($params_foro);
     }
-
+    
     public function nav_category() {
         $params_category = array(
             "select" => "category_id,

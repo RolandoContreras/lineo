@@ -1,10 +1,11 @@
 <div class="col-md-9 col-sm-12">
-    <div class="stm_lms_private_information" data-container-open=".stm_lms_private_information">
+    <div data-container-open=".stm_lms_private_information">
             <h2>Subir Proyecto</h2>
             <p>Ingrese la información del nuevo blog.</p>
     </div>
     <div class="row">
         <form name="new_foro" action="javascript:void(0);" method="post" onsubmit="crear_foro();">
+            <div class="space-15"></div>
             <div class="col-md-12">
                 <div class="form-group"> <label class="heading_font">Título</label>
                     <div class="form-group-social"> 
@@ -13,8 +14,10 @@
                     </div>
                 </div>
             </div>
+            
             <div class="col-md-12">
                 <div class="form-group"> 
+                    <div class="space-15"></div>
                     <label class="heading_font">Curso</label>
                     <select class="disable-select form-control" name="course_id" id="course_id" required="">
                         <option  selected value="">Seleccionar *</option>
@@ -31,7 +34,9 @@
                     </select>
                 </div>
             </div>
+            <div class="space-15"></div>
             <div class="col-md-12">
+                <div class="space-15"></div>
                 <div class="form-group"> <label class="heading_font">Descripción</label>
                     <div class="form-group-social"> 
                         <textarea id="description" name="description" required=""><?php echo isset($obj_foro) ? $obj_foro->description : null; ?></textarea>
@@ -40,6 +45,7 @@
                         </script>
                     </div>
                 </div>
+                <div class="space-15"></div>
                 <div class="form-group"> 
                     <?php if (isset($obj_foro)) { ?>
                         <div class="form-group">
@@ -48,6 +54,7 @@
                         </div>
                     <?php } ?>
                 </div>
+                <div class="space-15"></div>
                 <div class="form-group"> <label class="heading_font">Imagen - Tamaño recomendado (870 x 434) </label>
                     <div class="form-group-social"> 
                         <input type="file" name="file" class="form-control" placeholder="Ingrese Archivo" <?php echo isset($obj_foro) ? "" : "required"; ?>>
@@ -57,6 +64,7 @@
                     <button type="submit" id="save_foro" class="btn btn-default">Guardar Blog</button> 
                     <button onclick="back();" class="btn btn-info">REGRESAR</button> 
                 </div>
+                <div class="space-100"></div>
             </div>
         </form>
     </div>
