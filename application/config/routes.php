@@ -86,6 +86,8 @@ $route['backoffice/miscursos'] = 'b_home/mis_cursos';
 $route['backoffice/upload_perfil'] = "b_profile/upload";
 $route['backoffice/certificados'] = "b_home/certificados";
 
+$route['foro/([0-9a-z_-]+)/([0-9a-z_-]+)'] = "foro/detail/$1";
+
 $route['backoffice/nuevo_foro'] = "b_foro";
 $route['backoffice/nuevo_foro/editar/([0-9]+)'] = "b_foro/edit/$1";
 

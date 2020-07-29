@@ -25,17 +25,17 @@
                         <div class="row">
                             <?php
                             if (!empty($obj_foro)) {
-                                foreach ($obj_foro as $value) {
-                                    ?>
+                                foreach ($obj_foro as $value) { ?>
                                     <div class="col-md-3 col-sm-4 col-xs-6 teacher-col event-col">
                                         <div class="event_archive_item">
-                                            <a href="https://stylemixthemes.com/masterstudy/white-lms/events/conscious-discipline-summer-institute/" title="View full">
-                                                <div class="event_img"> <img src="https://stylemixthemes.com/masterstudy/white-lms/wp-content/uploads/sites/7/2015/07/Center-for-Digital-Education-Market-Briefing-1000x500-1-1-270x153.jpg"
-                                                                             class="attachment-img-270-153 size-img-270-153 wp-post-image" alt="" width="270" height="153"></div>
-                                                <div class="h4 title">Conscious Discipline Summer Institute</div>
+                                            <a href="<?php echo site_url()."foro/$value->course_slug/$value->slug"?>" title="Ver Trabajo">
+                                                <div class="event_img"> 
+                                                    <img src="<?php echo site_url()."static/backoffice/images/foro/$value->foro_id/$value->img"?>" class="attachment-img-270-153 size-img-270-153 wp-post-image" alt="" width="270" height="153">
+                                                </div>
+                                                <div class="h4 title"><?php echo $value->title;?></div>
                                             </a>
-                                            <div class="event_start"> <i class="far fa-clock"></i> February 10, 2016</div>
-                                            <div class="event_location"> <i class="fa fa-map-marker"></i> Chicago, WY82601, US</div>
+                                            <div class="event_start"> <i class="far fa-clock"></i> <?php echo formato_fecha_dia_de_mes_de_ano($value->date);?></div>
+                                            <div class="event_location"> <i class="fa fa-user"></i> <?php echo $value->name." ".$value->last_name;?></div>
                                             <div class="multiseparator"></div>
                                         </div>
                                     </div>
