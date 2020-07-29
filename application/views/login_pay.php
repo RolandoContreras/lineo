@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-US" class="no-js">
     <?php $this->load->view("head"); ?>
-    <body class="stm_lms_button skin_custom_color online-light stm_preloader_1 wpb-js-composer js-comp-ver-5.6 vc_responsive" ontouchstart="">
+    <body class="stm_lms_button skin_custom_color online-light wpb-js-composer js-comp-ver-5.6 vc_responsive" ontouchstart="">
         <div id="wrapper">
             <?php $this->load->view("header"); ?>
             <!-- id header -->
@@ -124,7 +124,7 @@
             <!--#main-->
         </div>
         <!--#wrapper-->
-        <?php $this->load->view("footer"); ?>
+        <?php $this->load->view("footer_2"); ?>
         <script src="<?php echo site_url() . 'static/page_front/js/script/login_register.js'; ?>"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src='<?php echo site_url() . 'static/backoffice/js/header_2.js?ver=3.2'; ?>'></script>
