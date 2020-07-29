@@ -1,9 +1,6 @@
-<?php
-
-defined('BASEPATH') OR exit('No direct script access allowed');
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Foro extends CI_Controller {
-
     public function __construct() {
         parent::__construct();
         $this->load->model("category_model", "obj_category");
@@ -29,6 +26,8 @@ class Foro extends CI_Controller {
     public function index() {
         //get category
         $data['obj_category'] = $this->nav_category();
+        //get courses
+        $data['obj_courses_nav'] = $this->nav_courses();
         if (isset($_GET['search'])) {
             $search = $_GET['search'];
             $where = "courses.name like '%$search%' and courses.active = 1";
@@ -38,16 +37,16 @@ class Foro extends CI_Controller {
         //get all foro
         $params_foro = array(
             "select" => "foro.foro_id,
-                                                foro.customer_id,
-                                                foro.course_id,
-                                                foro.title,
-                                                foro.slug,
-                                                foro.description,
-                                                foro.img,
-                                                foro.date,
-                                                courses.slug as course_slug,
-                                                customer.name,
-                                                customer.last_name",
+                        foro.customer_id,
+                        foro.course_id,
+                        foro.title,
+                        foro.slug,
+                        foro.description,
+                        foro.img,
+                        foro.date,
+                        courses.slug as course_slug,
+                        customer.name,
+                        customer.last_name",
             "join" => array('customer, foro.customer_id = customer.customer_id',
                 'courses, foro.course_id = courses.course_id'),
             "where" => $where,
@@ -85,94 +84,42 @@ class Foro extends CI_Controller {
         $this->load->view('foro', $data);
     }
 
-    public function category($slug) {
-
-        //get category_id
-        $params_categogory_id = array(
-            "select" => "category_id,
-                                    name",
-            "where" => "slug like '%$slug%'");
-        $obj_category = $this->obj_category->get_search_row($params_categogory_id);
-        $category_id = $obj_category->category_id;
-
+    public function courses($slug) {
         //get coruse category
         $data['obj_category'] = $this->nav_category();
+        //get courses
+        $data['obj_courses_nav'] = $this->nav_courses();
         //get all courses
-        $params_course = array(
-            "select" => "courses.course_id,
-                                                courses.category_id,
-                                                courses.name,
-                                                courses.slug,
-                                                courses.time,
-                                                courses.description,
-                                                courses.img,
-                                                courses.price,
-                                                courses.price_del,
-                                                courses.date,
-                                                category.name as category_name,
-                                                category.slug as category_slug",
-            "join" => array('category, courses.category_id = category.category_id'),
-            "where" => "courses.category_id = $category_id and courses.active = 1",
-            "order" => "courses.course_id DESC",
+        $params_foro = array(
+            "select" => "foro.foro_id,
+                        foro.customer_id,
+                        foro.course_id,
+                        foro.title,
+                        foro.slug,
+                        foro.description,
+                        foro.img,
+                        foro.date,
+                        courses.slug as course_slug,
+                        customer.name,
+                        customer.last_name",
+            "join" => array('customer, foro.customer_id = customer.customer_id',
+                'courses, foro.course_id = courses.course_id'),
+            "where" => "courses.slug = '$slug'",
+            "order" => "foro.foro_id DESC",
         );
 
-        /// PAGINADO
-        $config = array();
-        $config["base_url"] = site_url("cursos/$slug");
-        $config["total_rows"] = $this->obj_courses->total_records($params_course);
-        $config["per_page"] = 12;
-        $config["num_links"] = 1;
-        $config["uri_segment"] = 2;
-
-        $config['first_tag_open'] = '<li>';
-        $config['first_tag_close'] = '</li>';
-        $config['prev_tag_open'] = '<li>';
-        $config['prev_tag_close'] = '</li>';
-        $config['num_tag_open'] = '<li>';
-        $config['num_tag_close'] = '</li>';
-        $config['cur_tag_open'] = '<li class="active"><span aria-current="page" class="page-numbers current">';
-        $config['cur_tag_close'] = '</span></li>';
-        $config['next_tag_open'] = '<li>';
-        $config['next_tag_close'] = '</li>';
-        $config['last_tag_open'] = '<li>';
-        $config['last_tag_close'] = '</li>';
-
-        $this->pagination->initialize($config);
-        $data['obj_pagination'] = $this->pagination->create_links();
-        /// DATA
-        $data['obj_courses'] = $this->obj_courses->search_data($params_course, $config["per_page"], $this->uri->segment(2));
-        //GET COURSES TOP
-        $params_course_top = array(
-            "select" => "courses.course_id,
-                                                courses.category_id,
-                                                courses.name,
-                                                courses.slug,
-                                                courses.description,
-                                                courses.img,
-                                                courses.price,
-                                                courses.price_del,
-                                                courses.date,
-                                                category.name as category_name,
-                                                category.slug as category_slug",
-            "join" => array('category, courses.category_id = category.category_id'),
-            "where" => "courses.active = 1",
-            "order" => "courses.course_id ASC",
-            "limit" => "3",
-        );
-        $data['obj_courses_top'] = $this->obj_courses->search($params_course_top);
-
-
-        //send total row
-        $data['total'] = $config["total_rows"];
-
+        $data["obj_foro"] = $this->obj_foro->search($params_foro);
+        $meta_name = ucfirst(convert_query($slug));
         //SEND DATA
-        $data['title'] = "U-Linex |  Cursos | $obj_category->name";
-        $this->load->view('courses', $data);
+        $data['title'] = "U-Linex |  Foro | $meta_name";
+        $this->load->view('foro', $data);
     }
 
     public function detail($course_slug) {
         //get category
         $data['obj_category'] = $this->nav_category();
+        //get courses
+        $data['obj_courses_nav'] = $this->nav_courses();
         //GET COURSE
         $url = explode("/", uri_string());
         $slug = $url[2];
@@ -247,6 +194,17 @@ class Foro extends CI_Controller {
         );
         //GET DATA COMMENTS
         return $obj_category = $this->obj_category->search($params_category);
+    }
+    
+    public function nav_courses() {
+        $params_courses = array(
+            "select" => "course_id,
+                        slug,
+                        name",
+            "where" => "active = 1",
+        );
+        //GET DATA COMMENTS
+        return $obj_courses = $this->obj_courses->search($params_courses);
     }
 
 }

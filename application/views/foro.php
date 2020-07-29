@@ -43,7 +43,9 @@
                                 }
                             } else {
                                 ?>
-                                <p>No hay resultados</p>
+                                <div class="vc_custom_heading fwl">
+                                    <h4 style="font-size: 18px;line-height: 28px;text-align: center">No hay resultados</h4>
+                                </div>
                             <?php } ?>
                         </div>
                     </div>

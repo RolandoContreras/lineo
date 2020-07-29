@@ -29,6 +29,8 @@ class Courses extends CI_Controller {
 	{
             //get category
             $data['obj_category'] = $this->nav_category();
+            //get courses
+            $data['obj_courses_nav'] = $this->nav_courses();
             
             if(isset($_GET['search'])){
                 $search = $_GET['search'];
@@ -111,7 +113,10 @@ class Courses extends CI_Controller {
 	}
         public function category($slug)
 	{
-            
+            //get coruse category
+            $data['obj_category'] = $this->nav_category();
+            //get courses
+            $data['obj_courses_nav'] = $this->nav_courses();
             //get category_id
             $params_categogory_id = array(
                         "select" =>"category_id,
@@ -120,8 +125,7 @@ class Courses extends CI_Controller {
             $obj_category = $this->obj_category->get_search_row($params_categogory_id);
             $category_id = $obj_category->category_id;
             
-            //get coruse category
-            $data['obj_category'] = $this->nav_category();
+            
             //get all courses
             $params_course = array(
                                     "select" =>"courses.course_id,
@@ -198,6 +202,8 @@ class Courses extends CI_Controller {
 	{
             //get category
             $data['obj_category'] = $this->nav_category();
+            //get courses
+            $data['obj_courses_nav'] = $this->nav_courses();
             //GET COURSE
             $url = explode("/",uri_string());
             $slug_2 = $url[2];
@@ -339,7 +345,6 @@ class Courses extends CI_Controller {
             $this->load->view('courses_resumen',$data);
 	}
         
-        
         public function nav_category(){
             $params_category = array(
                         "select" =>"category_id,
@@ -350,4 +355,15 @@ class Courses extends CI_Controller {
             //GET DATA COMMENTS
             return $obj_category = $this->obj_category->search($params_category);
         }
+        
+        public function nav_courses() {
+        $params_courses = array(
+            "select" => "course_id,
+                        slug,
+                        name",
+            "where" => "active = 1",
+        );
+        //GET DATA COMMENTS
+        return $obj_courses = $this->obj_courses->search($params_courses);
+    }
 }

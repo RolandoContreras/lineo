@@ -6,6 +6,7 @@ class Forget extends CI_Controller {
         parent::__construct();
         $this->load->model("category_model","obj_category");
         $this->load->model("customer_model","obj_customer");
+        $this->load->model("courses_model","obj_courses");
     }
 
 	/**
@@ -26,6 +27,8 @@ class Forget extends CI_Controller {
 	public function index()
 	{
             $data['obj_category'] = $this->nav_category();
+            //get courses
+            $data['obj_courses_nav'] = $this->nav_courses();
             //send meta title
             $data['title'] = "Recuperar Contraseña";
             //enviar datos
@@ -57,6 +60,17 @@ class Forget extends CI_Controller {
             exit();
             }
         } 
+        
+        public function nav_courses() {
+        $params_courses = array(
+            "select" => "course_id,
+                        slug,
+                        name",
+            "where" => "active = 1",
+        );
+        //GET DATA COMMENTS
+        return $obj_courses = $this->obj_courses->search($params_courses);
+    }
         
         public function message($name, $email, $password){    
                 $mensaje = wordwrap("<html>

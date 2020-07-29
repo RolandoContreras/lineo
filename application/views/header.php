@@ -7,6 +7,7 @@ if (isset($url[0])) {
 }
 $inicio_syle = "";
 $cursos_syle = "";
+$foro_syle = "";
 $iniciar_sesion_syle = "";
 $registro_syle = "";
 $contacto_syle = "";
@@ -16,6 +17,9 @@ switch ($nav) {
         break;
     case "iniciar-sesion":
         $iniciar_sesion_syle = "active_nav";
+        break;
+    case "foro":
+        $foro_syle = "active_nav";
         break;
     case "registro":
         $registro_syle = "active_nav";
@@ -64,6 +68,16 @@ switch ($nav) {
                                             </li>
                                             <li class="menu-item">
                                                 <a href="<?php echo site_url() . 'cursos'; ?>" class="<?php echo $cursos_syle; ?>">Cursos</a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a href="<?php echo site_url() . 'foro'; ?>" class="<?php echo $foro_syle; ?>">Foro</a>
+                                                <ul class="sub-menu">
+                                                    <?php foreach ($obj_courses_nav as $value) { ?>
+                                                        <li class="menu-item">
+                                                            <a href="<?php echo site_url()."foro/$value->slug";?>"><?php echo $value->name;?></a>
+                                                        </li>
+                                                    <?php } ?>
+                                                </ul>
                                             </li>
                                             <li class="menu-item">
                                                 <a href="<?php echo site_url() . 'registro'; ?>" class="<?php echo $registro_syle; ?>">Registro</a>
@@ -123,9 +137,9 @@ switch ($nav) {
                                 <div class="stm_lms_courses_search" id="stm_lms_courses_search" v-bind:class="{'is_vue_loaded' : vue_loaded}">
                                     <form method="get" action="<?php echo site_url() . 'cursos' ?>">
                                         <input type="text"  name="search" placeholder="Buscar Curso">
-                                        <button type="submit" class="stm_lms_courses_search__button sbc style_search">
-                                            <i class="lnr lnr-magnifier"></i> 
-                                        </button>
+                                            <button type="submit" class="stm_lms_courses_search__button sbc style_search">
+                                                <i class="lnr lnr-magnifier"></i> 
+                                            </button>
                                     </form>
                                 </div>
                             </div>
@@ -140,8 +154,8 @@ switch ($nav) {
                                         </button>
                                         <ul class="dropdown-menu">
                                             <li> 
-                                                <a href="<?php echo site_url() . 'backoffice';?>">Mi Cuenta</a>                      
-                                                <a href="<?php echo site_url() . 'salir';?>">Salir</a>                      
+                                                <a href="<?php echo site_url() . 'backoffice'; ?>">Mi Cuenta</a>                      
+                                                <a href="<?php echo site_url() . 'salir'; ?>">Salir</a>                      
                                             </li>
                                         </ul>
                                     </div>
@@ -188,6 +202,9 @@ switch ($nav) {
                             </li>
                             <li class="menu-item">
                                 <a href="<?php echo site_url() . 'cursos'; ?>" class="<?php echo $cursos_syle; ?>">Cursos</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="<?php echo site_url() . 'foro'; ?>" class="<?php echo $foro_syle; ?>">Foro</a>
                             </li>
                             <li class="menu-item">
                                 <a href="<?php echo site_url() . 'registro'; ?>" class="<?php echo $registro_syle; ?>">Registro</a>

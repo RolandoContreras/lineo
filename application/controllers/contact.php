@@ -6,6 +6,7 @@ class Contact extends CI_Controller {
         parent::__construct();     
         $this->load->model('comments_model','obj_comments');
         $this->load->model("category_model","obj_category");
+        $this->load->model("courses_model","obj_courses");
     }
 
 	/**
@@ -23,15 +24,17 @@ class Contact extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function index()
+    public function index()
 	{
             //get category
             $data['obj_category'] = $this->nav_category();
+            //get courses
+            $data['obj_courses_nav'] = $this->nav_courses();
             //view
             $data['title'] = "U - Linex | Contacto";
             $this->load->view('contact',$data);
 	}
-        public function send_messages(){
+    public function send_messages(){
          //GET DATA BY POST
             
          if($this->input->is_ajax_request()){   
@@ -56,6 +59,17 @@ class Contact extends CI_Controller {
                 exit();
             }
     } 
+        
+    public function nav_courses() {
+        $params_courses = array(
+            "select" => "course_id,
+                        slug,
+                        name",
+            "where" => "active = 1",
+        );
+        //GET DATA COMMENTS
+        return $obj_courses = $this->obj_courses->search($params_courses);
+    }
     
     public function nav_category(){
             $params_category = array(

@@ -1,17 +1,19 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Login extends CI_Controller {
     public function __construct(){
      parent::__construct();
      $this->load->model('customer_model','obj_customer');
      $this->load->model("category_model","obj_category");
+     $this->load->model("courses_model","obj_courses");
      $this->load->library('facebook'); 
     } 
 
     public function index(){
         //get category
         $data['obj_category'] = $this->nav_category();
+        //get courses
+        $data['obj_courses_nav'] = $this->nav_courses();
         //send meta title
         $data['title'] = "U-Linex | Inicio de Sesión";
         
@@ -106,6 +108,17 @@ class Login extends CI_Controller {
             );
             //GET DATA COMMENTS
             return $obj_category = $this->obj_category->search($params_category);
+    }
+    
+    public function nav_courses() {
+        $params_courses = array(
+            "select" => "course_id,
+                        slug,
+                        name",
+            "where" => "active = 1",
+        );
+        //GET DATA COMMENTS
+        return $obj_courses = $this->obj_courses->search($params_courses);
     }
     
     public function logout(){      
