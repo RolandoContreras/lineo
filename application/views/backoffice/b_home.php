@@ -109,7 +109,7 @@
                                         <div class="stm_lms_instructor_courses__single--image">
                                             <div class="stm_lms_instructor_courses__single--actions heading_font">
                                                 <a href="<?php echo site_url() . "backoffice/nuevo_foro/editar/$value->foro_id"; ?>">Editar</a> 
-                                                <a href="<?php echo site_url() . "foro/$value->course_id/$value->slug"; ?>">Ver</a>
+                                                <a href="<?php echo site_url() . "foro/$value->course_slug/$value->slug"; ?>">Ver</a>
                                             </div>
                                             <div class="stm_lms_instructor_courses__single--image-wrapper">
                                                 <img srcset="<?php echo site_url() . "static/backoffice/images/foro/$value->foro_id/$value->img" ?> 2x" src="<?php echo site_url() . "static/backoffice/images/foro/$value->foro_id/$value->img" ?>" alt="<?php echo $value->title; ?>" title="<?php echo $value->title; ?>" width="272" height="161">
@@ -118,7 +118,7 @@
                                         <div class="stm_lms_instructor_courses__single--inner">
                                             <div class="stm_lms_instructor_courses__single--terms">
                                                 <div class="stm_lms_instructor_courses__single--term">
-                                                    <a href="<?php echo site_url() . "foro/$value->category_slug"; ?>" title="<?php echo $value->category_name; ?>"><?php echo $value->category_name; ?></a>
+                                                    <a href="<?php echo site_url() . "foro/$value->course_slug"; ?>" title="<?php echo $value->course_name; ?>"><?php echo $value->course_name;?></a>
                                                 </div>
                                             </div>
                                             <div class="stm_lms_instructor_courses__single--title">
@@ -133,7 +133,7 @@
                             ?>
                             <div class="stm_lms_instructor_courses__single">
                                 <div class="stm_lms_instructor_courses__single__inner no-border">
-                                    No tienes videos, <b><a href="<?php echo site_url() . 'backoffice/nuevo_video'; ?>"> &nbsp;¡Crear un vídeo ahora!</a></b>
+                                    No tienes proyectos subido al foro, <b><a href="<?php echo site_url() . 'backoffice/nuevo_foro'; ?>"> &nbsp;¡Suba un proyecto ahora!</a></b>
                                 </div>
                             </div>
                         <?php } ?>
