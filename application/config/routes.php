@@ -87,6 +87,8 @@ $route['backoffice/upload_perfil'] = "b_profile/upload";
 $route['backoffice/certificados'] = "b_home/certificados";
 
 $route['backoffice/nuevo_foro'] = "b_foro";
+$route['backoffice/nuevo_foro/editar/([0-9]+)'] = "b_foro/edit/$1";
+
 $route['backoffice/b_foro/validate'] = "b_foro/validate";
 $route['backoffice/b_foro/update_description'] = "b_foro/update_description";
 

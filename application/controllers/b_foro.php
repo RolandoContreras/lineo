@@ -29,32 +29,29 @@ class B_foro extends CI_Controller {
         $this->tmp_backoffice->render("backoffice/b_foro");
     }
     
-    public function edit($blog_id = null) {
+    public function edit($foro_id = null) {
         //GET SESION ACTUALY
         $this->get_session();
         //GET CUSTOMER_ID
         $customer_id = $_SESSION['customer']['customer_id'];
         //get profile
         $obj_profile = $this->get_profile($customer_id);
+        //GET NAV CURSOS
+        $obj_category = $this->nav_category();
         //get profile
-        if(isset($blog_id)){
-            $obj_blog = $this->get_blog($blog_id);
-            //explode tags
-            $tags_selec = explode(",", $obj_blog->tags);
+        if(isset($foro_id)){
+            $obj_foro = $this->get_foro($foro_id);
             //RENDER
-            $this->tmp_backoffice->set("tags_selec", $tags_selec);
-            $this->tmp_backoffice->set("obj_blog", $obj_blog);
+            $this->tmp_backoffice->set("obj_foro", $obj_foro);
         }
-        //get tags
-        $obj_tags = $this->get_tags();
-        //get tags
-        $obj_category = $this->get_category_blog();
+        //GET course
+        $obj_courses = $this->get_course();
         //SEND DATA
+        $this->tmp_backoffice->set("obj_courses", $obj_courses);
         $this->tmp_backoffice->set("obj_category", $obj_category);
-        $this->tmp_backoffice->set("obj_tags", $obj_tags);
         $this->tmp_backoffice->set("obj_profile", $obj_profile);
         $this->tmp_backoffice->set("customer_id", $customer_id);
-        $this->tmp_backoffice->render("backoffice/b_blog_new");
+        $this->tmp_backoffice->render("backoffice/b_foro");
     }
     
     public function validate() {
@@ -71,12 +68,11 @@ class B_foro extends CI_Controller {
                 'title' => $title,
                 'slug' => $slug,
                 'customer_id' => $customer_id,
-                'category_id' => $category,
+                'course_id' => $course_id,
                 'date' => date("Y-m-d H:i:s"),
-                'active' => 1,
             );
             //SAVE DATA IN TABLE    
-            $this->obj_blog->update($foro_id, $param_foro);
+            $this->obj_foro->update($foro_id, $param_foro);
         } else{
             $param_foro = array(
                 'title' => $title,
@@ -144,6 +140,21 @@ class B_foro extends CI_Controller {
         );
         //GET DATA COMMENTS
         return $obj_customer = $this->obj_customer->get_search_row($params_category);
+    }
+    
+    public function get_foro($foro_id) {
+        $params_foro = array(
+            "select" => "foro.title,
+                                    foro.slug,
+                                    foro.foro_id,
+                                    foro.description,
+                                    courses.course_id,
+                                    foro.img",
+            "join" => array('courses, foro.course_id = courses.course_id'),
+            "where" => "foro.foro_id = $foro_id"
+        );
+        //GET DATA COMMENTS
+        return $obj_foro = $this->obj_foro->get_search_row($params_foro);
     }
     
     public function get_course() {

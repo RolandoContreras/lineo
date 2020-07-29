@@ -8,7 +8,7 @@
             <div class="col-md-12">
                 <div class="form-group"> <label class="heading_font">Título</label>
                     <div class="form-group-social"> 
-                        <input id="title" name="title" class="form-control" placeholder="Ingresa el Título" value="<?php echo isset($obj_blog) ? $obj_blog->title : ""; ?>" required=""/>                      
+                        <input id="title" name="title" class="form-control" placeholder="Ingresa el Título" value="<?php echo isset($obj_foro) ? $obj_foro->title : ""; ?>" required=""/>                      
                         <input type="hidden" name="foro_id" value="<?php echo isset($obj_foro) ? $obj_foro->foro_id : ""; ?>" />
                     </div>
                 </div>
@@ -21,8 +21,8 @@
                         <?php foreach ($obj_courses as $value) { ?>
                             <option value="<?php echo $value->course_id; ?>"
                             <?php
-                            if (isset($obj_course->course_id)) {
-                                if ($obj_course->course_id == $value->course_id) {
+                            if (isset($obj_foro->course_id)) {
+                                if ($obj_foro->course_id == $value->course_id) {
                                     echo "selected";
                                 }
                             }
@@ -34,23 +34,23 @@
             <div class="col-md-12">
                 <div class="form-group"> <label class="heading_font">Descripción</label>
                     <div class="form-group-social"> 
-                        <textarea id="description" name="description" required=""><?php echo isset($obj_blog) ? $obj_blog->description : null; ?></textarea>
+                        <textarea id="description" name="description" required=""><?php echo isset($obj_foro) ? $obj_foro->description : null; ?></textarea>
                         <script>
                             CKEDITOR.replace('description');
                         </script>
                     </div>
                 </div>
                 <div class="form-group"> 
-                    <?php if (isset($obj_blog)) { ?>
+                    <?php if (isset($obj_foro)) { ?>
                         <div class="form-group">
-                            <img src='<?php echo site_url() . "assets/cms/img/blog/$obj_blog->blog_id/$obj_blog->img"; ?>' width="100" />
-                            <input class="form-control" type="hidden" name="img2" id="img2" value="<?php echo isset($obj_blog) ? $obj_blog->img : ""; ?>">
+                            <img src='<?php echo site_url() . "static/backoffice/images/foro/$obj_foro->foro_id/$obj_foro->img"; ?>' width="100" />
+                            <input class="form-control" type="hidden" name="img2" id="img2" value="<?php echo isset($obj_foro) ? $obj_foro->img : ""; ?>">
                         </div>
                     <?php } ?>
                 </div>
                 <div class="form-group"> <label class="heading_font">Imagen - Tamaño recomendado (870 x 434) </label>
                     <div class="form-group-social"> 
-                        <input type="file" name="file" class="form-control" placeholder="Ingrese Archivo" <?php echo isset($obj_blog) ? "" : "required"; ?>>
+                        <input type="file" name="file" class="form-control" placeholder="Ingrese Archivo" <?php echo isset($obj_foro) ? "" : "required"; ?>>
                     </div>
                 </div>
                 <div class="col-md-12"> 
