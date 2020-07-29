@@ -33,4 +33,5 @@
         var site = "<?php echo site_url(); ?>"
     </script>
     <script src="https://checkout.culqi.com/js/v3"></script>
+    <script src="https://cdn.ckeditor.com/4.13.1/standard/ckeditor.js"></script>
 </head>

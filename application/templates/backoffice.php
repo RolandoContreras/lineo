@@ -41,6 +41,9 @@
                                                 <a href="<?php echo site_url() . 'cursos'; ?>"><i class="fa fa-shopping-cart"></i><span>Comprar Curso</span></a>
                                             </div>
                                             <div class="stm-lms-user_create_announcement_btn">
+                                                <a href="<?php echo site_url() . 'foro'; ?>"><i class="fa fa-archive"></i><span>Foro</span></a>
+                                            </div>
+                                            <div class="stm-lms-user_create_announcement_btn">
                                                 <a href="<?php echo site_url() . 'backoffice/soporte'; ?>"><i class="fa fa-desktop"></i><span>Soporte</span></a>
                                             </div>
                                             <div class="stm-lms-user_edit_profile_btn" data-container=".stm_lms_edit_account">

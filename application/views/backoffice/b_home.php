@@ -19,9 +19,12 @@
         <div class="stm_lms_instructor_courses__top">
             <a href="<?php echo site_url() . 'cursos' ?>" class="btn btn-default"> <i class="fa fa-plus"></i>Adquirir Nuevo Curso </a>
         </div>
+        <div class="stm_lms_instructor_courses__top">
+            <a href="<?php echo site_url() . 'backoffice/nuevo_foro' ?>" class="btn btn-default"> <i class="fa fa-plus"></i>Nuevo trabajo al Foro</a>
+        </div>
         <ul class="nav nav-tabs" role="tablist">
             <li role="presentation" class="active"> <a href="#my-courses" data-toggle="tab">Mis Cursos </a> </li>
-            <li role="presentation" class=""><a href="#my-quizzes" data-toggle="tab" aria-expanded="true">Mis Examenes</a></li>
+            <li role="presentation" class=""><a href="#my-quizzes" data-toggle="tab" aria-expanded="true">Mi Foro</a></li>
             <li role="presentation" class=""> <a href="#my-memberships" data-toggle="tab">Mis Compras </a> </li>
         </ul>
         <div class="tab-content">
@@ -93,43 +96,49 @@
                     </div>
                 </div>
             </div>
-            <!--Mis Examenes-->
+            <!--Mis Foro-->
             <div role="tabpanel" id="my-quizzes" v-bind:class="{'is_vue_loaded' : vue_loaded}" class="tab-pane vue_is_disabled is_vue_loaded">
-                <div class="stm-lms-user-quizzes">
-                    <h3>Mis Examenes</h3>
-<!--                    <table width="100%" cellpadding="0" cellspacing="0" border="0">
-                                <thead>
-                                    <tr>
-                                        <th>Curso</th>
-                                        <th>Quiz</th>
-                                        <th>Estado</th>
-                                        <th>Acción</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php
-                                    if (count($obj_orders) != null) {
-                                        foreach ($obj_orders as $value) {
-                                            ?>
-                                            <tr id="pmpro_account-invoice-3B9914E266">
-                                                <td><?php echo formato_fecha_dia_de_mes_de_ano($value->date); ?></td>
-                                                <td><?php echo $value->course_name; ?></td>
-                                                <td><sup>&#8364;</sup><?php echo $value->total; ?></td>
-                                                <td><?php echo $value->active == 2 ? "Pagado" : "Pendiente"; ?></td>
-                                            </tr>
-                                            <?php
-                                        }
-                                    } else {
-                                        ?>
-                                        <tr>
-                                            <td colspan="4">No hay registros</td>
-                                        </tr>
-                                    <?php } ?>
-                                </tbody>
-                            </table>-->
-                    <h4>No hay examenes.</h4>
+                <div class="stm-lms-user-courses">
+                    <div class="stm_lms_instructor_courses__grid">
+                        <?php
+                        if (count($obj_foro) != null) {
+                            foreach ($obj_foro as $value) {
+                                ?>
+                                <div class="stm_lms_instructor_courses__single">
+                                    <div class="stm_lms_instructor_courses__single__inner">
+                                        <div class="stm_lms_instructor_courses__single--image">
+                                            <div class="stm_lms_instructor_courses__single--actions heading_font">
+                                                <a href="<?php echo site_url() . "backoffice/nuevo_foro/editar/$value->foro_id"; ?>">Editar</a> 
+                                                <a href="<?php echo site_url() . "foro/$value->course_id/$value->slug"; ?>">Ver</a>
+                                            </div>
+                                            <div class="stm_lms_instructor_courses__single--image-wrapper">
+                                                <img srcset="<?php echo site_url() . "static/backoffice/images/foro/$value->foro_id/$value->img" ?> 2x" src="<?php echo site_url() . "static/backoffice/images/foro/$value->foro_id/$value->img" ?>" alt="<?php echo $value->title; ?>" title="<?php echo $value->title; ?>" width="272" height="161">
+                                            </div>
+                                        </div>
+                                        <div class="stm_lms_instructor_courses__single--inner">
+                                            <div class="stm_lms_instructor_courses__single--terms">
+                                                <div class="stm_lms_instructor_courses__single--term">
+                                                    <a href="<?php echo site_url() . "foro/$value->category_slug"; ?>" title="<?php echo $value->category_name; ?>"><?php echo $value->category_name; ?></a>
+                                                </div>
+                                            </div>
+                                            <div class="stm_lms_instructor_courses__single--title">
+                                                <h5><?php echo $value->title;?></h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <?php
+                            }
+                        } else {
+                            ?>
+                            <div class="stm_lms_instructor_courses__single">
+                                <div class="stm_lms_instructor_courses__single__inner no-border">
+                                    No tienes videos, <b><a href="<?php echo site_url() . 'backoffice/nuevo_video'; ?>"> &nbsp;¡Crear un vídeo ahora!</a></b>
+                                </div>
+                            </div>
+                        <?php } ?>
+                    </div>
                 </div>
-                <!---->
             </div>
             <!--Mis pedidos-->
             <div role="tabpanel" class="tab-pane vue_is_disabled " v-bind:class="{'is_vue_loaded' : vue_loaded}" id="my-memberships">

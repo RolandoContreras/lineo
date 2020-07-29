@@ -10,6 +10,7 @@ class B_home extends CI_Controller {
         $this->load->model("courses_model", "obj_courses");
         $this->load->model("invoices_model", "obj_invoices");
         $this->load->model("modules_model", "obj_modules");
+        $this->load->model("foro_model", "obj_foro");
         $this->load->model("customer_courses_model", "obj_customer_courses");
         $this->load->library('culqi');
     }
@@ -23,20 +24,10 @@ class B_home extends CI_Controller {
         $obj_category = $this->nav_category();
         //get profile
         $obj_profile = $this->get_profile($customer_id);
+        //get foro
+        $obj_foro = $this->get_foro($customer_id);
         //get cursos comprados
         $obj_courses_by_customer = $this->courses_by_customer($customer_id);
-        //get porcent of curse
-        $params_customer_courses = array(
-            "select" => "customer_courses.date_start,
-                         category.name as category_name",
-            "join" => array('customer, customer_courses.customer_id = customer.customer_id',
-                'courses, customer_courses.course_id = courses.course_id',
-                'category, courses.category_id = category.category_id'),
-            "where" => "customer.customer_id = $customer_id",
-            "order" => "courses.course_id DESC",
-        );
-        $obj_customer_courses = $this->obj_customer_courses->search($params_customer_courses);
-
         //mis compras
         $obj_orders = $this->mis_pedidos($customer_id);
         if (isset($_GET['search'])) {
@@ -92,6 +83,7 @@ class B_home extends CI_Controller {
         //GET DATA CURSOS COMPRADOS
         $title = "Oficina Virtual | U-linex";
         $this->tmp_backoffice->set("title", $title);
+        $this->tmp_backoffice->set("obj_foro", $obj_foro);
         $this->tmp_backoffice->set("obj_orders", $obj_orders);
         $this->tmp_backoffice->set("obj_profile", $obj_profile);
         $this->tmp_backoffice->set("category_name", $category_name);
@@ -526,6 +518,24 @@ courses.name as course_name",
         );
 //GET DATA COMMENTS
         return $obj_customer = $this->obj_customer->get_search_row($params_category);
+    }
+    
+    public function get_foro($customer_id) {
+        $params = array(
+                        "select" => "foro.foro_id,
+                                    foro.customer_id,
+                                    foro.course_id,
+                                    foro.title,
+                                    foro.slug,
+                                    foro.description,
+                                    foro.img,
+                                    foro.date",
+            "join" => array('customer, foro.customer_id = customer.customer_id'),
+            "where" => "foro.customer_id = $customer_id",
+            "order" => "foro.foro_id DESC",
+        );
+        $obj_foro = $this->obj_foro->search($params);
+        return $obj_foro;
     }
 
     public function courses_by_customer($customer_id) {
