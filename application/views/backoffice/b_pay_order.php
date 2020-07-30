@@ -72,7 +72,7 @@
                                                 </tr>
                                                 <tr id="pmpro_account-invoice-3B9914E266">
                                                     <td>Banco de Crédito (BCP) Soles </td>
-                                                    <td>22094464852042</td>
+                                                    <td>35598315278097</td>
                                                     <td>Efrain Jonatan Montero Laura</td>
                                                 </tr>
                                                 <tr id="pmpro_account-invoice-3B9914E266">
@@ -80,6 +80,11 @@
                                                     <td>8082800083937</td>
                                                     <td>Efrain Jonatan Montero Laura</td>
                                                 </tr>
+                                                <tr id="pmpro_account-invoice-3B9914E266">
+                                                    <td>Banco Scotiabank</td>
+                                                    <td>9430237983</td>
+                                                    <td>Efrain Jonatan Montero Laura</td>
+                                                </tr>   
                                             </tbody>
                                         </table>
                                         <div class="alert alert-primary" role="alert">
