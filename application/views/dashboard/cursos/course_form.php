@@ -70,7 +70,7 @@
                                                                 }
                                                                 ?>><?php echo $value->name; ?>
                                                                 </option>
-                                                                    <?php endforeach; ?>
+                                                            <?php endforeach; ?>
                                                         </select>
                                                     </div>
                                                     <div class="form-group">
@@ -88,19 +88,43 @@
                                                     <div class="form-group">
                                                         <label>Total de Horas</label>
                                                         <div class="custom-file">
-                                                            <input class="form-control" type="text" id="time" name="time" value="<?php echo isset($obj_courses->time) ? $obj_courses->time: ""; ?>" class="input-xlarge-fluid" placeholder="Total de Horas" required>
+                                                            <input class="form-control" type="text" id="time" name="time" value="<?php echo isset($obj_courses->time) ? $obj_courses->time : ""; ?>" class="input-xlarge-fluid" placeholder="Total de Horas" required>
                                                         </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputState">Popular</label>
+                                                        <select name="popular" id="popular" class="form-control" required>
+                                                            <option value="">[ Seleccionar ]</option>
+                                                            <option value="1" <?php
+                                                            if (isset($obj_courses)) {
+                                                                if ($obj_courses->popular == 1) {
+                                                                    echo "selected";
+                                                                }
+                                                            } else {
+                                                                echo "";
+                                                            }
+                                                            ?>>Activo</option>
+                                                            <option value="0" <?php
+                                                            if (isset($obj_courses)) {
+                                                                if ($obj_courses->popular == 0) {
+                                                                    echo "selected";
+                                                                }
+                                                            } else {
+                                                                echo "";
+                                                            }
+                                                            ?>>Inactivo</option>
+                                                        </select>
                                                     </div>
 
                                                 </div>
                                                 <div class="form-group col-md-6">
-<?php if (isset($obj_courses)) { ?>
+                                                    <?php if (isset($obj_courses)) { ?>
                                                         <div class="form-group">
                                                             <label>Imagen 1</label><br/>
                                                             <img src='<?php echo site_url() . "static/cms/img/cursos/$obj_courses->img"; ?>' width="100" />
                                                             <input class="form-control" type="hidden" name="img2" id="img2" value="<?php echo isset($obj_courses) ? $obj_courses->img : ""; ?>">
                                                         </div>
-<?php } ?>
+                                                    <?php } ?>
                                                     <div class="form-group">
                                                         <label>Imagen 1 (Tamaño 480 x 360)</label>
                                                         <div class="custom-file">
@@ -109,13 +133,13 @@
                                                             <div id="respose_img"></div>
                                                         </div>
                                                     </div>
-<?php if (isset($obj_courses->img2)) { ?>
+                                                    <?php if (isset($obj_courses->img2)) { ?>
                                                         <div class="form-group">
                                                             <label>Imagen 2</label><br/>
                                                             <img src='<?php echo site_url() . "static/cms/img/cursos/$obj_courses->img2"; ?>' width="100"/>
                                                             <input class="form-control" type="hidden" name="img3" id="img3" value="<?php echo isset($obj_courses) ? $obj_courses->img2 : ""; ?>">
                                                         </div>
-<?php } ?>
+                                                    <?php } ?>
                                                     <div class="form-group">
                                                         <label>Imagen 2 (Tamaño 1000 x 500)</label>
                                                         <div class="custom-file">
@@ -138,29 +162,30 @@
                                                         <select name="active" id="active" class="form-control" required>
                                                             <option value="">[ Seleccionar ]</option>
                                                             <option value="1" <?php
-                                                    if (isset($obj_courses)) {
-                                                        if ($obj_courses->active == 1) {
-                                                            echo "selected";
-                                                        }
-                                                    } else {
-                                                        echo "";
-                                                    }
-?>>Activo</option>
+                                                            if (isset($obj_courses)) {
+                                                                if ($obj_courses->active == 1) {
+                                                                    echo "selected";
+                                                                }
+                                                            } else {
+                                                                echo "";
+                                                            }
+                                                            ?>>Activo</option>
                                                             <option value="0" <?php
-                                                    if (isset($obj_courses)) {
-                                                        if ($obj_courses->active == 0) {
-                                                            echo "selected";
-                                                        }
-                                                    } else {
-                                                        echo "";
-                                                    }
-?>>Inactivo</option>
+                                                            if (isset($obj_courses)) {
+                                                                if ($obj_courses->active == 0) {
+                                                                    echo "selected";
+                                                                }
+                                                            } else {
+                                                                echo "";
+                                                            }
+                                                            ?>>Inactivo</option>
                                                         </select>
                                                     </div>
-<?php if (isset($obj_modules)) { ?>
+                                                    <?php if (isset($obj_modules)) { ?>
                                                         <div class="form-group">
                                                             <?php foreach ($obj_modules as $key => $value) {
-                                                                $key = $key + 1; ?> 
+                                                                $key = $key + 1;
+                                                                ?> 
                                                                 <div class="input-group mb-3">
                                                                     <div class="input-group-prepend">
                                                                         <span class="input-group-text" id="basic-addon3">Módulo <?php echo $key; ?></span>

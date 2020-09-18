@@ -43,6 +43,8 @@ class Home extends CI_Controller {
                                                 courses.slug,
                                                 courses.time,
                                                 courses.img,
+                                                courses.free,
+                                                courses.popular,
                                                 courses.price,
                                                 courses.price_del,
                                                 courses.description,
@@ -53,7 +55,6 @@ class Home extends CI_Controller {
                                     "order" => "courses.course_id ASC",
                                 );  
             $data['obj_courses'] = $this->obj_courses->search($params_course); 
-            
             //set meta title
             $data['title'] = "U-Linex | Bienvenido";
             $this->load->view('home', $data);

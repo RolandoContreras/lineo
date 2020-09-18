@@ -10,27 +10,20 @@
                 </div>
                 <div class="container">
                     <div class="post_type_exist clearfix">
-                        <div data-vc-full-width="true" data-vc-full-width-init="true" class="vc_row wpb_row vc_row-fluid vc_custom_1534238310373 aed6bbdbcfb88221d9cb9b85256190b1e vc_row-has-fill row-has-animation" style="background-position: 95% 90% !important; position: relative; left: -351.5px; box-sizing: border-box; width: 1903px; padding-left: 351.5px; padding-right: 351.5px;background-color: rgb(78, 215, 168);">
-                            <div class="stm_lms_row_animation"> 
-                                <img src="<?php echo site_url() . 'static/page_front/images/animation/base.png'; ?>">              
-                                <img class="book1" src="<?php echo site_url() . 'static/page_front/images/animation/book1.png'; ?>">              
-                                <img class="bubblespeech" src="<?php echo site_url() . 'static/page_front/images/animation/bubblespeech.png'; ?>">              
-                            </div>
-                            <div
-                                class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-7 vc_col-md-5">
+                        <div data-vc-full-width="true" data-vc-full-width-init="true" class="vc_row wpb_row vc_row-fluid vc_custom_1536053689227 aa5c78e661a071cc8ef558ce0a5313b4c vc_row-has-fill header_banner margin-bottom-0">
+                            <div class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-7 vc_col-md-7 vc_col-xs-12">
                                 <div class="vc_column-inner">
                                     <div class="wpb_wrapper">
-                                        <div class="space-70"></div>
-                                        <div class="vc_custom_heading">
-                                            <h1 class="text-title-banner">Tu plataforma de Educación Online.</h1>
-                                        </div>
-                                        <div class="vc_custom_heading vc_custom_1535366613275">
-                                            <h3 style="text-align: left" class="color-white">Un sistema probado y utilizado a nivel global.</h3>
-                                        </div>
-                                        <div class="vc_btn3-container vc_btn3-inline"> 
-                                            <a class="btn btn-default lg" href="<?php echo site_url() . 'iniciar-sesion'; ?>" title="">Comienza a estudiar</a>
-                                        </div>
-                                        <div class="space-70"></div>
+                                        <div class="space-30"></div>
+                                        <h4 class="text-title-banner capacitacion-title">U-LINEX<br/>TU UNIVERSALIDAD EN LÍNEA 
+                                            <div class="vc_custom_heading margin-bottom-20">
+                                                <h3 class="color-celeste header-plataforma">Un sistema probado a nivel internacional. Es tu oportunidad de avanzar como profesional</h3>
+                                            </div>
+                                            <a class="btn btn-warning lg" href="<?php echo site_url() . 'iniciar-sesion'; ?>" title="Comenzar ahora">
+                                                <h4 class="font-size-18 color-white">COMIENZA A ESTUDIAR</h4>
+                                            </a>
+                                        </h4>
+                                        <div class="space-30"></div>
                                     </div>
                                 </div>
                             </div>
@@ -84,13 +77,103 @@
                             </div>
                         </div>
                         <div class="vc_row-full-width vc_clearfix"></div>
+                       <div data-vc-full-width="true" data-vc-full-width-init="true" data-vc-stretch-content="true" class="vc_row wpb_row vc_row-fluid vc_custom_1535369584754 vc_row-has-fill" style="position: relative; left: -351.5px; box-sizing: border-box; width: 1903px;">
+                            <div class="wpb_column vc_column_container vc_col-sm-12">
+                                <div class="vc_column-inner">
+                                    <div class="wpb_wrapper">
+                                        <div class="container">
+                                            <div class="padding-bottom-44 padding-top-20">
+                                                <div class="col-md-offset-2 col-sm-8 col-md-offset-2">
+                                                    <div class="vc_custom_heading">
+                                                        <h2 class="text-master-mind">CURSOS POLULARES</h2>
+                                                    </div>
+
+                                                    <div class="vc_custom_heading fwl">
+                                                        <h4 style="font-size: 18px;line-height: 28px;text-align: center">Estos son los cursos más consumidos por nuestros alumnos. Adquiere uno si aún no lo tienes.</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="space-30"></div>
+                                        <div class="stm_lms_recent_courses">
+                                            <div class="stm_lms_courses__grid stm_lms_courses__grid_12 stm_lms_courses__grid_center">
+                                                <?php
+                                                foreach ($obj_courses as $key => $value) {
+                                                    if ($value->popular == 1 && $key <= 5) {
+                                                        ?>
+                                                        <div class="stm_lms_courses__single">
+                                                            <div class="stm_lms_courses__single__inner">
+                                                                <div class="stm_lms_courses__single--image">
+                                                                    <div class="stm_lms_post_status new"> Nuevo</div>
+                                                                    <a href="<?php echo site_url() . "cursos/$value->category_slug/$value->slug"; ?>" class="heading_font" data-preview="Vista Previa del Programa">
+                                                                        <div>
+                                                                            <div class="stm_lms_lazy_image stm_lms_lazy_image__lazyloaded">
+                                                                                <img src="<?php echo site_url() . "static/cms/img/cursos/$value->img"; ?>" class="lazyload" width="272" height="161" alt="<?php echo $value->name; ?>" title="<?php echo $value->name; ?>"/>
+                                                                            </div>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+                                                                <div class="stm_lms_courses__single--inner">
+                                                                    <div class="stm_lms_courses__single--terms">
+                                                                        <div class="stm_lms_courses__single--term"> <?php echo $value->category_name; ?></div>
+                                                                    </div>
+                                                                    <div class="stm_lms_courses__single--title">
+                                                                        <a href="<?php echo site_url() . "cursos/$value->category_slug/$value->slug"; ?>">
+                                                                            <h5><?php echo $value->name; ?></h5>
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="stm_lms_courses__single--meta">
+                                                                        <div class="stm_lms_courses__hours"> <i class="stmlms-lms-clocks"></i> <span><?php echo $value->time; ?> horas</span></div>
+                                                                        <div class="stm_lms_courses__single--price heading_font">
+                                                                            <?php if ($value->free == 1) { ?>
+                                                                                <b>Libre</b>
+                                                                            <?php } else { ?>
+                                                                                <span>s/. <?php echo $value->price_del; ?></span><strong>s/. <?php echo $value->price; ?></strong>
+                                                                            <?php } ?>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="stm_lms_courses__single--info">
+                                                                    <div class="stm_lms_courses__single--info_author">
+                                                                        <div class="stm_lms_courses__single--info_author__avatar"> 
+                                                                                <img alt="profesor" src="<?php echo site_url() . 'static/page_front/images/profesor.png'; ?>" class="avatar avatar-215 photo" width="215" height="215">
+                                                                        </div>
+                                                                        <div class="stm_lms_courses__single--info_author__login">Instructor: U-Linex</div>
+                                                                    </div>
+                                                                    <div class="stm_lms_courses__single--info_title">
+                                                                        <a href="<?php echo site_url() . "cursos/$value->category_slug/$value->slug"; ?>">
+                                                                            <h4><?php echo $value->name; ?></h4>
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="stm_lms_courses__single--info_excerpt"> 
+                                                                        <?php echo corta_texto($value->description, 300); ?>
+                                                                    </div>
+                                                                    <div class="stm_lms_courses__single--info_meta">
+                                                                        <div class="stm_lms_course__meta"><i class="stmlms-lms-clocks"></i><?php echo $value->time; ?> Horas</div>
+                                                                    </div>
+                                                                    <div class="stm_lms_courses__single--info_preview"> 
+                                                                        <a href="<?php echo site_url() . "cursos/$value->category_slug/$value->slug"; ?>" title="<?php echo $value->name; ?>" class="heading_font"> Vista previa de este curso</a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <?php
+                                                    }
+                                                }
+                                                ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="aa3e9b2585d5e7d5f6c929d0beab1846e vc_empty_space" style="height: 75px"><span class="vc_empty_space_inner"></span></div>
                         <div data-vc-full-width="true" data-vc-full-width-init="true" data-vc-stretch-content="true" class="vc_row wpb_row vc_row-fluid" style="position: relative; left: -351.5px; box-sizing: border-box; width: 1903px;">
                             <div class="wpb_column vc_column_container vc_col-sm-12">
                                 <div class="vc_column-inner">
                                     <div class="wpb_wrapper">
                                         <div class="vc_custom_heading vc_custom_1531998219169">
-                                            <h2 style="font-size: 50px;line-height: 50px;text-align: center">Nuestros Cursos</h2>
+                                            <h2 class="text-master-mind">TODOS LOS CURSOS</h2>
                                         </div>
                                         <div class="stm_lms_recent_courses" data-offset="1" data-template="courses/grid" data-args="{&quot;per_row&quot;:&quot;6&quot;,&quot;include_link&quot;:true,&quot;posts_per_page&quot;:&quot;12&quot;}">
                                             <div class="stm_lms_courses__grid stm_lms_courses__grid_6 stm_lms_courses__grid_center">
@@ -139,7 +222,6 @@
                                                                     <?php echo corta_texto($value->description, 300); ?>
                                                                 </div>
                                                                 <div class="stm_lms_courses__single--info_meta">
-                                                                    <!--<div class="stm_lms_course__meta"> <i class="stmlms-cats"></i> 10 Materiales</div>-->
                                                                     <div class="stm_lms_course__meta"> <i class="stmlms-lms-clocks"></i> <?php echo $value->time; ?> horas</div>
                                                                 </div>
                                                                 <div class="stm_lms_courses__single--info_preview"> 
@@ -272,12 +354,13 @@
             </div>
         </div>
         <?php $this->load->view("footer_2"); ?>
-    <script src="<?php echo site_url() . 'static/page_front/js/autoptimize_54ab.js'; ?>"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="<?php echo site_url() . 'static/page_front/js/script/home.js'; ?>"></script>
-    <script src='<?php echo site_url() . 'static/backoffice/js/header_2.js?ver=3.2'; ?>'></script>
-    <link rel='stylesheet' id='stm-lms-lesson-css' href='<?php echo site_url() . 'static/backoffice/css/footer/lesson.css?ver=75'; ?>' type='text/css' media="none" onload="if(media!='all')media='all'"/>
-    <script src='<?php echo site_url() . 'static/backoffice/js/jquery.fancybox.js?ver=3.2'; ?>'></script>
-    <script src='<?php echo site_url() . 'static/backoffice/js/custom.js?ver=3.2'; ?>'></script>
-</body>
+        <script src="<?php echo site_url() . 'static/page_front/js/autoptimize_54ab.js'; ?>"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="<?php echo site_url() . 'static/page_front/js/script/home.js'; ?>"></script>
+        <script src='<?php echo site_url() . 'static/backoffice/js/header_2.js?ver=3.2'; ?>'></script>
+        <link rel='stylesheet' id='stm-lms-lesson-css' href='<?php echo site_url() . 'static/backoffice/css/footer/lesson.css?ver=75'; ?>' type='text/css' media="none" onload="if (media != 'all')
+                                                            media = 'all'"/>
+        <script src='<?php echo site_url() . 'static/backoffice/js/jquery.fancybox.js?ver=3.2'; ?>'></script>
+        <script src='<?php echo site_url() . 'static/backoffice/js/custom.js?ver=3.2'; ?>'></script>
+    </body>
 </html>
