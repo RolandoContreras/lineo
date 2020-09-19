@@ -77,8 +77,8 @@ class Login extends CI_Controller {
             $response = (array) $response;
             if ($response['success'] && ($response['score'] && $response['score'] > 0.5)) {
                 //GET DATA STRING
-                $email = $this->input->post("code");
-                $pass = $this->input->post("pass");
+                $email = $this->input->post("username");
+                $pass = $this->input->post("password");
                 //SET PARAMETER
                 $params = array("select" => "customer.customer_id,
                                         customer.name,
@@ -87,10 +87,6 @@ class Login extends CI_Controller {
                                         customer.active",
                     "where" => "customer.email = '$email' and customer.password = '$pass' and customer.active = 1");
                 $obj_customer = $this->obj_customer->get_search_row($params);
-                
-                var_dump($obj_customer);
-                die();
-                
                 if (isset($obj_customer->customer_id) != "") {
                     $data_customer_session['customer_id'] = $obj_customer->customer_id;
                     $data_customer_session['name'] = $obj_customer->name;
