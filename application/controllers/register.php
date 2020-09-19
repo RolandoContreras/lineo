@@ -1,98 +1,110 @@
 <?php
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Register extends CI_Controller {
-    function __construct() { 
+
+    function __construct() {
         parent::__construct();
         $this->load->model("customer_model", "obj_customer");
-        $this->load->model("category_model","obj_category");
-        $this->load->model("courses_model","obj_courses");
-        $this->load->model("paises_model","obj_paises");
+        $this->load->model("category_model", "obj_category");
+        $this->load->model("courses_model", "obj_courses");
+        $this->load->model("paises_model", "obj_paises");
     }
 
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see https://codeigniter.com/user_guide/general/urls.html
-	 */
-	public function index()
-	{
-            //get category
-            $data['obj_category'] = $this->nav_category();
-            //get courses
-            $data['obj_courses_nav'] = $this->nav_courses();
-            //Select params
-            $data['obj_paises'] = $this->list_pais();
-            $data['title'] = "U-Linex | Nuevo Registro";
-            /// VIEW
-            $this->load->view("register", $data);
-		
-	}
-        
-        public function validate()
-	{
-            if ($this->input->is_ajax_request()) {
+    /**
+     * Index Page for this controller.
+     *
+     * Maps to the following URL
+     * 		http://example.com/index.php/welcome
+     * 	- or -
+     * 		http://example.com/index.php/welcome/index
+     * 	- or -
+     * Since this controller is set as the default controller in
+     * config/routes.php, it's displayed at http://example.com/
+     *
+     * So any other public methods not prefixed with an underscore will
+     * map to /index.php/welcome/<method_name>
+     * @see https://codeigniter.com/user_guide/general/urls.html
+     */
+    public function index() {
+        //get category
+        $data['obj_category'] = $this->nav_category();
+        //get courses
+        $data['obj_courses_nav'] = $this->nav_courses();
+        //Select params
+        $data['obj_paises'] = $this->list_pais();
+        $data['title'] = "U-Linex | Nuevo Registro";
+        /// VIEW
+        $this->load->view("register", $data);
+    }
+
+    public function validate() {
+        if ($this->input->is_ajax_request()) {
             //SET TIMEZONE AMERICA
             date_default_timezone_set('America/Lima');
-            //VALIDATE USERNAME
-            $email = $this->input->post("email");
-            $result = $this->validate_username_register($email);
-            
-            if($result == 1){
-                $data['status'] = "email";
-            }else{
-                $name = $this->input->post("name");
-                $last_name = $this->input->post("last_name");
-                $phone = $this->input->post("phone");
-                $pass = $this->input->post("pass");
-                $country = $this->input->post("country");
-            
-                //INSERT TABLE CUSTOMER
-                $data = array(
-                        'name' => $name,
-                        'last_name' => $last_name,
-                        'email' => $email,
-                        'password' => $pass,
-                        'phone' => $phone,
-                        'country' => $country,
-                        'date' => date("Y-m-d H:i:s"),
-                        'active' => 1,
-                    );
-                    $customer_id = $this->obj_customer->insert($data);
-                    //create session
-                    $data_customer_session['customer_id'] = $customer_id;
-                    $data_customer_session['name'] = $name;
-                    $data_customer_session['email'] = $email;
-                    $data_customer_session['img'] = "";
-                    $data_customer_session['active'] = 1;
-                    $data_customer_session['logged_customer'] = "TRUE";
-                    $_SESSION['customer'] = $data_customer_session; 
-                    
-                    $cart = count($this->cart->contents());
-                    if($cart > 0){
-                        $data['status'] = "success2";
-                    }else{
-                        $data['status'] = "success";
+            if ($_POST['google-response-token']) {
+                $googleToken = $_POST['google-response-token'];
+                $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=6LcXCc4ZAAAAAEM44Vk4uTY7IiHmIyYZrzi-UEwe&response={$googleToken}");
+                $response = json_decode($response);
+                $response = (array) $response;
+                if ($response['success'] && ($response['score'] && $response['score'] > 0.5)) {
+                    //VALIDATE USERNAME
+                    $email = $this->input->post("email");
+                    $result = $this->validate_username_register($email);
+
+                    if ($result == 1) {
+                        $data['status'] = "email";
+                    } else {
+                        $name = $this->input->post("name");
+                        $last_name = $this->input->post("last_name");
+                        $phone = $this->input->post("phone");
+                        $pass = $this->input->post("pass");
+                        $country = $this->input->post("country");
+
+                        //INSERT TABLE CUSTOMER
+                        $data = array(
+                            'name' => $name,
+                            'last_name' => $last_name,
+                            'email' => $email,
+                            'password' => $pass,
+                            'phone' => $phone,
+                            'country' => $country,
+                            'date' => date("Y-m-d H:i:s"),
+                            'active' => 1,
+                        );
+                        $customer_id = $this->obj_customer->insert($data);
+                        //create session
+                        $data_customer_session['customer_id'] = $customer_id;
+                        $data_customer_session['name'] = $name;
+                        $data_customer_session['email'] = $email;
+                        $data_customer_session['img'] = "";
+                        $data_customer_session['active'] = 1;
+                        $data_customer_session['logged_customer'] = "TRUE";
+                        $_SESSION['customer'] = $data_customer_session;
+
+                        $cart = count($this->cart->contents());
+                        if ($cart > 0) {
+                            $data['status'] = "true2";
+                        } else {
+                            $data['status'] = true;
+                        }
+//                        $this->message($name, $email, $pass);
                     }
-                    $this->message($name, $email, $pass);
+                } else {
+                    $data['status'] = "false2";
+                }
             }
+
+
+
             //CREAR NUEVA SECION 
             echo json_encode($data);
-            }
-	}
-        
-        public function message($name, $email, $pass){    
-                $mensaje = wordwrap("<html>
+        }
+    }
+
+    public function message($name, $email, $pass) {
+        $mensaje = wordwrap("<html>
                     
  <div bgcolor='#E9E9E9' style='background:#fff;margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Roboto','Oxygen','Ubuntu','Cantarell','Fira Sans','Droid Sans','Helvetica Neue',sans-serif;font-size:14px'>
   <table style='background-color:#fff;border-collapse:collapse;margin:0;padding:0' width='100%' height='100%' cellspacing='0' cellpadding='0' border='0'
@@ -153,47 +165,47 @@ class Register extends CI_Controller {
   </table>
   </div>
                             .</html>", 70, "\n", true);
-                    $titulo = "Bienvenido - [U-LINEX]";
-                    $headers = "MIME-Version: 1.0\r\n"; 
-                    $headers .= "Content-type: text/html; charset=iso-8859-1\r\n"; 
-                    $headers .= "From: U-LINEX <contacto@u-linex.com>\r\n";
-                    $bool = mail("$email",$titulo,$mensaje,$headers);
+        $titulo = "Bienvenido - [U-LINEX]";
+        $headers = "MIME-Version: 1.0\r\n";
+        $headers .= "Content-type: text/html; charset=iso-8859-1\r\n";
+        $headers .= "From: U-LINEX <contacto@u-linex.com>\r\n";
+        $bool = mail("$email", $titulo, $mensaje, $headers);
     }
-        
-        public function list_pais() {
-            //Select params
-            $params = array(
-                "select" => "id, nombre",
-                "where" => "id_idioma = 7");
-            $obj_paises = $this->obj_paises->search($params);
-            return $obj_paises;
+
+    public function list_pais() {
+        //Select params
+        $params = array(
+            "select" => "id, nombre",
+            "where" => "id_idioma = 7");
+        $obj_paises = $this->obj_paises->search($params);
+        return $obj_paises;
+    }
+
+    public function validate_username_register($email) {
+        //SELECT ID FROM CUSTOMER
+        $param_customer = array(
+            "select" => "customer_id",
+            "where" => "email = '$email'");
+        $customer = $this->obj_customer->total_records($param_customer);
+        if ($customer > 0) {
+            return 1;
+        } else {
+            return 0;
         }
-        
-        public function validate_username_register($email) {
-                //SELECT ID FROM CUSTOMER
-            $param_customer = array(
-                "select" => "customer_id",
-                "where" => "email = '$email'");
-            $customer = $this->obj_customer->total_records($param_customer);
-            if ($customer > 0) {
-                return 1;
-            } else {
-                return 0;
-            }
-        }
-        
-        public function nav_category(){
-            $params_category = array(
-                        "select" =>"category_id,
+    }
+
+    public function nav_category() {
+        $params_category = array(
+            "select" => "category_id,
                                     slug,
                                     name",
-                "where" => "active = 1",
-            );
-            //GET DATA COMMENTS
-            return $obj_category = $this->obj_category->search($params_category);
-        }
-        
-        public function nav_courses() {
+            "where" => "active = 1",
+        );
+        //GET DATA COMMENTS
+        return $obj_category = $this->obj_category->search($params_category);
+    }
+
+    public function nav_courses() {
         $params_courses = array(
             "select" => "course_id,
                         slug,
@@ -203,5 +215,5 @@ class Register extends CI_Controller {
         //GET DATA COMMENTS
         return $obj_courses = $this->obj_courses->search($params_courses);
     }
-        
+
 }

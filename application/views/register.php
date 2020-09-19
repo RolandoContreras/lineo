@@ -26,13 +26,13 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="stm_lms_row_animation"> 
-                                    <img src="<?php echo site_url() . 'static/page_front/images/animation/base.png'; ?>">              
+                                    <img src="<?php echo site_url() . 'static/page_front/images/registro_img.jpg'; ?>" alt="registro"/>                 
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div id="stm-lms-register" class="vue_is_disabled is_vue_loaded">
                                     <h3>Regístrate</h3>
-                                    <form onsubmit="register();" action="javascript:void(0);" method="post">
+                                    <form onsubmit="register();" action="javascript:void(0);" method="post" id="register-form">
                                         <div class="stm_lms_register_wrapper">
                                             <div class="row">
                                                 <div class="col-md-6">
@@ -77,8 +77,9 @@
                                                             <a href="<?php echo site_url() . 'iniciar-sesion'; ?>">
                                                                 <span class="lostpassword" title="iniciar-sesion"> ¿Tienes una cuenta? </span>
                                                             </a>
-                                                        </label>   
-                                                        <button class="btn btn-default"> 
+                                                        </label>
+                                                        <input type="hidden" name="google-response-token" id="google-response-token">
+                                                        <button class="btn btn-default" type="submit" id="register_boton"> 
                                                             Registrar
                                                         </button>
                                                     </div>
@@ -103,6 +104,15 @@
         </div>
         <!--#wrapper-->
         <?php $this->load->view("footer_2"); ?>
+        <script src='https://www.google.com/recaptcha/api.js?render=6LcXCc4ZAAAAAEFwa5tEfoYarwD2I06jY65FSHj6'></script>
+        <script type="text/javascript">
+                                        grecaptcha.ready(function () {
+                                            grecaptcha.execute('6LcXCc4ZAAAAAEFwa5tEfoYarwD2I06jY65FSHj6', {action: 'homepage'})
+                                                    .then(function (token) {
+                                                        $('#google-response-token').val(token);
+                                                    });
+                                        });
+        </script>
         <script src="<?php echo site_url() . 'static/page_front/js/script/register.js'; ?>"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="<?php echo site_url() . 'static/page_front/js/autoptimize_54ab.js'; ?>"></script>
