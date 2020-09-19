@@ -55,6 +55,11 @@ class Home extends CI_Controller {
                                     "order" => "courses.course_id ASC",
                                 );  
             $data['obj_courses'] = $this->obj_courses->search($params_course); 
+            //get all data
+            $params = array("select" =>"count(*) as total_customer,
+                                        (select count(*) from courses where active = 1) as total_courses",
+                           );
+            $data['obj_total'] = $this->obj_customer->get_search_row($params);
             //set meta title
             $data['title'] = "U-Linex | Bienvenido";
             $this->load->view('home', $data);

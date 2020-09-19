@@ -279,7 +279,7 @@
                                                 <div class="vc_column-inner">
                                                     <div class="wpb_wrapper">
                                                         <div class="stats_counter with_border_right text-center" style="color:#273044" data-id="counter_module__5e9779c42e2f984b61a845f0de5702c3" data-value="200" data-duration="2.5">
-                                                            <div class="h1" id="counter_module__5e9779c42e2f984b61a845f0de5702c3" style="color:#273044;font-size: 70px; line-height: 70px; margin-bottom: 20px;">400</div>
+                                                            <div class="h1" id="counter_module__5e9779c42e2f984b61a845f0de5702c3" style="color:#273044;font-size: 70px; line-height: 70px; margin-bottom: 20px;"><?php echo $obj_total->total_customer;?></div>
                                                             <div class="stats_counter_title h5" style="color:#273044;font-size: 20px; line-height: 20px"> Estudiantes</div>
                                                         </div>
                                                     </div>
@@ -289,7 +289,7 @@
                                                 <div class="vc_column-inner">
                                                     <div class="wpb_wrapper">
                                                         <div class="stats_counter with_border_right text-center" style="color:#273044" data-id="counter_module__0f3e8d0ecdf201ac2e8336727581db72" data-value="10" data-duration="2.5"> 
-                                                            <div class="h1" id="counter_module__0f3e8d0ecdf201ac2e8336727581db72" style="color:#273044;font-size: 70px; line-height: 70px; margin-bottom: 20px;">2</div>
+                                                            <div class="h1" id="counter_module__0f3e8d0ecdf201ac2e8336727581db72" style="color:#273044;font-size: 70px; line-height: 70px; margin-bottom: 20px;"><?php echo $obj_total->total_courses;?></div>
                                                             <div class="stats_counter_title h5" style="color:#273044;font-size: 20px; line-height: 20px">Cursos</div>
                                                         </div>
                                                     </div>
