@@ -25,16 +25,14 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-6">
-                                <div class="stm_lms_row_animation"> 
-                                    <img src="<?php echo site_url() . 'static/page_front/images/animation/base.png'; ?>">              
-                                </div>
+                                <img class="img-login" src="<?php echo site_url() . 'static/page_front/images/inicio-sesion.jpg'; ?>" alt="inicio-de-sesion" width="500"/>          
                             </div>
                             <div class="col-md-6">
                                 <div id="stm-lms-login" class="stm-lms-login active">
                                     <div class="stm-lms-login__top">
                                         <h3>Recuperar Contraseña</h3>
                                     </div>
-                                    <form onsubmit="recuperar();" action="javascript:void(0);" method="post">
+                                    <form onsubmit="recuperar();" action="javascript:void(0);" method="post" id="forgetForm">
                                         <div class="stm_lms_login_wrapper">
                                             <div class="form-group"> 
                                                 <label class="heading_font"> E-mail </label> 
@@ -49,8 +47,8 @@
                                                         </a>
                                                     </span> 
                                                 </label>                  
-
-                                                <button class="btn btn-default"> 
+                                                <input type="hidden" name="google-response-token" id="google-response-token">
+                                                <button class="btn btn-default" id="forget_boton" type="submit"> 
                                                     Recuperar
                                                 </button>
                                                 <br/>
@@ -68,6 +66,15 @@
         </div>
         <!--#wrapper-->
         <?php $this->load->view("footer_2"); ?>
+        <script src='https://www.google.com/recaptcha/api.js?render=6LcXCc4ZAAAAAEFwa5tEfoYarwD2I06jY65FSHj6'></script>
+        <script type="text/javascript">
+                                        grecaptcha.ready(function () {
+                                            grecaptcha.execute('6LcXCc4ZAAAAAEFwa5tEfoYarwD2I06jY65FSHj6', {action: 'homepage'})
+                                                    .then(function (token) {
+                                                        $('#google-response-token').val(token);
+                                                    });
+                                        });
+        </script>
         <script src="<?php echo site_url() . 'static/page_front/js/script/forget.js'; ?>"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="<?php echo site_url() . 'static/page_front/js/autoptimize_54ab.js'; ?>"></script>
