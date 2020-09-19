@@ -59,9 +59,8 @@ class Register extends CI_Controller {
                         $name = $this->input->post("name");
                         $last_name = $this->input->post("last_name");
                         $phone = $this->input->post("phone");
-                        $pass = $this->input->post("pass");
+                        $pass = $this->input->post("password");
                         $country = $this->input->post("country");
-
                         //INSERT TABLE CUSTOMER
                         $data = array(
                             'name' => $name,
