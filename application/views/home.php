@@ -167,6 +167,7 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="vc_row-full-width vc_clearfix"></div>
                         <div class="aa3e9b2585d5e7d5f6c929d0beab1846e vc_empty_space" style="height: 75px"><span class="vc_empty_space_inner"></span></div>
                         <div data-vc-full-width="true" data-vc-full-width-init="true" data-vc-stretch-content="true" class="vc_row wpb_row vc_row-fluid" style="position: relative; left: -351.5px; box-sizing: border-box; width: 1903px;">
                             <div class="wpb_column vc_column_container vc_col-sm-12">
