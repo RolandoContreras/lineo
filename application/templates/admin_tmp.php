@@ -87,6 +87,7 @@
                                 <span class="pcoded-mtext">Panel</span>
                             </a>
                         </li>
+                        <li class="nav-item pcoded-menu-caption"><label>CRUD de Tablas</label></li>
                         <li class="nav-item pcoded-hasmenu">
                             <a href="#!" class="<?php echo $mantenimiento_syle; ?>">
                                 <span class="pcoded-micon">
@@ -106,6 +107,7 @@
                                 <?php } ?>
                             </ul>
                         </li>
+                        <li class="nav-item pcoded-menu-caption"><label>Activaciones</label></li>
                         <li class="nav-item">
                             <a href="<?php echo site_url() . "dashboard/activaciones"; ?>" class="nav-link <?php echo $activaciones_syle; ?>">
                                 <span class="pcoded-micon">
@@ -114,6 +116,7 @@
                                 <span class="pcoded-mtext">Activaciones</span>
                             </a>
                         </li>
+                        <li class="nav-item pcoded-menu-caption"><label>Nuevos Clientes</label></li>
                         <li class="nav-item">
                             <a href="<?php echo site_url() . "dashboard/crear_clientes"; ?>" class="nav-link <?php echo $crear_clientes_syle; ?>">
                                 <span class="pcoded-micon">

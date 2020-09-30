@@ -128,6 +128,7 @@ class D_activate extends CI_Controller {
                 //array data
                 $data = array(
                     'duration_time' => $duration_time,
+                    'course_id' => $course_id,
                     'date_end' => $date_end,
                     'total_video' => $this->input->post("total_video"),
                     'video_actual' => $this->input->post("video_actual"),
