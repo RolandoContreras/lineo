@@ -62,13 +62,6 @@
                                           }else{echo "";} ?>>Normal</option>
                                 </select>
                               </div>
-<!--                              <div class="form-group">
-                                  <label>Descripción</label>
-                                  <textarea class="form-control" name="description" id="description" placeholder="Descripción"><?php echo isset($obj_videos->description)?$obj_videos->description:"";?></textarea>
-                                  <script>
-                                        CKEDITOR.replace('description');
-                                </script>
-                              </div>-->
                               <div class="form-group">
                                     <label for="inputState">Estado</label>
                                     <select name="active" id="active" class="form-control">
@@ -80,6 +73,10 @@
                                           if($obj_videos->active == 0){ echo "selected";}
                                       }else{echo "";} ?>>Inactivo</option>
                                     </select>
+                              </div>
+                              <div class="form-group">
+                                    <label>#Orden</label>
+                                    <input class="form-control" type="number" id="order" name="order" value="<?php echo isset($obj_videos->order)?$obj_videos->order:"";?>" class="input-xlarge-fluid" placeholder="#Orden">
                               </div>
                           </div>
                           <div class="form-group col-md-6">

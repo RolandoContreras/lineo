@@ -39,6 +39,8 @@
                               aria-describedby="zero-configuration_info">
                               <thead>
                                 <tr role="row">
+                                    <th class="sorting_asc" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 267px;" aria-sort="ascending"
+                                    aria-label="Name: activate to sort column descending">ORDEN</th>
                                   <th class="sorting_asc" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 267px;" aria-sort="ascending"
                                     aria-label="Name: activate to sort column descending">ID</th>
                                   <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" style="width: 392px;"
@@ -63,6 +65,7 @@
                                   
                                   <?php foreach ($obj_videos as $value): ?>
                                 <tr role="row" class="odd">
+                            <td><span class="badge badge-pill badge-warning" style="font-size: 100%;"><?php echo $value->order;?></span></td>
                             <td class="sorting_1"><?php echo $value->video_id;?></td>
                             <td><?php echo formato_fecha_barras($value->date);?></td>
                             <td><b><?php echo $value->name;?></b></td>
@@ -103,6 +106,7 @@
                               </tbody>
                               <tfoot>
                                 <tr>
+                                  <th rowspan="1" colspan="1">ORDEN</th>
                                   <th rowspan="1" colspan="1">ID</th>
                                   <th rowspan="1" colspan="1">FECHA</th>
                                   <th rowspan="1" colspan="1">TÍTULO</th>
