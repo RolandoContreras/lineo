@@ -84,7 +84,7 @@
                         </aside>
                         <aside id="custom_html-2" class="widget_text widget widget_custom_html">
                             <div class="textwidget custom-html-widget">
-                                <img alt="Obten hasta 75% de descuentos" src="<?php echo site_url().'static/page_front/images/descuento.jpg';?>">
+                                <img class="lazyload" alt="Obten hasta 75% de descuentos" data-src="<?php echo site_url().'static/page_front/images/descuento.jpg';?>">
                             </div>
                             
                         </aside>
@@ -98,9 +98,9 @@
                     <div class="col-md-6 col-sm-8">
                         <div class="clearfix">
                             <div class="pull-left"> 
-                                <img class="footer_logo" src="<?php echo site_url().'static/page_front/images/logo/evolucion_logo.png';?>" alt="Footer logo">
+                                <img class="lazyload footer_logo" data-src="<?php echo site_url().'static/page_front/images/logo/evolucion_logo.png';?>" alt="Footer logo">
                             </div>
-                            <div class="copyright_text">Copyright © 2020. EdukatePro desarrollado por <a target="_blank" href="https://evolucionweb.tech/">Evolución Web</a></div>
+                            <div class="copyright_text">Copyright © 2020. desarrollado por <a target="_blank" href="https://evolucionweb.tech/">Evolución Web</a></div>
                         </div>
                     </div>
                     <div class="col-md-6 col-sm-4">
