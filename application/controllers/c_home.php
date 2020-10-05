@@ -46,7 +46,8 @@ class C_home extends CI_Controller {
             $params = array(
                             "select" =>"module_id,
                                         name",
-                            "where" => "course_id = $course_id");
+                            "where" => "course_id = $course_id",
+                            "order" => "order, module_id ASC");
             $obj_modules = $this->obj_modules->search($params);
             //establecer modulos id para busqqueda
             $array_data = "";
@@ -62,10 +63,11 @@ class C_home extends CI_Controller {
                                         videos.video,
                                         videos.date,
                                         videos.type,
+                                        videos.order,
                                         videos.slug,
                                         videos.time",
                             "where" => "videos.module_id in ($array_data) and videos.active = 1",
-                            "order" => "videos.video_id ASC");
+                            "order" => "videos.order, videos.video_id ASC");
             $obj_videos = $this->obj_videos->search($params);
             $total_videos = count($obj_videos);
             //obtener video actual
