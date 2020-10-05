@@ -1,4 +1,4 @@
-<div class="pcoded-main-container">
+    <div class="pcoded-main-container">
   <div class="pcoded-wrapper">
     <div class="pcoded-content">
       <div class="pcoded-inner-content">
@@ -45,6 +45,12 @@
                               <div class="form-group">
                                 <label>Nombre</label>
                                 <input class="form-control" type="text" id="name" name="name" value="<?php echo isset($obj_modules->name)?$obj_modules->name:"";?>" class="input-xlarge-fluid" placeholder="Nombre">
+                              </div>
+                          </div>
+                          <div class="form-group col-md-6">
+                              <div class="form-group">
+                                <label>#Orden</label>
+                                <input class="form-control" type="number" id="order" name="order" value="<?php echo isset($obj_modules->order)?$obj_modules->order:"";?>" class="input-xlarge-fluid" placeholder="#Orden" >
                               </div>
                           </div>
                           <div class="form-group col-md-6">

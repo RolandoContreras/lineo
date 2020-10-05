@@ -36,7 +36,7 @@
         <nav class="pcoded-navbar menu-light brand-lightblue menupos-static">
             <div class="navbar-wrapper">
                 <div class="navbar-brand header-logo">
-                    <a href="<?php echo site_url() . 'course'; ?>" class="b-brand">
+                    <a href="<?php echo site_url() . 'dashboard/panel'; ?>" class="b-brand">
                         <img src="<?php echo site_url() . 'static/page_front/images/logo/logo.png'; ?>" alt="Logo" width="140"/>
                     </a>
                     <a class="mobile-menu" id="mobile-collapse" href="#!"><span></span></a></div>

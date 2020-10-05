@@ -19,9 +19,11 @@ class D_modulos extends CI_Controller{
                         "select" =>"modules.name,
                                     modules.module_id,
                                     modules.date,
+                                    modules.order,
                                     courses.name as course_name",
                 "join" => array('courses, modules.course_id = courses.course_id'),
-               "where" => "modules.course_id = $course_id");
+               "where" => "modules.course_id = $course_id",
+               "order" => "modules.order ASC");
             //GET DATA FROM CUSTOMER
             $obj_modules = $this->obj_modules->search($params);
             //send
@@ -41,7 +43,8 @@ class D_modulos extends CI_Controller{
             /// PARAM FOR SELECT 
             $params = array(
                         "select" =>"modules.module_id,
-                                    modules.name",
+                                    modules.name,
+                                    modules.order",
                          "where" => "module_id = $module_id",
             ); 
             $obj_modules  = $this->obj_modules->get_search_row($params);  
@@ -72,6 +75,7 @@ class D_modulos extends CI_Controller{
              $data = array(
                 'name' => $this->input->post('name'),
                 'course_id' => $course_id,
+                'order' => $this->input->post("order"),
                 'date' => date("Y-m-d H:i:s"),  
                 ); 
              $this->obj_modules->update($module_id, $data);
@@ -80,6 +84,7 @@ class D_modulos extends CI_Controller{
             $data = array(
                 'name' => $this->input->post('name'),
                 'course_id' => $course_id,
+                'order' => $this->input->post("order"),
                 'date' => date("Y-m-d H:i:s"),  
                 );          
              $module_id = $this->obj_modules->insert($data);        
