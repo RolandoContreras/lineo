@@ -11,7 +11,7 @@
     <meta property="og:title" content="Cursos online - en cualquier momento y en cualquier lugar | U-Linex">
     <meta property="og:url" content="<?php echo site_url();?>">
     <meta property="og:description" content="U-Linex plataforma de aprendizaje, somo el destino del mundo para cursos en línea. Descubre un curso en línea en U-Linex.com y empieza ya a aprender una nueva habilidad.">
-    <meta property="og:image" content="<?php echo site_url().'assets/page_front/images/logo/logo.png';?>">
+    <meta property="og:image" content="<?php echo site_url().'static/page_front/images/logo/logo.png';?>">
     <meta property="og:type" content="video_lecture">
     <meta property="og:site_name" content="U-linex">
     <meta property="og:locale" content="es_PE">
@@ -19,31 +19,25 @@
     <meta itemprop="url" content="<?php echo site_url();?>">
     <meta itemprop="description" content="U-Linex plataforma de aprendizaje, somo el destino del mundo para cursos en línea. Descubre un curso en línea en U-linex.com y empieza ya a aprender una nueva habilidad.">
     <meta itemprop="image" content="<?php echo site_url().'static/page_front/images/logo/logo.png';?>">
-    
-    
-    <meta name="description" content="Empresa grafica especialista en impulsar marca y negocios. Son más de 10 años de experiencia trabajando en el rubro de la publicidad con cientos de clientes satisfechos en Lima y todo el Perú."> 
-<meta name="keywords" content="publicidad, publicidad josc, empresa grafica, corporación grafica josc, josc, corporacion josc, banner, afiches, tarjetas de presentación, folders, revistas, volantes, tripticos, brochures"> 
-<meta name="author" content="Evolucion Web"> 
-<meta name="robots" content="follow, index"/> 
-<meta name="googlebot" content="index, follow" /> 
-<meta property="og:title" content="Bienvenido | Corporación Grafica Josc"> 
-<meta property="og:url" content="<?php echo site_url(); ?>"> 
-<meta property="og:description" content="Empresa grafica especialista en impulsar marca y negocios. Son más de 10 años de experiencia trabajando en el rubro de la publicidad con cientos de clientes satisfechos en Lima y todo el Perú."> 
-<meta property="og:image" content="<?php echo site_url().'assets/front/img/logo/social_image.jpg';?>"> 
-<meta property="og:type" content="website"> 
-<meta property="og:site_name" content="Corporación Grafica Josc"> 
-<meta property="og:locale" content="es"> 
-<meta itemprop="name" content="Bienvenido | Corporación Grafica Josc"> 
-<meta itemprop="url" content="<?php echo site_url();?>"> 
-<meta itemprop="description" content="Empresa grafica especialista en impulsar marca y negocios. Son más de 10 años de experiencia trabajando en el rubro de la publicidad con cientos de clientes satisfechos en Lima y todo el Perú."> 
-<meta itemprop="image" content="<?php echo site_url().'assets/front/img/logo/social_image.jpg';?>"> 
-<meta name="twitter:card" content="summary_large_image"> 
-<meta name="twitter:title" content="Bienvenido | Corporación Grafica Josc"> 
-
-<link rel="canonical" href="<?php echo site_url(); ?>" /> 
-
-
-    
+    <meta name="description" content="Cursos online - en cualquier momento y en cualquier lugar | U-Linex"> 
+    <meta name="keywords" content="U-Linex, educación, plataforma de educación, cursos online"> 
+    <meta name="author" content="Evolucion Web"> 
+    <meta name="robots" content="follow, index"/> 
+    <meta name="googlebot" content="index, follow" /> 
+    <meta property="og:title" content="Bienvenido | U-Linex plataforma de aprendizaje"> 
+    <meta property="og:url" content="<?php echo site_url(); ?>"> 
+    <meta property="og:description" content="U-Linex plataforma de aprendizaje, somo el destino del mundo para cursos en línea. Descubre un curso en línea en U-linex.com y empieza ya a aprender una nueva habilidad."> 
+    <meta property="og:image" content="<?php echo site_url().'static/page_front/images/logo/logo.png';?>"> 
+    <meta property="og:type" content="website"> 
+    <meta property="og:site_name" content="U-linex"> 
+    <meta property="og:locale" content="es"> 
+    <meta itemprop="name" content="Bienvenido | U-Linex plataforma de aprendizaje"> 
+    <meta itemprop="url" content="<?php echo site_url();?>"> 
+    <meta itemprop="description" content="U-Linex plataforma de aprendizaje, somo el destino del mundo para cursos en línea. Descubre un curso en línea en U-linex.com y empieza ya a aprender una nueva habilidad."> 
+    <meta itemprop="image" content="<?php echo site_url().'static/page_front/images/logo/logo.png';?>"> 
+    <meta name="twitter:card" content="summary_large_image"> 
+    <meta name="twitter:title" content="Bienvenido | U-Linex plataforma de aprendizaje"> 
+    <link rel="canonical" href="<?php echo site_url(); ?>" /> 
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat%3A200%2C500%2C600%2C400%2C700%7COpen+Sans%3A300%2C400%2C600%2C700%2C800%2C300italic%2C400italic%2C600italic%2C700italic%2C800italic&#038;subset=latin&#038;ver=1586935180'  type='text/css' media="none" onload="if(media!='all')media='all'" />
     <script defer type='text/javascript' src='<?php echo site_url() . 'static/page_front/js/jquery/jquery.js?ver=1.12.4-wp'; ?>'></script>
     <!--[if lte IE 9]><link rel="stylesheet" type="text/css" href="https://stylemixthemes.com/masterstudy/white-lms/wp-content/plugins/js_composer/assets/css/vc_lte_ie9.min.css" media="screen"><![endif]-->    
