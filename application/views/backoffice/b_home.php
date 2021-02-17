@@ -88,7 +88,7 @@
                             ?>
                             <div class="stm_lms_instructor_courses__single">
                                 <div class="stm_lms_instructor_courses__single__inner no-border">
-                                    No tiene cursos, <b><a href="<?php echo site_url() . 'backoffice/cursos'; ?>"> &nbsp;¡Compre uno ahora!</a></b>
+                                    No tiene cursos, <b><a href="<?php echo site_url() . 'cursos'; ?>"> &nbsp;¡Compre uno ahora!</a></b>
                                 </div>
                             </div>
                         <?php } ?>

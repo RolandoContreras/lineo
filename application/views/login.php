@@ -86,5 +86,6 @@
         <script src='<?php echo site_url() . 'static/backoffice/js/jquery.fancybox.js?ver=3.2'; ?>'></script>
         <script src='<?php echo site_url() . 'static/backoffice/js/custom.js?ver=3.2'; ?>'></script>
         <script src="<?php echo site_url() . 'static/page_front/js/script/login.js'; ?>"></script>
+        <script src='<?php echo site_url() . 'static/backoffice/js/bootstrap.min.js?ver=3.2'; ?>'></script>
     </body>
 </html>
