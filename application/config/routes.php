@@ -85,7 +85,7 @@ $route['backoffice/miscursos'] = 'b_home/mis_cursos';
 
 $route['backoffice/upload_perfil'] = "b_profile/upload";
 $route['backoffice/certificados'] = "b_home/certificados";
-
+$route['backoffice/certificados/download/([0-9]+)'] = "b_home/certificados_download/$1";
 
 $route['foro/([0-9a-z_-]+)'] = "foro/courses/$1";
 $route['foro/([0-9a-z_-]+)/([0-9a-z_-]+)'] = "foro/detail/$1";
@@ -99,7 +99,7 @@ $route['backoffice/b_foro/update_description'] = "b_foro/update_description";
 
 $route['backoffice/soporte'] = "b_home/soporte";
 
-$route['backoffice/certificados/download'] = "b_home/certificados_download";
+
 
 $route['backoffice/perfil/update_data'] = "b_home/update_data";
 $route['backoffice/perfil/change_pass'] = "b_home/change_pass";

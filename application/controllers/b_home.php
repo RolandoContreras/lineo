@@ -145,6 +145,7 @@ class B_home extends CI_Controller {
         //get cursos comprados
         $obj_courses_by_customer = $this->courses_by_customer($customer_id);
         $this->validate_certificate($obj_courses_by_customer);
+        $obj_courses_by_customer = $this->courses_by_customer($customer_id);
         //get profile
         $obj_profile = $this->get_profile($customer_id);
         $this->tmp_backoffice->set("obj_profile", $obj_profile);
@@ -170,68 +171,52 @@ class B_home extends CI_Controller {
         }
     }
 
-    public function certificados_download() {
-
-        $this->get_session();
-//            $customer_course_id = $this->input->post('id');
+    public function certificados_download($customer_courses) {
         //GET SESION ACTUALY
-        //Report any errors
-        ini_set("display_errors", "1");
-        error_reporting(E_ALL);
+        $this->get_session();
+        //get data customer couses
+        $params_customer_courses = array(
+            "select" => "courses.course_id,
+                        courses.img3,
+                        courses.name,
+                        customer_courses.certificate,
+                        customer_courses.date_start,
+                        customer_courses.date_end,
+                        customer.name,
+                        customer.last_name",
+            "join" => array('customer, customer_courses.customer_id = customer.customer_id',
+                'courses, customer_courses.course_id = courses.course_id',
+                'category, courses.category_id = category.category_id'),
+            "where" => "customer_courses.customer_course_id = $customer_courses",
+            "order" => "courses.course_id DESC",
+        );
+        $obj_customer_courses = $this->obj_customer_courses->get_search_row($params_customer_courses);
+        $name = $obj_customer_courses->name." ".$obj_customer_courses->last_name;
+        //print PDF Certificate
+        include ("vendor/autoload.php");
+            $mpdf = new \Mpdf\Mpdf();
+            $mpdf->setHeader("U-Linex - Certificado de Culminación");
+            $url = site_url()."static/cms/img/cursos/$obj_customer_courses->img3";
+            $mpdf->setFooter("Felicidaes");
+            //$mpdf->setFooter("{PAGENO}");
+            $mpdf->setTitle("Certificado U-Linex");
+            //$mpdf->addpage("L");
+            $html = '
+                <div style="align-content: center;margin:auto;">
+                    <center>
+                    <img src="'.$url.'" style="widht:400px;margin-left:500px !important;"/>
+                    </center>
+                </div>
+                    <h2 style="position:absolute;margin-top:-640px;left:240px">'.$name.'</h2>    
+                <style>
+                </style>
+                ';
+                
+            $mpdf->writeHTML($html);    
+            $mpdf->output();
+        
 
-        header('Content-Type: image/jpeg');
-        $fuente = site_url() . 'static/backoffice/fonts/arial.ttf';
-        $imagen = 'static/backoffice/images/certificados/certificado.jpg';
-
-        $font_path = dirname(__FILE__) . '\arial.ttf';
-
-        $im = imagecreate(500, 500);
-        $dark_grey = imagecolorallocate($im, 102, 102, 102);
-        $black = imagecolorallocate($im, 0, 0, 0);
-        $img2 = imagecreatefromjpeg($imagen);
-//        imagestring($img2, 5, 250, 100, "Prueba de Certificado", $black);
-//        imagestring($img2, 5, 500, 100, "Prueba de Certificado", $black);
-//        imagestring($img2, 5, 700, 100, "Prueba de Certificado", $black);
-        imagettftext($img2, 20, 0, 11, 21, $black, $fuente, "Fuunetetete");
-
-//        imagettftext($image, 50, 0, 10, 160, $white, $font_path, $string);
-
-
-
-
-        header('content-type: image/png');
-
-//Create our basic image stream 300x300 pixels
-        $image = imagecreate(300, 300);
-
-//Set up some colors, use a dark gray as the background color
-        $dark_grey = imagecolorallocate($image, 102, 102, 102);
-        $white = imagecolorallocate($image, 255, 255, 255);
-
-//Set the path to our true type font
-// $font_path = 'advent_light';
-// $font_path = 'arial';
-// $font_path = '/arial.tff';
-// $font_path = dirname(__FILE__) . '/arial.ttf';
-        $font_path = dirname(__FILE__) . '/fonts/arial.ttf';
-
-        var_dump($dark_grey);
-        die();
-
-
-        //Set our text string
-        $string = 'Hello World!';
-
-        //Write our text to the existing image.
-        imagettftext($image, 50, 0, 10, 160, $white, $font_path, $string);
-
-
-        var_dump($result);
-        die();
-
-
-        imagejpeg($img2);
-        imagedestroy($img2);
+       
     }
 
     public function soporte() {

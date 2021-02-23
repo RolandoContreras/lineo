@@ -13,11 +13,7 @@
                             <?php echo $value->name; ?>
                         </div>
                         <?php if ($value->complete == 1) { ?>
-                            <?php if (!empty($value->certificado)) { ?>
-                                <a href="<?php echo site_url() . "static/cms/img/certificados/$value->certificado" ?>" style="cursor: pointer" target="_blank" download="" class="stm-lms-user-quiz__name">Descargar</a>
-                            <?php }else{ ?>
-                                <a href="javascript:void(0);" target="_blank" download="" class="stm-lms-user-quiz__name">No Disponible</a>
-                            <?php } ?>
+                                <a href="<?php echo site_url()."backoffice/certificados/download/$value->customer_course_id"?>" target="_blank" class="stm-lms-user-quiz__name" target="_blank">Descargar</a>
                             <div class="affiliate_points heading_font">
                                 <span class="affiliate_points__btn">
                                     <input type="text" id="<?php echo $value->certificate; ?>" value="<?php echo $value->certificate; ?>"/>
