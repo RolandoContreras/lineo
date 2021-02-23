@@ -91,4 +91,18 @@ function upload_img2(){
         $("#label_img2").removeClass("valid").addClass("invalid");
     }
 }
+function upload_img3(){
+    var input = document.getElementById('image_file3').value;
+      if(input != null){
+          $("#respose_img3").html();
+              var texto = "";
+              texto = texto+'Seleccionado: ';
+              texto = texto+ input;
+              $("#respose_img3").html(texto);
+              $("#label_img3").removeClass("invalid").addClass("valid");
+      }else{
+          $("#label_img3").removeClass("valid").addClass("invalid");
+      }
+  }
+  
 

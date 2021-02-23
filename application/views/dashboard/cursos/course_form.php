@@ -148,7 +148,21 @@
                                                             <div id="respose_img2"></div>
                                                         </div>
                                                     </div>
-
+                                                    <?php if (isset($obj_courses->img3)) { ?>
+                                                        <div class="form-group">
+                                                            <label>Imagen 3 (Certificado Vertical)</label><br/>
+                                                            <img src='<?php echo site_url() . "static/cms/img/cursos/$obj_courses->img3"; ?>' width="100"/>
+                                                            <input class="form-control" type="hidden" name="img4" id="img4" value="<?php echo isset($obj_courses) ? $obj_courses->img3 : ""; ?>">
+                                                        </div>
+                                                    <?php } ?>
+                                                    <div class="form-group">
+                                                        <label>Imagen 3 (Certificado Vertical)</label>
+                                                        <div class="custom-file">
+                                                            <input type="file" class="custom-file-input" name="image_file3" id="image_file3" onchange="upload_img3();" <?php echo isset($obj_courses->img3) ? "" : "required"; ?>>
+                                                            <label id="label_img3" class="custom-file-label invalid">Elegir archivos...</label>
+                                                            <div id="respose_img3"></div>
+                                                        </div>
+                                                    </div>    
                                                     <div class="form-group">
                                                         <label>Precio Actual</label>
                                                         <input class="form-control" type="text" id="price" name="price" value="<?php echo isset($obj_courses->price) ? $obj_courses->price : ""; ?>" class="input-xlarge-fluid" placeholder="Precio Actual" required>

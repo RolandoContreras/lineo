@@ -171,30 +171,18 @@ class Home extends CI_Controller {
     include ("vendor/autoload.php");
     $mpdf = new \Mpdf\Mpdf();
     $mpdf->setHeader("U-Linex - Certificado");
-    $url = site_url()."static/course/img/udemy.jpg";
+    $url = site_url()."static/course/img/certificado.jpg";
     $mpdf->setFooter("{PAGENO}");
     $mpdf->setTitle("Certificado U-Linex");
-    $mpdf->addpage("L");
+//    $mpdf->addpage("L");
     $html = '
-        <center>
-            <h2 style="position:absolute;margin-top:-25px;">Rolando Contreras</h2>    
-            <img src="'.$url.'"/>
-        </center>
-        <div style="background-image: url("'.$url.'");">
-        <h2 style="position:absolute;margin-top:-25px;">Rolando Contreras</h2>
+        <div style="align-content: center;margin:auto;">
+            <center>
+            <img src="'.$url.'" style="widht:400px;margin-left:500px !important;"/>
+            </center>
         </div>
-        <h2 style="position:absolute;margin-top:-25px;">Rolando Contreras</h2>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-        <h1>Esto es una prueba</h1>
-        <br/>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            <h1 style="position:absolute;margin-top:-640px;left:240px"> Rolando Contreras</h1>    
         <style>
-            h1{
-                background-color:blue;
-            }    
-            p{
-                color:red;
-            }    
         </style>
         ';
         
