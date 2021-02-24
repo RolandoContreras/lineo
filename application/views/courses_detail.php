@@ -18,7 +18,7 @@
                                         <span property="name" title="<?php echo $obj_courses->category_name; ?>"><?php echo $obj_courses->category_name; ?></span>
                                     </a>
                                 </span>
-                            </span> &gt; <span property="itemListElement">
+                            &gt; <span property="itemListElement">
                             <span property="name" title="<?php echo $obj_courses->name; ?>"><?php echo $obj_courses->name; ?></span>
                         </span>
                     </div>
@@ -76,7 +76,7 @@
                         <div class="tab-content">
                             <div role="tabpanel" class="tab-pane active" id="description">
                                 <div class="stm_lms_course__image"> 
-                                    <img width="870" height="440" src="<?php echo site_url() . "static/cms/img/cursos/$obj_courses->img2"; ?>" class="attachment-img-870-440 size-img-870-440 wp-post-image" alt="" />
+                                    <img width="870" height="440" data-src="<?php echo site_url() . "static/cms/img/cursos/$obj_courses->img2"; ?>" class="attachment-img-870-440 size-img-870-440 wp-post-image lazyload"  alt="<?php echo $obj_courses->name; ?>"/>
                                 </div>
                                 <div class="stm_lms_course__content">
                                     <div class="vc_row wpb_row vc_row-fluid">
@@ -180,5 +180,7 @@
 <link rel='stylesheet' id='stm-lms-lesson-css' href='<?php echo site_url() . 'static/backoffice/css/footer/lesson.css?ver=75'; ?>' type='text/css' media="none" onload="if (media != 'all') media = 'all'"/>
 <script src='<?php echo site_url() . 'static/backoffice/js/jquery.fancybox.js?ver=3.2'; ?>'></script>
 <script src='<?php echo site_url() . 'static/backoffice/js/custom.js?ver=3.2'; ?>'></script>
+<script defer src="<?php echo site_url() . 'static/page_front/seo/lazysizes.min.js'; ?>"></script>
+<script src='<?php echo site_url() . 'static/backoffice/js/bootstrap.min.js?ver=3.2'; ?>'></script>
 </body>
 </html>

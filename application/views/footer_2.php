@@ -16,6 +16,7 @@
                                 <a class="color-white" href="<?php echo site_url().'terminos-condiciones';?>"><i class="fa fa-check"></i> Términos y Condiciones</a><br/>
                                 <a class="color-white" href="<?php echo site_url().'politica-privacidad';?>"><i class="fa fa-check"></i> Política de Privacidad & Cookies</a><br/>
                                 <a class="color-white" href="<?php echo site_url().'libro-de-reclamaciones';?>"><i class="fa fa-check"></i> Libro de Reclamaciones</a><br/>
+                                <a class="color-white" href="<?php echo site_url().'dashboard';?>"><i class="fa fa-check"></i> Administrador</a>
                             </div>
                         </aside>
                         <aside id="contacts-2" class="widget widget_contacts">
@@ -24,7 +25,7 @@
                             </div>
                             <ul class="widget_contacts_style_2">
                                 <li class="widget_contacts_phone">
-                                    <div class="text color-white">Tel.: +51 912 309 973</div>
+                                    <div class="text color-white">Tel.: +51 923 313 490</div>
                                 </li>
                                 <li class="widget_contacts_email">
                                     <div class="text color-white">ulinex.corp@gmail.com</div>

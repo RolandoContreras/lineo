@@ -197,7 +197,7 @@ class B_home extends CI_Controller {
             $mpdf = new \Mpdf\Mpdf();
             $mpdf->setHeader("U-Linex - Certificado de Culminación");
             $url = site_url()."static/cms/img/cursos/$obj_customer_courses->img3";
-            $mpdf->setFooter("Felicidaes");
+            $mpdf->setFooter("Felicidades");
             //$mpdf->setFooter("{PAGENO}");
             $mpdf->setTitle("Certificado U-Linex");
             //$mpdf->addpage("L");
