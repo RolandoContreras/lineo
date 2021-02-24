@@ -101,7 +101,7 @@
                             <div class="pull-left"> 
                                 <img class="lazyload footer_logo" data-src="<?php echo site_url().'static/page_front/images/logo/evolucion_logo.png';?>" alt="Footer logo">
                             </div>
-                            <div class="copyright_text">Copyright © 2020. desarrollado por <a target="_blank" href="https://evolucionweb.tech/">Evolución Web</a></div>
+                            <div class="copyright_text">Copyright © 2020. desarrollado por <a target="_blank" href="https://evolucionweb.online/">Evolución Web</a></div>
                         </div>
                     </div>
                     <div class="col-md-6 col-sm-4">
