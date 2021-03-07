@@ -40,11 +40,11 @@
                                                 <div class="event_thumbnail"> 
                                                     <?php 
                                                     if($obj_foro->img != null){ ?>
-                                                        <img src="<?php echo site_url() . "static/backoffice/images/foro/$obj_foro->foro_id/$obj_foro->img"; ?>" class="img-responsive wp-post-image" alt="<?php echo $obj_foro->title; ?>" srcset="<?php echo site_url() . "static/backoffice/images/foro/$obj_foro->foro_id/$obj_foro->img"; ?> 1000w" sizes="(max-width: 999px) 100vw, 999px" width="999" height="499"></div>
-                                                    <?php }else{ ?>
-                                                        <img srcset="<?php echo site_url() . "static/page_front/images/principal_image.jpg";?> 2x" src="<?php echo site_url() . "static/page_front/images/principal_image.jpg" ?>" alt="<?php echo $obj_foro->title; ?>" title="<?php echo $obj_foro->title; ?>">
+                                                        <img src="<?php echo site_url() . "static/backoffice/images/foro/$obj_foro->foro_id/$obj_foro->img"; ?>" class="img-responsive wp-post-image" alt="<?php echo $obj_foro->title; ?>" srcset="<?php echo site_url() . "static/backoffice/images/foro/$obj_foro->foro_id/$obj_foro->img"; ?> 1000w" sizes="(max-width: 999px) 100vw, 999px" width="999" height="499">
+                                                    <?php }else{ ?> 
+                                                        <img srcset="<?php echo site_url() . "static/page_front/images/principal_image.jpg";?> 2x" src="<?php echo site_url() . "static/page_front/images/principal_image.jpg" ?>" alt="<?php echo $obj_foro->title; ?>" title="<?php echo $obj_foro->title; ?>" width="999" height="499">
                                                     <?php } ?>
-                                                    
+                                                </div>
                                                 <table class="event_date_info_table">
                                                     <tbody>
                                                         <tr>
@@ -128,10 +128,10 @@
                                                                             <li class="simple_flip_container">
                                                                                 <div class="simple_flipper">
                                                                                     <div class="front"> 
-                                                                                        <a href="<?php echo $obj_foro->google; ?>" target="_blank" class="google-plus color-white"><i class="fab fa-linkedin-in"></i></a>
+                                                                                        <a href="<?php echo $obj_foro->google; ?>" target="_blank" class="google-plus color-white"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
                                                                                     </div>
                                                                                     <div class="back"> 
-                                                                                        <a href="<?php echo $obj_foro->google; ?>" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                                                                                        <a href="<?php echo $obj_foro->google; ?>" target="_blank"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
                                                                                     </div>
                                                                                 </div>
                                                                             </li>
@@ -162,8 +162,14 @@
                                                     </div>
                                                     <?php foreach ($obj_foro_related as $value) { ?>
                                                         <div class="widget_media clearfix widget_media_style_1">
-                                                            <a href="<?php echo site_url()."foro/$value->course_slug/$value->slug"?>"> 
-                                                                <img src="<?php echo site_url()."static/backoffice/images/foro/$value->foro_id/$value->img"?>" class="img-responsive wp-post-image" alt="" srcset="<?php echo site_url()."static/backoffice/images/foro/$value->foro_id/$value->img"?> 63w, <?php echo site_url()."static/backoffice/images/foro/$value->foro_id/$value->img"?> 480w" sizes="(max-width: 63px) 100vw, 63px" width="63" height="50"> 
+                                                            <a href="<?php echo site_url()."foro/$value->course_slug/$value->slug"?>">
+                                                                <?php 
+                                                                    if($value->img !=null){ ?>
+                                                                       <img src="<?php echo site_url()."static/backoffice/images/foro/$value->foro_id/$value->img"?>" class="img-responsive wp-post-image" alt="" srcset="<?php echo site_url()."static/backoffice/images/foro/$value->foro_id/$value->img"?> 63w, <?php echo site_url()."static/backoffice/images/foro/$value->foro_id/$value->img"?> 480w" sizes="(max-width: 63px) 100vw, 63px" width="63" height="50"> 
+                                                                <?php }else{ ?>
+                                                                      <img srcset="<?php echo site_url() . "static/page_front/images/secundario_image.jpg";?> 2x" src="<?php echo site_url() . "static/page_front/images/secundario_image.jpg" ?>" alt="<?php echo $value->title; ?>" title="<?php echo $value->title; ?>" width="272" height="161">
+                                                                <?php } ?>
+                                                                
                                                                 <span class="h6"><?php echo $value->title;?></span>                      
                                                             </a>
                                                         </div>
@@ -180,7 +186,6 @@
             </div>
         </div>
         <?php $this->load->view("footer_2"); ?>
-        <script defer src="<?php echo site_url() . 'static/page_front/seo/lazysizes.min.js'; ?>"></script>
         <script src="<?php echo site_url() . 'static/page_front/js/autoptimize_54ab.js'; ?>"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src='<?php echo site_url() . 'static/backoffice/js/header_2.js?ver=3.2'; ?>'></script>
