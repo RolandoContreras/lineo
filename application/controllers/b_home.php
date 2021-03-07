@@ -178,6 +178,7 @@ class B_home extends CI_Controller {
         $params_customer_courses = array(
             "select" => "courses.course_id,
                         courses.img3,
+                        courses.time,
                         courses.name,
                         customer_courses.customer_course_id,
                         customer_courses.certificate,
@@ -193,8 +194,24 @@ class B_home extends CI_Controller {
         );
         $obj_customer_courses = $this->obj_customer_courses->get_search_row($params_customer_courses);
         $name = $obj_customer_courses->name." ".$obj_customer_courses->last_name;
+        $time = $obj_customer_courses->time;
         $date_start = formato_fecha($obj_customer_courses->date_start);
         $date_end = formato_fecha($obj_customer_courses->date_end);
+        //get course id
+        $course_id = $obj_customer_courses->course_id;
+        //get modules
+        if($course_id != null){
+            $params = array(
+                "select" => "name",
+                "where" => "course_id = $course_id",
+                "order" => "module_id ASC",
+            );
+            $obj_modules = $this->obj_modules->search($params);
+        }
+        $valor = null;
+        foreach($obj_modules as $value){ 
+            $valor .= $value->name."<br>";
+        }
         //print PDF Certificate
         include ("vendor/autoload.php");
             $mpdf = new \Mpdf\Mpdf();
@@ -210,9 +227,15 @@ class B_home extends CI_Controller {
                     <img src="'.$url.'" style="widht:400px;margin-left:500px !important;"/>
                     </center>
                 </div>
-                    <h2 style="position:absolute;margin-top:-640px;left:240px">'.$name.'</h2>    
-                    <p style="font-size: 10px;position:absolute;margin-top:-50px;left:220px">Inicio: <b> '.$date_start.'</b></p>    
-                    <p style="font-size: 10px;position:absolute;margin-top:-35px;left:220px">Termino: <b> '.$date_end.'</b></p>    
+                    <h2 style="position:absolute;margin-top:-640px;left:240px;font-family:sans-serif;">'.$name.'</h2>    
+                    <h4 style="font-size: 14px;position:absolute;margin-top:-420px;left:380px;font-family:sans-serif;">CONTENIDO DEL CURSO</h4>
+                    <p style="font-size: 13px;position:absolute;margin-top:-380px;left:340px;font-family:sans-serif;">MÓDULOS</p>
+                    <div style="font-size: 12px;position:absolute;margin-top:-380px;left:360px;font-family:sans-serif;text-align: center;">
+                        <p style="font-size: 13px;position:absolute;font-family:sans-serif;text-align: center;padding-bottom:10px;">'.$valor.'</p>    
+                        <P style="font-size: 13px;font-family:sans-serif;left:340px;text-align: left !important;">TOTAL DE HORAS: &nbsp;&nbsp;<b>'.$time.' HORAS</b></p>
+                    </div>
+                    <p style="font-size: 10px;position:absolute;margin-top:-50px;left:220px;font-family:sans-serif;">Inicio: <b> '.$date_start.'</b></p>    
+                    <p style="font-size: 10px;position:absolute;margin-top:-35px;left:220px;font-family:sans-serif;">Termino: <b> '.$date_end.'</b></p>    
                 <style>
                 </style>
                 ';
