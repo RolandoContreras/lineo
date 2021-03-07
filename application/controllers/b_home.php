@@ -179,19 +179,22 @@ class B_home extends CI_Controller {
             "select" => "courses.course_id,
                         courses.img3,
                         courses.name,
+                        customer_courses.customer_course_id,
                         customer_courses.certificate,
                         customer_courses.date_start,
                         customer_courses.date_end,
                         customer.name,
                         customer.last_name",
             "join" => array('customer, customer_courses.customer_id = customer.customer_id',
-                'courses, customer_courses.course_id = courses.course_id',
-                'category, courses.category_id = category.category_id'),
+                            'courses, customer_courses.course_id = courses.course_id',
+                            'category, courses.category_id = category.category_id'),
             "where" => "customer_courses.customer_course_id = $customer_courses",
             "order" => "courses.course_id DESC",
         );
         $obj_customer_courses = $this->obj_customer_courses->get_search_row($params_customer_courses);
         $name = $obj_customer_courses->name." ".$obj_customer_courses->last_name;
+        $date_start = formato_fecha($obj_customer_courses->date_start);
+        $date_end = formato_fecha($obj_customer_courses->date_end);
         //print PDF Certificate
         include ("vendor/autoload.php");
             $mpdf = new \Mpdf\Mpdf();
@@ -208,6 +211,8 @@ class B_home extends CI_Controller {
                     </center>
                 </div>
                     <h2 style="position:absolute;margin-top:-640px;left:240px">'.$name.'</h2>    
+                    <p style="font-size: 10px;position:absolute;margin-top:-50px;left:220px">Inicio: <b> '.$date_start.'</b></p>    
+                    <p style="font-size: 10px;position:absolute;margin-top:-35px;left:220px">Termino: <b> '.$date_end.'</b></p>    
                 <style>
                 </style>
                 ';

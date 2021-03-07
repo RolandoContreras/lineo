@@ -51,7 +51,7 @@
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"> 
-                                                        <button type="submit" class="wpcf7-form-control wpcf7-submit btn btn-default"> Verficar </button>
+                                                        <button type="submit" class="wpcf7-form-control wpcf7-submit btn btn-default"> Verificar </button>
                                                     </div>
                                                 </div>
                                                 <br/>
