@@ -39,9 +39,27 @@ function delete_course(course_id){
                    url: site+"dashboard/cursos/delete",
                    dataType: "json",
                    data: {course_id : course_id},
-                   success:function(data){                             
-                   location.reload();
-                   }         
+                   success:function(data){       
+                    if (data.status == true) {
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'El Cuso fue eliminado',
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                        window.setTimeout(function () {
+                            location.reload();
+                        }, 1500);
+                    } else {
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'info',
+                            title: 'Sucedio un error',
+                            footer: 'Comunique a soporte'
+                        });
+                    }
+                }         
            });
         }
     }

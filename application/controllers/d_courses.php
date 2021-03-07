@@ -277,8 +277,10 @@ class D_courses extends CI_Controller{
             //VERIFY IF ISSET CUSTOMER_ID
             if ($course_id != ""){
                 $this->obj_courses->delete($course_id);
+                $data['status'] = true;
+            }else{
+                $data['status'] = false;
             }
-            $data['status'] = true;
             echo json_encode($data);
         }       
     }

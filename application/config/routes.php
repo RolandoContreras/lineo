@@ -99,8 +99,6 @@ $route['backoffice/b_foro/update_description'] = "b_foro/update_description";
 
 $route['backoffice/soporte'] = "b_home/soporte";
 
-
-
 $route['backoffice/perfil/update_data'] = "b_home/update_data";
 $route['backoffice/perfil/change_pass'] = "b_home/change_pass";
 
@@ -112,10 +110,6 @@ $route['backoffice/cursos/categorias'] = 'b_home/category';
 
 $route['backoffice/active_course'] = 'b_home/active_course';
 
-
-
-//$route['backoffice/([0-9a-z_-]+)/([0-9]+)'] = 'b_home/category/$1';
-//$route['backoffice/([0-9a-z_-]+)/([0-9a-z|&_-]+)'] = 'b_home/detail/$1';
 
 $route['plataforma'] = "c_home";
 $route['plataforma/send_message'] = "c_home/send_message";
