@@ -354,11 +354,6 @@
 </div>
 <script src="<?php echo site_url() . 'static/backoffice/js/script/profile.js'; ?>"></script>
 <script>
-                $(document).ready(function () {
-                    swal("Recibe hasta un 75% de descuento", "Mira todos los cursos que tenemos para ti. Apúrate que el momento de aprender es ahora.", "success");
-                });
-</script>
-<script>
                     Dropzone.options.dropzone = {
                         paramName: "file", // The name that will be used to transfer the file
                         maxFiles: 1,
