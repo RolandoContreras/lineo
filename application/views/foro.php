@@ -30,9 +30,14 @@
                                         <div class="event_archive_item">
                                             <a href="<?php echo site_url()."foro/$value->course_slug/$value->slug"?>" title="Ver Trabajo">
                                                 <div class="event_img">
-                                                    <img src="<?php echo site_url()."static/backoffice/images/foro/$value->foro_id/$value->img"?>" class="attachment-img-270-153 size-img-270-153 wp-post-image" alt="" width="270" height="153">
+                                                    <?php 
+                                                    if($value->img != null){ ?>
+                                                        <img src="<?php echo site_url()."static/backoffice/images/foro/$value->foro_id/$value->img"?>" class="attachment-img-270-153 size-img-270-153 wp-post-image" alt="" width="270" height="153">
+                                                    <?php }else{ ?>
+                                                        <img srcset="<?php echo site_url() . "static/page_front/images/secundario_image.jpg";?> 2x" src="<?php echo site_url() . "static/page_front/images/secundario_image.jpg" ?>" alt="<?php echo $value->title; ?>" title="<?php echo $value->title; ?>" width="272" height="161">
+                                                    <?php } ?>
                                                 </div>
-                                                <div class="h4 title"><?php echo $value->title;?></div>
+                                                <div class="h4 title"><?php echo corta_texto($value->title, 18);?></div>
                                             </a>
                                             <div class="event_start"> <i class="far fa-clock"></i> <?php echo formato_fecha_dia_de_mes_de_ano($value->date);?></div>
                                             <div class="event_location"> <i class="fa fa-user"></i> <?php echo $value->name." ".$value->last_name;?></div>

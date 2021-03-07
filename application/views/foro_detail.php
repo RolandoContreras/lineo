@@ -38,7 +38,13 @@
                                             <div class="stm_post_info">
                                                 <h1 class="h2 event_title"><?php echo $obj_foro->title; ?></h1>
                                                 <div class="event_thumbnail"> 
-                                                    <img src="<?php echo site_url() . "static/backoffice/images/foro/$obj_foro->foro_id/$obj_foro->img"; ?>" class="img-responsive wp-post-image" alt="<?php echo $obj_foro->title; ?>" srcset="<?php echo site_url() . "static/backoffice/images/foro/$obj_foro->foro_id/$obj_foro->img"; ?> 1000w" sizes="(max-width: 999px) 100vw, 999px" width="999" height="499"></div>
+                                                    <?php 
+                                                    if($obj_foro->img != null){ ?>
+                                                        <img src="<?php echo site_url() . "static/backoffice/images/foro/$obj_foro->foro_id/$obj_foro->img"; ?>" class="img-responsive wp-post-image" alt="<?php echo $obj_foro->title; ?>" srcset="<?php echo site_url() . "static/backoffice/images/foro/$obj_foro->foro_id/$obj_foro->img"; ?> 1000w" sizes="(max-width: 999px) 100vw, 999px" width="999" height="499"></div>
+                                                    <?php }else{ ?>
+                                                        <img srcset="<?php echo site_url() . "static/page_front/images/principal_image.jpg";?> 2x" src="<?php echo site_url() . "static/page_front/images/principal_image.jpg" ?>" alt="<?php echo $obj_foro->title; ?>" title="<?php echo $obj_foro->title; ?>">
+                                                    <?php } ?>
+                                                    
                                                 <table class="event_date_info_table">
                                                     <tbody>
                                                         <tr>

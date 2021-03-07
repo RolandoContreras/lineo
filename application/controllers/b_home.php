@@ -28,6 +28,8 @@ class B_home extends CI_Controller {
         $obj_profile = $this->get_profile($customer_id);
         //get foro
         $obj_foro = $this->get_foro($customer_id);
+        //get all foro
+        $obj_all_foro = $this->get_all_foro();
         //get cursos comprados
         $obj_courses_by_customer = $this->courses_by_customer($customer_id);
         //mis compras
@@ -38,7 +40,6 @@ class B_home extends CI_Controller {
         } else {
             $where = "courses.active = 1";
         }
-        $category_name = "Todos los videos";
         //get all courses
         $params_course = array(
             "select" => "courses.course_id,
@@ -87,9 +88,9 @@ class B_home extends CI_Controller {
         $this->tmp_backoffice->set("obj_courses_nav", $obj_courses_nav);
         $this->tmp_backoffice->set("title", $title);
         $this->tmp_backoffice->set("obj_foro", $obj_foro);
+        $this->tmp_backoffice->set("obj_all_foro", $obj_all_foro);
         $this->tmp_backoffice->set("obj_orders", $obj_orders);
         $this->tmp_backoffice->set("obj_profile", $obj_profile);
-        $this->tmp_backoffice->set("category_name", $category_name);
         $this->tmp_backoffice->set("obj_pagination", $obj_pagination);
         $this->tmp_backoffice->set("obj_category", $obj_category);
         $this->tmp_backoffice->set("obj_courses_by_customer", $obj_courses_by_customer);
@@ -557,6 +558,27 @@ courses.name as course_name",
             "join" => array('courses, foro.course_id = courses.course_id'),
             "where" => "foro.customer_id = $customer_id",
             "order" => "foro.foro_id DESC",
+        );
+        $obj_foro = $this->obj_foro->search($params);
+        return $obj_foro;
+    }
+
+    public function get_all_foro() {
+        $params = array(
+                        "select" => "foro.foro_id,
+                                    foro.customer_id,
+                                    foro.course_id,
+                                    foro.title,
+                                    foro.slug,
+                                    foro.img,
+                                    foro.document,
+                                    courses.name as course_name,
+                                    courses.slug as course_slug,
+                                    foro.date",
+            "join" => array('courses, foro.course_id = courses.course_id'),
+            "where" => "foro.active = 1",
+            "order" => "foro.foro_id DESC",
+            "limit" => "12",
         );
         $obj_foro = $this->obj_foro->search($params);
         return $obj_foro;
