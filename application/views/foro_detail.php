@@ -65,7 +65,28 @@
                                                     <div class="wpb_wrapper">
                                                         <div class="wpb_text_column wpb_content_element ">
                                                             <div class="wpb_wrapper">
-                                                                <?php echo $obj_foro->description; ?>
+                                                                <div class="icon_box vc_custom_1535366786219 stm_icon_box_hover_top standart module__8c3033ebf56b4b964392037df86f8ff0 clearfix">
+                                                                        <div class="icon_alignment_center">
+                                                                            <div class="icon_text">
+                                                                                <h4 style="color:#273044"> Contenido del Trabajo</h4>
+                                                                                <?php echo $obj_foro->description; ?>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                
+                                                            </div>
+                                                            <div class="vc_column-inner">
+                                                                <div class="wpb_wrapper">
+                                                                    <div class="icon_box vc_custom_1535366786219 stm_icon_box_hover_top standart clearfix">
+                                                                        <div class="icon_alignment_center">
+                                                                            <div class="icon_text">
+                                                                                <h4 style="color:#273044"> Descarga del Trabajo</h4>
+                                                                                <p>¡Da clic en el siguiente enlace y visualiza el trabajo realizado por nuestro alumno!</p>
+                                                                                <a href="<?php echo site_url() . "static/backoffice/images/foro/$obj_foro->foro_id/$obj_foro->document"; ?>" target="_blank"><i class="fa fa-download" aria-hidden="true"></i> Descargar</a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
