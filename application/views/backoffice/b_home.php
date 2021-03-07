@@ -6,7 +6,7 @@
                 <a href="<?php echo $obj_profile->facebook; ?>" target="_blank" class="facebook stm_lms_update_field__facebook"><i class="fab fa-facebook-f"></i></a>
                 <a href="<?php echo $obj_profile->instagram; ?>" target="_blank" class="instagram stm_lms_update_field__instagram"><i class="fab fa-instagram"></i></a>
                 <a href="<?php echo $obj_profile->twitter; ?>" target="_blank" class="twitter twitter stm_lms_update_field__twitter"><i class="fab fa-twitter"></i></a>
-                <a href="<?php echo $obj_profile->google; ?>" target="_blank" class="google-plus stm_lms_update_field__google-plus"><i class="fab fa-google-plus-g"></i></a>
+                <a href="<?php echo $obj_profile->google; ?>" target="_blank" class="facebook stm_lms_update_field__google-plus"><i class="fab fa-linkedin-in"></i></a>
             </div>
         </div>
         <div class="stm_lms_user_bio">

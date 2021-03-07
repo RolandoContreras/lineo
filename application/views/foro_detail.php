@@ -122,10 +122,10 @@
                                                                             <li class="simple_flip_container">
                                                                                 <div class="simple_flipper">
                                                                                     <div class="front"> 
-                                                                                        <a href="<?php echo $obj_foro->google; ?>" target="_blank" class="google-plus color-white"><i class="fab fa-google-plus"></i></a>
+                                                                                        <a href="<?php echo $obj_foro->google; ?>" target="_blank" class="google-plus color-white"><i class="fab fa-linkedin-in"></i></a>
                                                                                     </div>
                                                                                     <div class="back"> 
-                                                                                        <a href="<?php echo $obj_foro->google; ?>" target="_blank"><i class="fab fa-fa-google-plus"></i></a>
+                                                                                        <a href="<?php echo $obj_foro->google; ?>" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                                                                                     </div>
                                                                                 </div>
                                                                             </li>
