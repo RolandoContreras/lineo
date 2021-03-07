@@ -29,7 +29,7 @@
                                     <div class="col-md-3 col-sm-4 col-xs-6 teacher-col event-col">
                                         <div class="event_archive_item">
                                             <a href="<?php echo site_url()."foro/$value->course_slug/$value->slug"?>" title="Ver Trabajo">
-                                                <div class="event_img"> 
+                                                <div class="event_img">
                                                     <img src="<?php echo site_url()."static/backoffice/images/foro/$value->foro_id/$value->img"?>" class="attachment-img-270-153 size-img-270-153 wp-post-image" alt="" width="270" height="153">
                                                 </div>
                                                 <div class="h4 title"><?php echo $value->title;?></div>

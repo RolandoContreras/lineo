@@ -238,9 +238,9 @@ class B_home extends CI_Controller {
 
     public function category() {
         $this->get_session();
-//GET NAV CURSOS
+        //GET NAV CURSOS
         $data['obj_category'] = $this->nav_category();
-//verificar si existe busqueda
+        //verificar si existe busqueda
         $where_category = null;
         $where_search = null;
         if (isset($_GET['category']) && !empty($_GET['category'])) {
@@ -256,7 +256,7 @@ class B_home extends CI_Controller {
             $search = $_GET['search'];
             $where_search = "courses.name like '%$search%'";
         }
-//make where
+        //make where
         if ($where_category != null && $where_search != null) {
             $where = "$where_category and $where_search and courses.active = 1";
         } elseif ($where_category != null) {
@@ -268,21 +268,21 @@ class B_home extends CI_Controller {
         }
         $params_course = array(
             "select" => "courses.course_id,
-courses.category_id,
-courses.name,
-courses.slug,
-courses.description,
-courses.img,
-courses.time,
-courses.price,
-courses.price_del,
-courses.date,
-category.name as category_name,
-category.slug as category_slug",
-            "join" => array('category, courses.category_id = category.category_id'),
-            "where" => $where,
-            "order" => "courses.course_id DESC",
-        );
+            courses.category_id,
+            courses.name,
+            courses.slug,
+            courses.description,
+            courses.img,
+            courses.time,
+            courses.price,
+            courses.price_del,
+            courses.date,
+            category.name as category_name,
+            category.slug as category_slug",
+                        "join" => array('category, courses.category_id = category.category_id'),
+                        "where" => $where,
+                        "order" => "courses.course_id DESC",
+                    );
         $data['obj_courses'] = $this->obj_courses->search($params_course);
         $this->load->view("backoffice/b_cursos", $data);
     }
@@ -566,25 +566,29 @@ courses.name as course_name",
 
     public function update_data() {
         if ($this->input->is_ajax_request()) {
-//GET SESION ACTUALY
+            //GET SESION ACTUALY
             $this->get_session();
-//get customer id
+            //get customer id
             $customer_id = $_SESSION['customer']['customer_id'];
+            $name = $this->input->post("name");
+            $last_name = $this->input->post("last_name");
             $bio = $this->input->post("bio");
             $facebook = trim($this->input->post("facebook"));
             $google = trim($this->input->post("google"));
             $twitter = trim($this->input->post("twitter"));
             $instagram = trim($this->input->post("instagram"));
-
+            //save data
             if ($customer_id != null) {
                 $data = array(
+                    'name' => $name,
+                    'last_name' => $last_name,
                     'bio' => $bio,
                     'facebook' => $facebook,
                     'google' => $google,
                     'twitter' => $twitter,
                     'instagram' => $instagram,
                 );
-//SAVE DATA IN TABLE    
+                //SAVE DATA IN TABLE    
                 $result = $this->obj_customer->update($customer_id, $data);
                 if ($result != null) {
                     $data['status'] = true;
@@ -598,18 +602,18 @@ courses.name as course_name",
         }
     }
 
-    public function change_pass() {
-        if ($this->input->is_ajax_request()) {
-//GET SESION ACTUALY
-            $this->get_session();
-//get customer id
-            $customer_id = $_SESSION['customer']['customer_id'];
-            $pass = trim($this->input->post("pass"));
-            if ($customer_id != null) {
-                $data = array(
-                    'password' => $pass,
-                );
-//SAVE DATA IN TABLE    
+            public function change_pass() {
+                if ($this->input->is_ajax_request()) {
+        //GET SESION ACTUALY
+                    $this->get_session();
+        //get customer id
+                    $customer_id = $_SESSION['customer']['customer_id'];
+                    $pass = trim($this->input->post("pass"));
+                    if ($customer_id != null) {
+                        $data = array(
+                            'password' => $pass,
+                        );
+        //SAVE DATA IN TABLE    
                 $result = $this->obj_customer->update($customer_id, $data);
                 if ($result != null) {
                     $data['status'] = true;

@@ -1,4 +1,8 @@
 function save_information() {
+    document.getElementById("profile_buttton").disabled = true;
+    document.getElementById("profile_buttton").innerHTML = "<span class='spinner-border spinner-border-sm' role='status'></span> Procesando...";
+    var name = document.getElementById("name").value;
+    var last_name = document.getElementById("last_name").value;
     var bio = document.getElementById("bio").value;
     var facebook = document.getElementById("facebook").value;
     var google = document.getElementById("google").value;
@@ -9,6 +13,8 @@ function save_information() {
         url: site + "backoffice/perfil/update_data",
         dataType: "json",
         data: {bio: bio,
+            name: name,
+            last_name: last_name,
             facebook: facebook,
             google: google,
             twitter: twitter,
@@ -22,6 +28,8 @@ function save_information() {
                     showConfirmButton: false,
                     timer: 1500
                 });
+                document.getElementById("profile_buttton").disabled = false;
+                document.getElementById("profile_buttton").innerHTML = "GUARDAR INFORMACIÓN";
             } else {
                 Swal.fire({
                     position: 'top-end',
@@ -29,6 +37,8 @@ function save_information() {
                     title: 'Hubo un error',
                     footer: 'Vuelva a intentarlo',
                 });
+                document.getElementById("profile_buttton").disabled = false;
+                document.getElementById("profile_buttton").innerHTML = "GUARDAR INFORMACIÓN";
             }
         }
     });

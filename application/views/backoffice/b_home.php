@@ -185,7 +185,8 @@
             <div class="stm_lms_user_info_top">
                 <h1>Editar Perfil</h1>
             </div>
-            <div class="row">
+            <form method="post" action="javascript:void(0);" onsubmit="save_information();">
+                <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="heading_font">Nombre</label>
@@ -198,9 +199,6 @@
                         <input id="last_name" name="last_name" class="form-control" placeholder="Ingresa tus apellidos" value="<?php echo $obj_profile->last_name; ?>" required/>
                     </div>
                 </div>
-            </div>
-            <form method="post" action="javascript:void(0);" onsubmit="save_information();">
-                <div class="row">
                     <div class="col-md-12">
                         <div class="form-group"> 
                             <label class="heading_font">Biografía</label> 
@@ -208,15 +206,11 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-md-12">
+                    <p>Agregue sus enlaces de sus redes sociales, estos se mostrarán en su perfil público.</p>
+                </div>
                 <div class="stm_lms_edit_socials">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h3>Sociales</h3>
-                            <p>Agregue sus enlaces de sus redes sociales, estos se mostrarán en su perfil público.</p>
-                        </div>
-                    </div>
                     <div class="stm_lms_edit_socials_list">
-
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group"> <label class="heading_font">Facebook</label>
@@ -224,9 +218,9 @@
                                         <input id="facebook" name="facebook" class="form-control" placeholder="Ingresa tu enlace de Facebook" value="<?php echo $obj_profile->facebook; ?>"/> <i class="fab fa-facebook-f"></i>                      
                                     </div>
                                 </div>
-                                <div class="form-group"> <label class="heading_font">Google Plus</label>
+                                <div class="form-group"> <label class="heading_font">Linked In</label>
                                     <div class="form-group-social"> 
-                                        <input id="google" name="google" class="form-control" placeholder="Ingresa tu enlace de Google Plus" value="<?php echo $obj_profile->google; ?>" /> <i class="fab fa-google-plus-g"></i>                      
+                                        <input id="google" name="google" class="form-control" placeholder="Ingresa tu enlace de Linked In" value="<?php echo $obj_profile->google; ?>" /> <i class="fab fa-linkedin-in"></i>                      
                                     </div>
                                 </div>
                             </div>
@@ -246,7 +240,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12"> 
-                            <button type="submit" class="btn btn-default">Guardar Información</button> 
+                            <button type="submit" id="profile_buttton" class="btn btn-default">Guardar Información</button> 
                         </div>
                     </div>
                 </div>
