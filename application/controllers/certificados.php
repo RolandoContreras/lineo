@@ -8,6 +8,7 @@ class Certificados extends CI_Controller {
         parent::__construct();
         $this->load->model("category_model", "obj_category");
         $this->load->model("customer_courses_model", "obj_customer_courses");
+        $this->load->model("courses_model", "obj_courses");
     }
 
     /**
@@ -28,6 +29,8 @@ class Certificados extends CI_Controller {
     public function index() {
         //get category
         $data['obj_category'] = $this->nav_category();
+        //get courses
+        $data['obj_courses_nav'] = $this->nav_courses();
         //SEND DATA
         $data['title'] = "Certificados | U-Linex";
         //view
@@ -88,6 +91,17 @@ class Certificados extends CI_Controller {
         );
         //GET DATA COMMENTS
         return $obj_category = $this->obj_category->search($params_category);
+    }
+
+    public function nav_courses() {
+        $params_courses = array(
+            "select" => "course_id,
+                        slug,
+                        name",
+            "where" => "active = 1",
+        );
+        //GET DATA COMMENTS
+        return $obj_courses = $this->obj_courses->search($params_courses);
     }
 
 }

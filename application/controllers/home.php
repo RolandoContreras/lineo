@@ -163,33 +163,6 @@ class Home extends CI_Controller {
         }
     }
 
-    public function pdf() {
-
-        //Se agrega la clase desde thirdparty para usar FPDF
-     
-     /*require_once APPPATH.'third_party/fpdf/fpdf.php';*/
-    include ("vendor/autoload.php");
-    $mpdf = new \Mpdf\Mpdf();
-    $mpdf->setHeader("U-Linex - Certificado");
-    $url = site_url()."static/course/img/certificado.jpg";
-    $mpdf->setFooter("{PAGENO}");
-    $mpdf->setTitle("Certificado U-Linex");
-//    $mpdf->addpage("L");
-    $html = '
-        <div style="align-content: center;margin:auto;">
-            <center>
-            <img src="'.$url.'" style="widht:400px;margin-left:500px !important;"/>
-            </center>
-        </div>
-            <h1 style="position:absolute;margin-top:-640px;left:240px"> Rolando Contreras</h1>    
-        <style>
-        </style>
-        ';
-        
-    $mpdf->writeHTML($html);    
-    $mpdf->output();
-    }
-
     public function pagar() {
         //get category
         $data['obj_category'] = $this->nav_category();
