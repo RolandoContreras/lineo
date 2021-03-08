@@ -1,7 +1,9 @@
 <div class="col-md-9 col-sm-12">
     <div data-container-open=".stm_lms_private_information">
             <h2>Subir Proyecto</h2>
-            <p>Ingrese la información del nuevo blog.</p>
+            <p>Presentar tu trabajo en el FORO, te abre puertas para que muchas empresas y profesionales vean tu talento. <br/>
+            <b>¡Sube tu trabajo y obtén más oportunidades!</b>
+.</p>
     </div>
     <div class="row">
         <form name="new_foro" action="javascript:void(0);" method="post" onsubmit="crear_foro();">
@@ -47,7 +49,7 @@
                 </div>
                 <div class="space-15"></div>
                 <div class="form-group"> 
-                    <?php if (isset($obj_foro)) { ?>
+                    <?php if (isset($obj_foro->img)) { ?>
                         <div class="form-group">
                             <img src='<?php echo site_url() . "static/backoffice/images/foro/$obj_foro->foro_id/$obj_foro->img"; ?>' width="100" />
                             <input class="form-control" type="hidden" name="img2" id="img2" value="<?php echo isset($obj_foro) ? $obj_foro->img : ""; ?>">
@@ -55,13 +57,27 @@
                     <?php } ?>
                 </div>
                 <div class="space-15"></div>
-                <div class="form-group"> <label class="heading_font">Imagen - Tamaño recomendado (870 x 434) </label>
+                <div class="form-group"> <label class="heading_font">Toma un Pantallazo a tu trabajo y suben la imagen - Tamaño Grande </label>
                     <div class="form-group-social"> 
-                        <input type="file" name="file" class="form-control" placeholder="Ingrese Archivo" <?php echo isset($obj_foro) ? "" : "required"; ?>>
+                        <input type="file" name="file" class="form-control" placeholder="Ingrese Imagen del Trabajo" <?php echo isset($obj_foro) ? "" : "required"; ?>>
+                    </div>
+                </div>
+                <div class="form-group"> 
+                    <?php if (isset($obj_foro->document)) { ?>
+                        <div class="form-group">
+                            <i class="fa fa-file" aria-hidden="true"></i>&nbsp; <?php echo $obj_foro->document;?>
+                            <input class="form-control" type="hidden" name="document_2" id="document_2" value="<?php echo isset($obj_foro) ? $obj_foro->document : ""; ?>">
+                        </div>
+                    <?php } ?>
+                </div>
+                <div class="space-15"></div>
+                <div class="form-group"> <label class="heading_font">Agrega tu trabajo Terminado </label>
+                    <div class="form-group-social"> 
+                        <input type="file" name="file_2" class="form-control" placeholder="Ingrese Archivo" <?php echo isset($obj_foro) ? "" : "required"; ?>>
                     </div>
                 </div>
                 <div class="col-md-12"> 
-                    <button type="submit" id="save_foro" class="btn btn-default">Guardar Blog</button> 
+                    <button type="submit" id="save_foro" class="btn btn-default">Guardar</button> 
                     <button onclick="back();" class="btn btn-info">REGRESAR</button> 
                 </div>
                 <div class="space-100"></div>
@@ -112,9 +128,9 @@
                                         <input id="facebook" name="facebook" class="form-control" placeholder="Ingresa tu enlace de Facebook" value="<?php echo $obj_profile->facebook; ?>"/> <i class="fab fa-facebook-f"></i>                      
                                     </div>
                                 </div>
-                                <div class="form-group"> <label class="heading_font">Google Plus</label>
+                                <div class="form-group"> <label class="heading_font">Linked In</label>
                                     <div class="form-group-social"> 
-                                        <input id="google" name="google" class="form-control" placeholder="Ingresa tu enlace de Google Plus" value="<?php echo $obj_profile->google; ?>" /> <i class="fab fa-google-plus-g"></i>                      
+                                        <input id="google" name="google" class="form-control" placeholder="Ingresa tu enlace de Google Plus" value="<?php echo $obj_profile->google; ?>" /> <i class="fab fa-linkedin-in"></i>                      
                                     </div>
                                 </div>
                             </div>

@@ -1,6 +1,8 @@
 function crear_foro() {
     document.getElementById("save_foro").innerHTML = "Procesando..";
+    var description = CKEDITOR.instances.description.getData();
     oData = new FormData(document.forms.namedItem("new_foro"));
+    oData.append("description", description);
     $.ajax({
         url: site + "backoffice/b_foro/validate",
         method: "POST",
@@ -11,8 +13,6 @@ function crear_foro() {
         success: function (data) {
             var res = JSON.parse(data);
             if (res.status == true) {
-                //updatedescription
-                update_description(res.blog_id);
                 //send message
                 Swal.fire({
                     position: 'top-end',

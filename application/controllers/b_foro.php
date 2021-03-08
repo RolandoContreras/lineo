@@ -65,12 +65,14 @@ class B_foro extends CI_Controller {
         $title = trim($this->input->post('title'));
         $slug = convert_slug($title);
         $course_id = $this->input->post('course_id');
+        $description = $this->input->post('description');
         //create blog
         if ($foro_id != null) {
             $param_foro = array(
                 'title' => $title,
                 'slug' => $slug,
                 'customer_id' => $customer_id,
+                'description' => $description,
                 'course_id' => $course_id,
                 'date' => date("Y-m-d H:i:s"),
             );
@@ -82,6 +84,7 @@ class B_foro extends CI_Controller {
                 'slug' => $slug,
                 'customer_id' => $customer_id,
                 'course_id' => $course_id,
+                'description' => $description,
                 'date' => date("Y-m-d H:i:s"),
                 'active' => 1,
             );
@@ -92,7 +95,7 @@ class B_foro extends CI_Controller {
             //save image
             $img = $_FILES['file'];
             $templocation = $img["tmp_name"];
-            $name = $img["name"];
+            $name = convert_slug($img["name"]);
             if ($name != null) {
                 if (!is_dir("./static/backoffice/images/foro/$foro_id")) {
                     mkdir("./static/backoffice/images/foro/$foro_id", 0777);
@@ -103,6 +106,25 @@ class B_foro extends CI_Controller {
                 if (move_uploaded_file($templocation, "./static/backoffice/images/foro/$foro_id/$name")) {
                     $param = array(
                         'img' => $name,
+                    );
+                    //SAVE DATA IN TABLE    
+                    $this->obj_foro->update($foro_id, $param);
+                }
+            }
+            //save document
+            $img = $_FILES['file_2'];
+            $templocation = $img["tmp_name"];
+            $name = convert_slug($img["name"]);
+            if ($name != null) {
+                if (!is_dir("./static/backoffice/images/foro/$foro_id")) {
+                    mkdir("./static/backoffice/images/foro/$foro_id", 0777);
+                }
+                if (!$templocation) {
+                    die("No se ha seleccionado ningun archivos");
+                }
+                if (move_uploaded_file($templocation, "./static/backoffice/images/foro/$foro_id/$name")) {
+                    $param = array(
+                        'document' => $name,
                     );
                     //SAVE DATA IN TABLE    
                     $this->obj_foro->update($foro_id, $param);
@@ -151,6 +173,7 @@ class B_foro extends CI_Controller {
                                     foro.slug,
                                     foro.foro_id,
                                     foro.description,
+                                    foro.document,
                                     courses.course_id,
                                     foro.img",
             "join" => array('courses, foro.course_id = courses.course_id'),
