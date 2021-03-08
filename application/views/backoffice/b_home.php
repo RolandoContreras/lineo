@@ -198,7 +198,7 @@
                                             <div class="stm_lms_instructor_courses__single--image-wrapper">
                                                 <?php 
                                                     if($value->img != null){ ?>
-                                                        <img srcset="<?php echo site_url() . "static/backoffice/images/foro/$value->foro_id/$value->img_tumb" ?> 2x" src="<?php echo site_url() . "static/backoffice/images/foro/$value->foro_id/$value->img" ?>" alt="<?php echo $value->title; ?>" title="<?php echo $value->title; ?>" width="272" height="161">
+                                                        <img style="height:153px;" srcset="<?php echo site_url() . "static/backoffice/images/foro/$value->foro_id/$value->img_tumb" ?> 2x" src="<?php echo site_url() . "static/backoffice/images/foro/$value->foro_id/$value->img" ?>" alt="<?php echo $value->title; ?>" title="<?php echo $value->title; ?>" width="272" height="161">
                                                     <?php  }else{ ?>
                                                         <img srcset="<?php echo site_url() . "static/page_front/images/secundario_image.jpg";?> 2x" src="<?php echo site_url() . "static/page_front/images/secundario_image.jpg" ?>" alt="<?php echo $value->title; ?>" title="<?php echo $value->title; ?>" width="272" height="161">
                                                 <?php } ?>
