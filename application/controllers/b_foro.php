@@ -104,8 +104,29 @@ class B_foro extends CI_Controller {
                     die("No se ha seleccionado ningun archivos");
                 }
                 if (move_uploaded_file($templocation, "./static/backoffice/images/foro/$foro_id/$name")) {
+                    $CI = & get_instance();
+                    $CI->load->library('image_lib');
+                    //redimencionar imagenes
+                    $config['image_library'] = 'gd2';
+                    $config['source_image'] = "./static/backoffice/images/foro/$foro_id/$name";
+                    $config['new_image'] = "./static/backoffice/images/foro/$foro_id/";
+                    $config['maintain_ratio'] = TRUE;
+                    $config['create_thumb'] = TRUE;
+                    $config['width'] = 270;
+                    $config['height'] = 153;
+                    $CI->image_lib->initialize($config);
+                    if (!$CI->image_lib->resize()) {
+                        echo $this->image_lib->display_errors('', '');
+                    }
+                    //create img tumb name
+                    //If you just need name of the thumbnail.
+                    $source_image_name = $this->image_lib->source_image;
+                    $extension = strrchr($source_image_name , '.');
+                    $name_tumb = substr($source_image_name , 0, -strlen($extension));
+                    $img_name  = $name_tumb.'_thumb'.$extension;
                     $param = array(
                         'img' => $name,
+                        'img_tumb' => $img_name,
                     );
                     //SAVE DATA IN TABLE    
                     $this->obj_foro->update($foro_id, $param);

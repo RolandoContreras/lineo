@@ -24,6 +24,7 @@
         </div>
         <ul class="nav nav-tabs" role="tablist">
             <li role="presentation" class="active"> <a href="#my-courses" data-toggle="tab">Mis Cursos </a> </li>
+            <li role="presentation" class=""> <a href="#foro" data-toggle="tab">Mi Foro</a> </li>
             <li role="presentation" class=""> <a href="#my-memberships" data-toggle="tab">Mis Compras </a> </li>
         </ul>
         <div class="tab-content">
@@ -94,56 +95,10 @@
                         <?php } ?>
                     </div>
                 </div>
-
-                <div class="multiseparator vc_custom_1435906305578"></div>
-                <div class="stm-lms-user-courses">
-                    <h3>Foro - Últimos trabajos </h3>
-                    <div class="stm_lms_instructor_courses__grid">
-                        <?php
-                        if (count($obj_all_foro) != null) {
-                            foreach ($obj_all_foro as $value) {
-                                ?>
-                                <div class="stm_lms_instructor_courses__single">
-                                    <div class="stm_lms_instructor_courses__single__inner">
-                                        <div class="stm_lms_instructor_courses__single--image">
-                                            <div class="stm_lms_instructor_courses__single--actions heading_font">
-                                                <a href="<?php echo site_url() . "foro/$value->course_slug/$value->slug"; ?>">Ver Trabajo</a>
-                                            </div>
-                                            <div class="stm_lms_instructor_courses__single--image-wrapper">
-                                                <?php 
-                                                    if($value->img != null){ ?>
-                                                        <img srcset="<?php echo site_url() . "static/backoffice/images/foro/$value->foro_id/$value->img" ?> 2x" src="<?php echo site_url() . "static/backoffice/images/foro/$value->foro_id/$value->img" ?>" alt="<?php echo $value->title; ?>" title="<?php echo $value->title; ?>" width="272" height="161">
-                                                    <?php  }else{ ?>
-                                                        <img srcset="<?php echo site_url() . "static/page_front/images/secundario_image.jpg";?> 2x" src="<?php echo site_url() . "static/page_front/images/secundario_image.jpg" ?>" alt="<?php echo $value->title; ?>" title="<?php echo $value->title; ?>" width="272" height="161">
-                                                <?php } ?>
-                                            </div>
-                                        </div>
-                                        <div class="stm_lms_instructor_courses__single--inner">
-                                            <div class="stm_lms_instructor_courses__single--terms">
-                                                <div class="stm_lms_instructor_courses__single--term">
-                                                    <a href="<?php echo site_url() . "foro/$value->course_slug"; ?>" title="<?php echo $value->course_name; ?>"><?php echo $value->course_name;?></a>
-                                                </div>
-                                            </div>
-                                            <div class="stm_lms_instructor_courses__single--title">
-                                                <h5><a style="color:black" href="<?php echo site_url() . "foro/$value->course_slug/$value->slug"; ?>"><?php echo $value->title;?></a></h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <?php
-                            }
-                        } else {
-                            ?>
-                            <div class="stm_lms_instructor_courses__single">
-                                <div class="stm_lms_instructor_courses__single__inner no-border">
-                                    No tienes proyectos subido al foro, <b><a href="<?php echo site_url() . 'backoffice/nuevo_foro'; ?>"> &nbsp;¡Suba un proyecto ahora!</a></b>
-                                </div>
-                            </div>
-                        <?php } ?>
-                    </div>
-                </div>
-                <div class="multiseparator vc_custom_1435906305578"></div>
-                <div class="stm-lms-user-courses">
+            </div>
+            <!--Mis Foro-->
+            <div role="tabpanel" class="tab-pane vue_is_disabled " v-bind:class="{'is_vue_loaded' : vue_loaded}" id="foro">
+            <div class="stm-lms-user-courses">
                     <h3>Foro</h3>
                     <div class="stm_lms_instructor_courses__grid">
                         <?php
@@ -158,7 +113,7 @@
                                                 <a href="<?php echo site_url() . "foro/$value->course_slug/$value->slug"; ?>">Ver</a>
                                             </div>
                                             <div class="stm_lms_instructor_courses__single--image-wrapper">
-                                                <img srcset="<?php echo site_url() . "static/backoffice/images/foro/$value->foro_id/$value->img" ?> 2x" src="<?php echo site_url() . "static/backoffice/images/foro/$value->foro_id/$value->img" ?>" alt="<?php echo $value->title; ?>" title="<?php echo $value->title; ?>" width="272" height="161">
+                                                <img srcset="<?php echo site_url() . "static/backoffice/images/foro/$value->foro_id/$value->img_tumb" ?> 2x" src="<?php echo site_url() . "static/backoffice/images/foro/$value->foro_id/$value->img_tumb" ?>" alt="<?php echo $value->title; ?>" title="<?php echo $value->title; ?>" width="272" height="161">
                                             </div>
                                         </div>
                                         <div class="stm_lms_instructor_courses__single--inner">
@@ -226,6 +181,53 @@
                     </div>
                 </div>
             </div>
+            <div class="multiseparator vc_custom_1435906305578"></div>
+                <div class="stm-lms-user-courses">
+                    <h3>Foro - Últimos trabajos </h3>
+                    <div class="stm_lms_instructor_courses__grid">
+                        <?php
+                        if (count($obj_all_foro) != null) {
+                            foreach ($obj_all_foro as $value) {
+                                ?>
+                                <div class="stm_lms_instructor_courses__single">
+                                    <div class="stm_lms_instructor_courses__single__inner">
+                                        <div class="stm_lms_instructor_courses__single--image">
+                                            <div class="stm_lms_instructor_courses__single--actions heading_font">
+                                                <a href="<?php echo site_url() . "foro/$value->course_slug/$value->slug"; ?>">Ver Trabajo</a>
+                                            </div>
+                                            <div class="stm_lms_instructor_courses__single--image-wrapper">
+                                                <?php 
+                                                    if($value->img != null){ ?>
+                                                        <img srcset="<?php echo site_url() . "static/backoffice/images/foro/$value->foro_id/$value->img_tumb" ?> 2x" src="<?php echo site_url() . "static/backoffice/images/foro/$value->foro_id/$value->img" ?>" alt="<?php echo $value->title; ?>" title="<?php echo $value->title; ?>" width="272" height="161">
+                                                    <?php  }else{ ?>
+                                                        <img srcset="<?php echo site_url() . "static/page_front/images/secundario_image.jpg";?> 2x" src="<?php echo site_url() . "static/page_front/images/secundario_image.jpg" ?>" alt="<?php echo $value->title; ?>" title="<?php echo $value->title; ?>" width="272" height="161">
+                                                <?php } ?>
+                                            </div>
+                                        </div>
+                                        <div class="stm_lms_instructor_courses__single--inner">
+                                            <div class="stm_lms_instructor_courses__single--terms">
+                                                <div class="stm_lms_instructor_courses__single--term">
+                                                    <a href="<?php echo site_url() . "foro/$value->course_slug"; ?>" title="<?php echo $value->course_name; ?>"><?php echo $value->course_name;?></a>
+                                                </div>
+                                            </div>
+                                            <div class="stm_lms_instructor_courses__single--title">
+                                                <h5><a style="color:black" href="<?php echo site_url() . "foro/$value->course_slug/$value->slug"; ?>"><?php echo $value->title;?></a></h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <?php
+                            }
+                        } else {
+                            ?>
+                            <div class="stm_lms_instructor_courses__single">
+                                <div class="stm_lms_instructor_courses__single__inner no-border">
+                                    No tienes proyectos subido al foro, <b><a href="<?php echo site_url() . 'backoffice/nuevo_foro'; ?>"> &nbsp;¡Suba un proyecto ahora!</a></b>
+                                </div>
+                            </div>
+                        <?php } ?>
+                    </div>
+                </div>
         </div>
     </div>
     <div data-container-open=".stm_lms_edit_account">

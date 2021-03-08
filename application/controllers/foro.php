@@ -43,6 +43,7 @@ class Foro extends CI_Controller {
                         foro.slug,
                         foro.description,
                         foro.img,
+                        foro.img_tumb,
                         foro.date,
                         courses.slug as course_slug,
                         customer.name,

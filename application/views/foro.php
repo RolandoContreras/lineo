@@ -32,9 +32,9 @@
                                                 <div class="event_img">
                                                     <?php 
                                                     if($value->img != null){ ?>
-                                                        <img src="<?php echo site_url()."static/backoffice/images/foro/$value->foro_id/$value->img"?>" class="attachment-img-270-153 size-img-270-153 wp-post-image" alt="" width="270" height="153">
+                                                        <img src="<?php echo site_url()."static/backoffice/images/foro/$value->foro_id/$value->img_tumb"?>" class="attachment-img-270-153 size-img-270-153 wp-post-image" alt="<?php echo $value->title; ?>" width="270" height="153">
                                                     <?php }else{ ?>
-                                                        <img srcset="<?php echo site_url() . "static/page_front/images/secundario_image.jpg";?> 2x" src="<?php echo site_url() . "static/page_front/images/secundario_image.jpg" ?>" alt="<?php echo $value->title; ?>" title="<?php echo $value->title; ?>" width="272" height="161">
+                                                        <img srcset="<?php echo site_url() . "static/page_front/images/secundario_image.jpg";?> 2x" src="<?php echo site_url() . "static/page_front/images/secundario_image.jpg" ?>" alt="<?php echo $value->title; ?>" title="<?php echo $value->title; ?>">
                                                     <?php } ?>
                                                 </div>
                                                 <div class="h4 title"><?php echo corta_texto($value->title, 18);?></div>
