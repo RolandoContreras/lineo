@@ -54,6 +54,12 @@
                               </div>
                           </div>
                           <div class="form-group col-md-6">
+                              <div class="form-group">
+                                <label>Horas</label>
+                                <input class="form-control" type="number" id="hours" name="hours" value="<?php echo isset($obj_modules->hours)?$obj_modules->hours:"";?>" class="input-xlarge-fluid" placeholder="Ingrese Horas">
+                              </div>
+                          </div>
+                          <div class="form-group col-md-6">
                               
                               <div class="form-group">
                                   <label for="inputState">Curso</label>

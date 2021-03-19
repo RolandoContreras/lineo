@@ -184,6 +184,8 @@
             <div class="multiseparator vc_custom_1435906305578"></div>
                 <div class="stm-lms-user-courses">
                     <h3>Foro - Últimos trabajos </h3>
+                    <a href="<?php echo site_url()."foro";?>" class="btn btn-default"> <i class="fa fa-plus"></i>Ver todo los Trabajos </a>
+                    <br/><br/>
                     <div class="stm_lms_instructor_courses__grid">
                         <?php
                         if (count($obj_all_foro) != null) {

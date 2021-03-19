@@ -19,6 +19,7 @@ class D_modulos extends CI_Controller{
                         "select" =>"modules.name,
                                     modules.module_id,
                                     modules.date,
+                                    modules.hours,
                                     modules.order,
                                     courses.name as course_name",
                 "join" => array('courses, modules.course_id = courses.course_id'),
@@ -44,6 +45,7 @@ class D_modulos extends CI_Controller{
             $params = array(
                         "select" =>"modules.module_id,
                                     modules.name,
+                                    modules.hours,
                                     modules.order",
                          "where" => "module_id = $module_id",
             ); 
@@ -75,6 +77,7 @@ class D_modulos extends CI_Controller{
              $data = array(
                 'name' => $this->input->post('name'),
                 'course_id' => $course_id,
+                'hours' => $this->input->post('hours'),
                 'order' => $this->input->post("order"),
                 'date' => date("Y-m-d H:i:s"),  
                 ); 
@@ -84,6 +87,7 @@ class D_modulos extends CI_Controller{
             $data = array(
                 'name' => $this->input->post('name'),
                 'course_id' => $course_id,
+                'hours' => $this->input->post('hours'),
                 'order' => $this->input->post("order"),
                 'date' => date("Y-m-d H:i:s"),  
                 );          

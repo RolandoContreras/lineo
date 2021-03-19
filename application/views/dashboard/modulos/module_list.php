@@ -49,6 +49,8 @@
                                                                         aria-label="Position: activate to sort column ascending">CURSO</th>
                                                                     <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1"
                                                                         aria-label="Office: activate to sort column ascending">MÓDULO</th>
+                                                                        <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1"
+                                                                        aria-label="Office: activate to sort column ascending">HORAS</th>
                                                                     <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1"
                                                                         aria-label="Salary: activate to sort column ascending">ACCIONES</th>
                                                                 </tr>
@@ -61,7 +63,7 @@
                                                                         <td><?php echo formato_fecha_barras($value->date); ?></td>
                                                                         <td><b><?php echo $value->course_name; ?></b></td>
                                                                         <td><span class="badge badge-pill badge-info" style="font-size: 100%;"><?php echo $value->name; ?></span></td>
-
+                                                                        <td><h6><?php echo $value->hours."hrs"; ?></h6></td>
                                                                         <td>
                                                                             <div class="operation">
                                                                                 <div class="btn-group">
@@ -79,6 +81,7 @@
                                                                     <th rowspan="1" colspan="1">FECHA</th>
                                                                     <th rowspan="1" colspan="1">CURSO</th>
                                                                     <th rowspan="1" colspan="1">MÓDULO</th>
+                                                                    <th rowspan="1" colspan="1">HORAS</th>
                                                                     <th rowspan="1" colspan="1">ORDEN</th>
                                                                     <th rowspan="1" colspan="1">ACCIONES</th>
                                                                 </tr>
