@@ -23,7 +23,7 @@
                             </div>
                             <ul class="widget_contacts_style_2">
                                 <li class="widget_contacts_phone">
-                                    <div class="text color-white">Tel.: +51 998 878 636</div>
+                                    <div class="text color-white">Tel.: +51 923 313 490</div>
                                 </li>
                                 <li class="widget_contacts_email">
                                     <div class="text color-white">ulinex.corp@gmail.com</div>
