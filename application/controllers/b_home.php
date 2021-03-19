@@ -203,15 +203,24 @@ class B_home extends CI_Controller {
         //get modules
         if($course_id != null){
             $params = array(
-                "select" => "name",
+                "select" => "name,
+                             hours",
                 "where" => "course_id = $course_id",
                 "order" => "module_id ASC",
             );
             $obj_modules = $this->obj_modules->search($params);
+            //get total hours from modules
+            $params = array(
+                "select" => "SUM(hours) as total_hours",
+                "where" => "course_id = $course_id",
+            );
+            $obj_total = $this->obj_modules->get_search_row($params);
+            $total_hours = $obj_total->total_hours;
+
         }
         $valor = null;
         foreach($obj_modules as $value){ 
-            $valor .= $value->name."<br>";
+            $valor .= $value->name."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$value->hours hrs<br>";
         }
         //print PDF Certificate
         include ("vendor/autoload.php");
@@ -232,8 +241,8 @@ class B_home extends CI_Controller {
                     <h4 style="font-size: 14px;position:absolute;margin-top:-420px;left:380px;font-family:sans-serif;">CONTENIDO DEL CURSO</h4>
                     <p style="font-size: 13px;position:absolute;margin-top:-380px;left:340px;font-family:sans-serif;">MÓDULOS</p>
                     <div style="font-size: 12px;position:absolute;margin-top:-380px;left:360px;font-family:sans-serif;text-align: center;">
-                        <p style="font-size: 13px;position:absolute;font-family:sans-serif;text-align: center;padding-bottom:10px;">'.$valor.'</p>    
-                        <P style="font-size: 13px;font-family:sans-serif;left:340px;text-align: left !important;">TOTAL DE HORAS: &nbsp;&nbsp;<b>'.$time.' HORAS</b></p>
+                        <p style="font-size: 13px;position:absolute;font-family:sans-serif;text-align: right;padding-bottom:10px;margin-right:40px;margin-top:30px;">'.$valor.'</p>    
+                        <P style="font-size: 13px;font-family:sans-serif;left:340px;text-align: left !important;">TOTAL DE HORAS: &nbsp;&nbsp;<b>'.$total_hours.' HORAS</b></p>
                     </div>
                     <p style="font-size: 10px;position:absolute;margin-top:-50px;left:220px;font-family:sans-serif;">Inicio: <b> '.$date_start.'</b></p>    
                     <p style="font-size: 10px;position:absolute;margin-top:-35px;left:220px;font-family:sans-serif;">Termino: <b> '.$date_end.'</b></p>    
