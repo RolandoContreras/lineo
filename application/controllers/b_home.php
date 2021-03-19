@@ -239,7 +239,7 @@ class B_home extends CI_Controller {
                 </div>
                     <h2 style="position:absolute;margin-top:-640px;left:240px;font-family:sans-serif;">'.$name.'</h2>    
                     <h4 style="font-size: 14px;position:absolute;margin-top:-420px;left:380px;font-family:sans-serif;">CONTENIDO DEL CURSO</h4>
-                    <p style="font-size: 13px;position:absolute;margin-top:-380px;left:340px;font-family:sans-serif;">MÓDULOS</p>
+                    <p style="font-size: 13px;position:absolute;margin-top:-380px;left:360px;font-family:sans-serif;">MÓDULOS</p>
                     <div style="font-size: 12px;position:absolute;margin-top:-380px;left:360px;font-family:sans-serif;text-align: center;">
                         <p style="font-size: 13px;position:absolute;font-family:sans-serif;text-align: right;padding-bottom:10px;margin-right:40px;margin-top:30px;">'.$valor.'</p>    
                         <P style="font-size: 13px;font-family:sans-serif;left:340px;text-align: left !important;">TOTAL DE HORAS: &nbsp;&nbsp;<b>'.$total_hours.' HORAS</b></p>
