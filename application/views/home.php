@@ -87,7 +87,6 @@
                                                     <div class="vc_custom_heading">
                                                         <h2 class="text-master-mind">CURSOS POLULARES</h2>
                                                     </div>
-
                                                     <div class="vc_custom_heading fwl">
                                                         <h4 style="font-size: 18px;line-height: 28px;text-align: center">Estos son los cursos más consumidos por nuestros alumnos. Adquiere uno si aún no lo tienes.</h4>
                                                     </div>
@@ -108,7 +107,11 @@
                                                                     <a href="<?php echo site_url() . "cursos/$value->category_slug/$value->slug"; ?>" class="heading_font" data-preview="Vista Previa del Programa">
                                                                         <div>
                                                                             <div class="stm_lms_lazy_image stm_lms_lazy_image__lazyloaded">
-                                                                                <img data-src="<?php echo site_url() . "static/cms/img/cursos/$value->img"; ?>" class="lazyload" width="272" height="161" alt="<?php echo $value->name; ?>" title="<?php echo $value->name; ?>"/>
+                                                                                <?php
+                                                                                // Define aquí la URL de tu imagen por defecto alojada en la web
+                                                                                $default_image_url = site_url() . 'static/page_front/images/no_image.png';
+                                                                                ?>
+                                                                                <img data-src="<?php echo site_url() . "static/cms/img/cursos/$value->img"; ?>" class="lazyload" width="272" height="161" alt="<?php echo $value->name; ?>" title="<?php echo $value->name; ?>" onerror="this.onerror=null; this.src='<?php echo $default_image_url; ?>';"/>
                                                                             </div>
                                                                         </div>
                                                                     </a>
@@ -186,7 +189,11 @@
                                                                 <a href="<?php echo site_url() . "cursos/$value->category_slug/$value->slug"; ?>" class="heading_font" data-preview="Vista Previa del Curso">
                                                                     <div>
                                                                         <div class="stm_lms_lazy_image stm_lms_lazy_image__lazyloaded">
-                                                                            <img class="lazyload" data-src="<?php echo site_url() . "static/cms/img/cursos/$value->img"; ?>" width="272" height="161" alt="<?php echo $value->name; ?>" title="<?php echo $value->name; ?>"/>
+                                                                            <?php
+                                                                            // Define aquí la URL de tu imagen por defecto alojada en la web
+                                                                            $default_image_url = site_url() . 'static/page_front/images/no_image.png';
+                                                                            ?>
+                                                                            <img class="lazyload" data-src="<?php echo site_url() . "static/cms/img/cursos/$value->img"; ?>" width="272" height="161" alt="<?php echo $value->name; ?>" title="<?php echo $value->name; ?>" onerror="this.onerror=null;this.src='<?php echo $default_image_url; ?>';"/>
                                                                         </div>
                                                                     </div>
                                                                 </a>

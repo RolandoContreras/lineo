@@ -41,7 +41,11 @@
                                                         <a href="<?php echo site_url() . "cursos/$value->category_slug/$value->slug"; ?>" class="heading_font" data-preview="Vista Previa del Curso">
                                                             <div>
                                                                 <div class="stm_lms_lazy_image stm_lms_lazyloaded stm_lms_lazy_image__lazyloaded">
-                                                                    <img src="<?php echo site_url() . "static/cms/img/cursos/$value->img"; ?>" class="lazyload" width="272" height="161" alt="<?php echo $value->name; ?>" title="<?php echo $value->name; ?>"/>
+                                                                    <?php
+                                                                    // Define aquí la URL de tu imagen por defecto alojada en la web
+                                                                    $default_image_url = site_url() . 'static/page_front/images/no_image.png';
+                                                                    ?>
+                                                                    <img src="<?php echo site_url() . "static/cms/img/cursos/$value->img"; ?>" class="lazyload" width="272" height="161" alt="<?php echo $value->name; ?>" title="<?php echo $value->name; ?>" onerror="this.onerror=null;this.src='<?php echo $default_image_url; ?>';"/>
                                                                 </div>
                                                             </div>
                                                         </a>
