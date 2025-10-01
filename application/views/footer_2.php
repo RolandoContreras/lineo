@@ -98,10 +98,7 @@
                 <div class="row">
                     <div class="col-md-6 col-sm-8">
                         <div class="clearfix">
-                            <div class="pull-left"> 
-                                <img class="lazyload footer_logo" data-src="<?php echo site_url().'static/page_front/images/logo/evolucion_logo.png';?>" alt="Footer logo">
-                            </div>
-                            <div class="copyright_text">Copyright © 2020. desarrollado por <a target="_blank" href="https://evolucionweb.online/">Evolución Web</a></div>
+                            <div class="copyright_text">Copyright © <?php echo date("Y"); ?>. Todos los derechos reservados. Desarrollado por <a target="_blank" href="http://evox-lab.com/">Evox Lab</a></div>
                         </div>
                     </div>
                     <div class="col-md-6 col-sm-4">

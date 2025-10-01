@@ -1073,6 +1073,24 @@ h6 {
   /* Aquí van los estilos para iPhone vertical */
 	
 }
+/* Media Query para dispositivos pequeños */
+@media (max-width: 768px) {
+    
+    /* Selecciona la fila de VC */
+    .vc_row.vc_row-fluid[data-vc-full-width="true"] {
+        width: 110% !important;
+        max-width: 110% !important;
+        left: 0px !important;
+        
+        /* Asegúrate de que no haya desbordamiento */
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+        
+        /* Opcional: Si sigue fallando, usa overflow */
+        overflow-x: hidden !important; 
+    }
+}
+
 @media ( max-width: 480px ) {
   .capacitacion-title {
         font-size: 26px;
