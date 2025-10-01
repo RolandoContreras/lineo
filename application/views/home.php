@@ -111,7 +111,7 @@
                                                                                 // Define aquí la URL de tu imagen por defecto alojada en la web
                                                                                 $default_image_url = site_url() . 'static/page_front/images/no_image.png';
                                                                                 ?>
-                                                                                <img data-src="<?php echo site_url() . "static/cms/img/cursos/$value->img"; ?>" class="lazyload" width="272" height="161" alt="<?php echo $value->name; ?>" title="<?php echo $value->name; ?>" onerror="this.onerror=null; this.src='<?php echo $default_image_url; ?>';"/>
+                                                                                <img loading="lazy" src="<?php echo site_url() . "static/cms/img/cursos/$value->img"; ?>" width="272" height="161" alt="<?php echo $value->name; ?>" title="<?php echo $value->name; ?>" onerror="this.onerror=null; this.src='<?php echo $default_image_url; ?>';"/>
                                                                             </div>
                                                                         </div>
                                                                     </a>
@@ -139,7 +139,7 @@
                                                                 <div class="stm_lms_courses__single--info">
                                                                     <div class="stm_lms_courses__single--info_author">
                                                                         <div class="stm_lms_courses__single--info_author__avatar"> 
-                                                                                <img alt="profesor" data-src="<?php echo site_url() . 'static/page_front/images/profesor.png'; ?>" class="avatar avatar-215 photo lazyload" width="215" height="215">
+                                                                                <img loading="lazy" alt="profesor" src="<?php echo site_url() . 'static/page_front/images/profesor.png'; ?>" class="avatar avatar-215 photo lazyload" width="215" height="215">
                                                                         </div>
                                                                         <div class="stm_lms_courses__single--info_author__login">Instructor: U-Linex</div>
                                                                     </div>
@@ -193,7 +193,7 @@
                                                                             // Define aquí la URL de tu imagen por defecto alojada en la web
                                                                             $default_image_url = site_url() . 'static/page_front/images/no_image.png';
                                                                             ?>
-                                                                            <img class="lazyload" data-src="<?php echo site_url() . "static/cms/img/cursos/$value->img"; ?>" width="272" height="161" alt="<?php echo $value->name; ?>" title="<?php echo $value->name; ?>" onerror="this.onerror=null;this.src='<?php echo $default_image_url; ?>';"/>
+                                                                            <img loading="lazy" src="<?php echo site_url() . "static/cms/img/cursos/$value->img"; ?>" width="272" height="161" alt="<?php echo $value->name; ?>" title="<?php echo $value->name; ?>" onerror="this.onerror=null;this.src='<?php echo $default_image_url; ?>';"/>
                                                                         </div>
                                                                     </div>
                                                                 </a>

@@ -31,10 +31,14 @@
                                             <a href="<?php echo site_url()."foro/$value->course_slug/$value->slug"?>" title="Ver Trabajo">
                                                 <div class="event_img">
                                                     <?php 
+                                                    
+                                                        // Define aquí la URL de tu imagen por defecto alojada en la web
+                                                        $default_image_url = site_url() . 'static/page_front/images/secundario_image.jpg';
+                                                        
                                                     if($value->img != null){ ?>
-                                                        <img style="height:153px;" src="<?php echo site_url()."static/backoffice/images/foro/$value->foro_id/$value->img_tumb"?>" class="attachment-img-270-153 size-img-270-153 wp-post-image" alt="<?php echo $value->title; ?>" width="270" height="153">
+                                                        <img loading="lazy" style="height:153px;" src="<?php echo site_url()."static/backoffice/images/foro/$value->foro_id/$value->img_tumb"?>" class="attachment-img-270-153 size-img-270-153 wp-post-image" alt="<?php echo $value->title; ?>" width="270" height="153" onerror="this.onerror=null;this.src='<?php echo $default_image_url; ?>';">
                                                     <?php }else{ ?>
-                                                        <img srcset="<?php echo site_url() . "static/page_front/images/secundario_image.jpg";?> 2x" src="<?php echo site_url() . "static/page_front/images/secundario_image.jpg" ?>" alt="<?php echo $value->title; ?>" title="<?php echo $value->title; ?>" width="270" height="153">
+                                                        <img loading="lazy" srcset="<?php echo site_url() . "static/page_front/images/secundario_image.jpg";?> 2x" src="<?php echo site_url() . "static/page_front/images/secundario_image.jpg" ?>" alt="<?php echo $value->title; ?>" title="<?php echo $value->title; ?>" width="270" height="153">
                                                     <?php } ?>
                                                 </div>
                                                 <div class="h4 title"><?php echo corta_texto($value->title, 18);?></div>
